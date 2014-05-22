@@ -1,0 +1,98 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+using YouSoftBathGeneralClass;
+using YouSoftBathFormClass;
+
+namespace YouSoftBathSelf
+{
+    public partial class MemberPromotionOptionForm : Form
+    {
+        //成员变量
+        BathDBDataContext db;
+        private Seat m_Seat;
+        public CardInfo m_Member = null;
+
+        //构造函数
+        public MemberPromotionOptionForm(Seat seat)
+        {
+            db = new BathDBDataContext(LogIn.connectionString);
+            m_Seat = db.Seat.FirstOrDefault(x => x.text == seat.text);
+            InitializeComponent();
+        }
+
+        //对话框载入
+        private void TransferSelectForm_Load(object sender, EventArgs e)
+        {
+            btnUndoDiscount.Text = "取消打折\n(Space)";
+            btnDiscount.Text = "会员打折\n(Enter)";
+            btnCancel.Text = "退出\n(Esc)";
+        }
+
+        private void TransferSelectForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnDiscount_Click(null, null);
+            else if (e.KeyCode == Keys.Space)
+                btnUndoDiscount_Click(null, null);
+            else if (e.KeyCode == Keys.Escape)
+                this.Close();
+        }
+
+        //会员打折
+        private void btnDiscount_Click(object sender, EventArgs e)
+        {
+            ////修改
+            //BathClass.sendMessageToCamera(db, m_Seat.systemId);
+            MemberPromotionForm memberPromotionForm = new MemberPromotionForm(m_Seat);
+            memberPromotionForm.ShowDialog();
+            m_Member = memberPromotionForm.m_member;
+            this.Close();
+        }
+
+        //取消打折
+        private void btnUndoDiscount_Click(object sender, EventArgs e)
+        {
+            List<string> ids = new List<string>();
+            var orders = db.Orders.Where(x => x.systemId == m_Seat.systemId && x.deleteEmployee == null);
+            foreach (var order in orders)
+            {
+                reset_order_money(order);
+            }
+            db.SubmitChanges();
+        }
+
+        private void reset_order_money(Orders order)
+        {
+            var menu = db.Menu.FirstOrDefault(x => x.name == order.menu);
+            if (menu != null)
+            {
+                if (order.priceType == "每小时")
+                    order.money = Convert.ToDouble(menu.addMoney);
+                else if (order.comboId == null)
+                    order.money = menu.price;
+                else if (order.comboId != null)
+                {
+                    var combo = db.Combo.FirstOrDefault(x => x.id == order.comboId);
+                    if (combo == null)
+                        return;
+                    var freeIds = BathClass.disAssemble(combo.freeMenuIds);
+                    var freeMenus = db.Menu.Where(x => freeIds.Contains(x.id)).Select(x => x.name);
+                    if (!freeMenus.Contains(order.menu))
+                        order.money = menu.price;
+                }
+            }
+            else
+            {
+                var combo = db.Combo.FirstOrDefault(x => x.id == order.comboId);
+                order.money = BathClass.get_combo_price(db, combo);
+            }
+        }
+    }
+}

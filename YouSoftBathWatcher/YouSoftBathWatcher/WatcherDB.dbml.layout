@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="WatcherDB">
+  <DataContextMoniker Name="/WatcherDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="687e777b-4756-41f1-9993-a1637dede67a" isExpanded="false" absoluteBounds="1.25, 1.25, 2, 0.45">
+      <DataClassMoniker Name="/WatcherDBDataContext/Seat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="800e92e7-188f-4775-bbbd-66a603189383" absoluteBounds="1.2650000000000001, 1.71, 1.9700000000000002, 5.0229593912760411" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6f72d087-fe40-47f6-922b-36be0ee70b0a" isExpanded="false" absoluteBounds="3.625, 1.25, 2, 0.45">
+      <DataClassMoniker Name="/WatcherDBDataContext/Employee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="56d7d5e9-ffba-4226-966f-4426703012b0" absoluteBounds="3.64, 1.71, 1.9700000000000002, 4.4499003092447911" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="27f1a211-a733-4507-9ce8-b317df17238e" isExpanded="false" absoluteBounds="6, 1.25, 2, 0.45">
+      <DataClassMoniker Name="/WatcherDBDataContext/ClearTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c40e193d-4ae9-4cce-84ad-3ff98f38d735" absoluteBounds="6.015, 1.71, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f4fe352d-3cc0-459a-8954-ca1655697b14" isExpanded="false" absoluteBounds="1.25, 2.125, 2, 0.45">
+      <DataClassMoniker Name="/WatcherDBDataContext/Options" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0a4ab4d2-85ad-46b7-91ae-bc7f85e3eac2" absoluteBounds="1.2650000000000001, 2.585, 1.9700000000000002, 7.6972351074218759" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3433aab5-be7d-44cc-b882-644524cedf2e" isExpanded="false" absoluteBounds="3.625, 2.125, 2, 0.45">
+      <DataClassMoniker Name="/WatcherDBDataContext/Account" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9fe7297c-57e9-4e27-9f5b-623d036cbc5f" absoluteBounds="3.64, 2.585, 1.9700000000000002, 5.5960184733072911" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="89e53eb0-00fa-479d-88d9-b108dfff750b" isExpanded="false" absoluteBounds="5.875, 2.125, 2, 0.45">
+      <DataClassMoniker Name="/WatcherDBDataContext/Menu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ef377d39-4eb2-403c-bce7-c1d1c3687044" absoluteBounds="5.89, 2.585, 1.9700000000000002, 3.876841227213542" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b9a862cd-3f73-4245-9c5f-1dfb14c054d6" isExpanded="false" absoluteBounds="1.25, 2.75, 2, 0.45">
+      <DataClassMoniker Name="/WatcherDBDataContext/Catgory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="137c1c34-7b86-4b39-8417-1397fab605ea" absoluteBounds="1.2650000000000001, 3.21, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="643889c5-8678-4ade-86a1-ee886aa6e4b9" isExpanded="false" absoluteBounds="3.625, 2.75, 2, 0.45">
+      <DataClassMoniker Name="/WatcherDBDataContext/Orders" />
+      <nestedChildShapes>
+        <elementListCompartment Id="639df476-d1be-47e9-998f-ac6cd6eeef8a" absoluteBounds="3.64, 3.21, 1.9700000000000002, 4.067860921223958" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ab5ca2fc-86c9-4db4-af24-62c400dbd7d6" isExpanded="false" absoluteBounds="5.875, 2.875, 2, 0.45">
+      <DataClassMoniker Name="/WatcherDBDataContext/Authority" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bc58ab4b-ce7b-4a94-b558-4706a1393d2d" absoluteBounds="5.89, 3.335, 1.9700000000000002, 13.427825927734375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

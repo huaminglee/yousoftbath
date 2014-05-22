@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouSoftBathGeneralClass", "YouSoftBathGeneralClass\YouSoftBathGeneralClass.csproj", "{A766597F-6B5E-4F1D-BB5C-8A7B2240874A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A766597F-6B5E-4F1D-BB5C-8A7B2240874A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A766597F-6B5E-4F1D-BB5C-8A7B2240874A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A766597F-6B5E-4F1D-BB5C-8A7B2240874A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A766597F-6B5E-4F1D-BB5C-8A7B2240874A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

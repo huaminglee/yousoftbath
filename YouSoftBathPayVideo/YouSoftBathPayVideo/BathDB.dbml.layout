@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="BathDB">
+  <DataContextMoniker Name="/BathDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="57b81702-681e-44d7-985c-c7202b40c513" absoluteBounds="0.875, 0.75, 2, 1.3805261230468751">
+      <DataClassMoniker Name="/BathDBDataContext/PayMsg" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bbaf0715-e338-498b-8a6a-e5d4a2889fba" absoluteBounds="0.89, 1.21, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8df659f3-cbb2-4123-882d-d614662b6e4c" absoluteBounds="3.625, 0.875, 2, 4.2458215332031246">
+      <DataClassMoniker Name="/BathDBDataContext/Options" />
+      <nestedChildShapes>
+        <elementListCompartment Id="23ab795b-0b9f-4a6e-9f59-dc77cea8be92" absoluteBounds="3.64, 1.335, 1.9700000000000002, 3.685821533203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

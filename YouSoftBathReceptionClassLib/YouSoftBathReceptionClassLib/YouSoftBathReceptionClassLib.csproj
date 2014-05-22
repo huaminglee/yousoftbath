@@ -1,0 +1,481 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E9323CE1-DE54-4F7A-8E14-9BD102264486}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YouSoftBathReceptionClassLib</RootNamespace>
+    <AssemblyName>YouSoftBathReceptionClassLib</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\开牌登记\收银交班报表\发送号码薄\PhoneBookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\开牌登记\收银交班报表\发送号码薄\PhoneBookForm.Designer.cs">
+      <DependentUpon>PhoneBookForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\结账\会员管理\充值\MemberPopForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\结账\会员管理\充值\MemberPopForm.designer.cs">
+      <DependentUpon>MemberPopForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\结账\会员管理\售卡\OpenCardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\结账\会员管理\售卡\OpenCardForm.designer.cs">
+      <DependentUpon>OpenCardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\结账\会员管理\挂失\MemberStopForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\结账\会员管理\挂失\MemberStopForm.designer.cs">
+      <DependentUpon>MemberStopForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\结账\会员管理\激活\MemberActivateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\结账\会员管理\激活\MemberActivateForm.designer.cs">
+      <DependentUpon>MemberActivateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\结账\会员管理\补卡\MemberResumForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\结账\会员管理\补卡\MemberResumForm.designer.cs">
+      <DependentUpon>MemberResumForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\结账\会员管理\读卡 换积分\MemberShowForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\结账\会员管理\读卡 换积分\MemberShowForm.designer.cs">
+      <DependentUpon>MemberShowForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\结账\会员管理\面板\MemberForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\结账\会员管理\面板\MemberForm.designer.cs">
+      <DependentUpon>MemberForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\开牌登记\押金离场\DepositForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\开牌登记\押金离场\DepositForm.Designer.cs">
+      <DependentUpon>DepositForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\开牌登记\收银交班报表\TableCashierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\开牌登记\收银交班报表\TableCashierForm.designer.cs">
+      <DependentUpon>TableCashierForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\开牌登记\收银交班报表\夜审提示\ClearOptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\开牌登记\收银交班报表\夜审提示\ClearOptionsForm.Designer.cs">
+      <DependentUpon>ClearOptionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\开牌登记\查看联牌\ChainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\开牌登记\查看联牌\ChainForm.Designer.cs">
+      <DependentUpon>ChainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\开牌登记\重新结账\RepayActListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\开牌登记\重新结账\RepayActListForm.designer.cs">
+      <DependentUpon>RepayActListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\结账\微信优惠券验证\WXCouponVerifyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\结账\微信优惠券验证\WXCouponVerifyForm.designer.cs">
+      <DependentUpon>WXCouponVerifyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\结账\打折\MemberPromotionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\结账\打折\MemberPromotionForm.designer.cs">
+      <DependentUpon>MemberPromotionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\结账\刷会员卡\CardUsingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\结账\刷会员卡\CardUsingForm.designer.cs">
+      <DependentUpon>CardUsingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\结账\打折-取消打折\MemberPromotionOptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\结账\打折-取消打折\MemberPromotionOptionForm.Designer.cs">
+      <DependentUpon>MemberPromotionOptionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\结账\消费界面\SeatExpenseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\结账\消费界面\SeatExpenseForm.designer.cs">
+      <DependentUpon>SeatExpenseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\结账\签字免单\SignForFreeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\结账\签字免单\SignForFreeForm.designer.cs">
+      <DependentUpon>SignForFreeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\结账\结账界面\PayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\结账\结账界面\PayForm.designer.cs">
+      <DependentUpon>PayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\结账\转账类型选择\TransferSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\结账\转账类型选择\TransferSelectForm.Designer.cs">
+      <DependentUpon>TransferSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\结账\选择挂账客户\CustomerChooseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\结账\选择挂账客户\CustomerChooseForm.designer.cs">
+      <DependentUpon>CustomerChooseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\预打账单\PreprintBillForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\预打账单\PreprintBillForm.Designer.cs">
+      <DependentUpon>PreprintBillForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\预打账单\技师对账单明细\TechDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\预打账单\技师对账单明细\TechDetailsForm.designer.cs">
+      <DependentUpon>TechDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\预打账单\技师对账单汇总\TechAllForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\预打账单\技师对账单汇总\TechAllForm.designer.cs">
+      <DependentUpon>TechAllForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="开房\OpenRoomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="开房\OpenRoomForm.Designer.cs">
+      <DependentUpon>OpenRoomForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="吧台\催钟\InformRoomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="吧台\催钟\InformRoomForm.designer.cs">
+      <DependentUpon>InformRoomForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="开房\ContinueRoomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="开房\ContinueRoomForm.Designer.cs">
+      <DependentUpon>ContinueRoomForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="开房\ChangeRoomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="开房\ChangeRoomForm.Designer.cs">
+      <DependentUpon>ChangeRoomForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="开房\房间预定超时提醒\ReserveOverDueForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="开房\房间预定超时提醒\ReserveOverDueForm.Designer.cs">
+      <DependentUpon>ReserveOverDueForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="开房\客房押金\TableDepositForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="开房\客房押金\TableDepositForm.designer.cs">
+      <DependentUpon>TableDepositForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="开牌\OpenSeatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="开牌\OpenSeatForm.Designer.cs">
+      <DependentUpon>OpenSeatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\GeneralClass.cs" />
+    <Compile Include="通用\会员卡\CardPortBaudForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\会员卡\CardPortBaudForm.Designer.cs">
+      <DependentUpon>CardPortBaudForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\会员卡\IC.cs" />
+    <Compile Include="通用\会员卡\IC4442.cs" />
+    <Compile Include="通用\会员卡\ICCard.cs" />
+    <Compile Include="通用\会员卡\ICRF.cs" />
+    <Compile Include="通用\会员卡\会员指纹验证\MemberFingerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\会员卡\会员指纹验证\MemberFingerForm.designer.cs">
+      <DependentUpon>MemberFingerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\短信猫\SmsClass.cs" />
+    <Compile Include="通用\短信猫\短信猫设置\SmsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\短信猫\短信猫设置\SmsForm.Designer.cs">
+      <DependentUpon>SmsForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\开牌登记\收银交班报表\发送号码薄\PhoneBookForm.resx">
+      <DependentUpon>PhoneBookForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\结账\会员管理\充值\MemberPopForm.resx">
+      <DependentUpon>MemberPopForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\结账\会员管理\售卡\OpenCardForm.resx">
+      <DependentUpon>OpenCardForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\结账\会员管理\挂失\MemberStopForm.resx">
+      <DependentUpon>MemberStopForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\结账\会员管理\激活\MemberActivateForm.resx">
+      <DependentUpon>MemberActivateForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\结账\会员管理\补卡\MemberResumForm.resx">
+      <DependentUpon>MemberResumForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\结账\会员管理\读卡 换积分\MemberShowForm.resx">
+      <DependentUpon>MemberShowForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\结账\会员管理\面板\MemberForm.resx">
+      <DependentUpon>MemberForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\开牌登记\押金离场\DepositForm.resx">
+      <DependentUpon>DepositForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\开牌登记\收银交班报表\TableCashierForm.resx">
+      <DependentUpon>TableCashierForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\开牌登记\收银交班报表\夜审提示\ClearOptionsForm.resx">
+      <DependentUpon>ClearOptionsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\开牌登记\查看联牌\ChainForm.resx">
+      <DependentUpon>ChainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\开牌登记\重新结账\RepayActListForm.resx">
+      <DependentUpon>RepayActListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\结账\微信优惠券验证\WXCouponVerifyForm.resx">
+      <DependentUpon>WXCouponVerifyForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\结账\打折\MemberPromotionForm.resx">
+      <DependentUpon>MemberPromotionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\结账\刷会员卡\CardUsingForm.resx">
+      <DependentUpon>CardUsingForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\结账\打折-取消打折\MemberPromotionOptionForm.resx">
+      <DependentUpon>MemberPromotionOptionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\结账\消费界面\SeatExpenseForm.resx">
+      <DependentUpon>SeatExpenseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\结账\签字免单\SignForFreeForm.resx">
+      <DependentUpon>SignForFreeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\结账\结账界面\PayForm.resx">
+      <DependentUpon>PayForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\结账\转账类型选择\TransferSelectForm.resx">
+      <DependentUpon>TransferSelectForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\结账\选择挂账客户\CustomerChooseForm.resx">
+      <DependentUpon>CustomerChooseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\预打账单\PreprintBillForm.resx">
+      <DependentUpon>PreprintBillForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\预打账单\技师对账单明细\TechDetailsForm.resx">
+      <DependentUpon>TechDetailsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\预打账单\技师对账单汇总\TechAllForm.resx">
+      <DependentUpon>TechAllForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="开房\OpenRoomForm.resx">
+      <DependentUpon>OpenRoomForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="吧台\催钟\InformRoomForm.resx">
+      <DependentUpon>InformRoomForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="开房\ContinueRoomForm.resx">
+      <DependentUpon>ContinueRoomForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="开房\ChangeRoomForm.resx">
+      <DependentUpon>ChangeRoomForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="开房\房间预定超时提醒\ReserveOverDueForm.resx">
+      <DependentUpon>ReserveOverDueForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="开房\客房押金\TableDepositForm.resx">
+      <DependentUpon>TableDepositForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="开牌\OpenSeatForm.resx">
+      <DependentUpon>OpenSeatForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\会员卡\CardPortBaudForm.resx">
+      <DependentUpon>CardPortBaudForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\会员卡\会员指纹验证\MemberFingerForm.resx">
+      <DependentUpon>MemberFingerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\短信猫\短信猫设置\SmsForm.resx">
+      <DependentUpon>SmsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ButtonEx\ButtonEx.csproj">
+      <Project>{E3F54A82-77C3-4CDB-AF2E-C35A3BEE72DC}</Project>
+      <Name>ButtonEx</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\YouSoftBathConstants\YouSoftBathConstants\YouSoftBathConstants.csproj">
+      <Project>{1067C596-E185-4A2E-8EFC-54D09FC79AFD}</Project>
+      <Name>YouSoftBathConstants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\YouSoftBathFormClass\YouSoftBathFormClass\YouSoftBathFormClass.csproj">
+      <Project>{D72B4EE0-E681-4111-B2A5-87B3C243D0B3}</Project>
+      <Name>YouSoftBathFormClass</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\YouSoftBathGeneralClass\YouSoftBathGeneralClass\YouSoftBathGeneralClass.csproj">
+      <Project>{A766597F-6B5E-4F1D-BB5C-8A7B2240874A}</Project>
+      <Name>YouSoftBathGeneralClass</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\YouSoftUtil\YouSoftUtil\YouSoftUtil.csproj">
+      <Project>{21FD7E1A-F99D-4AC4-9EAF-589E4CB1355F}</Project>
+      <Name>YouSoftUtil</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxZKFPEngXControl">
+      <Guid>{D95CB779-00CB-4B49-97B9-9F0B61CAB3C1}</Guid>
+      <VersionMajor>3</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="ZKFPEngXControl">
+      <Guid>{D95CB779-00CB-4B49-97B9-9F0B61CAB3C1}</Guid>
+      <VersionMajor>3</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D72B4EE0-E681-4111-B2A5-87B3C243D0B3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YouSoftBathFormClass</RootNamespace>
+    <AssemblyName>YouSoftBathFormClass</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="YouSoftBathGeneralClass, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\YouSoftBathGeneralClass\YouSoftBathGeneralClass\bin\Release\YouSoftBathGeneralClass.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GetStringSpell.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="创建控件\CFormCreate.cs" />
+    <Compile Include="通用\点单\退单原因输入\DeleteExplainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\点单\退单原因输入\DeleteExplainForm.designer.cs">
+      <DependentUpon>DeleteExplainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\登陆进度\LogInProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\登陆进度\LogInProgressForm.designer.cs">
+      <DependentUpon>LogInProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\包厢\CabPopForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\包厢\CabPopForm.designer.cs">
+      <DependentUpon>CabPopForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\包厢\CabViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\包厢\CabViewForm.designer.cs">
+      <DependentUpon>CabViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\厨房打印\PrintDGV.cs" />
+    <Compile Include="通用\工作进度\ProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\工作进度\ProgressForm.designer.cs">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\消费查看\OrderCheckForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\消费查看\OrderCheckForm.designer.cs">
+      <DependentUpon>OrderCheckForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\修改密码\ModifyPwdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\修改密码\ModifyPwdForm.designer.cs">
+      <DependentUpon>ModifyPwdForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\刷卡授权\InputEmployeeByCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\刷卡授权\InputEmployeeByCard.designer.cs">
+      <DependentUpon>InputEmployeeByCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\客房管理\RoomViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\客房管理\RoomViewForm.designer.cs">
+      <DependentUpon>RoomViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\录单汇总\TableOrderTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\录单汇总\TableOrderTableForm.designer.cs">
+      <DependentUpon>TableOrderTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\录单汇总\出货单\StockOutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\录单汇总\出货单\StockOutForm.designer.cs">
+      <DependentUpon>StockOutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\录单汇总\进货单\StockInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\录单汇总\进货单\StockInForm.designer.cs">
+      <DependentUpon>StockInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\打印\PrintDGV.cs" />
+    <Compile Include="通用\打印\PrintOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\打印\PrintOptions.designer.cs">
+      <DependentUpon>PrintOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\打印机设置\PrinterChooseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\打印机设置\PrinterChooseForm.Designer.cs">
+      <DependentUpon>PrinterChooseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\技师管理\TechnicianSeclectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\技师管理\TechnicianSeclectForm.designer.cs">
+      <DependentUpon>TechnicianSeclectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\注册软件\RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\注册软件\RegisterForm.designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\添加备注\NoteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\添加备注\NoteForm.designer.cs">
+      <DependentUpon>NoteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\点单\OrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\点单\OrderForm.designer.cs">
+      <DependentUpon>OrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\点单\点单设置\OrderSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\点单\点单设置\OrderSettingForm.designer.cs">
+      <DependentUpon>OrderSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\点单\点钟轮钟\DianLunForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\点单\点钟轮钟\DianLunForm.Designer.cs">
+      <DependentUpon>DianLunForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\登陆\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\登陆\Login.designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\输入员工号\InputEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\输入员工号\InputEmployee.designer.cs">
+      <DependentUpon>InputEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\输入字符串\InputNumberStr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\输入字符串\InputNumberStr.designer.cs">
+      <DependentUpon>InputNumberStr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\输入数字\InputNumber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\输入数字\InputNumber.designer.cs">
+      <DependentUpon>InputNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\输入密码授权\InputEmployeeByPwd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\输入密码授权\InputEmployeeByPwd.designer.cs">
+      <DependentUpon>InputEmployeeByPwd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\输入手牌号\InputSeatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\输入手牌号\InputSeatForm.designer.cs">
+      <DependentUpon>InputSeatForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\点单\退单原因输入\DeleteExplainForm.resx">
+      <DependentUpon>DeleteExplainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\登陆进度\LogInProgressForm.resx">
+      <DependentUpon>LogInProgressForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\包厢\CabPopForm.resx">
+      <DependentUpon>CabPopForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\包厢\CabViewForm.resx">
+      <DependentUpon>CabViewForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\工作进度\ProgressForm.resx">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\消费查看\OrderCheckForm.resx">
+      <DependentUpon>OrderCheckForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\修改密码\ModifyPwdForm.resx">
+      <DependentUpon>ModifyPwdForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\刷卡授权\InputEmployeeByCard.resx">
+      <DependentUpon>InputEmployeeByCard.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\客房管理\RoomViewForm.resx">
+      <DependentUpon>RoomViewForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\录单汇总\TableOrderTableForm.resx">
+      <DependentUpon>TableOrderTableForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\录单汇总\出货单\StockOutForm.resx">
+      <DependentUpon>StockOutForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\录单汇总\进货单\StockInForm.resx">
+      <DependentUpon>StockInForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\打印\PrintOptions.resx">
+      <DependentUpon>PrintOptions.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\打印机设置\PrinterChooseForm.resx">
+      <DependentUpon>PrinterChooseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\技师管理\TechnicianSeclectForm.resx">
+      <DependentUpon>TechnicianSeclectForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\注册软件\RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\添加备注\NoteForm.resx">
+      <DependentUpon>NoteForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\点单\OrderForm.resx">
+      <DependentUpon>OrderForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\点单\点单设置\OrderSettingForm.resx">
+      <DependentUpon>OrderSettingForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\点单\点钟轮钟\DianLunForm.resx">
+      <DependentUpon>DianLunForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\登陆\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\输入员工号\InputEmployee.resx">
+      <DependentUpon>InputEmployee.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\输入字符串\InputNumberStr.resx">
+      <DependentUpon>InputNumberStr.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\输入数字\InputNumber.resx">
+      <DependentUpon>InputNumber.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\输入密码授权\InputEmployeeByPwd.resx">
+      <DependentUpon>InputEmployeeByPwd.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\输入手牌号\InputSeatForm.resx">
+      <DependentUpon>InputSeatForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\YouSoftBathConstants\YouSoftBathConstants\YouSoftBathConstants.csproj">
+      <Project>{1067C596-E185-4A2E-8EFC-54D09FC79AFD}</Project>
+      <Name>YouSoftBathConstants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\YouSoftUtil\YouSoftUtil\YouSoftUtil.csproj">
+      <Project>{21FD7E1A-F99D-4AC4-9EAF-589E4CB1355F}</Project>
+      <Name>YouSoftUtil</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

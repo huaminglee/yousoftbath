@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8E9F1D0F-EEAF-4D6F-9F9F-BB86248A1913}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YouSoftBathTechnician</RootNamespace>
+    <AssemblyName>技师房</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>y-icon2a.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GeneralClass.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="app.config" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="信息对话框\InformationDlg.resx">
+      <DependentUpon>InformationDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="修改密码\ModifyPwdForm.resx">
+      <DependentUpon>ModifyPwdForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="打印机设置\PrinterChooseForm.resx">
+      <DependentUpon>PrinterChooseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="技师排钟\TechListForm.resx">
+      <DependentUpon>TechListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="查询服务\CheckForm.resx">
+      <DependentUpon>CheckForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="技师排钟\排钟设置\TechArrangeSetForm.resx">
+      <DependentUpon>TechArrangeSetForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="查询服务\月选择器\MonthSelectForm.resx">
+      <DependentUpon>MonthSelectForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="查询服务\月点钟\MonthOrderForm.resx">
+      <DependentUpon>MonthOrderForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="查询服务\月轮钟\MonthOnForm.resx">
+      <DependentUpon>MonthOnForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="查询服务\月退钟\MonthReturnForm.resx">
+      <DependentUpon>MonthReturnForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="查询服务\日退钟\DayReturnForm.resx">
+      <DependentUpon>DayReturnForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="查询服务\日点钟\DayOrderForm.resx">
+      <DependentUpon>DayOrderForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="查询服务\日期选择器\DaySelectForm.resx">
+      <DependentUpon>DaySelectForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="查询服务\日轮钟\DayOnForm.resx">
+      <DependentUpon>DayOnForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="询问对话框\AskDialog.resx">
+      <DependentUpon>AskDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="错误对话框\ErrorDlg.resx">
+      <DependentUpon>ErrorDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="信息对话框\InformationDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="信息对话框\InformationDlg.designer.cs">
+      <DependentUpon>InformationDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="修改密码\ModifyPwdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="修改密码\ModifyPwdForm.designer.cs">
+      <DependentUpon>ModifyPwdForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="打印机设置\PrintDGV.cs" />
+    <Compile Include="打印机设置\PrinterChooseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="打印机设置\PrinterChooseForm.designer.cs">
+      <DependentUpon>PrinterChooseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="技师排钟\TechListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="技师排钟\TechListForm.Designer.cs">
+      <DependentUpon>TechListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="查询服务\CheckForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="查询服务\CheckForm.Designer.cs">
+      <DependentUpon>CheckForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="技师排钟\排钟设置\TechArrangeSetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="技师排钟\排钟设置\TechArrangeSetForm.Designer.cs">
+      <DependentUpon>TechArrangeSetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="查询服务\月选择器\MonthSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="查询服务\月选择器\MonthSelectForm.Designer.cs">
+      <DependentUpon>MonthSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="查询服务\月点钟\MonthOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="查询服务\月点钟\MonthOrderForm.designer.cs">
+      <DependentUpon>MonthOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="查询服务\月轮钟\MonthOnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="查询服务\月轮钟\MonthOnForm.designer.cs">
+      <DependentUpon>MonthOnForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="查询服务\月退钟\MonthReturnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="查询服务\月退钟\MonthReturnForm.designer.cs">
+      <DependentUpon>MonthReturnForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="查询服务\日退钟\DayReturnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="查询服务\日退钟\DayReturnForm.designer.cs">
+      <DependentUpon>DayReturnForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="查询服务\日点钟\DayOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="查询服务\日点钟\DayOrderForm.designer.cs">
+      <DependentUpon>DayOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="查询服务\日期选择器\DaySelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="查询服务\日期选择器\DaySelectForm.Designer.cs">
+      <DependentUpon>DaySelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="查询服务\日轮钟\DayOnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="查询服务\日轮钟\DayOnForm.designer.cs">
+      <DependentUpon>DayOnForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="询问对话框\AskDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="询问对话框\AskDialog.Designer.cs">
+      <DependentUpon>AskDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="错误对话框\ErrorDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="错误对话框\ErrorDlg.Designer.cs">
+      <DependentUpon>ErrorDlg.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="y-icon2a.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\YouSoftBathConstants\YouSoftBathConstants\YouSoftBathConstants.csproj">
+      <Project>{1067C596-E185-4A2E-8EFC-54D09FC79AFD}</Project>
+      <Name>YouSoftBathConstants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\YouSoftBathFormClass\YouSoftBathFormClass\YouSoftBathFormClass.csproj">
+      <Project>{D72B4EE0-E681-4111-B2A5-87B3C243D0B3}</Project>
+      <Name>YouSoftBathFormClass</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\YouSoftBathGeneralClass\YouSoftBathGeneralClass\YouSoftBathGeneralClass.csproj">
+      <Project>{A766597F-6B5E-4F1D-BB5C-8A7B2240874A}</Project>
+      <Name>YouSoftBathGeneralClass</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\YouSoftBathReceptionClassLib\YouSoftBathReceptionClassLib\YouSoftBathReceptionClassLib.csproj">
+      <Project>{E9323CE1-DE54-4F7A-8E14-9BD102264486}</Project>
+      <Name>YouSoftBathReceptionClassLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\YouSoftUtil\YouSoftUtil\YouSoftUtil.csproj">
+      <Project>{21FD7E1A-F99D-4AC4-9EAF-589E4CB1355F}</Project>
+      <Name>YouSoftUtil</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

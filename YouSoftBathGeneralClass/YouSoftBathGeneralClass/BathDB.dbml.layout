@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 15" name="BathDB">
+  <DataContextMoniker Name="/BathDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="d232892b-9fa5-4d29-ac44-b817055d1b2a" isExpanded="false" absoluteBounds="3, 0.75, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/Unit" />
+      <nestedChildShapes>
+        <elementListCompartment Id="da48cfee-d043-4fce-96b5-ca56df1244fe" absoluteBounds="3.015, 1.21, 1.9700000000000002, 0.62950642903645826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="018a4abf-7fe5-4722-956c-4d392a73207a" isExpanded="false" absoluteBounds="3, 4.25, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/CardInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="721edc79-a9b5-430a-8073-0e397d408b44" absoluteBounds="3.0149999999999997, 4.7100000000000009, 1.9700000000000002, 8.6523335774739571" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f87a358c-bce8-46c0-9d38-7c649acba8ba" isExpanded="false" absoluteBounds="3, 1.625, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/CardPopSale" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4e74127a-5a45-4e0e-8b59-e30bc8ffa8a3" absoluteBounds="3.0150000000000006, 2.085, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="10cad5d8-3bae-4511-b69b-c4ad715777b3" isExpanded="false" absoluteBounds="5.25, 4.25, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/CashPrintTime" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9f9a5618-6c1a-45be-a360-437ad3ec51c8" absoluteBounds="5.2650000000000006, 4.7100000000000009, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fd8d108d-509b-4b65-8bf1-5af3cfba67dc" isExpanded="false" absoluteBounds="0.75, 6.75, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/Customer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0b21a0d7-1937-44c2-95b1-d8f20f2e8d71" absoluteBounds="0.76500000000000057, 7.2100000000000009, 1.9700000000000002, 2.7307230631510415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1bf080dd-c813-4020-899d-594fb453d3d8" isExpanded="false" absoluteBounds="5.25, 3.375, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/ExpenseType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="16305b18-a0b0-4fb3-a0f6-85e7c3df669a" absoluteBounds="5.2650000000000006, 3.835, 1.9700000000000002, 0.62950642903645826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5158b6d9-ee57-46d2-b473-65472aea6df9" isExpanded="false" absoluteBounds="5.25, 2.5, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/PayMsg" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9b455dde-439d-4a62-a673-9c6c55e41dd0" absoluteBounds="5.2650000000000006, 2.96, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8c08996c-be07-409a-a9b5-c77e13f9e6f0" isExpanded="false" absoluteBounds="0.75, 9.875, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/ShoeMsg" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7adc9312-25ff-4757-bbd3-3e7eeb24720d" absoluteBounds="0.76500000000000057, 10.335, 1.9700000000000002, 1.2025655110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="45585058-46ec-4cea-a47f-98990000b1aa" isExpanded="false" absoluteBounds="0.75, 8.375, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/Stock" />
+      <nestedChildShapes>
+        <elementListCompartment Id="04819cc0-cf89-4128-b34a-8f6862eefd0d" absoluteBounds="0.76500000000000057, 8.835, 1.9700000000000002, 1.393585205078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c6b65d9a-44eb-410f-a22e-c3bc8be11867" isExpanded="false" absoluteBounds="5.25, 9.875, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/GroupBuy" />
+      <nestedChildShapes>
+        <elementListCompartment Id="880142b2-1a6b-4e5e-9e56-2d12691547d2" absoluteBounds="5.265, 10.335, 1.9700000000000002, 1.5846048990885415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6ba7c283-8a6e-4775-9863-de519fde001e" isExpanded="false" absoluteBounds="3, 10.625, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/ChainStore" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d6b0568e-9e69-4546-8b60-75dc9a4edc1e" absoluteBounds="3.015, 11.085, 1.9700000000000002, 1.5846048990885415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f93552c1-bdd5-4064-9ab2-367abd3c6d1d" isExpanded="false" absoluteBounds="0.75, 10.625, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/Operation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="74efa0de-8fa6-41ea-b09c-3b87e0196a86" absoluteBounds="0.765, 11.085, 1.9700000000000002, 1.966644287109375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8ab2469c-bb46-48a2-b2f9-a58c926d7f90" isExpanded="false" absoluteBounds="0.75, 2.5, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/ClearTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="14ac58bd-cce6-43dc-ab45-7f26a548927d" absoluteBounds="0.765, 2.96, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a7c2c135-9463-4bff-b235-ac47d07e7e51" isExpanded="false" absoluteBounds="5.25, 0.75, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/CardCharge" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f61ee215-6bce-42e4-97ee-8509bab4589d" absoluteBounds="5.265, 1.21, 1.9700000000000002, 5.5960184733072911" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8d97f68d-90f8-433f-9f15-7ca159ac4822" isExpanded="false" absoluteBounds="0.75, 4.25, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/Coupon" />
+      <nestedChildShapes>
+        <elementListCompartment Id="091e9fe1-351a-46cb-9091-ba033e6e6e6d" absoluteBounds="0.765, 4.71, 1.9700000000000002, 2.348683675130208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bdd077dc-0c13-4694-84f6-09b3a8cebcc4" isExpanded="false" absoluteBounds="5.25, 10.625, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/WaiterItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e747a663-5a7b-4120-a228-5ad5df4da9f7" absoluteBounds="5.265, 11.085, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="218120eb-c01f-48a9-807a-c1ec33420e58" isExpanded="false" absoluteBounds="5.25, 11.5, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/RoomWarn" />
+      <nestedChildShapes>
+        <elementListCompartment Id="72071f75-5dfe-40b1-8b0e-a35146ff3a9c" absoluteBounds="5.265, 11.96, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c9a143f7-2995-43b5-893a-ac2982bf8d9e" isExpanded="false" absoluteBounds="0.75, 12.125, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/TechReturn" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4e63f16a-c237-43a6-a49f-973d0fb1f4b4" absoluteBounds="0.765, 12.585, 1.9700000000000002, 1.5846048990885415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="269fba36-9844-4fdb-8105-9a30a7710e45" isExpanded="false" absoluteBounds="3, 3.5, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/Promotion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5253d90f-8b02-4912-b978-0620bf721063" absoluteBounds="3.015, 3.96, 1.9700000000000002, 1.0115458170572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ff0c3636-0f0a-4d46-9af5-0ccd86116cf1" isExpanded="false" absoluteBounds="3, 2.5, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/Expense" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ffde5ec6-17fe-464a-9940-c118f88fd372" absoluteBounds="3.015, 2.96, 1.9700000000000002, 2.539703369140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7021049d-6caf-408b-9a6a-a34cde711d86" isExpanded="false" absoluteBounds="5.25, 7.625, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/MemberSetting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6b140458-ad0e-4511-99b6-5cfd18731ff3" absoluteBounds="5.265, 8.085, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a7fb1807-ffbf-411b-bd57-e7a44981b5ca" isExpanded="false" absoluteBounds="0.75, 0.75, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/Account" />
+      <nestedChildShapes>
+        <elementListCompartment Id="42ddf1e8-6616-44e0-9f01-d0fb57bbc043" absoluteBounds="0.765, 1.21, 1.9700000000000002, 5.404998779296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a0b364e0-14e7-4216-bd8a-52af6336e61b" isExpanded="false" absoluteBounds="0.75, 11.375, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/BarMsg" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0daf76b3-200a-4a34-8f9f-7a11dc2af93c" absoluteBounds="0.765, 11.835, 1.9700000000000002, 1.393585205078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4988cf43-aa7f-4ff5-922a-47b981927e53" isExpanded="false" absoluteBounds="0.75, 6, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/Room" />
+      <nestedChildShapes>
+        <elementListCompartment Id="726c59fc-38e3-4664-9a9d-256eac024c1a" absoluteBounds="0.765, 6.46, 1.9700000000000002, 3.876841227213542" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2ca3dc55-e2f4-467f-9929-927d7296469c" isExpanded="false" absoluteBounds="3, 11.375, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/RoomCall" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a079164a-7c9f-4ad0-8aaf-dea1490e8133" absoluteBounds="3.015, 11.835, 1.9700000000000002, 1.2025655110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fc38e987-c257-4cfe-bb72-b093674b5487" isExpanded="false" absoluteBounds="3, 6, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/Catgory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ea7749aa-3dc7-4429-ac50-ff4428fd9d04" absoluteBounds="3.015, 6.46, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2ae58bd3-9e6b-4495-875f-bc6189ff9355" isExpanded="false" absoluteBounds="5.25, 8.375, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/SeatType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fdab4fa3-4f6d-4cd5-91bc-16feee12d207" absoluteBounds="5.265, 8.835, 1.9700000000000002, 1.5846048990885415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="de2a2726-88bb-413b-a5c0-04b0e3a307af" isExpanded="false" absoluteBounds="5.25, 12.25, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/SystemIds" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1fae4825-5ce1-4e98-8af0-8a0b988913d2" absoluteBounds="5.265, 12.71, 1.9700000000000002, 0.62950642903645826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a967eeb1-96d8-40f3-8697-95c4d3e9258d" isExpanded="false" absoluteBounds="0.75, 3.5, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/Combo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6f962ec0-9785-48bc-bf17-6a8fd85b1f29" absoluteBounds="0.765, 3.96, 1.9700000000000002, 1.7756245930989585" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c62d1b9f-2523-4fd2-95f8-27a6a275f4dd" isExpanded="false" absoluteBounds="0.75, 9.25, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/MemberType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0d0a261f-dd8f-47a6-b3bf-c4c71bdeddbe" absoluteBounds="0.765, 9.71, 1.9700000000000002, 2.7307230631510415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="49ff2851-e4e7-470d-a659-ab2f219afc77" isExpanded="false" absoluteBounds="5.25, 9.25, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/Menu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="73c0a328-fe95-4a52-8066-f394b914c9f9" absoluteBounds="5.265, 9.71, 1.9700000000000002, 4.258880615234375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="93ff8661-c18f-47bc-b08b-30ec4b24aadc" isExpanded="false" absoluteBounds="3, 10, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/OrderStockOut" />
+      <nestedChildShapes>
+        <elementListCompartment Id="00016252-01b5-4372-a2c3-d26aaffaef46" absoluteBounds="3.015, 10.46, 1.9700000000000002, 2.1576639811197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="608b4759-7f3a-4c92-b068-f55bf6792ded" isExpanded="false" absoluteBounds="0.75, 12.75, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/Pan" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b20a174a-3a49-4078-827d-24cb1403f4bf" absoluteBounds="0.765, 13.21, 1.9700000000000002, 1.5846048990885415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="02e3e896-36bb-444c-8621-9cabfde7ed05" isExpanded="false" absoluteBounds="3, 12.75, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/GoodsCat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="14542add-70f2-419e-84a1-0638f729d167" absoluteBounds="3.015, 13.21, 1.9700000000000002, 0.62950642903645826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7cf1ea82-926e-4832-8f00-ec9c8e2c3490" isExpanded="false" absoluteBounds="0.75, 1.625, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/Authority" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f7480c56-499f-4d8d-8ec4-cbf80a670f1f" absoluteBounds="0.765, 2.085, 1.9700000000000002, 13.427825927734375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f0fe5ffa-9d35-4b29-a128-5523025ded82" isExpanded="false" absoluteBounds="5.25, 12.875, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/Provider" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8b8664f3-ea94-41f8-84c8-33c0e4fa2690" absoluteBounds="5.265, 13.335, 1.9700000000000002, 1.5846048990885415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1331158f-1d4b-44b3-b5dc-d5f14f77f5b4" isExpanded="false" absoluteBounds="0.75, 13.5, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/ProviderPays" />
+      <nestedChildShapes>
+        <elementListCompartment Id="57de0e9a-26ad-4180-a2d8-8bbf6bfaf4f3" absoluteBounds="0.765, 13.96, 1.9700000000000002, 1.966644287109375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dc240166-8abc-4248-8fa1-0c5a22803ac6" isExpanded="false" absoluteBounds="3, 13.5, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/CustomerPays" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7515b9c4-f47a-47e3-b29d-ddfac1469110" absoluteBounds="3.015, 13.96, 1.9700000000000002, 1.5846048990885415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="654da642-0693-4757-92c7-bffefd9a712f" isExpanded="false" absoluteBounds="0.75, 7.75, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/Employee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d2968821-4286-43be-9547-78eb0d88885f" absoluteBounds="0.765, 8.21, 1.9700000000000002, 4.831939697265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="13f8543c-9bda-4a7f-a4d0-5fa8e51137f8" isExpanded="false" absoluteBounds="3, 6.875, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/TechMsg" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f2eeccc4-0d0d-4f46-b93e-d88e8f5eefe8" absoluteBounds="3.015, 7.335, 1.9700000000000002, 2.539703369140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6ce90080-bb22-4aa0-861b-8b5fe24d9436" isExpanded="false" absoluteBounds="5.25, 13.625, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/Department" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4f2d3355-ba87-46c2-8e65-e79668369f3f" absoluteBounds="5.265, 14.085, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fd579aaf-d4e4-46bf-89ea-37ef72120b39" isExpanded="false" absoluteBounds="5.375, 5.125, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/Job" />
+      <nestedChildShapes>
+        <elementListCompartment Id="568619bb-1f4d-4e2f-8624-a5423c249072" absoluteBounds="5.39, 5.585, 1.9700000000000002, 1.393585205078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6b423336-57e5-4afc-897b-8ffae1b8ba1c" isExpanded="false" absoluteBounds="0.75, 5.125, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/StockIn" />
+      <nestedChildShapes>
+        <elementListCompartment Id="73c2e673-29f9-4069-b0ed-b8a01720b511" absoluteBounds="0.765, 5.585, 1.9700000000000002, 2.539703369140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b009670a-43cd-4278-be75-4258402cff39" isExpanded="false" absoluteBounds="3, 5.125, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/StockOut" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ac437bb2-eaae-4657-85bb-96a1cab53cbc" absoluteBounds="3.015, 5.585, 1.9700000000000002, 2.348683675130208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8d70a9ad-aa92-4977-9b82-7153d12ee545" isExpanded="false" absoluteBounds="3, 7.75, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/StorageList" />
+      <nestedChildShapes>
+        <elementListCompartment Id="501c5dc3-9d44-412d-92c6-44dde1f4940a" absoluteBounds="3.015, 8.21, 1.9700000000000002, 2.1576639811197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="67d8d9e9-eff5-4750-875a-db2c28ab0edc" isExpanded="false" absoluteBounds="0.75, 14.25, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/DepartmentLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ce709f0f-1085-410a-93be-0ea2907cd931" absoluteBounds="0.765, 14.71, 1.9700000000000002, 3.3037821451822915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="250f7d16-602e-42c0-bdef-6dc346dac741" isExpanded="false" absoluteBounds="5.25, 1.625, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/TechIndex" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c4303e97-564c-4918-9730-b885de9fa9a0" absoluteBounds="5.265, 2.085, 1.9700000000000002, 1.0115458170572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b6a86b17-4c92-4627-bbaf-8b283e9cb920" isExpanded="false" absoluteBounds="3, 8.375, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/Orders" />
+      <nestedChildShapes>
+        <elementListCompartment Id="eb6e3d21-c793-47c1-a8a6-d1ae1f8a1b73" absoluteBounds="3.015, 8.835, 1.9700000000000002, 4.640920003255208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5336ce02-2ed5-4ff4-b91f-1a33ec081775" isExpanded="false" absoluteBounds="3.125, 12.125, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/HisOrders" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1d659cf2-4c21-4cae-b603-4c9c907ed3c2" absoluteBounds="3.14, 12.585, 1.9700000000000002, 4.4499003092447911" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c7ebcf7f-de5d-49d1-86f3-332d5dba91b5" isExpanded="false" absoluteBounds="5.25, 6.875, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/Seat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="823fd7c1-5225-442f-834f-63047ad2ba8c" absoluteBounds="5.265, 7.335, 1.9700000000000002, 5.404998779296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e25d4b1c-11c3-4f4b-8b4e-25d62f3c480a" isExpanded="false" absoluteBounds="5.375, 6, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/CardSale" />
+      <nestedChildShapes>
+        <elementListCompartment Id="16108208-9a91-45f4-9732-929bdc27f12f" absoluteBounds="5.39, 6.46, 1.9700000000000002, 2.921742757161458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f1498c57-f0e1-4a55-9950-ec94c2fb4a37" isExpanded="false" absoluteBounds="3, 9.25, 2, 0.45">
+      <DataClassMoniker Name="/BathDBDataContext/Options" />
+      <nestedChildShapes>
+        <elementListCompartment Id="13804c61-f386-48cf-a540-7ec70e28c51f" absoluteBounds="3.015, 9.71, 1.9700000000000002, 8.4613138834635411" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

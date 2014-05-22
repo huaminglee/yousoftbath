@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="BathDB" Class="BathDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=CAI-PC\SQLEXPRESS;Initial Catalog=BathDB;Persist Security Info=True;User ID=sa" SettingsObjectName="YouSoftBathPayVideo.Properties.Settings" SettingsPropertyName="BathDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.PayMsg" Member="PayMsg">
+    <Type Name="PayMsg">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="systemId" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ip" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Options" Member="Options">
+    <Type Name="Options">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="companyName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="companyCode" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="companyPhone" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="companyAddress" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="取消开牌时限" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="取消开房时限" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="删除支出时限" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="退钟时限" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="技师条数" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="启用鞋部" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="鞋部条数" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="启用会员卡密码" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="输入手牌" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="启用结账监控" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="结账视频长度" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="启用手牌锁" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="开业时间" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
