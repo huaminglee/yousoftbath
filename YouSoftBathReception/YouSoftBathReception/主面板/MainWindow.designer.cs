@@ -46,6 +46,7 @@
             this.toolWarn = new System.Windows.Forms.ToolStripButton();
             this.toolExit = new System.Windows.Forms.ToolStripButton();
             this.seatContext = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.CtxChain = new System.Windows.Forms.ToolStripMenuItem();
             this.CtxChangeSeat = new System.Windows.Forms.ToolStripMenuItem();
             this.CtxCancelOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.CtxAddNote = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,7 +93,7 @@
             this.moneyUnpaid = new System.Windows.Forms.ToolStripStatusLabel();
             this.seatTab = new System.Windows.Forms.TabControl();
             this.seatPanel = new System.Windows.Forms.Panel();
-            this.CtxChain = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolStrip1.SuspendLayout();
             this.seatContext.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -289,68 +290,75 @@
             this.unWarnTool,
             this.undoTransferTool});
             this.seatContext.Name = "contextMenuStrip1";
-            this.seatContext.Size = new System.Drawing.Size(153, 246);
+            this.seatContext.Size = new System.Drawing.Size(130, 224);
+            // 
+            // CtxChain
+            // 
+            this.CtxChain.Name = "CtxChain";
+            this.CtxChain.Size = new System.Drawing.Size(129, 22);
+            this.CtxChain.Text = "增加联排";
+            this.CtxChain.Click += new System.EventHandler(this.CtxChain_Click);
             // 
             // CtxChangeSeat
             // 
             this.CtxChangeSeat.Name = "CtxChangeSeat";
-            this.CtxChangeSeat.Size = new System.Drawing.Size(152, 22);
+            this.CtxChangeSeat.Size = new System.Drawing.Size(129, 22);
             this.CtxChangeSeat.Text = "更换手牌";
             this.CtxChangeSeat.Click += new System.EventHandler(this.CtxChangeSeat_Click);
             // 
             // CtxCancelOpen
             // 
             this.CtxCancelOpen.Name = "CtxCancelOpen";
-            this.CtxCancelOpen.Size = new System.Drawing.Size(152, 22);
+            this.CtxCancelOpen.Size = new System.Drawing.Size(129, 22);
             this.CtxCancelOpen.Text = "取消开牌";
             this.CtxCancelOpen.Click += new System.EventHandler(this.CtxCancelOpen_Click);
             // 
             // CtxAddNote
             // 
             this.CtxAddNote.Name = "CtxAddNote";
-            this.CtxAddNote.Size = new System.Drawing.Size(152, 22);
+            this.CtxAddNote.Size = new System.Drawing.Size(129, 22);
             this.CtxAddNote.Text = "添加备注";
             this.CtxAddNote.Click += new System.EventHandler(this.CtxAddNote_Click);
             // 
             // CtxLock
             // 
             this.CtxLock.Name = "CtxLock";
-            this.CtxLock.Size = new System.Drawing.Size(152, 22);
+            this.CtxLock.Size = new System.Drawing.Size(129, 22);
             this.CtxLock.Text = "锁定/解锁";
             this.CtxLock.Click += new System.EventHandler(this.CtxLock_Click);
             // 
             // CtxSop
             // 
             this.CtxSop.Name = "CtxSop";
-            this.CtxSop.Size = new System.Drawing.Size(152, 22);
+            this.CtxSop.Size = new System.Drawing.Size(129, 22);
             this.CtxSop.Text = "停用/启用";
             this.CtxSop.Click += new System.EventHandler(this.CtxSop_Click);
             // 
             // CtxRepay
             // 
             this.CtxRepay.Name = "CtxRepay";
-            this.CtxRepay.Size = new System.Drawing.Size(152, 22);
+            this.CtxRepay.Size = new System.Drawing.Size(129, 22);
             this.CtxRepay.Text = "重新结账";
             this.CtxRepay.Click += new System.EventHandler(this.CtxRepay_Click);
             // 
             // CtxReprint
             // 
             this.CtxReprint.Name = "CtxReprint";
-            this.CtxReprint.Size = new System.Drawing.Size(152, 22);
+            this.CtxReprint.Size = new System.Drawing.Size(129, 22);
             this.CtxReprint.Text = "重打账单";
             this.CtxReprint.Click += new System.EventHandler(this.CtxReprint_Click);
             // 
             // unWarnTool
             // 
             this.unWarnTool.Name = "unWarnTool";
-            this.unWarnTool.Size = new System.Drawing.Size(152, 22);
+            this.unWarnTool.Size = new System.Drawing.Size(129, 22);
             this.unWarnTool.Text = "解除警告";
             this.unWarnTool.Click += new System.EventHandler(this.unWarnTool_Click);
             // 
             // undoTransferTool
             // 
             this.undoTransferTool.Name = "undoTransferTool";
-            this.undoTransferTool.Size = new System.Drawing.Size(152, 22);
+            this.undoTransferTool.Size = new System.Drawing.Size(129, 22);
             this.undoTransferTool.Text = "恢复转账";
             this.undoTransferTool.Click += new System.EventHandler(this.undoTransferTool_Click);
             // 
@@ -651,13 +659,6 @@
             this.seatPanel.Size = new System.Drawing.Size(197, 129);
             this.seatPanel.TabIndex = 11;
             // 
-            // CtxChain
-            // 
-            this.CtxChain.Name = "CtxChain";
-            this.CtxChain.Size = new System.Drawing.Size(152, 22);
-            this.CtxChain.Text = "增加联排";
-            this.CtxChain.Click += new System.EventHandler(this.CtxChain_Click);
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -756,6 +757,7 @@
         private System.Windows.Forms.ToolStripMenuItem CtxChangeSeat;
         private System.Windows.Forms.ToolStripMenuItem CtxCancelOpen;
         private System.Windows.Forms.ToolStripMenuItem CtxChain;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

@@ -58,7 +58,9 @@ namespace YouSoftBathBack
         //显示清单
         private void dgv_show()
         {
+            DateTime dt_et = DateTime.Parse(et.Value.Date.ToString("yyyy-MM-dd") + " 23:59:59");
             dgv.Rows.Clear();
+             double totalLossAmout = 0;
             string stockSel = stockTree.SelectedNode.Text;
             if (stockSel == "所有仓库")
             {
@@ -68,10 +70,11 @@ namespace YouSoftBathBack
             else
             {
                 int selId = db.Stock.FirstOrDefault(x => x.name == stockSel).id;
-                var stockIns = db.StockIn.Where(x => x.stockId == selId);
-                var stockOuts = db.StockOut.Where(x => x.stockId == selId);
-                var orderStockOuts = db.OrderStockOut.Where(x => x.stockId == selId && x.deleteEmployee == null);
-                var pans = db.Pan.Where(x => x.stockId == selId);
+               
+                var stockIns = db.StockIn.Where(x => x.stockId == selId).Where(x=>x.date<=dt_et);
+                var stockOuts = db.StockOut.Where(x => x.stockId == selId).Where(x=>x.date<=dt_et);
+                var orderStockOuts = db.OrderStockOut.Where(x => x.stockId == selId && x.deleteEmployee == null).Where(x=>x.date<=dt_et);
+                var pans = db.Pan.Where(x => x.stockId == selId).Where(x=>x.date<dt_et);
 
                 var name_Ins = stockIns.Select(x => x.name);
                 var name_outs = stockOuts.Select(x => x.name);
@@ -111,8 +114,15 @@ namespace YouSoftBathBack
                     double number_Sale_this = 0;//销售消耗
                     double number_pans_this = 0;//销售消耗
 
+                    double unitPrice = 0; //产品单价
+                    double totalCost = 0; //产品总价
+
+
+
                     #region 上月数据
-                    var first_day_this_month = DateTime.Now.AddDays(1 - DateTime.Now.Day);
+                    //var first_day_this_month = DateTime.Now.AddDays(1 - DateTime.Now.Day);
+                    var first_day_this_month = dt_et.AddDays(1 - DateTime.Now.Day);
+                    
                     var stockIns_last = name_stockIns.Where(x => x.date < first_day_this_month);
                     if (stockIns_last.Any())
                         number_Ins_last = stockIns_last.Sum(x => x.amount).Value;
@@ -147,8 +157,17 @@ namespace YouSoftBathBack
                     if (pans_this.Any())
                         number_pans_this = MConvert<double>.ToTypeOrDefault(pans_this.Sum(x => x.amount), 0);
                     #endregion
+                    #region 损耗金额
+                    var cost = db.StockIn.OrderByDescending(x => x.date).FirstOrDefault(x => x.name == name);
+                    if (cost!=null)
+                    {
+                        unitPrice = MConvert<double>.ToTypeOrDefault(cost.cost, 0);
+                        totalCost = unitPrice * (-number_pans_this);
+                        totalLossAmout += totalCost;
+                    }
 
-                    //仓库  名称 上月结存 本月进货 本月出货 销售消耗 本月盘点损耗 现有库存
+                    #endregion
+                    //仓库  名称 上月结存 本月进货 本月出货 销售消耗 本月盘点损耗 现有库存 单价 损耗金额  
                     dgv.Rows.Add(stockSel, 
                         name,
                         number_Ins_last + number_pans_last - number_Outs_last - number_Sale_last, 
@@ -156,9 +175,15 @@ namespace YouSoftBathBack
                         number_Outs_this, 
                         number_Sale_this,
                         -number_pans_this,
-                        number_Ins + number_pans - number_Outs - number_OrderOuts);
+                        number_Ins + number_pans - number_Outs - number_OrderOuts,
+                        unitPrice,
+                        totalCost
+                        );
                 }
             }
+            dgv.Rows.Add(" ");
+            dgv.Rows.Add("汇总信息","","","","","","","","","总金额");
+            dgv.Rows.Add("", "", "", "", "", "", "", "", "", totalLossAmout.ToString());
             BathClass.set_dgv_fit(dgv);
         }
 
@@ -221,6 +246,17 @@ namespace YouSoftBathBack
             var form = new PanForm(db, name, stock, amount);
             form.ShowDialog();
 
+            dgv_show();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string stockSel = stockTree.SelectedNode.Text;
+            if (stockSel == "所有仓库")
+            {
+                MessageBox.Show("请在左侧选择一个具体的仓库,如主仓库！");
+                return;
+            }
             dgv_show();
         }
 

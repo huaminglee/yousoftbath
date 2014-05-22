@@ -97,6 +97,7 @@ namespace YouSoftBathFormClass
         {
             Button btn = new Button();
 
+            //根椐手牌长度确定字体的大小
             Single bf = 13F;
             int l = table.text.Length;
             if (l == 3)
@@ -105,19 +106,19 @@ namespace YouSoftBathFormClass
                 bf = 10f;
 
             btn.Font = new Font("SimSun", bf);
-            btn.Location = new System.Drawing.Point(x, y);
-            btn.Name = table.id.ToString();
-            btn.Text = table.text;
-            btn.Size = new System.Drawing.Size(btn_size, btn_size);
+            btn.Location = new System.Drawing.Point(x, y);   //button的位置
+            btn.Name = table.id.ToString();       //button.Name
+            btn.Text = table.text;                        //button.Text
+            btn.Size = new System.Drawing.Size(btn_size, btn_size);//button.Size
             btn.FlatStyle = FlatStyle.Popup;
             btn.UseVisualStyleBackColor = true;
             if (cm != null)
-                btn.ContextMenuStrip = cm;
+                btn.ContextMenuStrip = cm;  //button的右键菜单
             btn.TabStop = false;
-            btn.Click += btn_Click;
-            btn_status(btn, table.status);
+            btn.Click += btn_Click;    //button click事件
+            btn_status(btn, table.status);  //button 状态，以button和手牌状态为参数
 
-            sp.Controls.Add(btn);
+            sp.Controls.Add(btn);  //控件上添加该button
         }
 
         //生成按钮状态
@@ -182,9 +183,9 @@ namespace YouSoftBathFormClass
         /// <param name="cm">右键菜单</param>
         /// <param name="department">部门：桑拿部、客房部</param>
         public static void createSeatByDao(DAO dao, COptions options, Control seatPanel, TabControl seatTab, 
-            EventHandler btn_click, ContextMenuStrip cm, string department)
+            EventHandler btn_click,EventHandler btn_MouseHover, ContextMenuStrip cm, string department)
         {
-            if (MConvert<bool>.ToTypeOrDefault(options.台位类型分页显示, false))
+            if (MConvert<bool>.ToTypeOrDefault(options.台位类型分页显示, false))       //台位类型是否分页显示
             {
                 seatPanel.Visible = false;
                 seatTab.Visible = true;
@@ -199,7 +200,7 @@ namespace YouSoftBathFormClass
                 {
                     TabPage tp = create_seat_page(stype.name, seatTab);
                     var seats = dao.get_seats("typeId", stype.id).OrderBy(x => x.text).ToList();
-                    creat_seat_per_panel(seats, tp, btn_click, cm);
+                    creat_seat_per_panel(seats, tp, btn_click,btn_MouseHover, cm);
                 }
             }
             else
@@ -221,7 +222,7 @@ namespace YouSoftBathFormClass
                 }
                 
                 //var seats = dao.get_seats(null, null).OrderBy(x => x.typeId).ThenBy(x => x.text).ToList();
-                creat_seat_per_panel(seats, seatPanel, btn_click, cm);
+                creat_seat_per_panel(seats, seatPanel, btn_click,btn_MouseHover, cm);
 
                 //if (dao.has_hotel_department())
                 //{
@@ -247,7 +248,7 @@ namespace YouSoftBathFormClass
 
         }
 
-        private static void creat_seat_per_panel(List<CSeat> seats, Control sp, EventHandler click, ContextMenuStrip cm)
+        private static void creat_seat_per_panel(List<CSeat> seats, Control sp, EventHandler click, EventHandler hover,ContextMenuStrip cm)
         {
             int tableCountSp = sp.Controls.Count;
             int tableCount = seats.Count;
@@ -269,7 +270,7 @@ namespace YouSoftBathFormClass
                     }
                     int x = theCol * btn_size + btn_space * (theCol + 1);
                     int y = theRow * btn_size + btn_space * (theRow + 1);
-                    createButton(x, y, seats[theCount], sp, click, cm);
+                    createButton(x, y, seats[theCount], sp, click, hover,cm);
 
                     theCount++;
                     theCol++;
@@ -280,7 +281,7 @@ namespace YouSoftBathFormClass
         }
 
         //创建单个台位按钮
-        private static void createButton(int x, int y, CSeat table, Control sp, EventHandler btn_Click, ContextMenuStrip cm)
+        private static void createButton(int x, int y, CSeat table, Control sp, EventHandler btn_Click,EventHandler btn_MouseHover,ContextMenuStrip cm)
         {
             Button btn = new Button();
 
@@ -302,6 +303,7 @@ namespace YouSoftBathFormClass
                 btn.ContextMenuStrip = cm;
             btn.TabStop = false;
             btn.Click += btn_Click;
+            btn.MouseHover += btn_MouseHover;
             btn_status(btn, table.status);
 
             sp.Controls.Add(btn);

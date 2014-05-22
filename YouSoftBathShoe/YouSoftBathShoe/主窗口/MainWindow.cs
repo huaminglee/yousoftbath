@@ -128,10 +128,26 @@ namespace YouSoftBathShoe
         private delegate void no_par_delegate();
         private void initial_ui()
         {
-            CFormCreate.createSeatByDao(dao, LogIn.options, seatPanel, seatTab, new EventHandler(btn_Click), seatContext, "桑拿部");
+            CFormCreate.createSeatByDao(dao, LogIn.options, seatPanel, seatTab, new EventHandler(btn_Click), new EventHandler(btn_MouseHover), seatContext, "桑拿部");
             setStatus();
         }
 
+        private void btn_MouseHover(object sender, EventArgs e)
+        {
+            BathDBDataContext db = new BathDBDataContext(LogIn.connectionString);
+            Button btn = (Button)sender;
+            string tooltipmessage = "";
+            string seatId = btn.Text;
+            string roomNo = dao.get_seat_room(seatId);
+            var openTime = db.Seat.FirstOrDefault(x => x.text == seatId).openTime;
+            if (roomNo == "")
+            {
+                roomNo = "未开房!";
+            }
+            tooltipmessage = "   房间号:" + roomNo + "\n";
+            tooltipmessage += "入场时间:" + openTime;
+            toolTip1.SetToolTip(btn, tooltipmessage);     
+        }
         //刷新线程
         private void update_seats_ui()
         {

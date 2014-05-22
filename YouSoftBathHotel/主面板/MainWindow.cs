@@ -74,7 +74,7 @@ namespace YouSoftBathHotel
         private delegate void no_par_delegate();
         private void initial_ui()
         {
-            CFormCreate.createSeatByDao(dao, LogIn.options, seatPanel, seatTab, new EventHandler(btn_Click), seatContext, "客房部");
+            CFormCreate.createSeatByDao(dao, LogIn.options, seatPanel, seatTab, new EventHandler(btn_Click), new EventHandler(btn_MouseHover), seatContext, "客房部");
             setStatus();
         }
 
@@ -263,6 +263,17 @@ namespace YouSoftBathHotel
             }
         }
 
+
+        private void btn_MouseHover(object sender, EventArgs e)
+        {
+            //Button btn = (Button)sender;
+            //string roomNo = dao.get_seat_room(btn.Text);
+            //string text = "房间号:" + roomNo;
+            //if (roomNo != "" && roomNo != null)
+            //    toolTip1.SetToolTip(btn, text);
+            //else
+            //    toolTip1.SetToolTip(btn, "该手牌未开房!");
+        }
         //F6开牌
         /*private void tool_open_seat()
         {
@@ -925,7 +936,7 @@ namespace YouSoftBathHotel
                             dgv.Rows.Add(row);
                         }
                     }
-                    PrintBill.Print_DataGridView(seats_reprint, account, "存根单", dgv, printCols, true, null, co_name);
+                    PrintBill.Print_DataGridView(seats_reprint, null, account, "存根单", dgv, printCols, true, null, co_name);
                 }
                 catch (System.Exception ex)
                 {
@@ -979,7 +990,7 @@ namespace YouSoftBathHotel
                     List<CSeat> seats = new List<CSeat>();
                     seats.Add(seat);
 
-                    PrintSeatBill.Print_DataGridView(seats, "", "转账确认单", dgv, printCols, money.ToString(), co_name);
+                    PrintSeatBill.Print_DataGridView(seats, null, "", "转账确认单", dgv, printCols, money.ToString(), co_name);
                 }
                 catch (System.Exception ex)
                 {

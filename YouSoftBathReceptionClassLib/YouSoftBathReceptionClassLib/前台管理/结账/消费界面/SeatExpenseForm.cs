@@ -27,6 +27,7 @@ namespace YouSoftBathReception
         private bool _close = false;//线程终止标志
 
         public List<CSeat> m_Seats = new List<CSeat>();
+        public List<string> m_rooms = new List<string>();
         private CSeat m_Seat = null;
         private CCardInfo m_Member = null;
         private double discount_money = 0;
@@ -518,6 +519,7 @@ namespace YouSoftBathReception
                         seat_texts.Add(tx);
                 }
 
+                //启动打印线程
                 Thread td = new Thread(delegate() { print_Bill(printBill, printStubBill, printShoe, seat_texts, false, act); });
                 td.Start();
             }
@@ -689,6 +691,7 @@ namespace YouSoftBathReception
                     id_str += " or ";
                 else
                     id_str += ")";
+                m_rooms.Add(dao.get_seat_room(m_Seats[i].text));
             }
             cmd_str += id_str;
             cmd_str += @"update [Orders] set priceType='停止消费', "
@@ -734,7 +737,7 @@ namespace YouSoftBathReception
             printCols.Add("单价");
             printCols.Add("数量");
             printCols.Add("金额");
-            PrintSeatBill.Print_DataGridView(m_Seats, seatForm.m_Seat.text, "转账确认单", dgvExpense, printCols, moneyPayable.Text, companyName);
+            PrintSeatBill.Print_DataGridView(m_Seats, m_rooms,seatForm.m_Seat.text, "转账确认单", dgvExpense, printCols, moneyPayable.Text, companyName);
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
@@ -809,12 +812,20 @@ namespace YouSoftBathReception
                 printCols.Add("金额");
 
                 var ids = string.Join("|", m_Seats.OrderBy(x => x.text).Select(x => x.systemId).ToArray());
+            
+
+              
+                foreach (var s in m_Seats)
+                {
+                    m_rooms.Add(dao.get_seat_room(s.text));
+                }
+
                 if (_print_bill)
-                    PrintBill.Print_DataGridView(m_Seats, act, "结账单", dgv, printCols, false, printRows, companyName);
+                    PrintBill.Print_DataGridView(m_Seats,m_rooms,act, "结账单", dgv, printCols, false, printRows, companyName);
                 if (_print_stubBill)
-                    PrintBill.Print_DataGridView(m_Seats, act, "存根单", dgv, printCols, false, printRows, companyName);
+                    PrintBill.Print_DataGridView(m_Seats, m_rooms,act, "存根单", dgv, printCols, false, printRows, companyName);
                 if (_reprint)
-                    PrintBill.Print_DataGridView(m_Seats, act, "补救单", dgv, printCols, false, printRows, companyName);
+                    PrintBill.Print_DataGridView(m_Seats, m_rooms, act, "补救单", dgv, printCols, false, printRows, companyName);
                 dgv = null;
 
                 if (_print_shoe)

@@ -144,7 +144,6 @@ namespace YouSoftBathBack
                 name.Focus();
                 db.SubmitChanges();
                 m_form.dgv_show();
-
                 m_goods = new StorageList();
             }
             else

@@ -40,6 +40,7 @@
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.btnRoom = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel8 = new System.Windows.Forms.ToolStripLabel();
+            this.toolChain = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.btnCashierTable = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
@@ -100,7 +101,7 @@
             this.moneyUnpaid = new System.Windows.Forms.ToolStripStatusLabel();
             this.seatTab = new System.Windows.Forms.TabControl();
             this.seatPanel = new System.Windows.Forms.Panel();
-            this.toolChain = new System.Windows.Forms.ToolStripButton();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolStrip1.SuspendLayout();
             this.seatContext.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -217,6 +218,17 @@
             this.toolStripLabel8.Name = "toolStripLabel8";
             this.toolStripLabel8.Size = new System.Drawing.Size(12, 88);
             this.toolStripLabel8.Text = " ";
+            // 
+            // toolChain
+            // 
+            this.toolChain.Font = new System.Drawing.Font("微软雅黑", 11F);
+            this.toolChain.Image = ((System.Drawing.Image)(resources.GetObject("toolChain.Image")));
+            this.toolChain.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolChain.Name = "toolChain";
+            this.toolChain.Size = new System.Drawing.Size(100, 88);
+            this.toolChain.Text = "查看联排(F9)";
+            this.toolChain.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolChain.Click += new System.EventHandler(this.toolChain_Click);
             // 
             // toolStripLabel4
             // 
@@ -705,17 +717,6 @@
             this.seatPanel.Size = new System.Drawing.Size(335, 122);
             this.seatPanel.TabIndex = 12;
             // 
-            // toolChain
-            // 
-            this.toolChain.Font = new System.Drawing.Font("微软雅黑", 11F);
-            this.toolChain.Image = ((System.Drawing.Image)(resources.GetObject("toolChain.Image")));
-            this.toolChain.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolChain.Name = "toolChain";
-            this.toolChain.Size = new System.Drawing.Size(100, 88);
-            this.toolChain.Text = "查看联排(F9)";
-            this.toolChain.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolChain.Click += new System.EventHandler(this.toolChain_Click);
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -822,6 +823,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
         private System.Windows.Forms.ToolStripMenuItem CtxChain;
         private System.Windows.Forms.ToolStripButton toolChain;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

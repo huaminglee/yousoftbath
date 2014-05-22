@@ -16,13 +16,13 @@ namespace YouSoftBathBack
     {
         //成员变量
         private BathDBDataContext db = null;
+        private  double totalsum = 0;
 
         //构造函数
         public StockOutForm(BathDBDataContext dc)
         {
             db = dc;
             InitializeComponent();
-
             stock.Items.AddRange(db.Stock.Select(x => x.name).ToArray());
             goodsCat.Items.AddRange(db.GoodsCat.Select(x => x.name).ToArray());
 
@@ -52,6 +52,7 @@ namespace YouSoftBathBack
             outStock.name = name.Text;
             outStock.amount = Convert.ToDouble(amount.Text);
             outStock.stockId = db.Stock.FirstOrDefault(x => x.name == stock.Text).id;
+            outStock.date = dtPickerIntoStock.Value;
             outStock.note = note.Text;
             outStock.date = BathClass.Now(LogIn.connectionString);
             outStock.receiver = receiver.Text;
@@ -134,5 +135,29 @@ namespace YouSoftBathBack
             name.Enabled = true;
             name.Items.AddRange(db.StorageList.Where(x => x.goodsCatId == goods_cat.id).Select(x => x.name).ToArray());
         }
+
+        private void name_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedUnit = db.StockOut.FirstOrDefault(x => x.name == name.Text);
+            if ( selectedUnit != null)
+            {
+                ComboUnit.Text = selectedUnit.unit;
+            }
+            else
+                ComboUnit.Text = "";
+        }
+              
+
+         private void numberText_KeyPress(object sender, KeyPressEventArgs e)
+         {
+             TextBox txtBox = (TextBox)sender;
+             BathClass.only_allow_float(txtBox, e);
+         }
+
+         private void btnCancel_Click(object sender, EventArgs e)
+         {
+             this.Close();             
+         }  
+
     }
 }

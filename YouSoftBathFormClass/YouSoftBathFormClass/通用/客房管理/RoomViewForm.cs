@@ -174,7 +174,7 @@ namespace YouSoftBathFormClass
             btn.FlatStyle = FlatStyle.Popup;
             btn.UseVisualStyleBackColor = true;
             btn_status(btn, room, i);
-
+            btn.Click+=new EventHandler(btn_Click);
             sp.Controls.Add(btn);
         }
 
@@ -193,8 +193,17 @@ namespace YouSoftBathFormClass
             btn.FlatStyle = FlatStyle.Popup;
             btn.UseVisualStyleBackColor = true;
             btn_status(btn, room);
+            btn.Click += new EventHandler(btn_Click);
 
             sp.Controls.Add(btn);
+        }
+
+        void btn_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            string roomID=btn.Text.Split('\n')[0].Split(':')[1];
+            BathClass.printInformation(GetSeatIdByRoomNo(roomID));
+            
         }
 
         //获取button显示字符串
@@ -509,6 +518,69 @@ namespace YouSoftBathFormClass
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnGetSeatIdByRoomNo_Click(object sender, EventArgs e)
+        {
+            string RoomID = txtBoxRoomId.Text;
+            if (RoomID == "")
+            {
+                BathClass.printWarningMsg("需要输入房间号!");
+                return;
+            }
+            string seatID = GetSeatIdByRoomNo(RoomID);
+            BathClass.printInformation(seatID);
+           
+        }
+
+        private string GetSeatIdByRoomNo(string roomID)
+        {
+            string temp = "";
+            int sum = 0;
+            StringBuilder sb = new StringBuilder();         
+            var db = new BathDBDataContext(LogIn.connectionString);
+            var db_Room = db.Room.FirstOrDefault(x => x.name == roomID);
+            if (db_Room == null)
+            {
+                temp = "房间号不存在，请重试!";
+                return temp;
+            }
+            else
+            {
+                string sts = db_Room.seat;
+                if (sts == null || sts == "")
+                {
+                    temp = "该房间没有手牌!";
+                    return temp;
+                }
+                else
+                {
+                    string[] st = sts.Split('|');
+                    for (int i = 0; i < st.Length; i++)
+                    {
+                        if (st[i].Trim() != "")
+                        {
+                            sb.Append(st[i].Trim());
+                            sb.Append("  ");
+                            if ((i+1) % 4 == 0)
+                                sb.Append("\n");
+                            sum++;
+                        }
+                    }
+                    if (sum == 0)
+                    {
+                        temp = "该房间没有手牌!";
+                        return temp;
+                    }
+                    else
+                    {
+                        temp = "房间" + roomID + "中的手牌有" + sum + "个.手牌号如下:\n" + sb.ToString();
+                        return temp;
+                    }
+
+                }
+            }
+
         }
     }
 }

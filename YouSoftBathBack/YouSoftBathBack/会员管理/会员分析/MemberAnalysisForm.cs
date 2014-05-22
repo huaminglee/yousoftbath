@@ -22,6 +22,7 @@ namespace YouSoftBathBack
         private Thread m_thread, m_ThreadMsg;
         private string month_Text, averageMax_Text, averageMin_Text,
             totalMax_Text, totalMin_Text, timesMax_Text, timesMin_Text;
+        DateTime dt_st, dt_et;
 
         private bool stop_flag = false;
 
@@ -36,10 +37,12 @@ namespace YouSoftBathBack
         private void MemberAnalysisForm_Load(object sender, EventArgs e)
         {
             //dgv_show();
+            et.Value = DateTime.Now;
+            st.Value = DateTime.Now.AddMonths(-1);
         }
 
-        private string smsPort;
-        private string smsBaud;
+        private string smsPort;  //发短信的端口号
+        private string smsBaud;  //波特率
         //发送短信
         private void btnSmsSend_Click(object sender, EventArgs e)
         {
@@ -188,6 +191,9 @@ namespace YouSoftBathBack
 
         private void do_dgv_show()
         {
+            //新增加的日期查找功能
+            //DateTime dt_st = DateTime.Parse(st.Value.Date.ToString("yyyy-MM-dd") + " 00:00:00");
+            //DateTime dt_et = DateTime.Parse(et.Value.Date.ToString("yyyy-MM-dd") + " 23:59:59");
             try
             {
                 IQueryable<CardInfo> ci = db.CardInfo;
@@ -200,7 +206,7 @@ namespace YouSoftBathBack
                 if (averageMax_Text != "")
                 {
                     int averageMaxMoney = Convert.ToInt32(averageMax.Text);
-                    var cc = db.CardCharge.Where(x => x.CC_LenderSum != null);
+                    var cc = db.CardCharge.Where(x => x.CC_LenderSum != null).Where(x=>x.CC_InputDate>=dt_st&&x.CC_InputDate<=dt_et);
                     var ccs = cc.Select(x => x.CC_CardNo);
                     ci = ci.Where(x => ccs.Contains(x.CI_CardNo));
                     ci = ci.Where(x => cc.Where(y => y.CC_CardNo == x.CI_CardNo).Sum(y => y.CC_LenderSum) /
@@ -210,7 +216,7 @@ namespace YouSoftBathBack
                 if (averageMin_Text != "")
                 {
                     int averageMinMoney = Convert.ToInt32(averageMin.Text);
-                    var cc = db.CardCharge.Where(x => x.CC_LenderSum != null);
+                    var cc = db.CardCharge.Where(x => x.CC_LenderSum != null).Where(x=>x.CC_InputDate>=dt_st&&x.CC_InputDate<=dt_et);
                     var ccs = cc.Select(x => x.CC_CardNo);
                     ci = ci.Where(x => ccs.Contains(x.CI_CardNo));
                     ci = ci.Where(x => cc.Where(y => y.CC_CardNo == x.CI_CardNo).Sum(y => y.CC_LenderSum) /
@@ -220,7 +226,7 @@ namespace YouSoftBathBack
                 if (totalMax_Text != "")
                 {
                     int totalMaxMoney = Convert.ToInt32(totalMax.Text);
-                    var cc = db.CardCharge.Where(x => x.CC_LenderSum != null);
+                    var cc = db.CardCharge.Where(x => x.CC_LenderSum != null).Where(x=>x.CC_InputDate>=dt_st&&x.CC_InputDate<=dt_et);
                     var ccs = cc.Select(x => x.CC_CardNo);
                     ci = ci.Where(x => ccs.Contains(x.CI_CardNo));
                     ci = ci.Where(x => cc.Where(y => y.CC_CardNo == x.CI_CardNo).Sum(y => y.CC_LenderSum) >= totalMaxMoney);
@@ -229,7 +235,7 @@ namespace YouSoftBathBack
                 if (totalMin_Text != "")
                 {
                     int totalMinMoney = Convert.ToInt32(totalMin.Text);
-                    var cc = db.CardCharge.Where(x => x.CC_LenderSum != null);
+                    var cc = db.CardCharge.Where(x => x.CC_LenderSum != null).Where(x => x.CC_InputDate >= dt_st && x.CC_InputDate <= dt_et);
                     var ccs = cc.Select(x => x.CC_CardNo);
                     ci = ci.Where(x => ccs.Contains(x.CI_CardNo));
                     ci = ci.Where(x => cc.Where(y => y.CC_CardNo == x.CI_CardNo).Sum(y => y.CC_LenderSum) <= totalMinMoney);
@@ -238,13 +244,13 @@ namespace YouSoftBathBack
                 if (timesMax_Text != "")
                 {
                     int maxTimes = Convert.ToInt32(timesMax.Text);
-                    ci = ci.Where(x => db.CardCharge.Where(y => y.CC_CardNo == x.CI_CardNo).Count() >= maxTimes);
+                    ci = ci.Where(x => db.CardCharge.Where(y=>y.CC_InputDate>=dt_st&&y.CC_InputDate<=dt_et).Where(y => y.CC_CardNo == x.CI_CardNo).Count() >= maxTimes);
                 }
 
                 if (timesMin_Text != "")
                 {
                     int minTimes = Convert.ToInt32(timesMin.Text);
-                    ci = ci.Where(x => db.CardCharge.Where(y => y.CC_CardNo == x.CI_CardNo).Count() <= minTimes);
+                    ci = ci.Where(x => db.CardCharge.Where(y=>y.CC_InputDate>=dt_st&&y.CC_InputDate<=dt_et).Where(y => y.CC_CardNo == x.CI_CardNo).Count() <= minTimes);
                 }
 
                 ci = ci.OrderByDescending(x => db.CardCharge.Where(y => y.CC_CardNo == x.CI_CardNo).Max(y => y.CC_InputDate));
@@ -310,6 +316,9 @@ namespace YouSoftBathBack
             totalMin_Text = totalMin.Text;
             timesMax_Text = timesMax.Text;
             timesMin_Text = timesMin.Text;
+            dt_st = DateTime.Parse(st.Value.Date.ToString("yyyy-MM-dd") + " 00:00:00");
+            dt_et = DateTime.Parse(et.Value.Date.ToString("yyyy-MM-dd") + " 23:59:59");
+          
 
             if (m_thread != null && m_thread.IsAlive)
                 m_thread.Abort();
@@ -368,6 +377,11 @@ namespace YouSoftBathBack
                 case Keys.F5:
                     PrintDGV.Print_DataGridView(dgv, "会员分析", false, "");
                     break;
+                case Keys.F6:
+                    toolSms_Click(null, null);
+                    break;
+                    case Keys.F7:
+
                 default:
                     break;
             }

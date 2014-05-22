@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -89,6 +90,7 @@
             this.btnCab = new System.Windows.Forms.ToolStripButton();
             this.seatPanel = new System.Windows.Forms.Panel();
             this.seateTab = new System.Windows.Forms.TabControl();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.statusStrip1.SuspendLayout();
             this.statusStrip2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -613,6 +615,12 @@
             this.seateTab.TabIndex = 9;
             this.seateTab.TabStop = false;
             // 
+            // toolTip1
+            // 
+            this.toolTip1.AutoPopDelay = 5000;
+            this.toolTip1.InitialDelay = 500;
+            this.toolTip1.ReshowDelay = 100;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -707,6 +715,7 @@
         private System.Windows.Forms.Panel seatPanel;
         private System.Windows.Forms.TabControl seateTab;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

@@ -4,14 +4,12 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Collections;
-using System.Data;
-using System.Text;
 using System.Linq;
 using YouSoftBathGeneralClass;
+//using YouSoftBathWatcher;
 using System.Drawing.Printing;
 using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
-using System.IO;
 
 namespace YouSoftBathFormClass
 {
@@ -374,6 +372,7 @@ namespace YouSoftBathFormClass
                 e.MarginBounds.Width).Width) / 2, e.MarginBounds.Top + 
                 e.MarginBounds.Height + 31);
         }
+        
     }
 
     public class PrintReceipt:PrintBill
@@ -557,7 +556,7 @@ namespace YouSoftBathFormClass
         //private static string get_last_print_time()
         //{
         //    var db = new BathDBDataContext(LogIn.connectionString);
-        //    string macAdd = PCUtil.getMacAddr_Local();
+        //    string macAdd = BathClass.getMacAddr_Local();
         //    var printT = db.CashPrintTime.OrderByDescending(x => x.time).FirstOrDefault(x => x.macAdd == macAdd);
 
         //    string lastTime = "";
@@ -578,6 +577,7 @@ namespace YouSoftBathFormClass
         public static int tmpTop;
         public static int PageNo;              // Number of pages to print
         public static Pen DashPen = new Pen(Color.Black, (float)0.8);
+
 
         private static System.Drawing.Printing.PrintDocument printDoc =
                        new System.Drawing.Printing.PrintDocument();  // PrintDocumnet Object used for printing
@@ -689,8 +689,8 @@ namespace YouSoftBathFormClass
 
             foreach (string st in infor)
             {
-                print_str(e, st, 13F, e.MarginBounds.Left, tmpTop);
-                tmpTop += str_h(e, 13F, st);
+                print_str(e, st, 11F, e.MarginBounds.Left, tmpTop);
+                tmpTop += str_h(e, 11F, st);
             }
         }
 
@@ -708,7 +708,7 @@ namespace YouSoftBathFormClass
             cLeft = (e.PageBounds.Width - fsize) / 2;
             print_str(e, subTitle, 15F, cLeft, tmpTop);
             tmpTop += str_h(e, 15F, subTitle);
-            e.Graphics.DrawLine(DashPen, cLeft - fsize / 2, tmpTop + 10, cLeft + fsize * 3 / 2, tmpTop + 10);
+            e.Graphics.DrawLine(DashPen, e.MarginBounds.Left, tmpTop + 10, e.MarginBounds.Right, tmpTop + 10);
             tmpTop += 60;
         }
 
@@ -721,33 +721,33 @@ namespace YouSoftBathFormClass
         //打印页脚
         public static bool print_footer(System.Drawing.Printing.PrintPageEventArgs e)
         {
-            string footer = "杭州连客科技技术支持";
-            if (tmpTop + str_h(e, 12F, footer) >= e.MarginBounds.Height)
+            string footer = "杭州连客科技 电话:186-7006-8930";
+            if (tmpTop + str_h(e, 10F, footer) >= e.MarginBounds.Height)
             {
                 PageNo++;
                 e.HasMorePages = true;
                 return false;
             }
-            int foolLeft = (e.PageBounds.Width - str_w(e, 12F, footer)) / 2;
-            print_str(e, footer, 12F, foolLeft, tmpTop);
-            tmpTop += str_h(e, 12F, footer);
+            int foolLeft = (e.PageBounds.Width - str_w(e, 10F, footer)) / 2;
+            print_str(e, footer, 10F, foolLeft, tmpTop);
+            tmpTop += str_h(e, 10F, footer);
 
-            if (tmpTop + str_h(e, 12F, footer) >= e.MarginBounds.Height)
-            {
-                PageNo++;
-                e.HasMorePages = true;
-                return false;
-            }
-            footer = "TEL:186-7006-8930  188-5719-1220";
-            print_str(e, footer, 12F, e.MarginBounds.Left, tmpTop);
-            tmpTop += str_h(e, 12F, footer);
+            //if (tmpTop + str_h(e, 12F, footer) >= e.MarginBounds.Height)
+            //{
+            //    PageNo++;
+            //    e.HasMorePages = true;
+            //    return false;
+            //}
+            //footer = "TEL:186-7006-8930  188-5719-1220";
+            //print_str(e, footer, 12F, e.MarginBounds.Left, tmpTop);
+            //tmpTop += str_h(e, 12F, footer);
 
-            if (tmpTop + 20 >= e.MarginBounds.Height)
-            {
-                PageNo++;
-                e.HasMorePages = true;
-                return false;
-            }
+            //if (tmpTop + 20 >= e.MarginBounds.Height)
+            //{
+            //    PageNo++;
+            //    e.HasMorePages = true;
+            //    return false;
+            //}
             return true;
         }
 
@@ -1102,8 +1102,10 @@ namespace YouSoftBathFormClass
         {
             //打印标题
             int cLeft = (e.PageBounds.Width - str_w(e, 15F, companyName)) / 2;
-            print_str(e, companyName, 15F, cLeft, tmpTop + 50);
-            tmpTop += str_h(e, 15F, companyName) + 70;
+            //print_str(e, companyName, 15F, cLeft, tmpTop + 50);
+            print_str(e, companyName, 15F, cLeft, tmpTop + 40);
+            //tmpTop += str_h(e, 15F, companyName) + 70;
+            tmpTop += str_h(e, 15F, companyName) + 60;
 
             //打印副标题
             string subTitle = title;
@@ -1111,7 +1113,8 @@ namespace YouSoftBathFormClass
             cLeft = (e.PageBounds.Width - fsize) / 2;
             print_str(e, subTitle, 15F, cLeft, tmpTop);
             tmpTop += str_h(e, 15F, subTitle);
-            e.Graphics.DrawLine(DashPen, cLeft - fsize / 2, tmpTop + 10, cLeft + fsize * 3 / 2, tmpTop + 10);
+            //e.Graphics.DrawLine(DashPen, cLeft - fsize / 2, tmpTop + 10, cLeft + fsize * 3 / 2, tmpTop + 10);
+            e.Graphics.DrawLine(DashPen, e.MarginBounds.Left, tmpTop + 10, e.MarginBounds.Right, tmpTop + 10);
             tmpTop += 60;
         }
 
@@ -1121,37 +1124,37 @@ namespace YouSoftBathFormClass
             e.Graphics.DrawLine(DashPen, e.MarginBounds.Left, y, e.MarginBounds.Right, y);
         }
 
-        //打印页脚
+        //打印页脚    把字体由12F更改为10F
         public static bool print_footer(System.Drawing.Printing.PrintPageEventArgs e)
         {
-            string footer = "杭州连客科技技术支持";
-            if (tmpTop + str_h(e, 12F, footer) >= e.MarginBounds.Height)
+            string footer = "杭州连客科技 电话:186-7006-8930";
+            if (tmpTop + str_h(e, 10F, footer) >= e.MarginBounds.Height)
             {
                 PageNo++;
                 e.HasMorePages = true;
                 return false;
             }
-            int foolLeft = (e.PageBounds.Width - str_w(e, 12F, footer)) / 2;
-            print_str(e, footer, 12F, foolLeft, tmpTop);
-            tmpTop += str_h(e, 12F, footer);
+            int foolLeft = (e.PageBounds.Width - str_w(e, 10F, footer)) / 2;
+            print_str(e, footer, 10F, foolLeft, tmpTop);
+            tmpTop += str_h(e, 10F, footer);
 
-            if (tmpTop + str_h(e, 12F, footer) >= e.MarginBounds.Height)
+            if (tmpTop + str_h(e, 10F, footer) >= e.MarginBounds.Height)
             {
                 PageNo++;
                 e.HasMorePages = true;
                 return false;
             }
-            footer = "TEL:186-7006-8930  188-5719-1220";
-            //foolLeft = (e.PageBounds.Width - str_w(e, 12F, footer)) / 2;
-            print_str(e, footer, 12F, e.MarginBounds.Left, tmpTop);
-            tmpTop += str_h(e, 12F, footer);
+            //footer = "TEL:186-7006-8930  188-5719-1220";
+            ////foolLeft = (e.PageBounds.Width - str_w(e, 12F, footer)) / 2;
+            //print_str(e, footer, 12F, e.MarginBounds.Left, tmpTop);
+            //tmpTop += str_h(e, 12F, footer);
 
-            if (tmpTop + 20 >= e.MarginBounds.Height)
-            {
-                PageNo++;
-                e.HasMorePages = true;
-                return false;
-            }
+            //if (tmpTop + 20 >= e.MarginBounds.Height)
+            //{
+            //    PageNo++;
+            //    e.HasMorePages = true;
+            //    return false;
+            //}
             return true;
         }
 
@@ -1173,19 +1176,29 @@ namespace YouSoftBathFormClass
         public static void print_seat_information(System.Drawing.Printing.PrintPageEventArgs e)
         {
             List<string> infor = new List<string>();
+            List<string> m_rooms=new List<string>();
+            DAO dao = new DAO(LogIn.connectionString);
+            int i = 0;
 
-            string str = "台    号:";
+            //string str = "台    号:";
+            string  str = "台号/房间号:";
             string s_str = "\n         ";
             bool first = true;
             //var sarray = m_Act.text.Split('|').ToArray();
             var sarray = m_seats.Select(x => x.text);
+            foreach ( var s in m_seats)
+            {
+                m_rooms.Add(dao.get_seat_room(s.text));
+            }
             foreach (var t in sarray)
             {
+                
                 if (first)
-                    str += t;
+                    str += t + "  " + m_rooms[i];
                 else
-                    str += s_str + t;
+                    str += s_str + t+ "  " + m_rooms[i];
                 first = false;
+                i++;
             }
 
             //+ string.Join("\n", );
@@ -1200,10 +1213,11 @@ namespace YouSoftBathFormClass
             str = "作业员工:" + LogIn.m_User.name;
             infor.Add(str);
 
+            //字体原来为13F,现在改为11F,更改日期2014-04-15
             foreach (string st in infor)
             {
-                print_str(e, st, 13F, e.MarginBounds.Left, tmpTop);
-                tmpTop += str_h(e, 13F, st);
+                print_str(e, st, 11F, e.MarginBounds.Left, tmpTop);
+                tmpTop += str_h(e, 11F, st);
             }
         }
 
@@ -1213,7 +1227,7 @@ namespace YouSoftBathFormClass
             e.Graphics.DrawString(str, new Font("SimSun", s), Brushes.Black, x, y);
         }
 
-        //打印消费信息
+        //打印消费信息 保存原有字体不变
         public static bool print_expense_information(System.Drawing.Printing.PrintPageEventArgs e)
         {
             int tmpWidth, i;
@@ -1239,13 +1253,15 @@ namespace YouSoftBathFormClass
                     tmpWidth = (int)((double)e.MarginBounds.Width * 0.9 * str_w(e, 10F, GridCol.HeaderText) / (double)TotalWidth);
                     print_str(e, GridCol.HeaderText, 10F, tmpLeft, tmpTop);
 
+
                     ColumnLefts.Add(tmpLeft);
                     tmpLeft += tmpWidth;
                 }
+                //e.Graphics.DrawLine(DashPen, e.MarginBounds.Left, tmpTop, e.MarginBounds.Right, tmpTop);
                 HeaderHeight = str_h(e, 10F, m_dgv.Columns[0].HeaderText);
                 tmpTop += HeaderHeight;
             }
-
+            //e.Graphics.DrawLine(DashPen, e.MarginBounds.Left, tmpTop, e.MarginBounds.Right, tmpTop);
             while (RowPos <= m_dgv.Rows.Count - 1)
             {
                 DataGridViewRow GridRow = m_dgv.Rows[RowPos];
@@ -1301,6 +1317,7 @@ namespace YouSoftBathFormClass
         public static DataGridView m_dgv;
         public static List<string> m_cols;
         private static List<CSeat> m_seats;//结账的手牌
+        private static List<string> m_room; //手牌号对应的房间号
         private static List<int> m_rows;
         private static bool m_printAllRows;
         public static int PageNo;              // Number of pages to print
@@ -1320,7 +1337,8 @@ namespace YouSoftBathFormClass
         private static Dictionary<string, string> card_info;
         #endregion
 
-        public static void Print_DataGridView(List<CSeat> seats, CAccount acctount, string title,
+
+        public static void Print_DataGridView(List<CSeat> seats, List<string> room, CAccount acctount, string title,
             DataGridView dgv, List<string> printCols, bool printAllRows, List<int> printRows, string coName)
         {
             PrintPreviewDialog ppvw;
@@ -1333,6 +1351,7 @@ namespace YouSoftBathFormClass
                     return;
                 }
                 m_seats = seats;
+                m_room = room;
                 m_Act = acctount;
                 m_dgv = dgv;
                 m_cols = printCols;
@@ -1447,7 +1466,8 @@ namespace YouSoftBathFormClass
             //打印标题
             int cLeft = (e.PageBounds.Width - str_w(e, 15F, companyName)) / 2;
             print_str(e, companyName, 15F, cLeft, tmpTop + 50);
-            tmpTop += str_h(e, 15F, companyName) + 70;
+            //tmpTop += str_h(e, 15F, companyName) + 70;
+            tmpTop += str_h(e, 15F, companyName) + 60;
 
             //打印副标题
             string subTitle = title;
@@ -1455,8 +1475,9 @@ namespace YouSoftBathFormClass
             cLeft = (e.PageBounds.Width - fsize) / 2;
             print_str(e, subTitle, 15F, cLeft, tmpTop);
             tmpTop += str_h(e, 15F, subTitle);
-            e.Graphics.DrawLine(DashPen, cLeft - fsize / 2, tmpTop + 10, cLeft + fsize * 3 / 2, tmpTop + 10);
-            tmpTop += 60;
+            //e.Graphics.DrawLine(DashPen, cLeft - fsize / 2, tmpTop + 10, cLeft + fsize * 3 / 2, tmpTop + 10);
+            e.Graphics.DrawLine(DashPen, e.MarginBounds.Left, tmpTop + 10, e.MarginBounds.Right, tmpTop + 10);
+            tmpTop += 30; //高度由原来的60改为30
         }
 
         //打印虚线
@@ -1465,32 +1486,21 @@ namespace YouSoftBathFormClass
             e.Graphics.DrawLine(DashPen, e.MarginBounds.Left, y, e.MarginBounds.Right, y);
         }
 
-        //打印页脚
+        //打印页脚 由12F 改为10F,公司和电话显示在一行上面，删除一个电话号码
         public static bool print_footer(System.Drawing.Printing.PrintPageEventArgs e)
         {
-            string footer = "杭州连客科技技术支持";
-            if (tmpTop + str_h(e, 12F, footer) >= e.MarginBounds.Height)
+            string footer = "杭州连客科技 电话:186-7006-8930";
+            if (tmpTop + str_h(e, 10F, footer) >= e.MarginBounds.Height)
             {
                 PageNo++;
                 e.HasMorePages = true;
                 return false;
             }
-            int foolLeft = (e.PageBounds.Width - str_w(e, 12F, footer)) / 2;
-            print_str(e, footer, 12F, foolLeft, tmpTop);
-            tmpTop += str_h(e, 12F, footer);
+            int foolLeft = (e.PageBounds.Width - str_w(e, 10F, footer)) / 2;
+            print_str(e, footer, 10F, foolLeft, tmpTop);
+            tmpTop += str_h(e, 10F, footer);
 
-            if (tmpTop + str_h(e, 12F, footer) >= e.MarginBounds.Height)
-            {
-                PageNo++;
-                e.HasMorePages = true;
-                return false;
-            }
-            footer = "TEL:186-7006-8930  188-5719-1220";
-            //foolLeft = (e.PageBounds.Width - str_w(e, 12F, footer)) / 2;
-            print_str(e, footer, 12F, e.MarginBounds.Left, tmpTop);
-            tmpTop += str_h(e, 12F, footer);
-
-            if (tmpTop + 20 >= e.MarginBounds.Height)
+            if (tmpTop + str_h(e, 10F, footer) >= e.MarginBounds.Height)
             {
                 PageNo++;
                 e.HasMorePages = true;
@@ -1516,28 +1526,41 @@ namespace YouSoftBathFormClass
         //打印台位基本信息
         public static void print_seat_information(System.Drawing.Printing.PrintPageEventArgs e)
         {
+            DAO dao=new DAO(LogIn.connectionString);
             List<string> infor = new List<string>();
 
             string str = "账 单 号:" + m_Act.id;
             infor.Add(str);
 
-            str = "台    号:";
+            str = "台号/房间号:";
             string s_str = "\n         ";
             bool first = true;
-            //var sarray = m_Act.text.Split('|').ToArray();
+            int i = 0;
             foreach (var t in m_seats)
             {
-                if (first)
-                    str += t.text;
+
+                if (m_room != null)
+                {
+                    if (first)
+                        str += t.text + "  " + m_room[i];
+                    else
+                        str += s_str + t.text + "  " + m_room[i];
+                }
                 else
-                    str += s_str + t.text;
+                {
+                    if (first)
+                        str += t.text ;
+                    else
+                        str += s_str + t.text;
+                }
+                
                 
                 if (t.note != null && t.note.Contains("已留牌"))
                     str += "(已留牌)";
+                i++;
                 first = false;
             }
 
-            //+ string.Join("\n", );
             infor.Add(str);
 
             str = "进店时间:" + m_Act.openTime.Split('|')[0];
@@ -1551,8 +1574,8 @@ namespace YouSoftBathFormClass
 
             foreach (string st in infor)
             {
-                print_str(e, st, 13F, e.MarginBounds.Left, tmpTop);
-                tmpTop += str_h(e, 13F, st);
+                print_str(e, st, 11F, e.MarginBounds.Left, tmpTop);   //原来是13F字体，现在改为11F
+                tmpTop += str_h(e, 11F, st);
             }
         }
 
@@ -1932,6 +1955,7 @@ namespace YouSoftBathFormClass
         #region 成员变量
         private static string printTile = "";
         private static List<CSeat> m_Seats;
+        private static List<string> m_room; //手牌号对应的房间号
         private static string to_seat;//转账到手牌
         //private static int PageNo;              // Number of pages to print
         //private static int TotalWidth;          // Summation of Columns widths
@@ -1945,7 +1969,7 @@ namespace YouSoftBathFormClass
 
         #endregion
 
-        public static void Print_DataGridView(List<CSeat> seats, string _to_seat, string title,
+        public static void Print_DataGridView(List<CSeat> seats, List<string>room,string _to_seat, string title,
             DataGridView dgv, List<string> printCols, string money, string coName)
         {
             PrintPreviewDialog ppvw;
@@ -1960,6 +1984,7 @@ namespace YouSoftBathFormClass
 
                 // Getting DataGridView object to print
                 m_Seats = seats;
+                m_room = room;
                 to_seat = _to_seat;
                 m_dgv = dgv;
                 m_cols = printCols;
@@ -2146,15 +2171,22 @@ namespace YouSoftBathFormClass
             }
             else
             {
-                str = "台    号:";
+                
+                foreach (var s in m_Seats)
+                {
+                    m_room.Add(s.text);
+                }
+                int i = 0;
+                //str = "台    号:";
+                str = "台号/房间号:";
                 string s_str = "\n         ";
                 bool first = true;
                 foreach (var seat in m_Seats)
                 {
                     if (first)
-                        str += seat.text;
+                        str += seat.text+"  "+ m_room[i];
                     else
-                        str += s_str + seat.text;
+                        str += s_str + seat.text + "  " + m_room[i];
                     first = false;
                 }
                 infor.Add(str);
@@ -2172,8 +2204,8 @@ namespace YouSoftBathFormClass
 
             foreach (string st in infor)
             {
-                print_str(e, st, 13F, e.MarginBounds.Left, tmpTop);
-                tmpTop += str_h(e, 13F, st);
+                print_str(e, st, 11F, e.MarginBounds.Left, tmpTop);
+                tmpTop += str_h(e, 11F, st);
             }
         }
     }
@@ -2406,7 +2438,7 @@ namespace YouSoftBathFormClass
             cLeft = (e.MarginBounds.Width - fsize) / 2 - e.MarginBounds.Left;
             print_str(e, subTitle, 15F, cLeft, tmpTop);
             tmpTop += str_h(e, 15F, subTitle);
-            e.Graphics.DrawLine(DashPen, cLeft - fsize / 2, tmpTop + 10, cLeft + fsize * 3 / 2, tmpTop + 10);
+            e.Graphics.DrawLine(DashPen, e.MarginBounds.Left, tmpTop + 10, e.MarginBounds.Right, tmpTop + 10);
             tmpTop += 30;
         }
 
@@ -2419,15 +2451,15 @@ namespace YouSoftBathFormClass
         //打印页脚
         public static void print_footer(System.Drawing.Printing.PrintPageEventArgs e)
         {
-            string footer = "杭州连客科技技术支持";
-            int foolLeft = (e.MarginBounds.Width - str_w(e, 12F, footer)) / 2 - e.MarginBounds.Left;
-            print_str(e, footer, 12F, foolLeft, tmpTop);
-            tmpTop += str_h(e, 12F, footer);
+            string footer = "杭州连客科技 电话:186-7006-8930";
+            int foolLeft = (e.MarginBounds.Width - str_w(e, 10F, footer)) / 2 - e.MarginBounds.Left;
+            print_str(e, footer, 10F, foolLeft, tmpTop);
+            tmpTop += str_h(e, 10F, footer);
 
-            footer = "TEL:186-7006-8930  188-5719-1220";
-            foolLeft = (e.MarginBounds.Width - str_w(e, 12F, footer)) / 2 - e.MarginBounds.Left;
-            print_str(e, footer, 12F, foolLeft, tmpTop);
-            tmpTop += str_h(e, 20F, footer);
+            //footer = "TEL:186-7006-8930  188-5719-1220";
+            //foolLeft = (e.MarginBounds.Width - str_w(e, 12F, footer)) / 2 - e.MarginBounds.Left;
+            //print_str(e, footer, 12F, foolLeft, tmpTop);
+            //tmpTop += str_h(e, 20F, footer);
 
             footer = "";
             print_str(e, footer, 20F, foolLeft, tmpTop);
@@ -2452,8 +2484,8 @@ namespace YouSoftBathFormClass
         {
             string str = "收银员: " + m_employee;
             int h = str_h(e, 13F, str);
-            e.Graphics.DrawRectangle(Pens.Black,
-                new Rectangle(e.MarginBounds.Left, tmpTop, (int)(e.MarginBounds.Width * 0.9), h * 2));
+            //e.Graphics.DrawRectangle(Pens.Black,
+            //    new Rectangle(e.MarginBounds.Left, tmpTop, (int)(e.MarginBounds.Width * 0.9), h * 2));
 
             print_str(e, str, 13F, e.MarginBounds.Left, tmpTop);
             tmpTop += h;
@@ -2576,7 +2608,7 @@ namespace YouSoftBathFormClass
             cLeft = (e.MarginBounds.Width - fsize) / 2 - e.MarginBounds.Left;
             print_str(e, subTitle, 15F, cLeft, tmpTop);
             tmpTop += str_h(e, 15F, subTitle);
-            e.Graphics.DrawLine(DashPen, cLeft - fsize / 2, tmpTop + 10, cLeft + fsize * 3 / 2, tmpTop + 10);
+            e.Graphics.DrawLine(DashPen, e.MarginBounds.Left, tmpTop + 10,e.MarginBounds.Right, tmpTop + 10);
             tmpTop += 30;
         }
 
@@ -2589,15 +2621,15 @@ namespace YouSoftBathFormClass
         //打印页脚
         public static void print_footer(System.Drawing.Printing.PrintPageEventArgs e)
         {
-            string footer = "杭州连客科技技术支持";
-            int foolLeft = (e.MarginBounds.Width - str_w(e, 12F, footer)) / 2 - e.MarginBounds.Left;
-            print_str(e, footer, 12F, foolLeft, tmpTop);
-            tmpTop += str_h(e, 12F, footer);
+            string footer = "杭州连客科技 电话:186-7006-8930";
+            int foolLeft = (e.MarginBounds.Width - str_w(e, 10F, footer)) / 2 - e.MarginBounds.Left;
+            print_str(e, footer, 10F, foolLeft, tmpTop);
+            tmpTop += str_h(e, 10F, footer);
 
-            footer = "TEL:186-7006-8930  188-5719-1220";
-            foolLeft = (e.MarginBounds.Width - str_w(e, 12F, footer)) / 2 - e.MarginBounds.Left;
-            print_str(e, footer, 12F, foolLeft, tmpTop);
-            tmpTop += str_h(e, 20F, footer);
+            //footer = "TEL:186-7006-8930  188-5719-1220";
+            //foolLeft = (e.MarginBounds.Width - str_w(e, 12F, footer)) / 2 - e.MarginBounds.Left;
+            //print_str(e, footer, 12F, foolLeft, tmpTop);
+            //tmpTop += str_h(e, 20F, footer);
 
             footer = "";
             print_str(e, footer, 20F, foolLeft, tmpTop);
@@ -2785,7 +2817,7 @@ namespace YouSoftBathFormClass
             cLeft = (e.MarginBounds.Width - fsize) / 2 - e.MarginBounds.Left;
             print_str(e, subTitle, 15F, cLeft, tmpTop);
             tmpTop += str_h(e, 15F, subTitle);
-            e.Graphics.DrawLine(DashPen, cLeft - fsize / 2, tmpTop + 10, cLeft + fsize * 3 / 2, tmpTop + 10);
+            e.Graphics.DrawLine(DashPen, e.MarginBounds.Left, tmpTop + 10, e.MarginBounds.Right, tmpTop + 10);
             tmpTop += 30;
         }
 
@@ -2798,15 +2830,15 @@ namespace YouSoftBathFormClass
         //打印页脚
         public static void print_footer(System.Drawing.Printing.PrintPageEventArgs e)
         {
-            string footer = "杭州连客科技技术支持";
-            int foolLeft = (e.MarginBounds.Width - str_w(e, 12F, footer)) / 2 - e.MarginBounds.Left;
-            print_str(e, footer, 12F, foolLeft, tmpTop);
-            tmpTop += str_h(e, 12F, footer);
+            string footer = "杭州连客科技 电话:186-7006-8930";
+            int foolLeft = (e.MarginBounds.Width - str_w(e, 10F, footer)) / 2 - e.MarginBounds.Left;
+            print_str(e, footer, 10F, foolLeft, tmpTop);
+            tmpTop += str_h(e, 10F, footer);
 
-            footer = "TEL:186-7006-8930  188-5719-1220";
-            foolLeft = (e.MarginBounds.Width - str_w(e, 12F, footer)) / 2 - e.MarginBounds.Left;
-            print_str(e, footer, 12F, foolLeft, tmpTop);
-            tmpTop += str_h(e, 20F, footer);
+            //footer = "TEL:186-7006-8930  188-5719-1220";
+            //foolLeft = (e.MarginBounds.Width - str_w(e, 12F, footer)) / 2 - e.MarginBounds.Left;
+            //print_str(e, footer, 12F, foolLeft, tmpTop);
+            //tmpTop += str_h(e, 20F, footer);
 
             footer = "";
             print_str(e, footer, 20F, foolLeft, tmpTop);
@@ -2987,7 +3019,7 @@ namespace YouSoftBathFormClass
             cLeft = (e.MarginBounds.Width - fsize) / 2 - e.MarginBounds.Left;
             print_str(e, subTitle, 15F, cLeft, tmpTop);
             tmpTop += str_h(e, 15F, subTitle);
-            e.Graphics.DrawLine(DashPen, cLeft - fsize / 2, tmpTop + 10, cLeft + fsize * 3 / 2, tmpTop + 10);
+            e.Graphics.DrawLine(DashPen, e.MarginBounds.Left, tmpTop + 10, e.MarginBounds.Right, tmpTop + 10);
             tmpTop += 30;
         }
 
@@ -3000,15 +3032,15 @@ namespace YouSoftBathFormClass
         //打印页脚
         public static void print_footer(System.Drawing.Printing.PrintPageEventArgs e)
         {
-            string footer = "杭州连客科技技术支持";
-            int foolLeft = (e.MarginBounds.Width - str_w(e, 12F, footer)) / 2 - e.MarginBounds.Left;
-            print_str(e, footer, 12F, foolLeft, tmpTop);
-            tmpTop += str_h(e, 12F, footer);
+            string footer = "杭州连客科技 电话:186-7006-8930";
+            int foolLeft = (e.MarginBounds.Width - str_w(e, 10F, footer)) / 2 - e.MarginBounds.Left;
+            print_str(e, footer, 10F, foolLeft, tmpTop);
+            tmpTop += str_h(e, 10F, footer);
 
-            footer = "TEL:186-7006-8930  188-5719-1220";
-            foolLeft = (e.MarginBounds.Width - str_w(e, 12F, footer)) / 2 - e.MarginBounds.Left;
-            print_str(e, footer, 12F, foolLeft, tmpTop);
-            tmpTop += str_h(e, 20F, footer);
+            //footer = "TEL:186-7006-8930  188-5719-1220";
+            //foolLeft = (e.MarginBounds.Width - str_w(e, 12F, footer)) / 2 - e.MarginBounds.Left;
+            //print_str(e, footer, 12F, foolLeft, tmpTop);
+            //tmpTop += str_h(e, 20F, footer);
 
             footer = "";
             print_str(e, footer, 20F, foolLeft, tmpTop);
@@ -3032,8 +3064,8 @@ namespace YouSoftBathFormClass
         public static void print_pay_information(System.Drawing.Printing.PrintPageEventArgs e)
         {
             string str = "打印时间: " + DateTime.Now.ToString();
-            print_str(e, str, 13F, e.MarginBounds.Left, tmpTop);
-            tmpTop += str_h(e, 13F, str);
+            print_str(e, str, 11F, e.MarginBounds.Left, tmpTop);
+            tmpTop += str_h(e, 11F, str);
         }
 
         //打印字符串

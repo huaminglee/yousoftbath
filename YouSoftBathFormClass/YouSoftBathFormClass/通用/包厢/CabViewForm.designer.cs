@@ -40,6 +40,9 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtBoxRoomId = new System.Windows.Forms.TextBox();
+            this.btnGetSeatIdByRoomNo = new System.Windows.Forms.Button();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -83,7 +86,7 @@
             // btnFind
             // 
             this.btnFind.AutoSize = true;
-            this.btnFind.Location = new System.Drawing.Point(225, 15);
+            this.btnFind.Location = new System.Drawing.Point(225, 16);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(85, 51);
             this.btnFind.TabIndex = 3;
@@ -95,7 +98,7 @@
             // btnExit
             // 
             this.btnExit.AutoSize = true;
-            this.btnExit.Location = new System.Drawing.Point(316, 15);
+            this.btnExit.Location = new System.Drawing.Point(775, 16);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(85, 51);
             this.btnExit.TabIndex = 3;
@@ -115,7 +118,10 @@
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.Control;
             this.splitContainer1.Panel1.Controls.Add(this.btnExit);
+            this.splitContainer1.Panel1.Controls.Add(this.btnGetSeatIdByRoomNo);
+            this.splitContainer1.Panel1.Controls.Add(this.txtBoxRoomId);
             this.splitContainer1.Panel1.Controls.Add(this.btnFind);
+            this.splitContainer1.Panel1.Controls.Add(this.label3);
             this.splitContainer1.Panel1.Controls.Add(this.seatId);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
@@ -162,6 +168,35 @@
             this.toolStripStatusLabel3.Size = new System.Drawing.Size(86, 24);
             this.toolStripStatusLabel3.Text = "    满住    ";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(392, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 16);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "房间号";
+            // 
+            // txtBoxRoomId
+            // 
+            this.txtBoxRoomId.Location = new System.Drawing.Point(454, 28);
+            this.txtBoxRoomId.Name = "txtBoxRoomId";
+            this.txtBoxRoomId.Size = new System.Drawing.Size(122, 26);
+            this.txtBoxRoomId.TabIndex = 2;
+            this.txtBoxRoomId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.seatId_KeyDown);
+            // 
+            // btnGetSeatIdByRoomNo
+            // 
+            this.btnGetSeatIdByRoomNo.AutoSize = true;
+            this.btnGetSeatIdByRoomNo.Location = new System.Drawing.Point(595, 16);
+            this.btnGetSeatIdByRoomNo.Name = "btnGetSeatIdByRoomNo";
+            this.btnGetSeatIdByRoomNo.Size = new System.Drawing.Size(85, 51);
+            this.btnGetSeatIdByRoomNo.TabIndex = 3;
+            this.btnGetSeatIdByRoomNo.TabStop = false;
+            this.btnGetSeatIdByRoomNo.Text = "查询";
+            this.btnGetSeatIdByRoomNo.UseVisualStyleBackColor = true;
+            this.btnGetSeatIdByRoomNo.Click += new System.EventHandler(this.btnGetSeatIdByRoomNo_Click);
+            // 
             // CabViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -207,6 +242,9 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private System.Windows.Forms.Button btnGetSeatIdByRoomNo;
+        private System.Windows.Forms.TextBox txtBoxRoomId;
+        private System.Windows.Forms.Label label3;
 
 
     }

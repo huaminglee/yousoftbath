@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreprintBillForm));
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rBtnTechDetails = new System.Windows.Forms.RadioButton();
+            this.rBtnTechAll = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.seatBox = new System.Windows.Forms.TextBox();
             this.rBtnSeat = new System.Windows.Forms.RadioButton();
@@ -41,8 +43,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
-            this.rBtnTechAll = new System.Windows.Forms.RadioButton();
-            this.rBtnTechDetails = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +72,26 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "方式选择";
+            // 
+            // rBtnTechDetails
+            // 
+            this.rBtnTechDetails.AutoSize = true;
+            this.rBtnTechDetails.Location = new System.Drawing.Point(11, 252);
+            this.rBtnTechDetails.Name = "rBtnTechDetails";
+            this.rBtnTechDetails.Size = new System.Drawing.Size(188, 22);
+            this.rBtnTechDetails.TabIndex = 3;
+            this.rBtnTechDetails.Text = "预打技师对账单明细";
+            this.rBtnTechDetails.UseVisualStyleBackColor = true;
+            // 
+            // rBtnTechAll
+            // 
+            this.rBtnTechAll.AutoSize = true;
+            this.rBtnTechAll.Location = new System.Drawing.Point(11, 207);
+            this.rBtnTechAll.Name = "rBtnTechAll";
+            this.rBtnTechAll.Size = new System.Drawing.Size(188, 22);
+            this.rBtnTechAll.TabIndex = 3;
+            this.rBtnTechAll.Text = "预打技师对账单汇总";
+            this.rBtnTechAll.UseVisualStyleBackColor = true;
             // 
             // label2
             // 

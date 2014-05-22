@@ -229,8 +229,13 @@ namespace YouSoftBathBack
                                 string str = Cel.Value==null?"":Cel.Value.ToString();
                                 e.Graphics.DrawString(str, new Font("SimSun", font_size), 
                                         new SolidBrush(Cel.InheritedStyle.ForeColor),
-                                        new RectangleF((int)ColumnLefts[i], (float)tmpTop,
-                                        (int)ColumnWidths[i], (float)HeaderHeight), StrFormat);
+                                        new RectangleF((int)(ColumnLefts[i]), (float)tmpTop,
+                                        (int)ColumnWidths[i], (float)CellHeight), StrFormat);
+                                //e.Graphics.DrawString(str, new Font("SimSun", font_size),
+                                //      new SolidBrush(Cel.InheritedStyle.ForeColor),
+                                //      new RectangleF((int)(ColumnLefts[i]), (float)tmpTop,
+                                //      (int)ColumnWidths[i], (float)HeaderHeight), StrFormat);
+                                
                             }
                             // For the CheckBox Column
                             else if (((Type) ColumnTypes[i]).Name == "DataGridViewCheckBoxColumn")

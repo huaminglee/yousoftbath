@@ -106,8 +106,25 @@ namespace YouSoftBathReception
         private delegate void no_par_delegate();
         private void initial_ui()
         {
-            CFormCreate.createSeatByDao(dao, LogIn.options, seatPanel, seatTab, new EventHandler(btn_Click), seatContext, "桑拿部");
+            CFormCreate.createSeatByDao(dao, LogIn.options, seatPanel, seatTab, new EventHandler(btn_Click),new EventHandler(btn_MouseHover), seatContext, null);
             setStatus();
+        }
+
+        private void btn_MouseHover(object sender, EventArgs e)
+        {
+            BathDBDataContext db = new BathDBDataContext(LogIn.connectionString);
+            Button btn = (Button)sender;
+            string tooltipmessage = "";
+            string seatId = btn.Text;
+            string roomNo = dao.get_seat_room(seatId);
+            var openTime = db.Seat.FirstOrDefault(x => x.text == seatId).openTime;
+            if (roomNo == "")
+            {
+                roomNo = "未开房!";
+            }
+            tooltipmessage = "   房间号:" + roomNo + "\n";
+            tooltipmessage += "入场时间:" + openTime;
+            toolTip1.SetToolTip(btn, tooltipmessage);     
         }
 
         //刷新线程
@@ -1122,6 +1139,11 @@ namespace YouSoftBathReception
                     state_str += " or ";
             }
             var seats_reprint = dao.get_seats(state_str);
+            List<string> m_rooms = new List<string>();
+            foreach (var s in seats_reprint)
+            {
+                m_rooms.Add(dao.get_seat_room(s.text));
+            }
 
             DataGridView dgv = new DataGridView();
 
@@ -1217,7 +1239,7 @@ namespace YouSoftBathReception
                             }
                         }
                     }
-                    PrintBill.Print_DataGridView(seats_reprint, account, "存根单", dgv, printCols, true, null, co_name);
+                    PrintBill.Print_DataGridView(seats_reprint, m_rooms,account, "存根单", dgv, printCols, true, null, co_name);
                 }
                 catch (System.Exception ex)
                 {
@@ -1288,8 +1310,12 @@ namespace YouSoftBathReception
 
                     List<CSeat> seats = new List<CSeat>();
                     seats.Add(seat);
+                    foreach (var s in seats)
+                    {
+                        m_rooms.Add(dao.get_seat_room(s.text));
+                    }
 
-                    PrintSeatBill.Print_DataGridView(seats, "", "转账确认单", dgv, printCols, money.ToString(), co_name);
+                    PrintSeatBill.Print_DataGridView(seats, m_rooms,"", "转账确认单", dgv, printCols, money.ToString(), co_name);
                 }
                 catch (System.Exception ex)
                 {

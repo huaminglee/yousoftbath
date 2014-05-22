@@ -143,6 +143,8 @@ namespace YouSoftBathReception
                 dgv.Rows.Add(row);
             }
             List<string> printCols = new List<string>();
+            List<string> m_rooms = new List<string>();
+            printCols.Add("包厢");
             printCols.Add("手牌");
             printCols.Add("项目名称");
             printCols.Add("技师");
@@ -153,14 +155,19 @@ namespace YouSoftBathReception
             List<CSeat> seats = new List<CSeat>();
             var dao = new DAO(LogIn.connectionString);
             seats.Add(dao.get_seat("text='" + seat.text + "'"));
+            foreach (var s in seats)
+            {
+                m_rooms.Add(dao.get_seat_room(s.text));
+            }
 
-            PrintSeatBill.Print_DataGridView(seats, null, "预打账单", dgv, printCols, money_pay.ToString(),
+            PrintSeatBill.Print_DataGridView(seats,m_rooms, null, "预打账单", dgv, printCols, money_pay.ToString(),
                 LogIn.options.companyName);
         }
 
         private void seatBox_Enter(object sender, EventArgs e)
         {
             BathClass.change_input_en();
+            rBtnSeat.Checked = true;
         }
     }
 }

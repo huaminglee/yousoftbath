@@ -53,6 +53,9 @@
             this.btnFind = new System.Windows.Forms.Button();
             this.seatId = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnGetSeatIdByRoomNo = new System.Windows.Forms.Button();
+            this.txtBoxRoomId = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.statusStrip2.SuspendLayout();
             this.sp.Panel1.SuspendLayout();
@@ -204,6 +207,9 @@
             // sp.Panel1
             // 
             this.sp.Panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.sp.Panel1.Controls.Add(this.btnGetSeatIdByRoomNo);
+            this.sp.Panel1.Controls.Add(this.txtBoxRoomId);
+            this.sp.Panel1.Controls.Add(this.label3);
             this.sp.Panel1.Controls.Add(this.btnExit);
             this.sp.Panel1.Controls.Add(this.btnFind);
             this.sp.Panel1.Controls.Add(this.seatId);
@@ -222,7 +228,7 @@
             // btnExit
             // 
             this.btnExit.AutoSize = true;
-            this.btnExit.Location = new System.Drawing.Point(313, 13);
+            this.btnExit.Location = new System.Drawing.Point(809, 10);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(85, 51);
             this.btnExit.TabIndex = 6;
@@ -258,6 +264,34 @@
             this.label2.Size = new System.Drawing.Size(56, 16);
             this.label2.TabIndex = 4;
             this.label2.Text = "手牌号";
+            // 
+            // btnGetSeatIdByRoomNo
+            // 
+            this.btnGetSeatIdByRoomNo.AutoSize = true;
+            this.btnGetSeatIdByRoomNo.Location = new System.Drawing.Point(601, 14);
+            this.btnGetSeatIdByRoomNo.Name = "btnGetSeatIdByRoomNo";
+            this.btnGetSeatIdByRoomNo.Size = new System.Drawing.Size(85, 51);
+            this.btnGetSeatIdByRoomNo.TabIndex = 10;
+            this.btnGetSeatIdByRoomNo.TabStop = false;
+            this.btnGetSeatIdByRoomNo.Text = "查询";
+            this.btnGetSeatIdByRoomNo.UseVisualStyleBackColor = true;
+            this.btnGetSeatIdByRoomNo.Click += new System.EventHandler(this.btnGetSeatIdByRoomNo_Click);
+            // 
+            // txtBoxRoomId
+            // 
+            this.txtBoxRoomId.Location = new System.Drawing.Point(460, 26);
+            this.txtBoxRoomId.Name = "txtBoxRoomId";
+            this.txtBoxRoomId.Size = new System.Drawing.Size(122, 26);
+            this.txtBoxRoomId.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(398, 31);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 16);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "房间号";
             // 
             // RoomViewForm
             // 
@@ -319,5 +353,8 @@
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.TextBox seatId;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnGetSeatIdByRoomNo;
+        private System.Windows.Forms.TextBox txtBoxRoomId;
+        private System.Windows.Forms.Label label3;
     }
 }

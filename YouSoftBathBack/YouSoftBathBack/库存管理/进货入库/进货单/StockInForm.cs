@@ -16,13 +16,15 @@ namespace YouSoftBathBack
     {
         //成员变量
         private BathDBDataContext db = null;
-        private IntoStockManagementForm m_Form;
+        //private IntoStockManagementForm m_Form;
+        private double totalmoney = 0;
 
         //构造函数
-        public StockInForm(BathDBDataContext dc, IntoStockManagementForm form)
+        //public StockInForm(BathDBDataContext dc, IntoStockManagementForm form)
+        public StockInForm(BathDBDataContext dc)
         {
             db = dc;
-            m_Form = form;
+            //m_Form = form;
             InitializeComponent();
             stock.Items.AddRange(db.Stock.Select(x => x.name).ToArray());
             provider.Items.AddRange(db.Provider.Select(x => x.name).ToArray());
@@ -34,12 +36,14 @@ namespace YouSoftBathBack
             transactor.Items.AddRange(employees.Select(x => x.name).ToArray());
         }
 
+     
         //对话框载入
         private void EmployeeForm_Load(object sender, EventArgs e)
         {
             checker.Text = LogIn.m_User.name;
             transactor.Text = LogIn.m_User.name;
-            name.Enabled = false;
+            //name.Enabled = false;
+            
         }
 
         //确定
@@ -75,31 +79,35 @@ namespace YouSoftBathBack
                 return;
             }
 
-            if (money.Text.Trim() == "")
-            {
-                BathClass.printErrorMsg("需要输入金额");
-                return;
-            }
 
             if (provider.Text.Trim() == "")
             {
                 BathClass.printErrorMsg("需要选择供应商!");
                 return;
             }
+            //money.Text = (Convert.ToDouble(amount.Text) * Convert.ToDouble(cost.Text)).ToString();
             StockIn inStock = new StockIn();
             inStock.name = name.Text;
             if (cost.Text != "")
                 inStock.cost = Convert.ToDouble(cost.Text);
+            if (amount.Text.Trim()!="")            
             inStock.amount = Convert.ToDouble(amount.Text);
-            if (unit.Text != "")
+            if (unit.Text.Trim() != "")
                 inStock.unit = unit.Text;
+            if (db.Unit.Where(x=>x.name==unit.Text.Trim()).Count()==0)
+            {
+                Unit u = new Unit();
+                u.name = unit.Text.Trim();
+                db.Unit.InsertOnSubmit(u);
+                db.SubmitChanges();
+            }
 
             inStock.stockId = db.Stock.FirstOrDefault(x => x.name == stock.Text).id;
             inStock.note = note.Text;
-            inStock.date = DateTime.Now;
+            inStock.date = dtPickerIntoStock.Value;
             inStock.transactor = transactor.Text;
             inStock.checker = checker.Text;
-            inStock.money = Convert.ToDouble(money.Text);
+            inStock.money = totalmoney;
 
             var p = db.Provider.FirstOrDefault(x => x.name == provider.Text.Trim());
             if (p==null)
@@ -109,31 +117,31 @@ namespace YouSoftBathBack
                 var form = new ProviderForm(db, p);
                 if (form.ShowDialog() != DialogResult.OK)
                     return;
-
                 db.Provider.InsertOnSubmit(p);
                 db.SubmitChanges();
             }
             inStock.providerId = p.id;
             db.StockIn.InsertOnSubmit(inStock);
-
-            //if (provider.Text != "" && db.Unit.FirstOrDefault(x=>x.name==provider.Text) == null)
-            //{
-            //    Unit ut = new Unit();
-            //    ut.name = provider.Text;
-            //    db.Unit.InsertOnSubmit(ut);
-            //}
-
-            name.SelectedIndex = -1;
-            cost.Text = "";
-            amount.Text = "";
-            stock.SelectedIndex = -1;
-            checker.SelectedIndex = -1;
-            transactor.SelectedIndex = -1;
-            note.Text = "";
-            money.Text = "";
-            name.Focus();
             db.SubmitChanges();
-            m_Form.dgv_show();
+
+            this.DialogResult=DialogResult.OK;
+
+
+            //name.SelectedIndex = -1;
+            //cost.Text = "";
+            //amount.Text = "";
+            //stock.SelectedIndex = -1;
+            ////checker.SelectedIndex = -1;
+            ////transactor.SelectedIndex = -1;
+            //checker.Text = LogIn.m_User.name;
+            //transactor.Text = LogIn.m_User.name;
+            //note.Text = "";
+            //money.Text = "";
+            //name.Focus();
+            
+            //m_Form.dgv_show();
+
+            //this.DialogResult == DialogResult.OK;
         }
 
         //绑定快捷键
@@ -160,7 +168,9 @@ namespace YouSoftBathBack
 
         private void amount_KeyPress(object sender, KeyPressEventArgs e)
         {
-            BathClass.only_allow_int(e);
+            TextBox txtBox = (TextBox)sender;
+            //BathClass.only_allow_int(e);
+            BathClass.only_allow_float(txtBox, e);
         }
 
         private void name_Enter(object sender, EventArgs e)
@@ -185,6 +195,48 @@ namespace YouSoftBathBack
 
             name.Enabled = true;
             name.Items.AddRange(db.StorageList.Where(x=>x.goodsCatId==goods_cat.id).Select(x=>x.name).ToArray());
+        }
+
+        private void cost_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                double _amout = Convert.ToDouble(amount.Text);
+               double _cost = Convert.ToDouble(cost.Text);
+               totalmoney = _amout * _cost;
+               money.Text = totalmoney.ToString();
+            }
+            catch (System.Exception ex)
+            {
+                 
+            }
+        }
+
+        private void money_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                totalmoney = Convert.ToDouble(money.Text);
+                //MessageBox.Show(totalmoney.ToString());
+            }
+            catch (System.Exception ex)
+            {
+            	
+            }
+        }
+
+        private void name_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedUnit = db.StockIn.FirstOrDefault(x => x.name == name.Text);
+            if (selectedUnit != null)
+                unit.Text = selectedUnit.unit;
+            else
+                unit.Text = "";
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

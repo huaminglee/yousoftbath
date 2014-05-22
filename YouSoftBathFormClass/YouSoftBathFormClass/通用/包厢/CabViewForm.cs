@@ -204,6 +204,26 @@ namespace YouSoftBathFormClass
                 BathClass.printInformation("手牌:" + t + "，在房间：" + room.name);
             }
         }
+        private void btnGetSeatIdByRoomNo_Click(object sender, EventArgs e)
+        {
+            string RoomID=txtBoxRoomId.Text;
+            if (RoomID=="")
+            {
+                BathClass.printWarningMsg("需要输入房间号!");
+                return;
+            }
+            var db = new BathDBDataContext(LogIn.connectionString);
+            string seatID = db.Room.FirstOrDefault(x => x.name == RoomID).seat;
+            if (seatID == "" || seatId == null)
+            {
+                BathClass.printErrorMsg("该房间号不存在，请重新输入!");
+                return;
+            }
+            else
+                BathClass.printInformation(seatID);
+
+
+        }
 
         private void seatId_KeyDown(object sender, KeyEventArgs e)
         {

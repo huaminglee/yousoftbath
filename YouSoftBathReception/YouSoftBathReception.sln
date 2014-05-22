@@ -39,8 +39,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntereekBathWeChat", "..\In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouSoftUtil", "..\YouSoftUtil\YouSoftUtil\YouSoftUtil.csproj", "{21FD7E1A-F99D-4AC4-9EAF-589E4CB1355F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouSoftWXCoupon", "..\YouSoftWXCoupon\YouSoftWXCoupon\YouSoftWXCoupon.csproj", "{15775800-F31C-4983-9AE5-37CE303505F0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntereekBathBackService", "..\IntereekBathBackService\IntereekBathBackService\IntereekBathBackService.csproj", "{4F8A5277-CC1F-4E1D-93E0-653EB48A935F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouSoftBathConstants", "..\YouSoftBathConstants\YouSoftBathConstants\YouSoftBathConstants.csproj", "{1067C596-E185-4A2E-8EFC-54D09FC79AFD}"
@@ -127,10 +125,6 @@ Global
 		{21FD7E1A-F99D-4AC4-9EAF-589E4CB1355F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21FD7E1A-F99D-4AC4-9EAF-589E4CB1355F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21FD7E1A-F99D-4AC4-9EAF-589E4CB1355F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{15775800-F31C-4983-9AE5-37CE303505F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{15775800-F31C-4983-9AE5-37CE303505F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{15775800-F31C-4983-9AE5-37CE303505F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{15775800-F31C-4983-9AE5-37CE303505F0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4F8A5277-CC1F-4E1D-93E0-653EB48A935F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4F8A5277-CC1F-4E1D-93E0-653EB48A935F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F8A5277-CC1F-4E1D-93E0-653EB48A935F}.Release|Any CPU.ActiveCfg = Release|Any CPU
