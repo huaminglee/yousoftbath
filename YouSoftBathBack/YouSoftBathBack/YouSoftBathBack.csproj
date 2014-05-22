@@ -1,0 +1,1051 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{76DD60E6-093B-4635-AE22-56F21025038E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YouSoftBathBack</RootNamespace>
+    <AssemblyName>咱家店小二-后台</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>y-icon2a.ico</ApplicationIcon>
+    <TargetZone>LocalIntranet</TargetZone>
+    <GenerateManifests>false</GenerateManifests>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="MsgPanel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="会员管理\会员分析\会员消费项目分析\MemberItemChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="会员管理\会员分析\会员消费项目分析\MemberItemChart.Designer.cs">
+      <DependentUpon>MemberItemChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="会员管理\会员分析\短信发送状态\SmsMsgForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="会员管理\会员分析\短信发送状态\SmsMsgForm.Designer.cs">
+      <DependentUpon>SmsMsgForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="会员管理\会员分析\短信猫设置\SmsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="会员管理\会员分析\短信猫设置\SmsForm.Designer.cs">
+      <DependentUpon>SmsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="会员管理\会员卡充值优惠\CardPopSaleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="会员管理\会员卡充值优惠\CardPopSaleForm.Designer.cs">
+      <DependentUpon>CardPopSaleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="会员管理\会员卡充值优惠\添加优惠方案\CardPopForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="会员管理\会员卡充值优惠\添加优惠方案\CardPopForm.Designer.cs">
+      <DependentUpon>CardPopForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="会员管理\会员卡充值统计\详细信息\CardSaleDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="会员管理\会员卡充值统计\详细信息\CardSaleDetailsForm.Designer.cs">
+      <DependentUpon>CardSaleDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="会员管理\会员卡管理\消费详情\MemberDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="会员管理\会员卡管理\消费详情\MemberDetailsForm.Designer.cs">
+      <DependentUpon>MemberDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="会员管理\会员卡管理\编辑会员信息\EditMemberForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="会员管理\会员卡管理\编辑会员信息\EditMemberForm.designer.cs">
+      <DependentUpon>EditMemberForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="会员管理\库入库\OpenCardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="会员管理\库入库\OpenCardForm.designer.cs">
+      <DependentUpon>OpenCardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="会员管理\库入库\会员卡\CardPortBaudForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="会员管理\库入库\会员卡\CardPortBaudForm.Designer.cs">
+      <DependentUpon>CardPortBaudForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="会员管理\库入库\会员卡\IC.cs" />
+    <Compile Include="会员管理\库入库\会员卡\IC4442.cs" />
+    <Compile Include="会员管理\库入库\会员卡\ICCard.cs" />
+    <Compile Include="会员管理\库入库\会员卡\ICRF.cs" />
+    <Compile Include="前台-系统\开牌界面\ReceptionSeatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台-系统\开牌界面\ReceptionSeatForm.designer.cs">
+      <DependentUpon>ReceptionSeatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基础档案管理\服务档案管理\WaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础档案管理\服务档案管理\WaitForm.Designer.cs">
+      <DependentUpon>WaitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基础档案管理\服务档案管理\WaitManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础档案管理\服务档案管理\WaitManagementForm.Designer.cs">
+      <DependentUpon>WaitManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基础档案管理\部门日志管理\发表新帖\NewPostForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础档案管理\部门日志管理\发表新帖\NewPostForm.designer.cs">
+      <DependentUpon>NewPostForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基础档案管理\部门日志管理\发表新帖\ModifyPictureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础档案管理\部门日志管理\发表新帖\ModifyPictureForm.designer.cs">
+      <DependentUpon>ModifyPictureForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基础档案管理\部门日志管理\日志管理\时间限定\DaysLimitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础档案管理\部门日志管理\日志管理\时间限定\DaysLimitForm.designer.cs">
+      <DependentUpon>DaysLimitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基础档案管理\部门日志管理\部门\DepartmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础档案管理\部门日志管理\部门\DepartmentForm.designer.cs">
+      <DependentUpon>DepartmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基础档案管理\部门日志管理\日志管理\DepartLogMgForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础档案管理\部门日志管理\日志管理\DepartLogMgForm.designer.cs">
+      <DependentUpon>DepartLogMgForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基础档案管理\项目管理\MenuManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础档案管理\项目管理\MenuManagementForm.designer.cs">
+      <DependentUpon>MenuManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="库存管理\仓库设定\StockSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="库存管理\仓库设定\StockSettingForm.Designer.cs">
+      <DependentUpon>StockSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="库存管理\仓库设定\仓库\StockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="库存管理\仓库设定\仓库\StockForm.Designer.cs">
+      <DependentUpon>StockForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="库存管理\供应商管理\供应商\ProviderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="库存管理\供应商管理\供应商\ProviderForm.Designer.cs">
+      <DependentUpon>ProviderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="库存管理\供应商管理\供应商付款\ProviderPaysForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="库存管理\供应商管理\供应商付款\ProviderPaysForm.Designer.cs">
+      <DependentUpon>ProviderPaysForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="库存管理\库存参数设定\StockOptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="库存管理\库存参数设定\StockOptionsForm.Designer.cs">
+      <DependentUpon>StockOptionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="库存管理\库存商品\库存商品\GoodsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="库存管理\库存商品\库存商品\GoodsForm.Designer.cs">
+      <DependentUpon>GoodsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="库存管理\库存商品\库存商品类别\GoodsCatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="库存管理\库存商品\库存商品类别\GoodsCatForm.Designer.cs">
+      <DependentUpon>GoodsCatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="库存管理\盘点清册\StockTakeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="库存管理\盘点清册\StockTakeForm.designer.cs">
+      <DependentUpon>StockTakeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="库存管理\盘点清册\完成盘点\PanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="库存管理\盘点清册\完成盘点\PanForm.designer.cs">
+      <DependentUpon>PanForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="库存管理\供应商管理\ProviderMgForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="库存管理\供应商管理\ProviderMgForm.Designer.cs">
+      <DependentUpon>ProviderMgForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="库存管理\调货出货\TransferStockMangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="库存管理\调货出货\TransferStockMangeForm.designer.cs">
+      <DependentUpon>TransferStockMangeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="库存管理\调货出货\出货单\StockOutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="库存管理\调货出货\出货单\StockOutForm.designer.cs">
+      <DependentUpon>StockOutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="库存管理\进货入库\IntoStockManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="库存管理\进货入库\IntoStockManagementForm.designer.cs">
+      <DependentUpon>IntoStockManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="库存管理\进货入库\进货单\StockInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="库存管理\进货入库\进货单\StockInForm.designer.cs">
+      <DependentUpon>StockInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表查询\手工打折汇总\ManulDiscountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表查询\手工打折汇总\ManulDiscountForm.Designer.cs">
+      <DependentUpon>ManulDiscountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表查询\挂账统计\新增 修改 客户\CustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表查询\挂账统计\新增 修改 客户\CustomerForm.Designer.cs">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表查询\挂账统计\销账\payAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表查询\挂账统计\销账\payAccountForm.Designer.cs">
+      <DependentUpon>payAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表查询\提前下钟统计\AdvanceOffForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表查询\提前下钟统计\AdvanceOffForm.Designer.cs">
+      <DependentUpon>AdvanceOffForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表查询\提成统计\配置提成表\BounsTableSetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表查询\提成统计\配置提成表\BounsTableSetForm.Designer.cs">
+      <DependentUpon>BounsTableSetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表查询\提成统计\详细信息\TechMenuDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表查询\提成统计\详细信息\TechMenuDetailsForm.Designer.cs">
+      <DependentUpon>TechMenuDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表查询\支出报表查询\支出\ExpenseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表查询\支出报表查询\支出\ExpenseForm.Designer.cs">
+      <DependentUpon>ExpenseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表查询\支出报表查询\支出类别\ExpenseTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表查询\支出报表查询\支出类别\ExpenseTypeForm.Designer.cs">
+      <DependentUpon>ExpenseTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表查询\收银交班报表\TableCashierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表查询\收银交班报表\TableCashierForm.designer.cs">
+      <DependentUpon>TableCashierForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表查询\收银单据查询\扣卡\MemberCardDeductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表查询\收银单据查询\扣卡\MemberCardDeductForm.Designer.cs">
+      <DependentUpon>MemberCardDeductForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表查询\收银单据查询\选择挂账客户\CustomerChooseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表查询\收银单据查询\选择挂账客户\CustomerChooseForm.designer.cs">
+      <DependentUpon>CustomerChooseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="会员管理\优惠方案\添加优惠项目\PromotionItemAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="会员管理\优惠方案\添加优惠项目\PromotionItemAddForm.Designer.cs">
+      <DependentUpon>PromotionItemAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="会员管理\客户信息\CustomerManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="会员管理\客户信息\CustomerManagementForm.Designer.cs">
+      <DependentUpon>CustomerManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="会员管理\扣卡\DeductedCardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="会员管理\扣卡\DeductedCardForm.Designer.cs">
+      <DependentUpon>DeductedCardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表查询\挂账统计\AccountWithTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表查询\挂账统计\AccountWithTableForm.Designer.cs">
+      <DependentUpon>AccountWithTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表查询\收银员收款统计\CashierTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表查询\收银员收款统计\CashierTableForm.Designer.cs">
+      <DependentUpon>CashierTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表查询\收银单据查询\TableCashierCheckForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表查询\收银单据查询\TableCashierCheckForm.designer.cs">
+      <DependentUpon>TableCashierCheckForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表查询\营业报表\DayOperationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表查询\营业报表\DayOperationForm.designer.cs">
+      <DependentUpon>DayOperationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表查询\银联付款统计\CreditCardTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表查询\银联付款统计\CreditCardTableForm.Designer.cs">
+      <DependentUpon>CreditCardTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表查询\提成统计\BonusTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表查询\提成统计\BonusTableForm.Designer.cs">
+      <DependentUpon>BonusTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表查询\异常状况统计\ExceptionTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表查询\异常状况统计\ExceptionTableForm.Designer.cs">
+      <DependentUpon>ExceptionTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表查询\月报表\MonthTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表查询\月报表\MonthTableForm.Designer.cs">
+      <DependentUpon>MonthTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="会员管理\会员卡消费统计\MemberExpenseTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="会员管理\会员卡消费统计\MemberExpenseTableForm.Designer.cs">
+      <DependentUpon>MemberExpenseTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表查询\退免单汇总\ReturnedBillTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表查询\退免单汇总\ReturnedBillTableForm.Designer.cs">
+      <DependentUpon>ReturnedBillTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="会员管理\会员卡参数设置\MemberSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="会员管理\会员卡参数设置\MemberSettingForm.Designer.cs">
+      <DependentUpon>MemberSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="会员管理\会员卡类型设置\MemberTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="会员管理\会员卡类型设置\MemberTypeForm.Designer.cs">
+      <DependentUpon>MemberTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="会员管理\会员卡管理\MemberManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="会员管理\会员卡管理\MemberManageForm.Designer.cs">
+      <DependentUpon>MemberManageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="会员管理\优惠方案\PromotionManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="会员管理\优惠方案\PromotionManagementForm.Designer.cs">
+      <DependentUpon>PromotionManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="会员管理\优惠方案\添加优惠方案\PromotionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="会员管理\优惠方案\添加优惠方案\PromotionForm.Designer.cs">
+      <DependentUpon>PromotionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="会员管理\会员卡充值统计\MemberCardSaleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="会员管理\会员卡充值统计\MemberCardSaleForm.Designer.cs">
+      <DependentUpon>MemberCardSaleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="会员管理\会员分析\MemberAnalysisForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="会员管理\会员分析\MemberAnalysisForm.Designer.cs">
+      <DependentUpon>MemberAnalysisForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台-系统\数据优化\OptimizationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台-系统\数据优化\OptimizationForm.Designer.cs">
+      <DependentUpon>OptimizationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表查询\支出报表查询\ExpenseTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表查询\支出报表查询\ExpenseTableForm.Designer.cs">
+      <DependentUpon>ExpenseTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表查询\项目报表\TableItemsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表查询\项目报表\TableItemsForm.designer.cs">
+      <DependentUpon>TableItemsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基础档案管理\套餐管理\ComboForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础档案管理\套餐管理\ComboForm.designer.cs">
+      <DependentUpon>ComboForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基础档案管理\套餐管理\ComboManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础档案管理\套餐管理\ComboManagementForm.designer.cs">
+      <DependentUpon>ComboManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基础档案管理\优惠券管理\CouponForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础档案管理\优惠券管理\CouponForm.Designer.cs">
+      <DependentUpon>CouponForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基础档案管理\优惠券管理\CouponManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础档案管理\优惠券管理\CouponManagement.Designer.cs">
+      <DependentUpon>CouponManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基础档案管理\员工管理\员工权限\EmployeeAuthorityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础档案管理\员工管理\员工权限\EmployeeAuthorityForm.designer.cs">
+      <DependentUpon>EmployeeAuthorityForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基础档案管理\员工管理\新增 修改员工\EmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础档案管理\员工管理\新增 修改员工\EmployeeForm.designer.cs">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基础档案管理\员工管理\员工管理\EmployeeManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础档案管理\员工管理\员工管理\EmployeeManagementForm.designer.cs">
+      <DependentUpon>EmployeeManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基础档案管理\员工管理\职位\JobForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础档案管理\员工管理\职位\JobForm.designer.cs">
+      <DependentUpon>JobForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="主窗口\MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="主窗口\MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表查询\项目报表\已发生项目明细\TableItemsDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表查询\项目报表\已发生项目明细\TableItemsDetailsForm.Designer.cs">
+      <DependentUpon>TableItemsDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\ExportToExcel.cs" />
+    <Compile Include="通用\GeneralClass.cs" />
+    <Compile Include="基础档案管理\项目管理\项目类别\MenuCatgoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础档案管理\项目管理\项目类别\MenuCatgoryForm.designer.cs">
+      <DependentUpon>MenuCatgoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基础档案管理\项目管理\项目\MenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础档案管理\项目管理\项目\MenuForm.designer.cs">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="库存管理\库存商品\StorageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="库存管理\库存商品\StorageForm.designer.cs">
+      <DependentUpon>StorageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\打印\PrintDGV.cs" />
+    <Compile Include="通用\打印\PrintOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\打印\PrintOptions.designer.cs">
+      <DependentUpon>PrintOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="app.config" />
+    <EmbeddedResource Include="会员管理\会员分析\会员消费项目分析\MemberItemChart.resx">
+      <DependentUpon>MemberItemChart.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="会员管理\会员分析\短信发送状态\SmsMsgForm.resx">
+      <DependentUpon>SmsMsgForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="会员管理\会员分析\短信猫设置\SmsForm.resx">
+      <DependentUpon>SmsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="会员管理\会员卡充值优惠\CardPopSaleForm.resx">
+      <DependentUpon>CardPopSaleForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="会员管理\会员卡充值优惠\添加优惠方案\CardPopForm.resx">
+      <DependentUpon>CardPopForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="会员管理\会员卡充值统计\详细信息\CardSaleDetailsForm.resx">
+      <DependentUpon>CardSaleDetailsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="会员管理\会员卡管理\消费详情\MemberDetailsForm.resx">
+      <DependentUpon>MemberDetailsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="会员管理\会员卡管理\编辑会员信息\EditMemberForm.resx">
+      <DependentUpon>EditMemberForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="会员管理\库入库\OpenCardForm.resx">
+      <DependentUpon>OpenCardForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="会员管理\库入库\会员卡\CardPortBaudForm.resx">
+      <DependentUpon>CardPortBaudForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台-系统\开牌界面\ReceptionSeatForm.resx">
+      <DependentUpon>ReceptionSeatForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基础档案管理\服务档案管理\WaitForm.resx">
+      <DependentUpon>WaitForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基础档案管理\服务档案管理\WaitManagementForm.resx">
+      <DependentUpon>WaitManagementForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基础档案管理\部门日志管理\发表新帖\NewPostForm.resx">
+      <DependentUpon>NewPostForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基础档案管理\部门日志管理\发表新帖\ModifyPictureForm.resx">
+      <DependentUpon>ModifyPictureForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基础档案管理\部门日志管理\日志管理\时间限定\DaysLimitForm.resx">
+      <DependentUpon>DaysLimitForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基础档案管理\部门日志管理\部门\DepartmentForm.resx">
+      <DependentUpon>DepartmentForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基础档案管理\部门日志管理\日志管理\DepartLogMgForm.resx">
+      <DependentUpon>DepartLogMgForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基础档案管理\项目管理\MenuManagementForm.resx">
+      <DependentUpon>MenuManagementForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="库存管理\仓库设定\StockSettingForm.resx">
+      <DependentUpon>StockSettingForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="库存管理\仓库设定\仓库\StockForm.resx">
+      <DependentUpon>StockForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="库存管理\供应商管理\供应商\ProviderForm.resx">
+      <DependentUpon>ProviderForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="库存管理\供应商管理\供应商付款\ProviderPaysForm.resx">
+      <DependentUpon>ProviderPaysForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="库存管理\库存参数设定\StockOptionsForm.resx">
+      <DependentUpon>StockOptionsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="库存管理\库存商品\库存商品\GoodsForm.resx">
+      <DependentUpon>GoodsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="库存管理\库存商品\库存商品类别\GoodsCatForm.resx">
+      <DependentUpon>GoodsCatForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="库存管理\盘点清册\StockTakeForm.resx">
+      <DependentUpon>StockTakeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="库存管理\盘点清册\完成盘点\PanForm.resx">
+      <DependentUpon>PanForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="库存管理\供应商管理\ProviderMgForm.resx">
+      <DependentUpon>ProviderMgForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="库存管理\调货出货\TransferStockMangeForm.resx">
+      <DependentUpon>TransferStockMangeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="库存管理\调货出货\出货单\StockOutForm.resx">
+      <DependentUpon>StockOutForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="库存管理\进货入库\IntoStockManagementForm.resx">
+      <DependentUpon>IntoStockManagementForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="库存管理\进货入库\进货单\StockInForm.resx">
+      <DependentUpon>StockInForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表查询\手工打折汇总\ManulDiscountForm.resx">
+      <DependentUpon>ManulDiscountForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表查询\挂账统计\新增 修改 客户\CustomerForm.resx">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表查询\挂账统计\销账\payAccountForm.resx">
+      <DependentUpon>payAccountForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表查询\提前下钟统计\AdvanceOffForm.resx">
+      <DependentUpon>AdvanceOffForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表查询\提成统计\配置提成表\BounsTableSetForm.resx">
+      <DependentUpon>BounsTableSetForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表查询\提成统计\详细信息\TechMenuDetailsForm.resx">
+      <DependentUpon>TechMenuDetailsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表查询\支出报表查询\支出\ExpenseForm.resx">
+      <DependentUpon>ExpenseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表查询\支出报表查询\支出类别\ExpenseTypeForm.resx">
+      <DependentUpon>ExpenseTypeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表查询\收银交班报表\TableCashierForm.resx">
+      <DependentUpon>TableCashierForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表查询\收银单据查询\扣卡\MemberCardDeductForm.resx">
+      <DependentUpon>MemberCardDeductForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表查询\收银单据查询\选择挂账客户\CustomerChooseForm.resx">
+      <DependentUpon>CustomerChooseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="会员管理\优惠方案\添加优惠项目\PromotionItemAddForm.resx">
+      <DependentUpon>PromotionItemAddForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="会员管理\客户信息\CustomerManagementForm.resx">
+      <DependentUpon>CustomerManagementForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="会员管理\扣卡\DeductedCardForm.resx">
+      <DependentUpon>DeductedCardForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表查询\挂账统计\AccountWithTableForm.resx">
+      <DependentUpon>AccountWithTableForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表查询\收银员收款统计\CashierTableForm.resx">
+      <DependentUpon>CashierTableForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表查询\收银单据查询\TableCashierCheckForm.resx">
+      <DependentUpon>TableCashierCheckForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表查询\营业报表\DayOperationForm.resx">
+      <DependentUpon>DayOperationForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表查询\银联付款统计\CreditCardTableForm.resx">
+      <DependentUpon>CreditCardTableForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表查询\提成统计\BonusTableForm.resx">
+      <DependentUpon>BonusTableForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表查询\异常状况统计\ExceptionTableForm.resx">
+      <DependentUpon>ExceptionTableForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表查询\月报表\MonthTableForm.resx">
+      <DependentUpon>MonthTableForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="会员管理\会员卡消费统计\MemberExpenseTableForm.resx">
+      <DependentUpon>MemberExpenseTableForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表查询\退免单汇总\ReturnedBillTableForm.resx">
+      <DependentUpon>ReturnedBillTableForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="会员管理\会员卡参数设置\MemberSettingForm.resx">
+      <DependentUpon>MemberSettingForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="会员管理\会员卡类型设置\MemberTypeForm.resx">
+      <DependentUpon>MemberTypeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="会员管理\会员卡管理\MemberManageForm.resx">
+      <DependentUpon>MemberManageForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="会员管理\优惠方案\PromotionManagementForm.resx">
+      <DependentUpon>PromotionManagementForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="会员管理\优惠方案\添加优惠方案\PromotionForm.resx">
+      <DependentUpon>PromotionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="会员管理\会员卡充值统计\MemberCardSaleForm.resx">
+      <DependentUpon>MemberCardSaleForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="会员管理\会员分析\MemberAnalysisForm.resx">
+      <DependentUpon>MemberAnalysisForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台-系统\数据优化\OptimizationForm.resx">
+      <DependentUpon>OptimizationForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表查询\支出报表查询\ExpenseTableForm.resx">
+      <DependentUpon>ExpenseTableForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表查询\项目报表\TableItemsForm.resx">
+      <DependentUpon>TableItemsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基础档案管理\套餐管理\ComboForm.resx">
+      <DependentUpon>ComboForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基础档案管理\套餐管理\ComboManagementForm.resx">
+      <DependentUpon>ComboManagementForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基础档案管理\优惠券管理\CouponForm.resx">
+      <DependentUpon>CouponForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基础档案管理\优惠券管理\CouponManagement.resx">
+      <DependentUpon>CouponManagement.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基础档案管理\员工管理\员工权限\EmployeeAuthorityForm.resx">
+      <DependentUpon>EmployeeAuthorityForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基础档案管理\员工管理\新增 修改员工\EmployeeForm.resx">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基础档案管理\员工管理\员工管理\EmployeeManagementForm.resx">
+      <DependentUpon>EmployeeManagementForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基础档案管理\员工管理\职位\JobForm.resx">
+      <DependentUpon>JobForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="主窗口\MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基础档案管理\项目管理\项目类别\MenuCatgoryForm.resx">
+      <DependentUpon>MenuCatgoryForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基础档案管理\项目管理\项目\MenuForm.resx">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="库存管理\库存商品\StorageForm.resx">
+      <DependentUpon>StorageForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表查询\项目报表\已发生项目明细\TableItemsDetailsForm.resx">
+      <DependentUpon>TableItemsDetailsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="通用\打印\PrintOptions.resx">
+      <DependentUpon>PrintOptions.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基础档案管理\包厢管理\RoomForm.resx">
+      <DependentUpon>RoomForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基础档案管理\包厢管理\RoomManagementForm.resx">
+      <DependentUpon>RoomManagementForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台-系统\系统设置\SystemSettingForm.resx">
+      <DependentUpon>SystemSettingForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台-系统\注册软件\RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基础档案管理\手牌管理\手牌\SeatForm.resx">
+      <DependentUpon>SeatForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基础档案管理\手牌管理\SeatManagementForm.resx">
+      <DependentUpon>SeatManagementForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基础档案管理\手牌管理\手牌类型\SeatTypeForm.resx">
+      <DependentUpon>SeatTypeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="基础档案管理\包厢管理\RoomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础档案管理\包厢管理\RoomForm.Designer.cs">
+      <DependentUpon>RoomForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基础档案管理\包厢管理\RoomManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础档案管理\包厢管理\RoomManagementForm.Designer.cs">
+      <DependentUpon>RoomManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台-系统\系统设置\SystemSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台-系统\系统设置\SystemSettingForm.Designer.cs">
+      <DependentUpon>SystemSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台-系统\注册软件\RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台-系统\注册软件\RegisterForm.designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基础档案管理\手牌管理\手牌\SeatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础档案管理\手牌管理\手牌\SeatForm.Designer.cs">
+      <DependentUpon>SeatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基础档案管理\手牌管理\手牌类型\SeatTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础档案管理\手牌管理\手牌类型\SeatTypeForm.Designer.cs">
+      <DependentUpon>SeatTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基础档案管理\手牌管理\SeatManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础档案管理\手牌管理\SeatManagementForm.Designer.cs">
+      <DependentUpon>SeatManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="通用\短信猫\SmsClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="y-icon2a.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ButtonEx\ButtonEx.csproj">
+      <Project>{E3F54A82-77C3-4CDB-AF2E-C35A3BEE72DC}</Project>
+      <Name>ButtonEx</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\YouSoftBathConstants\YouSoftBathConstants\YouSoftBathConstants.csproj">
+      <Project>{1067C596-E185-4A2E-8EFC-54D09FC79AFD}</Project>
+      <Name>YouSoftBathConstants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\YouSoftBathFormClass\YouSoftBathFormClass\YouSoftBathFormClass.csproj">
+      <Project>{D72B4EE0-E681-4111-B2A5-87B3C243D0B3}</Project>
+      <Name>YouSoftBathFormClass</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\YouSoftBathGeneralClass\YouSoftBathGeneralClass\YouSoftBathGeneralClass.csproj">
+      <Project>{A766597F-6B5E-4F1D-BB5C-8A7B2240874A}</Project>
+      <Name>YouSoftBathGeneralClass</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\YouSoftUtil\YouSoftUtil\YouSoftUtil.csproj">
+      <Project>{21FD7E1A-F99D-4AC4-9EAF-589E4CB1355F}</Project>
+      <Name>YouSoftUtil</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
