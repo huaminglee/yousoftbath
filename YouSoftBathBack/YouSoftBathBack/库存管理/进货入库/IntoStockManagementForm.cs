@@ -432,7 +432,7 @@ namespace YouSoftBathBack
         {
            var db = new BathDBDataContext(LogIn.connectionString);
             //StockInForm inStockForm = new StockInForm(db, this);
-            StockInForm inStockForm = new StockInForm(db);
+           StockInForm inStockForm = new StockInForm(db, null);
             if (inStockForm.ShowDialog() == DialogResult.OK)
             {
                 if (dgv.Rows.Count >= 50)
@@ -456,7 +456,7 @@ namespace YouSoftBathBack
             }
             var db = new BathDBDataContext(LogIn.connectionString);
             StockIn stockin = db.StockIn.FirstOrDefault(x => x.id == Convert.ToInt32(dgv.CurrentRow.Cells[0].Value));
-            EditForm editform = new EditForm(db,stockin);
+            StockInForm editform = new StockInForm(db, stockin);
             if(editform.ShowDialog()==DialogResult.OK)
                 dgv_show();
         }

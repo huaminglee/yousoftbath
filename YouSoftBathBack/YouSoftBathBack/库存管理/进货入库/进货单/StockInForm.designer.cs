@@ -322,6 +322,7 @@
             this.amount.Name = "amount";
             this.amount.Size = new System.Drawing.Size(146, 26);
             this.amount.TabIndex = 4;
+            this.amount.TextChanged += new System.EventHandler(this.amount_TextChanged);
             this.amount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.amount_KeyPress);
             this.amount.Enter += new System.EventHandler(this.amount_Enter);
             // 

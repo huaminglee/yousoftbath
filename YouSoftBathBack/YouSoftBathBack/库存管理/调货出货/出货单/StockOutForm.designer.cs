@@ -306,7 +306,7 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(271, 158);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(56, 16);
+            this.label14.Size = new System.Drawing.Size(72, 16);
             this.label14.TabIndex = 0;
             this.label14.Text = "经 办 人";
             // 

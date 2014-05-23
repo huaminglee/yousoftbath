@@ -16,13 +16,26 @@ namespace YouSoftBathBack
     {
         //成员变量
         private BathDBDataContext db = null;
-        private  double totalsum = 0;
+        private StockOut stockout = new StockOut();
+        private bool newStockout = true;
 
         //构造函数
-        public StockOutForm(BathDBDataContext dc)
+        public StockOutForm(BathDBDataContext dc, StockOut _stockout)
         {
             db = dc;
+            if (_stockout != null)
+            {
+                newStockout = false;
+                stockout = _stockout;
+            }
             InitializeComponent();
+          
+           
+        }
+
+        //对话框载入
+        private void EmployeeForm_Load(object sender, EventArgs e)
+        {
             stock.Items.AddRange(db.Stock.Select(x => x.name).ToArray());
             goodsCat.Items.AddRange(db.GoodsCat.Select(x => x.name).ToArray());
 
@@ -31,15 +44,28 @@ namespace YouSoftBathBack
             checker.Items.AddRange(employees.Select(x => x.name).ToArray());
             transactor.Items.AddRange(employees.Select(x => x.name).ToArray());
             ComboUnit.Items.AddRange(db.Unit.Select(x => x.name).ToArray());
-        }
-
-        //对话框载入
-        private void EmployeeForm_Load(object sender, EventArgs e)
+            if (newStockout)
         {
-
             receiver.Text = LogIn.m_User.name;
             checker.Text = LogIn.m_User.name;
             transactor.Text = LogIn.m_User.name;
+        }
+            else
+            {
+                var goodsCatID=db.StorageList.FirstOrDefault(x => x.name == stockout.name).goodsCatId;
+                var goodsCatName=db.GoodsCat.FirstOrDefault(x=>x.id==goodsCatID).name;
+                goodsCat.Text=MConvert<string>.ToTypeOrDefault(goodsCatName,"");
+                name.Text = stockout.name;
+                stock.Text=db.Stock.FirstOrDefault(x=>x.id==stockout.stockId).name;
+                ComboUnit.Text = stockout.unit;
+                amount.Text = stockout.amount.ToString();
+                dtPickerIntoStock.Value = MConvert<DateTime>.ToTypeOrDefault(stockout.date,DateTime.Now);
+                receiver.Text = stockout.receiver;
+                checker.Text = stockout.checker;
+                transactor.Text = stockout.transactor;
+                note.Text = stockout.note;
+            }
+            
         }
 
         //确定
@@ -47,23 +73,22 @@ namespace YouSoftBathBack
         {
             if (!validateTextFields())
                 return;
+            stockout.name = name.Text;
+            stockout.amount = MConvert<double>.ToTypeOrDefault(amount.Text, 0);
+            stockout.unit = ComboUnit.Text;
+            stockout.stockId = db.Stock.FirstOrDefault(x => x.name == stock.Text).id;
+            stockout.date = dtPickerIntoStock.Value;
+            stockout.receiver = receiver.Text;
+            stockout.transactor = transactor.Text;
+            stockout.checker = checker.Text;
+            stockout.note = note.Text;
 
-            StockOut outStock = new StockOut();
-            outStock.name = name.Text;
-            outStock.amount = Convert.ToDouble(amount.Text);
-            outStock.stockId = db.Stock.FirstOrDefault(x => x.name == stock.Text).id;
-            outStock.date = dtPickerIntoStock.Value;
-            outStock.note = note.Text;
-            outStock.date = BathClass.Now(LogIn.connectionString);
-            outStock.receiver = receiver.Text;
-            outStock.transactor = transactor.Text;
-            outStock.checker = checker.Text;
-            db.StockOut.InsertOnSubmit(outStock);
-
+            if (newStockout)
+            {
+                db.StockOut.InsertOnSubmit(stockout);
             string unit_txt = ComboUnit.Text.Trim();
             if (unit_txt != "")
             {
-                outStock.unit = unit_txt;
                 if (!db.Unit.Any(x => x.name == unit_txt))
                 {
                     var unit_instance = new Unit();
@@ -71,10 +96,24 @@ namespace YouSoftBathBack
                     db.Unit.InsertOnSubmit(unit_instance);
                 }
             }
-
             db.SubmitChanges();
-
+                stockout = new StockOut();
+                goodsCat.SelectedIndex = -1;
+                stock.SelectedIndex = -1;
+                name.Text ="";
+                amount.Text = "";
+                ComboUnit.Text = "";
+                receiver.Text = LogIn.m_User.name;
+                transactor.Text = LogIn.m_User.name;
+                checker.Text = LogIn.m_User.name;
+                note.Text = "";
+            }
+            else
+            {
+                db.SubmitChanges();
             this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
         //绑定快捷键
@@ -158,6 +197,9 @@ namespace YouSoftBathBack
          {
              this.Close();             
          }  
+
+       
+    
 
     }
 }

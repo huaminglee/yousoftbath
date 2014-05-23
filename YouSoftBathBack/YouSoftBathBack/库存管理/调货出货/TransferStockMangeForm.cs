@@ -393,8 +393,7 @@ namespace YouSoftBathBack
         private void toolIntoStock_Click(object sender, EventArgs e)
         {
             var db = new BathDBDataContext(LogIn.connectionString);
-            StockOutForm inStockForm = new StockOutForm(db);
-            //inStockForm.ShowDialog();
+            StockOutForm inStockForm = new StockOutForm(db,null);
             if (inStockForm.ShowDialog() == DialogResult.OK)
                 dgv_show();
            
@@ -427,7 +426,7 @@ namespace YouSoftBathBack
                 StockOut stkout = db.StockOut.FirstOrDefault(x => x.id == stockoutid);
                 if (stkout!=null)
                 {
-                    EditStockOutForm editstockoutform = new EditStockOutForm(db,stkout);
+                    StockOutForm editstockoutform = new StockOutForm(db, stkout);
                     if (editstockoutform.ShowDialog()==DialogResult.OK)                   
                          dgv_show();
                 }

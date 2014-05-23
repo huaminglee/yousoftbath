@@ -50,10 +50,6 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="YouSoftBathGeneralClass, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\YouSoftBathGeneralClass\YouSoftBathGeneralClass\bin\Release\YouSoftBathGeneralClass.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GetStringSpell.cs" />
@@ -338,6 +334,10 @@
     <ProjectReference Include="..\..\YouSoftBathConstants\YouSoftBathConstants\YouSoftBathConstants.csproj">
       <Project>{1067C596-E185-4A2E-8EFC-54D09FC79AFD}</Project>
       <Name>YouSoftBathConstants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\YouSoftBathGeneralClass\YouSoftBathGeneralClass\YouSoftBathGeneralClass.csproj">
+      <Project>{A766597F-6B5E-4F1D-BB5C-8A7B2240874A}</Project>
+      <Name>YouSoftBathGeneralClass</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\YouSoftUtil\YouSoftUtil\YouSoftUtil.csproj">
       <Project>{21FD7E1A-F99D-4AC4-9EAF-589E4CB1355F}</Project>

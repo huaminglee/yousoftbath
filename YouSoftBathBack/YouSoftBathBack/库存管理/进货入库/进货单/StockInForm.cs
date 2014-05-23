@@ -16,33 +16,62 @@ namespace YouSoftBathBack
     {
         //成员变量
         private BathDBDataContext db = null;
+        private StockIn stockin = new StockIn();
+        private bool newStockin = true;
         //private IntoStockManagementForm m_Form;
         private double totalmoney = 0;
 
         //构造函数
         //public StockInForm(BathDBDataContext dc, IntoStockManagementForm form)
-        public StockInForm(BathDBDataContext dc)
+        public StockInForm(BathDBDataContext dc, StockIn _stockin)
         {
             db = dc;
-            //m_Form = form;
+            if (_stockin!=null)
+            {
+                stockin = _stockin;
+                newStockin = false;
+            }
             InitializeComponent();
-            stock.Items.AddRange(db.Stock.Select(x => x.name).ToArray());
-            provider.Items.AddRange(db.Provider.Select(x => x.name).ToArray());
-            goodsCat.Items.AddRange(db.GoodsCat.Select(x => x.name).ToArray());
-            unit.Items.AddRange(db.Unit.Select(x => x.name).ToArray());
-            
-            var employees = db.Employee.Where(x => !db.Job.FirstOrDefault(y => y.id == x.jobId).name.Contains("技师"));
-            checker.Items.AddRange(employees.Select(x => x.name).ToArray());
-            transactor.Items.AddRange(employees.Select(x => x.name).ToArray());
+            //m_Form = form;
         }
 
      
         //对话框载入
         private void EmployeeForm_Load(object sender, EventArgs e)
         {
+            stock.Items.AddRange(db.Stock.Select(x => x.name).ToArray());
+            provider.Items.AddRange(db.Provider.Select(x => x.name).ToArray());
+            goodsCat.Items.AddRange(db.GoodsCat.Select(x => x.name).ToArray());
+            unit.Items.AddRange(db.Unit.Select(x => x.name).ToArray());
+            
+            var employees = db.Employee.Select(x => x.name);
+            checker.Items.AddRange(employees.ToArray());
+            transactor.Items.AddRange(employees.ToArray());
+
+            if (newStockin)
+            {
+     
             checker.Text = LogIn.m_User.name;
             transactor.Text = LogIn.m_User.name;
-            //name.Enabled = false;
+            }
+            else
+            {
+                var goodsCatID = db.StorageList.FirstOrDefault(x => x.name == stockin.name).goodsCatId;
+                var goodsCatName = db.GoodsCat.FirstOrDefault(x => x.id == goodsCatID).name;
+                goodsCat.Text = goodsCatName;
+                name.Text = stockin.name;
+                stock.Text = db.Stock.FirstOrDefault(x => x.id == stockin.stockId).name;
+                unit.Text = stockin.unit;
+                unit.Text = stockin.amount.ToString();
+                cost.Text = stockin.cost.ToString();
+                amount.Text = stockin.amount.ToString();
+                money.Text = stockin.money.ToString();
+                provider.Text = MConvert<string>.ToTypeOrDefault(db.Provider.FirstOrDefault(x => x.id == stockin.providerId).name,"");
+                checker.Text = stockin.checker;
+                transactor.Text = stockin.transactor;
+                dtPickerIntoStock.Value = stockin.date;
+
+            }
             
         }
 
@@ -85,15 +114,21 @@ namespace YouSoftBathBack
                 BathClass.printErrorMsg("需要选择供应商!");
                 return;
             }
-            //money.Text = (Convert.ToDouble(amount.Text) * Convert.ToDouble(cost.Text)).ToString();
-            StockIn inStock = new StockIn();
-            inStock.name = name.Text;
-            if (cost.Text != "")
-                inStock.cost = Convert.ToDouble(cost.Text);
-            if (amount.Text.Trim()!="")            
-            inStock.amount = Convert.ToDouble(amount.Text);
-            if (unit.Text.Trim() != "")
-                inStock.unit = unit.Text;
+            stockin.name = name.Text;
+            stockin.cost = MConvert<double>.ToTypeOrDefault(cost.Text.Trim(), 0);
+            stockin.amount = MConvert<double>.ToTypeOrDefault(amount.Text.Trim(),0);
+            stockin.unit = unit.Text;
+            stockin.stockId = db.Stock.FirstOrDefault(x => x.name == stock.Text).id;
+            stockin.note = note.Text;
+            stockin.date = dtPickerIntoStock.Value;
+            stockin.transactor = transactor.Text;
+            stockin.checker = checker.Text;
+            stockin.money = totalmoney;
+
+            //StockIn inStock = new StockIn();
+            if (newStockin)
+            {
+               
             if (db.Unit.Where(x=>x.name==unit.Text.Trim()).Count()==0)
             {
                 Unit u = new Unit();
@@ -101,13 +136,6 @@ namespace YouSoftBathBack
                 db.Unit.InsertOnSubmit(u);
                 db.SubmitChanges();
             }
-
-            inStock.stockId = db.Stock.FirstOrDefault(x => x.name == stock.Text).id;
-            inStock.note = note.Text;
-            inStock.date = dtPickerIntoStock.Value;
-            inStock.transactor = transactor.Text;
-            inStock.checker = checker.Text;
-            inStock.money = totalmoney;
 
             var p = db.Provider.FirstOrDefault(x => x.name == provider.Text.Trim());
             if (p==null)
@@ -120,28 +148,32 @@ namespace YouSoftBathBack
                 db.Provider.InsertOnSubmit(p);
                 db.SubmitChanges();
             }
-            inStock.providerId = p.id;
-            db.StockIn.InsertOnSubmit(inStock);
+                stockin.providerId = p.id;
+                db.StockIn.InsertOnSubmit(stockin);
             db.SubmitChanges();
+                stockin = new StockIn();
+                goodsCat.SelectedIndex = -1;
+                name.Text = "";
+                stock.SelectedIndex = -1;
+                unit.Text = "";
+                amount.Text = "";
+                provider.SelectedIndex = -1;
+                cost.Text = "";
+                money.Text = "";
+                checker.Text = "";
+                transactor.Text = "";
+                note.Text = "";
+                checker.Text = LogIn.m_User.name;
+                transactor.Text = LogIn.m_User.name; 
 
+            }
+            else
+            {
+                db.SubmitChanges();
             this.DialogResult=DialogResult.OK;
+                this.Close();
+            }
 
-
-            //name.SelectedIndex = -1;
-            //cost.Text = "";
-            //amount.Text = "";
-            //stock.SelectedIndex = -1;
-            ////checker.SelectedIndex = -1;
-            ////transactor.SelectedIndex = -1;
-            //checker.Text = LogIn.m_User.name;
-            //transactor.Text = LogIn.m_User.name;
-            //note.Text = "";
-            //money.Text = "";
-            //name.Focus();
-            
-            //m_Form.dgv_show();
-
-            //this.DialogResult == DialogResult.OK;
         }
 
         //绑定快捷键
@@ -201,8 +233,8 @@ namespace YouSoftBathBack
         {
             try
             {
-                double _amout = Convert.ToDouble(amount.Text);
-               double _cost = Convert.ToDouble(cost.Text);
+               double _amout =MConvert<double>.ToTypeOrDefault(amount.Text,0);
+               double _cost = MConvert<double>.ToTypeOrDefault(cost.Text,0);
                totalmoney = _amout * _cost;
                money.Text = totalmoney.ToString();
             }
@@ -238,5 +270,24 @@ namespace YouSoftBathBack
         {
             this.Close();
         }
+
+        private void amount_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                double _amout = MConvert<double>.ToTypeOrDefault(amount.Text, 0);
+                double _cost = MConvert<double>.ToTypeOrDefault(cost.Text, 0);
+                totalmoney = _amout * _cost;
+                money.Text = totalmoney.ToString();
+            }
+            catch (System.Exception ex)
+            {
+
+            }
+        }
+
+     
+
+      
     }
 }

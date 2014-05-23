@@ -52,7 +52,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
-    <Reference Include="MsgPanel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -266,23 +265,11 @@
     <Compile Include="库存管理\调货出货\出货单\StockOutForm.designer.cs">
       <DependentUpon>StockOutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="库存管理\调货出货\出货单编辑\EditStockOutForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="库存管理\调货出货\出货单编辑\EditStockOutForm.designer.cs">
-      <DependentUpon>EditStockOutForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="库存管理\进货入库\IntoStockManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="库存管理\进货入库\IntoStockManagementForm.designer.cs">
       <DependentUpon>IntoStockManagementForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="库存管理\进货入库\编辑进货单\EditForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="库存管理\进货入库\编辑进货单\EditForm.designer.cs">
-      <DependentUpon>EditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="库存管理\进货入库\进货单\StockInForm.cs">
       <SubType>Form</SubType>
@@ -708,15 +695,9 @@
       <DependentUpon>StockOutForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="库存管理\调货出货\出货单编辑\EditStockOutForm.resx">
-      <DependentUpon>EditStockOutForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="库存管理\进货入库\IntoStockManagementForm.resx">
       <DependentUpon>IntoStockManagementForm.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="库存管理\进货入库\编辑进货单\EditForm.resx">
-      <DependentUpon>EditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="库存管理\进货入库\进货单\StockInForm.resx">
       <DependentUpon>StockInForm.cs</DependentUpon>
@@ -1040,6 +1021,10 @@
     <ProjectReference Include="..\..\ButtonEx\ButtonEx.csproj">
       <Project>{E3F54A82-77C3-4CDB-AF2E-C35A3BEE72DC}</Project>
       <Name>ButtonEx</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MsgPanel\MsgPanel\MsgPanel.csproj">
+      <Project>{00B8A540-73C8-4EB8-A791-7CB260A63197}</Project>
+      <Name>MsgPanel</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\YouSoftBathConstants\YouSoftBathConstants\YouSoftBathConstants.csproj">
       <Project>{1067C596-E185-4A2E-8EFC-54D09FC79AFD}</Project>
