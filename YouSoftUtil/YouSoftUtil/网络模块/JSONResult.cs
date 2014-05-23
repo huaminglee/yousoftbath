@@ -68,6 +68,18 @@ namespace YouSoftUtil
         }
     }
 
+    //微信用户查找结果
+    public class ShopAllCouponResult
+    {
+        private List<WxCoupon> _couponList;
+
+        public List<WxCoupon> couponList
+        {
+            get { return _couponList; }
+            set { _couponList = value; }
+        }
+    }
+
     //门店优惠券查找结果
     public class ShopCouponResult
     {
@@ -80,6 +92,7 @@ namespace YouSoftUtil
         }
     }
 
+    //门店用户优惠券查找结果
     public class ShopUserCoupontResult
     {
         private List<ShopUserUnUsedCoupon> _unUseList;
@@ -98,12 +111,45 @@ namespace YouSoftUtil
         }
     }
 
+    //优惠券消费结果
+    public class ConsumeWxCouponResult
+    {
+        private bool _sucsess;
+        private string _errorDesc;
+        private double _value;
+
+        public bool success
+        {
+            get { return _sucsess; }
+            set { _sucsess = value; }
+        }
+
+        public string errorDesc
+        {
+            get { return _errorDesc; }
+            set { _errorDesc = value; }
+        }
+
+        public double value
+        {
+            get { return _value; }
+            set { this._value = value; }
+        }
+    }
+
     //微信优惠券
     public class WxCoupon
     {
         private int _id;
         private string _type;
         private double _value;
+        private string _title;
+
+        public string title
+        {
+            get { return _title; }
+            set { _title = value; }
+        }
 
         public int id
         {

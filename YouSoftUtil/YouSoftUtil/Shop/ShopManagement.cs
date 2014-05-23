@@ -8,7 +8,7 @@ namespace YouSoftUtil.Shop
 {
     public class ShopManagement
     {
-        public static List<ShopYeJi> findYeJi(string ip, List<string> companyCodes, string date, string dateType, out string errorDesc)
+        public static List<ShopYeJi> queryYeJi(string ip, List<string> companyCodes, string date, string dateType, out string errorDesc)
         {
             string json = new JavaScriptSerializer().Serialize(new
             {

@@ -49,6 +49,10 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="UserPanel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\UserPanel\UserPanel\bin\Release\UserPanel.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
@@ -177,6 +181,12 @@
     </Compile>
     <Compile Include="前台管理\结账\结账界面\PayForm.designer.cs">
       <DependentUpon>PayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="前台管理\结账\赠送微信优惠券\ExtendWxCouponForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="前台管理\结账\赠送微信优惠券\ExtendWxCouponForm.Designer.cs">
+      <DependentUpon>ExtendWxCouponForm.cs</DependentUpon>
     </Compile>
     <Compile Include="前台管理\结账\转账类型选择\TransferSelectForm.cs">
       <SubType>Form</SubType>
@@ -359,6 +369,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="前台管理\结账\结账界面\PayForm.resx">
       <DependentUpon>PayForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="前台管理\结账\赠送微信优惠券\ExtendWxCouponForm.resx">
+      <DependentUpon>ExtendWxCouponForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="前台管理\结账\转账类型选择\TransferSelectForm.resx">

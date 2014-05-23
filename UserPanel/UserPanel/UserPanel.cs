@@ -11,6 +11,14 @@ namespace UserPanel
 {
     public partial class UserPanel : UserControl
     {
+        private string _openId;
+
+        public string openId
+        {
+            get { return _openId; }
+            set { _openId = value; }
+        }
+
         public UserPanel()
         {
             InitializeComponent();
@@ -32,8 +40,9 @@ namespace UserPanel
             LBContent.Text = content;
         }
 
-        public void setUserInfo(string imgUrl, string nickName, string content)
+        public void setUserInfo(string openId, string imgUrl, string nickName, string content)
         {
+            this.openId = openId;
             setImg(imgUrl);
             setNickName(nickName);
             setContent(content);

@@ -663,18 +663,10 @@ namespace YouSoftBathReception
             }
         }
 
+        //根椐手牌号显示房间号+入场时间
         private void btn_MouseHover(object sender, EventArgs e)
         {
-            //根椐手牌号显示房间号的代码
-            //Button btn = (Button)sender;
-            //string roomNo = dao.get_seat_room(btn.Text);
-            //string text = "房间号:" + roomNo;
-            //if (roomNo != "" && roomNo != null)
-            //    toolTip1.SetToolTip(btn, text);
-            //else
-            //    toolTip1.SetToolTip(btn, "该手牌未开房!");
-            //根椐手牌号显示房间号+入场时间
-            BathDBDataContext db=new BathDBDataContext(LogIn.connectionString);
+            var db=new BathDBDataContext(LogIn.connectionString);
             Button btn = (Button)sender;
             string tooltipmessage = "";
             string seatId=btn.Text;
@@ -684,11 +676,10 @@ namespace YouSoftBathReception
             {
                 roomNo = "未开房!";
             }
-           tooltipmessage = "   房间号:" + roomNo + "\n";
+           tooltipmessage =  "房 间 号:" + roomNo + "\n";
            tooltipmessage += "入场时间:" + openTime;
            toolTip1.SetToolTip(btn,tooltipmessage);        
         }
-
 
 
         //F6开牌

@@ -48,7 +48,7 @@ namespace IntereekBathWeChat
             foreach (var user in users)
             {
                 var userCt = new UserPanel.UserPanel();
-                userCt.setUserInfo(user.headimgurl, user.nickname, "剩余优惠券3张");
+                userCt.setUserInfo(user.openid, user.headimgurl, user.nickname, "");
 
                 userCt.UserControlBtnClicked += new UserPanel.UserPanel.CtClickHandle(UserCt_Click);
                 userCt.Location = new Point(0, y);
@@ -73,6 +73,14 @@ namespace IntereekBathWeChat
 
             var userCt = sender as UserPanel.UserPanel;
             userCt.BackColor = Color.LightBlue;
+        }
+
+        private void FansForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BTFind_Click(null, null);
+            }
         }
 
     }

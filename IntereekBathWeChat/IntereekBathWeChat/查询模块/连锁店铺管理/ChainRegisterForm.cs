@@ -45,7 +45,7 @@ namespace IntereekBathWeChat
             }
 
             string errorDesc = "";
-            var success = ShopManagement.registerCompany(Constants.AliIP, code, name, TextTel.Text.Trim(), TextTel.Text.Trim(), out errorDesc);
+            var success = ShopManagement.registerCompany(LogIn.connectionIP, code, name, TextTel.Text.Trim(), TextTel.Text.Trim(), out errorDesc);
 
             if (success)
             {

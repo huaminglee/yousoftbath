@@ -1423,5 +1423,12 @@ namespace YouSoftBathReception
                 BathClass.printInformation("手牌所在包为:" + room_name);
             }
         }
+
+        //赠送微信优惠券
+        private void ToolWxCoupon_Click(object sender, EventArgs e)
+        {
+            var form = new ExtendWxCouponForm();
+            form.ShowDialog();
+        }
     }
 }

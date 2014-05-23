@@ -39,6 +39,10 @@ local.properties
 # User-specific files
 *.suo
 *.user
+.sln
+.csproj
+*.sln
+*.csproj
 *.sln.docstates
 
 # Build results

@@ -1193,7 +1193,10 @@ namespace YouSoftBathReception
         private void couponTool_Click(object sender, EventArgs e)
         {
             var form = new WXCouponVerifyForm();
-            form.ShowDialog();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                coupon.Text = form.couponValue.ToString();
+            }
         }
     }
 }

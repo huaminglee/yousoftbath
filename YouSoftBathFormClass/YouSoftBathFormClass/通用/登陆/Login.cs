@@ -20,7 +20,7 @@ namespace YouSoftBathFormClass
     public partial class LogIn : Form
     {
         //成员变量
-        private static string connectionIP = "";
+        private static string _connectionIP = "";
         private BathDBDataContext db;
         private List<string> idList = new List<string>();
         public static Employee m_User;
@@ -42,6 +42,12 @@ namespace YouSoftBathFormClass
         {
             get { return _options; }
             set { _options = value; }
+        }
+
+        public static string connectionIP
+        {
+            get { return _connectionIP; }
+            set { _connectionIP = value; }
         }
 
         public LogIn(Form mainWindow)

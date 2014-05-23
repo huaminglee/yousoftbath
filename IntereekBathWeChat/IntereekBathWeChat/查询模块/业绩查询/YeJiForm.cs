@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using YouSoftBathGeneralClass;
 using YouSoftUtil;
 using YouSoftUtil.Shop;
+using YouSoftBathFormClass;
 
 namespace IntereekBathWeChat
 {
@@ -64,7 +65,7 @@ namespace IntereekBathWeChat
         private void BTDateFind_Click(object sender, EventArgs e)
         {
             string errorDesc = "";
-            var shopYeJis = ShopManagement.findYeJi(Constants.AliIP, companyCodes, DPDate.Value.ToString("yyyy-MM-dd"), "D", out errorDesc);
+            var shopYeJis = ShopManagement.findYeJi(LogIn.connectionIP, companyCodes, DPDate.Value.ToString("yyyy-MM-dd"), "D", out errorDesc);
             if (shopYeJis == null)
             {
                 BathClass.printErrorMsg(errorDesc);
