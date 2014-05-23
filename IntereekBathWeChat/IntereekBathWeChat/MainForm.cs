@@ -64,17 +64,20 @@ namespace IntereekBathWeChat
 
         private void BTCoupons_Click(object sender, EventArgs e)
         {
-
+            var form = new CouponManagementForm();
+            form.ShowDialog();
         }
 
         private void BTCouponMang_Click(object sender, EventArgs e)
         {
-
+            var form = new CompanyCouponForm();
+            form.ShowDialog();
         }
 
         private void BTCouponUseRecord_Click(object sender, EventArgs e)
         {
-
+            var form = new CouponRecordsForm();
+            form.ShowDialog();
         }
 
         #endregion
@@ -84,7 +87,8 @@ namespace IntereekBathWeChat
         //查询反馈
         private void BTFeedBack_Click(object sender, EventArgs e)
         {
-
+            var form = new FeedBackForm();
+            form.ShowDialog();
         }
 
         //连锁店铺

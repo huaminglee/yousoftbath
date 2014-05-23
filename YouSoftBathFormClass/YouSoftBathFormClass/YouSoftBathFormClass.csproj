@@ -60,6 +60,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="创建控件\CFormCreate.cs" />
+    <Compile Include="通用\打印\PrintDGV.cs" />
     <Compile Include="通用\点单\退单原因输入\DeleteExplainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,7 +134,6 @@
     <Compile Include="通用\录单汇总\进货单\StockInForm.designer.cs">
       <DependentUpon>StockInForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="通用\打印\PrintDGV.cs" />
     <Compile Include="通用\打印\PrintOptions.cs">
       <SubType>Form</SubType>
     </Compile>

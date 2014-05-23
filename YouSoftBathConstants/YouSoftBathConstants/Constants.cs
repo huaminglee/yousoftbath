@@ -29,7 +29,7 @@ namespace YouSoftBathConstants
     public static class Constants
     {
         public const string AliIP = "114.215.184.78";//阿里云IP地址
-        public const string AliPort = "80";//阿里云端口
+        public const string AliPort = "8080";//阿里云端口
 
         public const int LocalUdpPort = 7628;//本地服务器监听的端口号 
 

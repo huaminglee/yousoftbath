@@ -109,7 +109,6 @@ namespace YouSoftBathBack
         }
 
         //核对
-
         private void dgvDetails_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (dgvDetails.CurrentCell == null || dgvDetails.CurrentCell.ColumnIndex != 0)

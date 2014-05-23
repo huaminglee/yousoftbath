@@ -95,157 +95,49 @@ namespace YouSoftBathBack
             
             m_Thread=new Thread(new ThreadStart(do_dgv_Show));
             m_Thread.Start();
-            BathClass.set_dgv_fit(dgv);
+            //BathClass.set_dgv_fit(dgv);
         }
-
-        //显示清单
-        //public void dgv_show()
-        //{
-        //    string goodsCatSel = stockTree.SelectedNode.Text;
-        //    dgv.Rows.Clear();
-
-        //    var goods = db.StorageList.AsQueryable();
-        //    if (goodsCatSel != "所有类别")
-        //    {
-        //        int selId = db.GoodsCat.FirstOrDefault(x => x.name == goodsCatSel).id;
-        //        goods = goods.Where(x => x.goodsCatId == selId);
-        //    }
-        //    string goods_name_sel = TextName.Text.Trim();
-        //    if (goods_name_sel != "")
-        //        goods = goods.Where(x => x.name.Contains(goods_name_sel));
-
-
-        //    var mainStock = db.Stock.FirstOrDefault(x => x.main != null && x.main.Value);
-        //    var goodsNames = goods.Select(x => x.name);
-        //    foreach (var name in goodsNames)
-        //    {
-        //        double number_Ins = 0;
-        //        double number_Outs = 0;
-        //        double number_OrderOuts = 0;
-        //        double number_pans = 0;
-        //        double number_Total = 0;
-        //        double unitPirce = 0;    //单价
-        //        double totalPrice = 0;  //总价
-
-        //        var name_stockIns = db.StockIn.Where(x => x.stockId == mainStock.id && x.name == name).Where(x => x.amount != null);
-        //        if (name_stockIns.Any())
-        //            number_Ins = name_stockIns.Sum(x => x.amount).Value;
-
-        //        var name_stockOuts = db.StockOut.Where(x => x.stockId == mainStock.id && x.name == name).Where(x => x.amount != null);
-        //        if (name_stockOuts.Any())
-        //            number_Outs = BathClass.ToDouble(name_stockOuts.Sum(x => x.amount));
-
-        //        var name_orderStockOuts = db.OrderStockOut.Where(x => x.stockId == mainStock.id && x.name == name).Where(x => x.amount != null);
-        //        if (name_orderStockOuts.Any())
-        //            number_OrderOuts = BathClass.ToDouble(name_orderStockOuts.Sum(x => x.amount));
-
-        //        var name_pans = db.Pan.Where(x => x.stockId == mainStock.id && x.name == name).Where(x => x.amount != null);
-        //        if (name_pans.Any())
-        //            number_pans = BathClass.ToDouble(name_pans.Sum(x => x.amount));
-
-        //        var storageList = db.StorageList.FirstOrDefault(x => x.name == name);
-        //        var goods_cat = db.GoodsCat.FirstOrDefault(x => x.id == storageList.goodsCatId);
-        //        if (goods_cat == null)
-        //            continue;
-
-        //        number_Total = number_Ins + number_pans - number_Outs - number_OrderOuts;
-
-        //        var cost = db.StockIn.OrderBy(x => x.date).FirstOrDefault(x => x.name == name);
-        //        if (cost!=null)
-        //        {
-        //            unitPirce = BathClass.ToDouble(cost.cost);
-        //            totalPrice = unitPirce * number_Total;
-        //        }
-              
-
-        //        var unit_stock = db.StockIn.FirstOrDefault(x => x.name == name);
-        //        string unit_name = "";
-        //        if (unit_stock != null) 
-        //            unit_name = unit_stock.unit;
-
-        //        dgv.Rows.Add(name, number_Total, unitPirce, totalPrice,
-        //            storageList.minAmount, goods_cat.name, unit_name, storageList.note);
-        //    }
-        //    BathClass.set_dgv_fit(dgv);
-        //}
-
-        //导出清单
 
         private void do_dgv_Show()
         {
-            DateTime dt_et = DateTime.Parse(et.Value.Date.ToString("yyyy-MM-dd") + " 23:59:59");
-            DateTime dt_st_thisMonth = DateTime.Parse(dt_et.AddDays(1-dt_et.Day).ToString("yyyy-MM-dd"));
-            DateTime dt_et_lastMonth = DateTime.Parse(dt_et.AddDays( - dt_et.Day).ToLongDateString()+ "23:59:59");
-            DateTime dt_st_lastMonth = DateTime.Parse("2013-01-01 00:00:01");
-            double totalMoneyLastMonth = 0;
-            double totalMoneyOutThisMonth = 0;
-            double totalMoneyLeftThisMonth = 0;              
             try
             {
+                DateTime dt_et = DateTime.Parse(et.Value.ToString("yyyy-MM-dd") + " 23:59:59");
+                DateTime dt_st_thisMonth = DateTime.Parse(dt_et.ToString("yyyy-MM-")+"01 00:00:00");
+                DateTime dt_et_lastMonth = DateTime.Parse(dt_et.AddDays(-dt_et.Day).ToString("yyyy-MM-dd ") + "23:59:59");
+                DateTime dt_st_lastMonth = DateTime.Parse("2013-01-01 00:00:01");
+                double totalMoneyLastMonth = 0;
+                double totalMoneyOutThisMonth = 0;
+                double totalMoneyLeftThisMonth = 0;  
+ 
                 var db = new BathDBDataContext(LogIn.connectionString);
-            var goods = db.StorageList.AsQueryable();
-            if (goodsCatSel != "所有类别")
-            {
-                int selId = db.GoodsCat.FirstOrDefault(x => x.name == goodsCatSel).id;
-                goods = goods.Where(x => x.goodsCatId == selId);
+                var goods = db.StorageList.AsQueryable();
+                if (goodsCatSel != "所有类别")
+                {
+                    int selId = db.GoodsCat.FirstOrDefault(x => x.name == goodsCatSel).id;
+                    goods = goods.Where(x => x.goodsCatId == selId);
 
-            }
-                //string goods_name_sel = TextName.Text.Trim();
-            if (goods_name_sel != "")
-                goods = goods.Where(x => x.name.Contains(goods_name_sel));
-            var mainStock = db.Stock.FirstOrDefault(x => x.main != null && x.main.Value);
-            var goodsNames = goods.Select(x => x.name);
+                }
+                if (goods_name_sel != "")
+                    goods = goods.Where(x => x.name.Contains(goods_name_sel));
+                var mainStock = db.Stock.FirstOrDefault(x => x.main != null && x.main.Value);
+                var goodsNames = goods.Select(x => x.name);
                 if (goodsNames == null)
                     return;
-            foreach (var name in goodsNames)
-            {
+                foreach (var name in goodsNames)
+                {
                     object[] dgvRow = new object[14];
-                    //double number_Ins = 0;
-                    //double number_Outs = 0;
-                    //double number_OrderOuts = 0;
-                    //double number_pans = 0;
-                    //double number_Total = 0;
-                    //double unitPirce = 0;    //单价
-                    //double totalPrice = 0;  //总价
 
-                    //var name_stockIns = db.StockIn.Where(x => x.stockId == mainStock.id && x.name == name).Where(x => x.amount != null).Where(x => x.date <= dt_et);
-                    //if (name_stockIns.Any())
-                    //    number_Ins = name_stockIns.Sum(x => x.amount).Value;
+                    var storageList = db.StorageList.FirstOrDefault(x => x.name == name);
+                    var goods_cat = db.GoodsCat.FirstOrDefault(x => x.id == storageList.goodsCatId);
+                    if (goods_cat == null)
+                        continue;
 
-                    //var name_stockOuts = db.StockOut.Where(x => x.stockId == mainStock.id && x.name == name).Where(x => x.amount != null).Where(x => x.date <= dt_et);
-                    //if (name_stockOuts.Any())
-                    //    number_Outs = BathClass.ToDouble(name_stockOuts.Sum(x => x.amount));
-
-                    //var name_orderStockOuts = db.OrderStockOut.Where(x => x.stockId == mainStock.id && x.name == name).Where(x => x.amount != null).Where(x => x.date <= dt_et);
-                    //if (name_orderStockOuts.Any())
-                    //    number_OrderOuts = BathClass.ToDouble(name_orderStockOuts.Sum(x => x.amount));
-
-                    //var name_pans = db.Pan.Where(x => x.stockId == mainStock.id && x.name == name).Where(x => x.amount != null).Where(x => x.date <= dt_et);
-                    //if (name_pans.Any())
-                    //    number_pans = BathClass.ToDouble(name_pans.Sum(x => x.amount));
-
-                var storageList = db.StorageList.FirstOrDefault(x => x.name == name);
-                var goods_cat = db.GoodsCat.FirstOrDefault(x => x.id == storageList.goodsCatId);
-                if (goods_cat == null)
-                    continue;
-
-                    //number_Total = number_Ins + number_pans - number_Outs - number_OrderOuts;
-
-                    //var cost = db.StockIn.OrderBy(x => x.date).FirstOrDefault(x => x.name == name);
-                    //if (cost != null)
-                    //{
-                    //    unitPirce = BathClass.ToDouble(cost.cost);
-                    //    //totalPrice = unitPirce * number_Total;
-
-                    //}
-                    //totalPrice = MConvert<double>.ToTypeOrDefault(db.StockIn.Where(x => x.name == name).Where(x=>x.date<=dt_et).Sum(x => x.money), 0) - MConvert<double>.ToTypeOrDefault(db.StockOut.Where(x => x.name == name).Where(x=>x.date<=dt_et).Sum(x => x.money), 0);
-
-                    //totalAmout += totalPrice;
-                    //0名称，1类别，2单位，3上月结余，4  单价，5金额，6 本月出库，7 单价，8金额，9本月结余，10 单价 11 金额，12补货标准，13备注
-                var unit_stock = db.StockIn.FirstOrDefault(x => x.name == name);
-                string unit_name = "";
-                if (unit_stock != null) 
-                    unit_name = unit_stock.unit;
+                    var unit_stock = db.StockIn.FirstOrDefault(x => x.name == name);
+                    string unit_name = "";
+                    if (unit_stock != null) 
+                        unit_name = unit_stock.unit;
+                    
                     dgvRow[0] = name;
                     dgvRow[1] = goods_cat.name;
                     dgvRow[2] = unit_name;
@@ -266,9 +158,7 @@ namespace YouSoftBathBack
 
                     this.Invoke(new delegate_add_row(add_row), (object)dgvRow);
 
-                    //dgv.Rows.Add(name, number_Total, unitPirce, totalPrice,
-                    //    storageList.minAmount, goods_cat.name, unit_name, storageList.note);
-            }
+                }
 
                 string[] sbutotalrow1 = { "" };
                 this.Invoke(new delegate_add_row(add_row), (object)sbutotalrow1);
@@ -276,13 +166,10 @@ namespace YouSoftBathBack
                 this.Invoke(new delegate_add_row(add_row), (object)sbutotalrow2);
                 string[] sbutotalrow3 = { "", "", "", "", "", totalMoneyLastMonth.ToString(),"","",totalMoneyOutThisMonth.ToString(),"","",totalMoneyLeftThisMonth.ToString()};
                 this.Invoke(new delegate_add_row(add_row), (object)sbutotalrow3);
-                //m_Thread.Abort();
-            BathClass.set_dgv_fit(dgv);
-        }
-
+            }
             catch (Exception ex)
             {
-                //BathClass.printErrorMsg(ex.Message);
+                BathClass.printErrorMsg(ex.Message);
             }        
            
      

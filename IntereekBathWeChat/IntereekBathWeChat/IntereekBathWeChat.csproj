@@ -68,11 +68,35 @@
     <Compile Include="互动模块\FeedBackForm.Designer.cs">
       <DependentUpon>FeedBackForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="查询模块\连锁店铺管理\ChainForm.cs">
+    <Compile Include="互动模块\查询模块\连锁店铺管理\ChainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="查询模块\连锁店铺管理\ChainForm.Designer.cs">
+    <Compile Include="互动模块\查询模块\连锁店铺管理\ChainForm.Designer.cs">
       <DependentUpon>ChainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="优惠券管理\优惠券使用记录\CouponRecordsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="优惠券管理\优惠券使用记录\CouponRecordsForm.Designer.cs">
+      <DependentUpon>CouponRecordsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="优惠券管理\优惠券管理\CouponManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="优惠券管理\优惠券管理\CouponManagementForm.Designer.cs">
+      <DependentUpon>CouponManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="优惠券管理\优惠券管理\优惠券\CouponForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="优惠券管理\优惠券管理\优惠券\CouponForm.Designer.cs">
+      <DependentUpon>CouponForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="优惠券管理\所有优惠券\CompanyCouponForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="优惠券管理\所有优惠券\CompanyCouponForm.Designer.cs">
+      <DependentUpon>CompanyCouponForm.cs</DependentUpon>
     </Compile>
     <Compile Include="店铺管理\店铺介绍\ShopForm.cs">
       <SubType>Form</SubType>
@@ -86,16 +110,16 @@
     <Compile Include="店铺管理\微信粉丝查询\FansForm.Designer.cs">
       <DependentUpon>FansForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="查询模块\业绩查询\YeJiForm.cs">
+    <Compile Include="互动模块\查询模块\业绩查询\YeJiForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="查询模块\业绩查询\YeJiForm.Designer.cs">
+    <Compile Include="互动模块\查询模块\业绩查询\YeJiForm.Designer.cs">
       <DependentUpon>YeJiForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="查询模块\连锁店铺管理\ChainRegisterForm.cs">
+    <Compile Include="互动模块\查询模块\连锁店铺管理\店铺注册\ChainRegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="查询模块\连锁店铺管理\ChainRegisterForm.Designer.cs">
+    <Compile Include="互动模块\查询模块\连锁店铺管理\店铺注册\ChainRegisterForm.Designer.cs">
       <DependentUpon>ChainRegisterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
@@ -119,8 +143,24 @@
       <DependentUpon>FeedBackForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="查询模块\连锁店铺管理\ChainForm.resx">
+    <EmbeddedResource Include="互动模块\查询模块\连锁店铺管理\ChainForm.resx">
       <DependentUpon>ChainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="优惠券管理\优惠券使用记录\CouponRecordsForm.resx">
+      <DependentUpon>CouponRecordsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="优惠券管理\优惠券管理\CouponManagementForm.resx">
+      <DependentUpon>CouponManagementForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="优惠券管理\优惠券管理\优惠券\CouponForm.resx">
+      <DependentUpon>CouponForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="优惠券管理\所有优惠券\CompanyCouponForm.resx">
+      <DependentUpon>CompanyCouponForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="店铺管理\店铺介绍\ShopForm.resx">
@@ -131,11 +171,11 @@
       <DependentUpon>FansForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="查询模块\业绩查询\YeJiForm.resx">
+    <EmbeddedResource Include="互动模块\查询模块\业绩查询\YeJiForm.resx">
       <DependentUpon>YeJiForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="查询模块\连锁店铺管理\ChainRegisterForm.resx">
+    <EmbeddedResource Include="互动模块\查询模块\连锁店铺管理\店铺注册\ChainRegisterForm.resx">
       <DependentUpon>ChainRegisterForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>

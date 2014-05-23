@@ -44,7 +44,19 @@ namespace YouSoftUtil
         }
     }
 
-    //微信用户查找结果
+    //微信用户反馈结果
+    public class WxFeedBackResult
+    {
+        private List<WxFeedback> _commentList;
+
+        public List<WxFeedback> commentList
+        {
+            get { return _commentList; }
+            set { _commentList = value; }
+        }
+    }
+
+    //微信优惠券查找结果
     public class WxCouponResult
     {
         private List<WxCoupon> _couponList;
@@ -144,11 +156,25 @@ namespace YouSoftUtil
         private string _type;
         private double _value;
         private string _title;
+        private string _descp;
+        private string _isDeleted;
+
+        public string isDeleted
+        {
+            get { return _isDeleted; }
+            set { _isDeleted = value; }
+        } 
 
         public string title
         {
             get { return _title; }
             set { _title = value; }
+        }
+
+        public string descp
+        {
+            get { return _descp; }
+            set { _descp = value; }
         }
 
         public int id
@@ -199,11 +225,11 @@ namespace YouSoftUtil
     //门店某用户使用过的优惠券记录
     public class ShopUserUsedCoupon
     {
-        private DateTime _consumeTime;//优惠券消费时间
+        private long _consumeTime;//优惠券消费时间
         private int _id;//优惠券id
         private string _title;//优惠券名称
 
-        public DateTime consumeTime
+        public long consumeTime
         {
             get { return _consumeTime; }
             set { _consumeTime = value; }
@@ -246,6 +272,46 @@ namespace YouSoftUtil
         {
             get { return _isConsume; }
             set { _isConsume = value; }
+        }
+
+        public string title
+        {
+            get { return _title; }
+            set { _title = value; }
+        }
+    }
+
+    //用户优惠券使用记录
+    public class userCoupon
+    {
+        private long _consumeTime;//消费时间
+        private int _id;//编号
+        private string _nickName;//消费人
+        private string _title;//优惠券名称
+        private double _value;//金额
+
+        public double value
+        {
+            get { return _value; }
+            set { _value = value; }
+        }
+
+        public long consumeTime
+        {
+            get { return _consumeTime; }
+            set { _consumeTime = value; }
+        }
+
+        public int id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
+
+        public string nickName
+        {
+            get { return _nickName; }
+            set { _nickName = value; }
         }
 
         public string title
@@ -395,6 +461,25 @@ namespace YouSoftUtil
         {
             get { return _openid; }
             set { _openid = value; }
+        }
+    }
+
+    //微信用户反馈
+    public class WxFeedback
+    {
+        private string _content;
+        private long _createTime;
+
+        public string content
+        {
+            get { return _content; }
+            set { _content = value; }
+        }
+
+        public long createTime
+        {
+            get { return _createTime; }
+            set { _createTime = value; }
         }
     }
 }

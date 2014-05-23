@@ -18,6 +18,9 @@ namespace YouSoftUtil.WX
             });
 
             var jsonResult = HttpCon<WxUserResult>.run_json(ip, json, out errorDesc);
+            if (jsonResult == null)
+                return null;
+
             return jsonResult.wxUserList;
         }
     }
