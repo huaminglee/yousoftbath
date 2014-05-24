@@ -340,22 +340,26 @@ namespace YouSoftBathReception
             //state_str += ") ";
 
             string cmd_str = @"insert into [HisOrders](menu,text,systemId,number,priceType,"
-                            + @"money,technician,techtype,startTime,inputTime,inputEmployee,deleteEmployee,"
-                            + @"donorEmployee,comboId,paid,accountId,billId,departmentId,deleteExplain,deleteTime,roomId) select menu,text,systemId,number,priceType,"
-                            + @"money,technician,techtype,startTime,inputTime,inputEmployee,deleteEmployee,"
-                            + @"donorEmployee,comboId,'False',(select id from @NewAct),billId,departmentId,deleteExplain,deleteTime,roomId from [Orders] where("
-                            + @"deleteEmployee is not null and " + sb_state.ToString() + ")";
+                            + @" money,technician,techtype,startTime,inputTime,inputEmployee,deleteEmployee,"
+                            + @" donorEmployee,comboId,paid,accountId,billId,departmentId,deleteExplain,deleteTime,roomId,donorExplain,donorTime) "
+                            + @" select menu,text,systemId,number,priceType,"
+                            + @" money,technician,techtype,startTime,inputTime,inputEmployee,deleteEmployee,"
+                            + @" donorEmployee,comboId,'False',(select id from @NewAct),billId,departmentId,deleteExplain,deleteTime,roomId,donorExplain,donorTime "
+                            + @" from [Orders] where("
+                            + @" deleteEmployee is not null and " + sb_state.ToString() + ")";
 
             cmd_str += @" delete from [Orders] where (deleteEmployee is not null and " + sb_state.ToString() + ")";
             if (id_str == "")
                 return cmd_str;
 
             cmd_str += @"insert into [HisOrders](menu,text,systemId,number,priceType,"
-                            + @"money,technician,techtype,startTime,inputTime,inputEmployee,deleteEmployee,"
-                            + @"donorEmployee,comboId,paid,accountId,billId,departmentId,deleteExplain,deleteTime,roomId) select menu,text,systemId,number,priceType,"
-                            + @"money,technician,techtype,startTime,inputTime,inputEmployee,deleteEmployee,"
-                            + @"donorEmployee,comboId,'True',(select id from @NewAct),billId,departmentId,deleteExplain,deleteTime,roomId from [Orders] where("
-                            + @"paid='False' and";
+                            + @" money,technician,techtype,startTime,inputTime,inputEmployee,deleteEmployee,"
+                            + @" donorEmployee,comboId,paid,accountId,billId,departmentId,deleteExplain,deleteTime,roomId,donorExplain,donorTime) "
+                            + @" select menu,text,systemId,number,priceType,"
+                            + @" money,technician,techtype,startTime,inputTime,inputEmployee,deleteEmployee,"
+                            + @" donorEmployee,comboId,'True',(select id from @NewAct),billId,departmentId,deleteExplain,deleteTime,roomId,donorExplain,donorTime "
+                            + @" from [Orders] where("
+                            + @" paid='False' and";
             
             cmd_str += "(" + id_str + "))"
                 + @" delete from [Orders] where(" + id_str + ")";

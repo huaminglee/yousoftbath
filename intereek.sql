@@ -1699,6 +1699,14 @@ if not exists (select * from syscolumns where id=object_id('[Orders]') and name=
 if not exists (select * from syscolumns where id=object_id('[Orders]') and name='donorEmployee')
 	alter table [Orders] add [donorEmployee] [nvarchar](max) NULL
 
+/*[Orders].[donorExplain]*/
+if not exists (select * from syscolumns where id=object_id('[Orders]') and name='donorExplain')
+	alter table [Orders] add [donorExplain] [nvarchar](max) NULL
+
+/*[Orders].[donorTime]*/
+if not exists (select * from syscolumns where id=object_id('[Orders]') and name='donorTime')
+	alter table [Orders] add [donorTime] [datetime] NULL
+
 /*[Orders].[comboId]*/
 if not exists (select * from syscolumns where id=object_id('[Orders]') and name='comboId')
 	alter table [Orders] add [comboId] [int] NULL
@@ -1795,6 +1803,14 @@ if not exists (select * from syscolumns where id=object_id('[HisOrders]') and na
 /*[HisOrders].[donorEmployee]*/
 if not exists (select * from syscolumns where id=object_id('[HisOrders]') and name='donorEmployee')
 	alter table [HisOrders] add [donorEmployee] [nvarchar](max) NULL
+
+/*[HisOrders].[donorExplain]*/
+if not exists (select * from syscolumns where id=object_id('[HisOrders]') and name='donorExplain')
+	alter table [HisOrders] add [donorExplain] [nvarchar](max) NULL
+
+/*[HisOrders].[donorTime]*/
+if not exists (select * from syscolumns where id=object_id('[HisOrders]') and name='donorTime')
+	alter table [HisOrders] add [donorTime] [datetime] NULL
 
 /*[HisOrders].[comboId]*/
 if not exists (select * from syscolumns where id=object_id('[HisOrders]') and name='comboId')
@@ -2890,6 +2906,10 @@ if not exists (select * from syscolumns where id=object_id('Authority') and name
 /*Authority.取消开牌*/
 if not exists (select * from syscolumns where id=object_id('Authority') and name='取消开牌')
 	alter table Authority add 取消开牌 [bit] NULL
+
+/*Authority.微信赠送*/
+if not exists (select * from syscolumns where id=object_id('Authority') and name='微信赠送')
+	alter table Authority add 微信赠送 [bit] NULL
 
 /*Authority.更换手牌*/
 if not exists (select * from syscolumns where id=object_id('Authority') and name='更换手牌')

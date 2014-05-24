@@ -119,11 +119,20 @@ namespace YouSoftBathBack
                     return;
                 }
                 var acts = db.Account.Where(x => x.id == order.accountId);
-                //acts = acts.OrderBy(x => x.payTime);
-                //foreach (var x in acts)
-                //{
-
-                //}
+                dgvActList.DataSource = from x in acts
+                                        orderby x.payTime
+                                        select new
+                                        {
+                                            账单号 = x.id,
+                                            手牌号 = string.Join("\n", x.text.Split('|').ToArray()),
+                                            收银时间 = x.payTime,
+                                            收银员 = x.payEmployee
+                                        };
+            }
+            else if (cboxSystemId.Checked)
+            {
+                var id = MConvert<int>.ToTypeOrDefault(systemId.Text.Trim(), -1);
+                var acts = db.Account.Where(x => x.id == id);
                 dgvActList.DataSource = from x in acts
                                         orderby x.payTime
                                         select new
@@ -149,8 +158,7 @@ namespace YouSoftBathBack
                 }
                 if (cboxSeat.Checked)
                     accountList = accountList.Where(x => x.text.Contains(seat.Text));
-                if (cboxSystemId.Checked)
-                    accountList = accountList.Where(x => x.systemId.Contains(systemId.Text));
+                    
                 dgvActList.DataSource = from x in accountList
                                         orderby x.payTime
                                         select new

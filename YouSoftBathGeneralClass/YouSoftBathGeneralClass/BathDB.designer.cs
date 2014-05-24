@@ -132,9 +132,6 @@ namespace YouSoftBathGeneralClass
     partial void InsertGoodsCat(GoodsCat instance);
     partial void UpdateGoodsCat(GoodsCat instance);
     partial void DeleteGoodsCat(GoodsCat instance);
-    partial void InsertAuthority(Authority instance);
-    partial void UpdateAuthority(Authority instance);
-    partial void DeleteAuthority(Authority instance);
     partial void InsertProvider(Provider instance);
     partial void UpdateProvider(Provider instance);
     partial void DeleteProvider(Provider instance);
@@ -171,12 +168,6 @@ namespace YouSoftBathGeneralClass
     partial void InsertTechIndex(TechIndex instance);
     partial void UpdateTechIndex(TechIndex instance);
     partial void DeleteTechIndex(TechIndex instance);
-    partial void InsertOrders(Orders instance);
-    partial void UpdateOrders(Orders instance);
-    partial void DeleteOrders(Orders instance);
-    partial void InsertHisOrders(HisOrders instance);
-    partial void UpdateHisOrders(HisOrders instance);
-    partial void DeleteHisOrders(HisOrders instance);
     partial void InsertSeat(Seat instance);
     partial void UpdateSeat(Seat instance);
     partial void DeleteSeat(Seat instance);
@@ -186,10 +177,19 @@ namespace YouSoftBathGeneralClass
     partial void InsertOptions(Options instance);
     partial void UpdateOptions(Options instance);
     partial void DeleteOptions(Options instance);
+    partial void InsertAuthority(Authority instance);
+    partial void UpdateAuthority(Authority instance);
+    partial void DeleteAuthority(Authority instance);
+    partial void InsertOrders(Orders instance);
+    partial void UpdateOrders(Orders instance);
+    partial void DeleteOrders(Orders instance);
+    partial void InsertHisOrders(HisOrders instance);
+    partial void UpdateHisOrders(HisOrders instance);
+    partial void DeleteHisOrders(HisOrders instance);
     #endregion
 		
 		public BathDBDataContext() : 
-				base(global::YouSoftBathGeneralClass.Properties.Settings.Default.BathDBConnectionString1, mappingSource)
+				base(global::YouSoftBathGeneralClass.Properties.Settings.Default.BathDBConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -490,14 +490,6 @@ namespace YouSoftBathGeneralClass
 			}
 		}
 		
-		public System.Data.Linq.Table<Authority> Authority
-		{
-			get
-			{
-				return this.GetTable<Authority>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Provider> Provider
 		{
 			get
@@ -594,22 +586,6 @@ namespace YouSoftBathGeneralClass
 			}
 		}
 		
-		public System.Data.Linq.Table<Orders> Orders
-		{
-			get
-			{
-				return this.GetTable<Orders>();
-			}
-		}
-		
-		public System.Data.Linq.Table<HisOrders> HisOrders
-		{
-			get
-			{
-				return this.GetTable<HisOrders>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Seat> Seat
 		{
 			get
@@ -631,6 +607,30 @@ namespace YouSoftBathGeneralClass
 			get
 			{
 				return this.GetTable<Options>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Authority> Authority
+		{
+			get
+			{
+				return this.GetTable<Authority>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Orders> Orders
+		{
+			get
+			{
+				return this.GetTable<Orders>();
+			}
+		}
+		
+		public System.Data.Linq.Table<HisOrders> HisOrders
+		{
+			get
+			{
+				return this.GetTable<HisOrders>();
 			}
 		}
 	}
@@ -9319,1700 +9319,6 @@ namespace YouSoftBathGeneralClass
 		}
 	}
 	
-	[Table(Name="dbo.Authority")]
-	public partial class Authority : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _emplyeeId;
-		
-		private System.Nullable<int> _jobId;
-		
-		private System.Nullable<bool> _开牌;
-		
-		private System.Nullable<bool> _取消开牌;
-		
-		private System.Nullable<bool> _更换手牌;
-		
-		private System.Nullable<bool> _锁定解锁;
-		
-		private System.Nullable<bool> _解除警告;
-		
-		private System.Nullable<bool> _停用启用;
-		
-		private System.Nullable<bool> _添加备注;
-		
-		private System.Nullable<bool> _挂失手牌;
-		
-		private System.Nullable<bool> _完整点单;
-		
-		private System.Nullable<bool> _可见本人点单;
-		
-		private System.Nullable<bool> _退单;
-		
-		private System.Nullable<bool> _手工打折;
-		
-		private System.Nullable<bool> _签字免单;
-		
-		private System.Nullable<bool> _转账;
-		
-		private System.Nullable<bool> _重新结账;
-		
-		private System.Nullable<bool> _结账;
-		
-		private System.Nullable<bool> _技师管理;
-		
-		private System.Nullable<bool> _收银汇总统计;
-		
-		private System.Nullable<bool> _包房管理;
-		
-		private System.Nullable<bool> _收银单据查询;
-		
-		private System.Nullable<bool> _录单汇总;
-		
-		private System.Nullable<bool> _营业信息查看;
-		
-		private System.Nullable<bool> _售卡;
-		
-		private System.Nullable<bool> _充值;
-		
-		private System.Nullable<bool> _挂失;
-		
-		private System.Nullable<bool> _补卡;
-		
-		private System.Nullable<bool> _读卡;
-		
-		private System.Nullable<bool> _扣卡;
-		
-		private System.Nullable<bool> _卡入库;
-		
-		private System.Nullable<bool> _异常状况统计;
-		
-		private System.Nullable<bool> _提成统计;
-		
-		private System.Nullable<bool> _手工打折汇总;
-		
-		private System.Nullable<bool> _项目报表;
-		
-		private System.Nullable<bool> _信用卡统计;
-		
-		private System.Nullable<bool> _营业报表;
-		
-		private System.Nullable<bool> _退免单汇总;
-		
-		private System.Nullable<bool> _支出统计;
-		
-		private System.Nullable<bool> _收银员收款统计;
-		
-		private System.Nullable<bool> _月报表;
-		
-		private System.Nullable<bool> _往来单位账目;
-		
-		private System.Nullable<bool> _会员积分设置;
-		
-		private System.Nullable<bool> _优惠方案;
-		
-		private System.Nullable<bool> _会员分析;
-		
-		private System.Nullable<bool> _会员管理;
-		
-		private System.Nullable<bool> _会员消费统计;
-		
-		private System.Nullable<bool> _会员售卡及充值统计;
-		
-		private System.Nullable<bool> _手牌管理;
-		
-		private System.Nullable<bool> _券类管理;
-		
-		private System.Nullable<bool> _客户管理;
-		
-		private System.Nullable<bool> _项目档案管理;
-		
-		private System.Nullable<bool> _客房管理;
-		
-		private System.Nullable<bool> _员工管理;
-		
-		private System.Nullable<bool> _权限管理;
-		
-		private System.Nullable<bool> _套餐管理;
-		
-		private System.Nullable<bool> _库存参数;
-		
-		private System.Nullable<bool> _仓库设定;
-		
-		private System.Nullable<bool> _供应商管理;
-		
-		private System.Nullable<bool> _进货入库;
-		
-		private System.Nullable<bool> _现有库存;
-		
-		private System.Nullable<bool> _调货补货;
-		
-		private System.Nullable<bool> _盘点清册;
-		
-		private System.Nullable<bool> _盘点调整;
-		
-		private System.Nullable<bool> _应付账款;
-		
-		private System.Nullable<bool> _系统设置;
-		
-		private System.Nullable<bool> _数据优化;
-		
-		private System.Nullable<bool> _收银报表;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnemplyeeIdChanging(string value);
-    partial void OnemplyeeIdChanged();
-    partial void OnjobIdChanging(System.Nullable<int> value);
-    partial void OnjobIdChanged();
-    partial void On开牌Changing(System.Nullable<bool> value);
-    partial void On开牌Changed();
-    partial void On取消开牌Changing(System.Nullable<bool> value);
-    partial void On取消开牌Changed();
-    partial void On更换手牌Changing(System.Nullable<bool> value);
-    partial void On更换手牌Changed();
-    partial void On锁定解锁Changing(System.Nullable<bool> value);
-    partial void On锁定解锁Changed();
-    partial void On解除警告Changing(System.Nullable<bool> value);
-    partial void On解除警告Changed();
-    partial void On停用启用Changing(System.Nullable<bool> value);
-    partial void On停用启用Changed();
-    partial void On添加备注Changing(System.Nullable<bool> value);
-    partial void On添加备注Changed();
-    partial void On挂失手牌Changing(System.Nullable<bool> value);
-    partial void On挂失手牌Changed();
-    partial void On完整点单Changing(System.Nullable<bool> value);
-    partial void On完整点单Changed();
-    partial void On可见本人点单Changing(System.Nullable<bool> value);
-    partial void On可见本人点单Changed();
-    partial void On退单Changing(System.Nullable<bool> value);
-    partial void On退单Changed();
-    partial void On手工打折Changing(System.Nullable<bool> value);
-    partial void On手工打折Changed();
-    partial void On签字免单Changing(System.Nullable<bool> value);
-    partial void On签字免单Changed();
-    partial void On转账Changing(System.Nullable<bool> value);
-    partial void On转账Changed();
-    partial void On重新结账Changing(System.Nullable<bool> value);
-    partial void On重新结账Changed();
-    partial void On结账Changing(System.Nullable<bool> value);
-    partial void On结账Changed();
-    partial void On技师管理Changing(System.Nullable<bool> value);
-    partial void On技师管理Changed();
-    partial void On收银汇总统计Changing(System.Nullable<bool> value);
-    partial void On收银汇总统计Changed();
-    partial void On包房管理Changing(System.Nullable<bool> value);
-    partial void On包房管理Changed();
-    partial void On收银单据查询Changing(System.Nullable<bool> value);
-    partial void On收银单据查询Changed();
-    partial void On录单汇总Changing(System.Nullable<bool> value);
-    partial void On录单汇总Changed();
-    partial void On营业信息查看Changing(System.Nullable<bool> value);
-    partial void On营业信息查看Changed();
-    partial void On售卡Changing(System.Nullable<bool> value);
-    partial void On售卡Changed();
-    partial void On充值Changing(System.Nullable<bool> value);
-    partial void On充值Changed();
-    partial void On挂失Changing(System.Nullable<bool> value);
-    partial void On挂失Changed();
-    partial void On补卡Changing(System.Nullable<bool> value);
-    partial void On补卡Changed();
-    partial void On读卡Changing(System.Nullable<bool> value);
-    partial void On读卡Changed();
-    partial void On扣卡Changing(System.Nullable<bool> value);
-    partial void On扣卡Changed();
-    partial void On卡入库Changing(System.Nullable<bool> value);
-    partial void On卡入库Changed();
-    partial void On异常状况统计Changing(System.Nullable<bool> value);
-    partial void On异常状况统计Changed();
-    partial void On提成统计Changing(System.Nullable<bool> value);
-    partial void On提成统计Changed();
-    partial void On手工打折汇总Changing(System.Nullable<bool> value);
-    partial void On手工打折汇总Changed();
-    partial void On项目报表Changing(System.Nullable<bool> value);
-    partial void On项目报表Changed();
-    partial void On信用卡统计Changing(System.Nullable<bool> value);
-    partial void On信用卡统计Changed();
-    partial void On营业报表Changing(System.Nullable<bool> value);
-    partial void On营业报表Changed();
-    partial void On退免单汇总Changing(System.Nullable<bool> value);
-    partial void On退免单汇总Changed();
-    partial void On支出统计Changing(System.Nullable<bool> value);
-    partial void On支出统计Changed();
-    partial void On收银员收款统计Changing(System.Nullable<bool> value);
-    partial void On收银员收款统计Changed();
-    partial void On月报表Changing(System.Nullable<bool> value);
-    partial void On月报表Changed();
-    partial void On往来单位账目Changing(System.Nullable<bool> value);
-    partial void On往来单位账目Changed();
-    partial void On会员积分设置Changing(System.Nullable<bool> value);
-    partial void On会员积分设置Changed();
-    partial void On优惠方案Changing(System.Nullable<bool> value);
-    partial void On优惠方案Changed();
-    partial void On会员分析Changing(System.Nullable<bool> value);
-    partial void On会员分析Changed();
-    partial void On会员管理Changing(System.Nullable<bool> value);
-    partial void On会员管理Changed();
-    partial void On会员消费统计Changing(System.Nullable<bool> value);
-    partial void On会员消费统计Changed();
-    partial void On会员售卡及充值统计Changing(System.Nullable<bool> value);
-    partial void On会员售卡及充值统计Changed();
-    partial void On手牌管理Changing(System.Nullable<bool> value);
-    partial void On手牌管理Changed();
-    partial void On券类管理Changing(System.Nullable<bool> value);
-    partial void On券类管理Changed();
-    partial void On客户管理Changing(System.Nullable<bool> value);
-    partial void On客户管理Changed();
-    partial void On项目档案管理Changing(System.Nullable<bool> value);
-    partial void On项目档案管理Changed();
-    partial void On客房管理Changing(System.Nullable<bool> value);
-    partial void On客房管理Changed();
-    partial void On员工管理Changing(System.Nullable<bool> value);
-    partial void On员工管理Changed();
-    partial void On权限管理Changing(System.Nullable<bool> value);
-    partial void On权限管理Changed();
-    partial void On套餐管理Changing(System.Nullable<bool> value);
-    partial void On套餐管理Changed();
-    partial void On库存参数Changing(System.Nullable<bool> value);
-    partial void On库存参数Changed();
-    partial void On仓库设定Changing(System.Nullable<bool> value);
-    partial void On仓库设定Changed();
-    partial void On供应商管理Changing(System.Nullable<bool> value);
-    partial void On供应商管理Changed();
-    partial void On进货入库Changing(System.Nullable<bool> value);
-    partial void On进货入库Changed();
-    partial void On现有库存Changing(System.Nullable<bool> value);
-    partial void On现有库存Changed();
-    partial void On调货补货Changing(System.Nullable<bool> value);
-    partial void On调货补货Changed();
-    partial void On盘点清册Changing(System.Nullable<bool> value);
-    partial void On盘点清册Changed();
-    partial void On盘点调整Changing(System.Nullable<bool> value);
-    partial void On盘点调整Changed();
-    partial void On应付账款Changing(System.Nullable<bool> value);
-    partial void On应付账款Changed();
-    partial void On系统设置Changing(System.Nullable<bool> value);
-    partial void On系统设置Changed();
-    partial void On数据优化Changing(System.Nullable<bool> value);
-    partial void On数据优化Changed();
-    partial void On收银报表Changing(System.Nullable<bool> value);
-    partial void On收银报表Changed();
-    #endregion
-		
-		public Authority()
-		{
-			OnCreated();
-		}
-		
-		[Column(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_emplyeeId", DbType="VarChar(10)")]
-		public string emplyeeId
-		{
-			get
-			{
-				return this._emplyeeId;
-			}
-			set
-			{
-				if ((this._emplyeeId != value))
-				{
-					this.OnemplyeeIdChanging(value);
-					this.SendPropertyChanging();
-					this._emplyeeId = value;
-					this.SendPropertyChanged("emplyeeId");
-					this.OnemplyeeIdChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_jobId", DbType="Int")]
-		public System.Nullable<int> jobId
-		{
-			get
-			{
-				return this._jobId;
-			}
-			set
-			{
-				if ((this._jobId != value))
-				{
-					this.OnjobIdChanging(value);
-					this.SendPropertyChanging();
-					this._jobId = value;
-					this.SendPropertyChanged("jobId");
-					this.OnjobIdChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_开牌", DbType="Bit")]
-		public System.Nullable<bool> 开牌
-		{
-			get
-			{
-				return this._开牌;
-			}
-			set
-			{
-				if ((this._开牌 != value))
-				{
-					this.On开牌Changing(value);
-					this.SendPropertyChanging();
-					this._开牌 = value;
-					this.SendPropertyChanged("开牌");
-					this.On开牌Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_取消开牌", DbType="Bit")]
-		public System.Nullable<bool> 取消开牌
-		{
-			get
-			{
-				return this._取消开牌;
-			}
-			set
-			{
-				if ((this._取消开牌 != value))
-				{
-					this.On取消开牌Changing(value);
-					this.SendPropertyChanging();
-					this._取消开牌 = value;
-					this.SendPropertyChanged("取消开牌");
-					this.On取消开牌Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_更换手牌", DbType="Bit")]
-		public System.Nullable<bool> 更换手牌
-		{
-			get
-			{
-				return this._更换手牌;
-			}
-			set
-			{
-				if ((this._更换手牌 != value))
-				{
-					this.On更换手牌Changing(value);
-					this.SendPropertyChanging();
-					this._更换手牌 = value;
-					this.SendPropertyChanged("更换手牌");
-					this.On更换手牌Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_锁定解锁", DbType="Bit")]
-		public System.Nullable<bool> 锁定解锁
-		{
-			get
-			{
-				return this._锁定解锁;
-			}
-			set
-			{
-				if ((this._锁定解锁 != value))
-				{
-					this.On锁定解锁Changing(value);
-					this.SendPropertyChanging();
-					this._锁定解锁 = value;
-					this.SendPropertyChanged("锁定解锁");
-					this.On锁定解锁Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_解除警告", DbType="Bit")]
-		public System.Nullable<bool> 解除警告
-		{
-			get
-			{
-				return this._解除警告;
-			}
-			set
-			{
-				if ((this._解除警告 != value))
-				{
-					this.On解除警告Changing(value);
-					this.SendPropertyChanging();
-					this._解除警告 = value;
-					this.SendPropertyChanged("解除警告");
-					this.On解除警告Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_停用启用", DbType="Bit")]
-		public System.Nullable<bool> 停用启用
-		{
-			get
-			{
-				return this._停用启用;
-			}
-			set
-			{
-				if ((this._停用启用 != value))
-				{
-					this.On停用启用Changing(value);
-					this.SendPropertyChanging();
-					this._停用启用 = value;
-					this.SendPropertyChanged("停用启用");
-					this.On停用启用Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_添加备注", DbType="Bit")]
-		public System.Nullable<bool> 添加备注
-		{
-			get
-			{
-				return this._添加备注;
-			}
-			set
-			{
-				if ((this._添加备注 != value))
-				{
-					this.On添加备注Changing(value);
-					this.SendPropertyChanging();
-					this._添加备注 = value;
-					this.SendPropertyChanged("添加备注");
-					this.On添加备注Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_挂失手牌", DbType="Bit")]
-		public System.Nullable<bool> 挂失手牌
-		{
-			get
-			{
-				return this._挂失手牌;
-			}
-			set
-			{
-				if ((this._挂失手牌 != value))
-				{
-					this.On挂失手牌Changing(value);
-					this.SendPropertyChanging();
-					this._挂失手牌 = value;
-					this.SendPropertyChanged("挂失手牌");
-					this.On挂失手牌Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_完整点单", DbType="Bit")]
-		public System.Nullable<bool> 完整点单
-		{
-			get
-			{
-				return this._完整点单;
-			}
-			set
-			{
-				if ((this._完整点单 != value))
-				{
-					this.On完整点单Changing(value);
-					this.SendPropertyChanging();
-					this._完整点单 = value;
-					this.SendPropertyChanged("完整点单");
-					this.On完整点单Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_可见本人点单", DbType="Bit")]
-		public System.Nullable<bool> 可见本人点单
-		{
-			get
-			{
-				return this._可见本人点单;
-			}
-			set
-			{
-				if ((this._可见本人点单 != value))
-				{
-					this.On可见本人点单Changing(value);
-					this.SendPropertyChanging();
-					this._可见本人点单 = value;
-					this.SendPropertyChanged("可见本人点单");
-					this.On可见本人点单Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_退单", DbType="Bit")]
-		public System.Nullable<bool> 退单
-		{
-			get
-			{
-				return this._退单;
-			}
-			set
-			{
-				if ((this._退单 != value))
-				{
-					this.On退单Changing(value);
-					this.SendPropertyChanging();
-					this._退单 = value;
-					this.SendPropertyChanged("退单");
-					this.On退单Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_手工打折", DbType="Bit")]
-		public System.Nullable<bool> 手工打折
-		{
-			get
-			{
-				return this._手工打折;
-			}
-			set
-			{
-				if ((this._手工打折 != value))
-				{
-					this.On手工打折Changing(value);
-					this.SendPropertyChanging();
-					this._手工打折 = value;
-					this.SendPropertyChanged("手工打折");
-					this.On手工打折Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_签字免单", DbType="Bit")]
-		public System.Nullable<bool> 签字免单
-		{
-			get
-			{
-				return this._签字免单;
-			}
-			set
-			{
-				if ((this._签字免单 != value))
-				{
-					this.On签字免单Changing(value);
-					this.SendPropertyChanging();
-					this._签字免单 = value;
-					this.SendPropertyChanged("签字免单");
-					this.On签字免单Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_转账", DbType="Bit")]
-		public System.Nullable<bool> 转账
-		{
-			get
-			{
-				return this._转账;
-			}
-			set
-			{
-				if ((this._转账 != value))
-				{
-					this.On转账Changing(value);
-					this.SendPropertyChanging();
-					this._转账 = value;
-					this.SendPropertyChanged("转账");
-					this.On转账Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_重新结账", DbType="Bit")]
-		public System.Nullable<bool> 重新结账
-		{
-			get
-			{
-				return this._重新结账;
-			}
-			set
-			{
-				if ((this._重新结账 != value))
-				{
-					this.On重新结账Changing(value);
-					this.SendPropertyChanging();
-					this._重新结账 = value;
-					this.SendPropertyChanged("重新结账");
-					this.On重新结账Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_结账", DbType="Bit")]
-		public System.Nullable<bool> 结账
-		{
-			get
-			{
-				return this._结账;
-			}
-			set
-			{
-				if ((this._结账 != value))
-				{
-					this.On结账Changing(value);
-					this.SendPropertyChanging();
-					this._结账 = value;
-					this.SendPropertyChanged("结账");
-					this.On结账Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_技师管理", DbType="Bit")]
-		public System.Nullable<bool> 技师管理
-		{
-			get
-			{
-				return this._技师管理;
-			}
-			set
-			{
-				if ((this._技师管理 != value))
-				{
-					this.On技师管理Changing(value);
-					this.SendPropertyChanging();
-					this._技师管理 = value;
-					this.SendPropertyChanged("技师管理");
-					this.On技师管理Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_收银汇总统计", DbType="Bit")]
-		public System.Nullable<bool> 收银汇总统计
-		{
-			get
-			{
-				return this._收银汇总统计;
-			}
-			set
-			{
-				if ((this._收银汇总统计 != value))
-				{
-					this.On收银汇总统计Changing(value);
-					this.SendPropertyChanging();
-					this._收银汇总统计 = value;
-					this.SendPropertyChanged("收银汇总统计");
-					this.On收银汇总统计Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_包房管理", DbType="Bit")]
-		public System.Nullable<bool> 包房管理
-		{
-			get
-			{
-				return this._包房管理;
-			}
-			set
-			{
-				if ((this._包房管理 != value))
-				{
-					this.On包房管理Changing(value);
-					this.SendPropertyChanging();
-					this._包房管理 = value;
-					this.SendPropertyChanged("包房管理");
-					this.On包房管理Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_收银单据查询", DbType="Bit")]
-		public System.Nullable<bool> 收银单据查询
-		{
-			get
-			{
-				return this._收银单据查询;
-			}
-			set
-			{
-				if ((this._收银单据查询 != value))
-				{
-					this.On收银单据查询Changing(value);
-					this.SendPropertyChanging();
-					this._收银单据查询 = value;
-					this.SendPropertyChanged("收银单据查询");
-					this.On收银单据查询Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_录单汇总", DbType="Bit")]
-		public System.Nullable<bool> 录单汇总
-		{
-			get
-			{
-				return this._录单汇总;
-			}
-			set
-			{
-				if ((this._录单汇总 != value))
-				{
-					this.On录单汇总Changing(value);
-					this.SendPropertyChanging();
-					this._录单汇总 = value;
-					this.SendPropertyChanged("录单汇总");
-					this.On录单汇总Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_营业信息查看", DbType="Bit")]
-		public System.Nullable<bool> 营业信息查看
-		{
-			get
-			{
-				return this._营业信息查看;
-			}
-			set
-			{
-				if ((this._营业信息查看 != value))
-				{
-					this.On营业信息查看Changing(value);
-					this.SendPropertyChanging();
-					this._营业信息查看 = value;
-					this.SendPropertyChanged("营业信息查看");
-					this.On营业信息查看Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_售卡", DbType="Bit")]
-		public System.Nullable<bool> 售卡
-		{
-			get
-			{
-				return this._售卡;
-			}
-			set
-			{
-				if ((this._售卡 != value))
-				{
-					this.On售卡Changing(value);
-					this.SendPropertyChanging();
-					this._售卡 = value;
-					this.SendPropertyChanged("售卡");
-					this.On售卡Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_充值", DbType="Bit")]
-		public System.Nullable<bool> 充值
-		{
-			get
-			{
-				return this._充值;
-			}
-			set
-			{
-				if ((this._充值 != value))
-				{
-					this.On充值Changing(value);
-					this.SendPropertyChanging();
-					this._充值 = value;
-					this.SendPropertyChanged("充值");
-					this.On充值Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_挂失", DbType="Bit")]
-		public System.Nullable<bool> 挂失
-		{
-			get
-			{
-				return this._挂失;
-			}
-			set
-			{
-				if ((this._挂失 != value))
-				{
-					this.On挂失Changing(value);
-					this.SendPropertyChanging();
-					this._挂失 = value;
-					this.SendPropertyChanged("挂失");
-					this.On挂失Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_补卡", DbType="Bit")]
-		public System.Nullable<bool> 补卡
-		{
-			get
-			{
-				return this._补卡;
-			}
-			set
-			{
-				if ((this._补卡 != value))
-				{
-					this.On补卡Changing(value);
-					this.SendPropertyChanging();
-					this._补卡 = value;
-					this.SendPropertyChanged("补卡");
-					this.On补卡Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_读卡", DbType="Bit")]
-		public System.Nullable<bool> 读卡
-		{
-			get
-			{
-				return this._读卡;
-			}
-			set
-			{
-				if ((this._读卡 != value))
-				{
-					this.On读卡Changing(value);
-					this.SendPropertyChanging();
-					this._读卡 = value;
-					this.SendPropertyChanged("读卡");
-					this.On读卡Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_扣卡", DbType="Bit")]
-		public System.Nullable<bool> 扣卡
-		{
-			get
-			{
-				return this._扣卡;
-			}
-			set
-			{
-				if ((this._扣卡 != value))
-				{
-					this.On扣卡Changing(value);
-					this.SendPropertyChanging();
-					this._扣卡 = value;
-					this.SendPropertyChanged("扣卡");
-					this.On扣卡Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_卡入库", DbType="Bit")]
-		public System.Nullable<bool> 卡入库
-		{
-			get
-			{
-				return this._卡入库;
-			}
-			set
-			{
-				if ((this._卡入库 != value))
-				{
-					this.On卡入库Changing(value);
-					this.SendPropertyChanging();
-					this._卡入库 = value;
-					this.SendPropertyChanged("卡入库");
-					this.On卡入库Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_异常状况统计", DbType="Bit")]
-		public System.Nullable<bool> 异常状况统计
-		{
-			get
-			{
-				return this._异常状况统计;
-			}
-			set
-			{
-				if ((this._异常状况统计 != value))
-				{
-					this.On异常状况统计Changing(value);
-					this.SendPropertyChanging();
-					this._异常状况统计 = value;
-					this.SendPropertyChanged("异常状况统计");
-					this.On异常状况统计Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_提成统计", DbType="Bit")]
-		public System.Nullable<bool> 提成统计
-		{
-			get
-			{
-				return this._提成统计;
-			}
-			set
-			{
-				if ((this._提成统计 != value))
-				{
-					this.On提成统计Changing(value);
-					this.SendPropertyChanging();
-					this._提成统计 = value;
-					this.SendPropertyChanged("提成统计");
-					this.On提成统计Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_手工打折汇总", DbType="Bit")]
-		public System.Nullable<bool> 手工打折汇总
-		{
-			get
-			{
-				return this._手工打折汇总;
-			}
-			set
-			{
-				if ((this._手工打折汇总 != value))
-				{
-					this.On手工打折汇总Changing(value);
-					this.SendPropertyChanging();
-					this._手工打折汇总 = value;
-					this.SendPropertyChanged("手工打折汇总");
-					this.On手工打折汇总Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_项目报表", DbType="Bit")]
-		public System.Nullable<bool> 项目报表
-		{
-			get
-			{
-				return this._项目报表;
-			}
-			set
-			{
-				if ((this._项目报表 != value))
-				{
-					this.On项目报表Changing(value);
-					this.SendPropertyChanging();
-					this._项目报表 = value;
-					this.SendPropertyChanged("项目报表");
-					this.On项目报表Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_信用卡统计", DbType="Bit")]
-		public System.Nullable<bool> 信用卡统计
-		{
-			get
-			{
-				return this._信用卡统计;
-			}
-			set
-			{
-				if ((this._信用卡统计 != value))
-				{
-					this.On信用卡统计Changing(value);
-					this.SendPropertyChanging();
-					this._信用卡统计 = value;
-					this.SendPropertyChanged("信用卡统计");
-					this.On信用卡统计Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_营业报表", DbType="Bit")]
-		public System.Nullable<bool> 营业报表
-		{
-			get
-			{
-				return this._营业报表;
-			}
-			set
-			{
-				if ((this._营业报表 != value))
-				{
-					this.On营业报表Changing(value);
-					this.SendPropertyChanging();
-					this._营业报表 = value;
-					this.SendPropertyChanged("营业报表");
-					this.On营业报表Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_退免单汇总", DbType="Bit")]
-		public System.Nullable<bool> 退免单汇总
-		{
-			get
-			{
-				return this._退免单汇总;
-			}
-			set
-			{
-				if ((this._退免单汇总 != value))
-				{
-					this.On退免单汇总Changing(value);
-					this.SendPropertyChanging();
-					this._退免单汇总 = value;
-					this.SendPropertyChanged("退免单汇总");
-					this.On退免单汇总Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_支出统计", DbType="Bit")]
-		public System.Nullable<bool> 支出统计
-		{
-			get
-			{
-				return this._支出统计;
-			}
-			set
-			{
-				if ((this._支出统计 != value))
-				{
-					this.On支出统计Changing(value);
-					this.SendPropertyChanging();
-					this._支出统计 = value;
-					this.SendPropertyChanged("支出统计");
-					this.On支出统计Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_收银员收款统计", DbType="Bit")]
-		public System.Nullable<bool> 收银员收款统计
-		{
-			get
-			{
-				return this._收银员收款统计;
-			}
-			set
-			{
-				if ((this._收银员收款统计 != value))
-				{
-					this.On收银员收款统计Changing(value);
-					this.SendPropertyChanging();
-					this._收银员收款统计 = value;
-					this.SendPropertyChanged("收银员收款统计");
-					this.On收银员收款统计Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_月报表", DbType="Bit")]
-		public System.Nullable<bool> 月报表
-		{
-			get
-			{
-				return this._月报表;
-			}
-			set
-			{
-				if ((this._月报表 != value))
-				{
-					this.On月报表Changing(value);
-					this.SendPropertyChanging();
-					this._月报表 = value;
-					this.SendPropertyChanged("月报表");
-					this.On月报表Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_往来单位账目", DbType="Bit")]
-		public System.Nullable<bool> 往来单位账目
-		{
-			get
-			{
-				return this._往来单位账目;
-			}
-			set
-			{
-				if ((this._往来单位账目 != value))
-				{
-					this.On往来单位账目Changing(value);
-					this.SendPropertyChanging();
-					this._往来单位账目 = value;
-					this.SendPropertyChanged("往来单位账目");
-					this.On往来单位账目Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_会员积分设置", DbType="Bit")]
-		public System.Nullable<bool> 会员积分设置
-		{
-			get
-			{
-				return this._会员积分设置;
-			}
-			set
-			{
-				if ((this._会员积分设置 != value))
-				{
-					this.On会员积分设置Changing(value);
-					this.SendPropertyChanging();
-					this._会员积分设置 = value;
-					this.SendPropertyChanged("会员积分设置");
-					this.On会员积分设置Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_优惠方案", DbType="Bit")]
-		public System.Nullable<bool> 优惠方案
-		{
-			get
-			{
-				return this._优惠方案;
-			}
-			set
-			{
-				if ((this._优惠方案 != value))
-				{
-					this.On优惠方案Changing(value);
-					this.SendPropertyChanging();
-					this._优惠方案 = value;
-					this.SendPropertyChanged("优惠方案");
-					this.On优惠方案Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_会员分析", DbType="Bit")]
-		public System.Nullable<bool> 会员分析
-		{
-			get
-			{
-				return this._会员分析;
-			}
-			set
-			{
-				if ((this._会员分析 != value))
-				{
-					this.On会员分析Changing(value);
-					this.SendPropertyChanging();
-					this._会员分析 = value;
-					this.SendPropertyChanged("会员分析");
-					this.On会员分析Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_会员管理", DbType="Bit")]
-		public System.Nullable<bool> 会员管理
-		{
-			get
-			{
-				return this._会员管理;
-			}
-			set
-			{
-				if ((this._会员管理 != value))
-				{
-					this.On会员管理Changing(value);
-					this.SendPropertyChanging();
-					this._会员管理 = value;
-					this.SendPropertyChanged("会员管理");
-					this.On会员管理Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_会员消费统计", DbType="Bit")]
-		public System.Nullable<bool> 会员消费统计
-		{
-			get
-			{
-				return this._会员消费统计;
-			}
-			set
-			{
-				if ((this._会员消费统计 != value))
-				{
-					this.On会员消费统计Changing(value);
-					this.SendPropertyChanging();
-					this._会员消费统计 = value;
-					this.SendPropertyChanged("会员消费统计");
-					this.On会员消费统计Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_会员售卡及充值统计", DbType="Bit")]
-		public System.Nullable<bool> 会员售卡及充值统计
-		{
-			get
-			{
-				return this._会员售卡及充值统计;
-			}
-			set
-			{
-				if ((this._会员售卡及充值统计 != value))
-				{
-					this.On会员售卡及充值统计Changing(value);
-					this.SendPropertyChanging();
-					this._会员售卡及充值统计 = value;
-					this.SendPropertyChanged("会员售卡及充值统计");
-					this.On会员售卡及充值统计Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_手牌管理", DbType="Bit")]
-		public System.Nullable<bool> 手牌管理
-		{
-			get
-			{
-				return this._手牌管理;
-			}
-			set
-			{
-				if ((this._手牌管理 != value))
-				{
-					this.On手牌管理Changing(value);
-					this.SendPropertyChanging();
-					this._手牌管理 = value;
-					this.SendPropertyChanged("手牌管理");
-					this.On手牌管理Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_券类管理", DbType="Bit")]
-		public System.Nullable<bool> 券类管理
-		{
-			get
-			{
-				return this._券类管理;
-			}
-			set
-			{
-				if ((this._券类管理 != value))
-				{
-					this.On券类管理Changing(value);
-					this.SendPropertyChanging();
-					this._券类管理 = value;
-					this.SendPropertyChanged("券类管理");
-					this.On券类管理Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_客户管理", DbType="Bit")]
-		public System.Nullable<bool> 客户管理
-		{
-			get
-			{
-				return this._客户管理;
-			}
-			set
-			{
-				if ((this._客户管理 != value))
-				{
-					this.On客户管理Changing(value);
-					this.SendPropertyChanging();
-					this._客户管理 = value;
-					this.SendPropertyChanged("客户管理");
-					this.On客户管理Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_项目档案管理", DbType="Bit")]
-		public System.Nullable<bool> 项目档案管理
-		{
-			get
-			{
-				return this._项目档案管理;
-			}
-			set
-			{
-				if ((this._项目档案管理 != value))
-				{
-					this.On项目档案管理Changing(value);
-					this.SendPropertyChanging();
-					this._项目档案管理 = value;
-					this.SendPropertyChanged("项目档案管理");
-					this.On项目档案管理Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_客房管理", DbType="Bit")]
-		public System.Nullable<bool> 客房管理
-		{
-			get
-			{
-				return this._客房管理;
-			}
-			set
-			{
-				if ((this._客房管理 != value))
-				{
-					this.On客房管理Changing(value);
-					this.SendPropertyChanging();
-					this._客房管理 = value;
-					this.SendPropertyChanged("客房管理");
-					this.On客房管理Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_员工管理", DbType="Bit")]
-		public System.Nullable<bool> 员工管理
-		{
-			get
-			{
-				return this._员工管理;
-			}
-			set
-			{
-				if ((this._员工管理 != value))
-				{
-					this.On员工管理Changing(value);
-					this.SendPropertyChanging();
-					this._员工管理 = value;
-					this.SendPropertyChanged("员工管理");
-					this.On员工管理Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_权限管理", DbType="Bit")]
-		public System.Nullable<bool> 权限管理
-		{
-			get
-			{
-				return this._权限管理;
-			}
-			set
-			{
-				if ((this._权限管理 != value))
-				{
-					this.On权限管理Changing(value);
-					this.SendPropertyChanging();
-					this._权限管理 = value;
-					this.SendPropertyChanged("权限管理");
-					this.On权限管理Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_套餐管理", DbType="Bit")]
-		public System.Nullable<bool> 套餐管理
-		{
-			get
-			{
-				return this._套餐管理;
-			}
-			set
-			{
-				if ((this._套餐管理 != value))
-				{
-					this.On套餐管理Changing(value);
-					this.SendPropertyChanging();
-					this._套餐管理 = value;
-					this.SendPropertyChanged("套餐管理");
-					this.On套餐管理Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_库存参数", DbType="Bit")]
-		public System.Nullable<bool> 库存参数
-		{
-			get
-			{
-				return this._库存参数;
-			}
-			set
-			{
-				if ((this._库存参数 != value))
-				{
-					this.On库存参数Changing(value);
-					this.SendPropertyChanging();
-					this._库存参数 = value;
-					this.SendPropertyChanged("库存参数");
-					this.On库存参数Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_仓库设定", DbType="Bit")]
-		public System.Nullable<bool> 仓库设定
-		{
-			get
-			{
-				return this._仓库设定;
-			}
-			set
-			{
-				if ((this._仓库设定 != value))
-				{
-					this.On仓库设定Changing(value);
-					this.SendPropertyChanging();
-					this._仓库设定 = value;
-					this.SendPropertyChanged("仓库设定");
-					this.On仓库设定Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_供应商管理", DbType="Bit")]
-		public System.Nullable<bool> 供应商管理
-		{
-			get
-			{
-				return this._供应商管理;
-			}
-			set
-			{
-				if ((this._供应商管理 != value))
-				{
-					this.On供应商管理Changing(value);
-					this.SendPropertyChanging();
-					this._供应商管理 = value;
-					this.SendPropertyChanged("供应商管理");
-					this.On供应商管理Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_进货入库", DbType="Bit")]
-		public System.Nullable<bool> 进货入库
-		{
-			get
-			{
-				return this._进货入库;
-			}
-			set
-			{
-				if ((this._进货入库 != value))
-				{
-					this.On进货入库Changing(value);
-					this.SendPropertyChanging();
-					this._进货入库 = value;
-					this.SendPropertyChanged("进货入库");
-					this.On进货入库Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_现有库存", DbType="Bit")]
-		public System.Nullable<bool> 现有库存
-		{
-			get
-			{
-				return this._现有库存;
-			}
-			set
-			{
-				if ((this._现有库存 != value))
-				{
-					this.On现有库存Changing(value);
-					this.SendPropertyChanging();
-					this._现有库存 = value;
-					this.SendPropertyChanged("现有库存");
-					this.On现有库存Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_调货补货", DbType="Bit")]
-		public System.Nullable<bool> 调货补货
-		{
-			get
-			{
-				return this._调货补货;
-			}
-			set
-			{
-				if ((this._调货补货 != value))
-				{
-					this.On调货补货Changing(value);
-					this.SendPropertyChanging();
-					this._调货补货 = value;
-					this.SendPropertyChanged("调货补货");
-					this.On调货补货Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_盘点清册", DbType="Bit")]
-		public System.Nullable<bool> 盘点清册
-		{
-			get
-			{
-				return this._盘点清册;
-			}
-			set
-			{
-				if ((this._盘点清册 != value))
-				{
-					this.On盘点清册Changing(value);
-					this.SendPropertyChanging();
-					this._盘点清册 = value;
-					this.SendPropertyChanged("盘点清册");
-					this.On盘点清册Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_盘点调整", DbType="Bit")]
-		public System.Nullable<bool> 盘点调整
-		{
-			get
-			{
-				return this._盘点调整;
-			}
-			set
-			{
-				if ((this._盘点调整 != value))
-				{
-					this.On盘点调整Changing(value);
-					this.SendPropertyChanging();
-					this._盘点调整 = value;
-					this.SendPropertyChanged("盘点调整");
-					this.On盘点调整Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_应付账款", DbType="Bit")]
-		public System.Nullable<bool> 应付账款
-		{
-			get
-			{
-				return this._应付账款;
-			}
-			set
-			{
-				if ((this._应付账款 != value))
-				{
-					this.On应付账款Changing(value);
-					this.SendPropertyChanging();
-					this._应付账款 = value;
-					this.SendPropertyChanged("应付账款");
-					this.On应付账款Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_系统设置", DbType="Bit")]
-		public System.Nullable<bool> 系统设置
-		{
-			get
-			{
-				return this._系统设置;
-			}
-			set
-			{
-				if ((this._系统设置 != value))
-				{
-					this.On系统设置Changing(value);
-					this.SendPropertyChanging();
-					this._系统设置 = value;
-					this.SendPropertyChanged("系统设置");
-					this.On系统设置Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_数据优化", DbType="Bit")]
-		public System.Nullable<bool> 数据优化
-		{
-			get
-			{
-				return this._数据优化;
-			}
-			set
-			{
-				if ((this._数据优化 != value))
-				{
-					this.On数据优化Changing(value);
-					this.SendPropertyChanging();
-					this._数据优化 = value;
-					this.SendPropertyChanged("数据优化");
-					this.On数据优化Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_收银报表", DbType="Bit")]
-		public System.Nullable<bool> 收银报表
-		{
-			get
-			{
-				return this._收银报表;
-			}
-			set
-			{
-				if ((this._收银报表 != value))
-				{
-					this.On收银报表Changing(value);
-					this.SendPropertyChanging();
-					this._收银报表 = value;
-					this.SendPropertyChanged("收银报表");
-					this.On收银报表Changed();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[Table(Name="dbo.Provider")]
 	public partial class Provider : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -14373,1162 +12679,6 @@ namespace YouSoftBathGeneralClass
 		}
 	}
 	
-	[Table(Name="dbo.Orders")]
-	public partial class Orders : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _menu;
-		
-		private string _text;
-		
-		private string _systemId;
-		
-		private double _number;
-		
-		private string _priceType;
-		
-		private double _money;
-		
-		private string _technician;
-		
-		private string _techType;
-		
-		private System.Nullable<System.DateTime> _startTime;
-		
-		private System.DateTime _inputTime;
-		
-		private string _inputEmployee;
-		
-		private string _deleteEmployee;
-		
-		private string _donorEmployee;
-		
-		private System.Nullable<int> _comboId;
-		
-		private bool _paid;
-		
-		private System.Nullable<int> _accountId;
-		
-		private string _billId;
-		
-		private System.Nullable<bool> _stopTiming;
-		
-		private System.Nullable<int> _departmentId;
-		
-		private string _deleteExplain;
-		
-		private System.Nullable<System.DateTime> _deleteTime;
-		
-		private string _roomId;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnmenuChanging(string value);
-    partial void OnmenuChanged();
-    partial void OntextChanging(string value);
-    partial void OntextChanged();
-    partial void OnsystemIdChanging(string value);
-    partial void OnsystemIdChanged();
-    partial void OnnumberChanging(double value);
-    partial void OnnumberChanged();
-    partial void OnpriceTypeChanging(string value);
-    partial void OnpriceTypeChanged();
-    partial void OnmoneyChanging(double value);
-    partial void OnmoneyChanged();
-    partial void OntechnicianChanging(string value);
-    partial void OntechnicianChanged();
-    partial void OntechTypeChanging(string value);
-    partial void OntechTypeChanged();
-    partial void OnstartTimeChanging(System.Nullable<System.DateTime> value);
-    partial void OnstartTimeChanged();
-    partial void OninputTimeChanging(System.DateTime value);
-    partial void OninputTimeChanged();
-    partial void OninputEmployeeChanging(string value);
-    partial void OninputEmployeeChanged();
-    partial void OndeleteEmployeeChanging(string value);
-    partial void OndeleteEmployeeChanged();
-    partial void OndonorEmployeeChanging(string value);
-    partial void OndonorEmployeeChanged();
-    partial void OncomboIdChanging(System.Nullable<int> value);
-    partial void OncomboIdChanged();
-    partial void OnpaidChanging(bool value);
-    partial void OnpaidChanged();
-    partial void OnaccountIdChanging(System.Nullable<int> value);
-    partial void OnaccountIdChanged();
-    partial void OnbillIdChanging(string value);
-    partial void OnbillIdChanged();
-    partial void OnstopTimingChanging(System.Nullable<bool> value);
-    partial void OnstopTimingChanged();
-    partial void OndepartmentIdChanging(System.Nullable<int> value);
-    partial void OndepartmentIdChanged();
-    partial void OndeleteExplainChanging(string value);
-    partial void OndeleteExplainChanged();
-    partial void OndeleteTimeChanging(System.Nullable<System.DateTime> value);
-    partial void OndeleteTimeChanged();
-    partial void OnroomIdChanging(string value);
-    partial void OnroomIdChanged();
-    #endregion
-		
-		public Orders()
-		{
-			OnCreated();
-		}
-		
-		[Column(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_menu", DbType="NVarChar(MAX)")]
-		public string menu
-		{
-			get
-			{
-				return this._menu;
-			}
-			set
-			{
-				if ((this._menu != value))
-				{
-					this.OnmenuChanging(value);
-					this.SendPropertyChanging();
-					this._menu = value;
-					this.SendPropertyChanged("menu");
-					this.OnmenuChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_text", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string text
-		{
-			get
-			{
-				return this._text;
-			}
-			set
-			{
-				if ((this._text != value))
-				{
-					this.OntextChanging(value);
-					this.SendPropertyChanging();
-					this._text = value;
-					this.SendPropertyChanged("text");
-					this.OntextChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_systemId", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string systemId
-		{
-			get
-			{
-				return this._systemId;
-			}
-			set
-			{
-				if ((this._systemId != value))
-				{
-					this.OnsystemIdChanging(value);
-					this.SendPropertyChanging();
-					this._systemId = value;
-					this.SendPropertyChanged("systemId");
-					this.OnsystemIdChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_number", DbType="Float NOT NULL")]
-		public double number
-		{
-			get
-			{
-				return this._number;
-			}
-			set
-			{
-				if ((this._number != value))
-				{
-					this.OnnumberChanging(value);
-					this.SendPropertyChanging();
-					this._number = value;
-					this.SendPropertyChanged("number");
-					this.OnnumberChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_priceType", DbType="NVarChar(MAX)")]
-		public string priceType
-		{
-			get
-			{
-				return this._priceType;
-			}
-			set
-			{
-				if ((this._priceType != value))
-				{
-					this.OnpriceTypeChanging(value);
-					this.SendPropertyChanging();
-					this._priceType = value;
-					this.SendPropertyChanged("priceType");
-					this.OnpriceTypeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_money", DbType="Float NOT NULL")]
-		public double money
-		{
-			get
-			{
-				return this._money;
-			}
-			set
-			{
-				if ((this._money != value))
-				{
-					this.OnmoneyChanging(value);
-					this.SendPropertyChanging();
-					this._money = value;
-					this.SendPropertyChanged("money");
-					this.OnmoneyChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_technician", DbType="NVarChar(MAX)")]
-		public string technician
-		{
-			get
-			{
-				return this._technician;
-			}
-			set
-			{
-				if ((this._technician != value))
-				{
-					this.OntechnicianChanging(value);
-					this.SendPropertyChanging();
-					this._technician = value;
-					this.SendPropertyChanged("technician");
-					this.OntechnicianChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_techType", DbType="NVarChar(MAX)")]
-		public string techType
-		{
-			get
-			{
-				return this._techType;
-			}
-			set
-			{
-				if ((this._techType != value))
-				{
-					this.OntechTypeChanging(value);
-					this.SendPropertyChanging();
-					this._techType = value;
-					this.SendPropertyChanged("techType");
-					this.OntechTypeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_startTime", DbType="DateTime")]
-		public System.Nullable<System.DateTime> startTime
-		{
-			get
-			{
-				return this._startTime;
-			}
-			set
-			{
-				if ((this._startTime != value))
-				{
-					this.OnstartTimeChanging(value);
-					this.SendPropertyChanging();
-					this._startTime = value;
-					this.SendPropertyChanged("startTime");
-					this.OnstartTimeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_inputTime", DbType="DateTime NOT NULL")]
-		public System.DateTime inputTime
-		{
-			get
-			{
-				return this._inputTime;
-			}
-			set
-			{
-				if ((this._inputTime != value))
-				{
-					this.OninputTimeChanging(value);
-					this.SendPropertyChanging();
-					this._inputTime = value;
-					this.SendPropertyChanged("inputTime");
-					this.OninputTimeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_inputEmployee", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string inputEmployee
-		{
-			get
-			{
-				return this._inputEmployee;
-			}
-			set
-			{
-				if ((this._inputEmployee != value))
-				{
-					this.OninputEmployeeChanging(value);
-					this.SendPropertyChanging();
-					this._inputEmployee = value;
-					this.SendPropertyChanged("inputEmployee");
-					this.OninputEmployeeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_deleteEmployee", DbType="NVarChar(MAX)")]
-		public string deleteEmployee
-		{
-			get
-			{
-				return this._deleteEmployee;
-			}
-			set
-			{
-				if ((this._deleteEmployee != value))
-				{
-					this.OndeleteEmployeeChanging(value);
-					this.SendPropertyChanging();
-					this._deleteEmployee = value;
-					this.SendPropertyChanged("deleteEmployee");
-					this.OndeleteEmployeeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_donorEmployee", DbType="NVarChar(MAX)")]
-		public string donorEmployee
-		{
-			get
-			{
-				return this._donorEmployee;
-			}
-			set
-			{
-				if ((this._donorEmployee != value))
-				{
-					this.OndonorEmployeeChanging(value);
-					this.SendPropertyChanging();
-					this._donorEmployee = value;
-					this.SendPropertyChanged("donorEmployee");
-					this.OndonorEmployeeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_comboId", DbType="Int")]
-		public System.Nullable<int> comboId
-		{
-			get
-			{
-				return this._comboId;
-			}
-			set
-			{
-				if ((this._comboId != value))
-				{
-					this.OncomboIdChanging(value);
-					this.SendPropertyChanging();
-					this._comboId = value;
-					this.SendPropertyChanged("comboId");
-					this.OncomboIdChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_paid", DbType="Bit NOT NULL")]
-		public bool paid
-		{
-			get
-			{
-				return this._paid;
-			}
-			set
-			{
-				if ((this._paid != value))
-				{
-					this.OnpaidChanging(value);
-					this.SendPropertyChanging();
-					this._paid = value;
-					this.SendPropertyChanged("paid");
-					this.OnpaidChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_accountId", DbType="Int")]
-		public System.Nullable<int> accountId
-		{
-			get
-			{
-				return this._accountId;
-			}
-			set
-			{
-				if ((this._accountId != value))
-				{
-					this.OnaccountIdChanging(value);
-					this.SendPropertyChanging();
-					this._accountId = value;
-					this.SendPropertyChanged("accountId");
-					this.OnaccountIdChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_billId", DbType="NVarChar(MAX)")]
-		public string billId
-		{
-			get
-			{
-				return this._billId;
-			}
-			set
-			{
-				if ((this._billId != value))
-				{
-					this.OnbillIdChanging(value);
-					this.SendPropertyChanging();
-					this._billId = value;
-					this.SendPropertyChanged("billId");
-					this.OnbillIdChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_stopTiming", DbType="Bit")]
-		public System.Nullable<bool> stopTiming
-		{
-			get
-			{
-				return this._stopTiming;
-			}
-			set
-			{
-				if ((this._stopTiming != value))
-				{
-					this.OnstopTimingChanging(value);
-					this.SendPropertyChanging();
-					this._stopTiming = value;
-					this.SendPropertyChanged("stopTiming");
-					this.OnstopTimingChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_departmentId", DbType="Int")]
-		public System.Nullable<int> departmentId
-		{
-			get
-			{
-				return this._departmentId;
-			}
-			set
-			{
-				if ((this._departmentId != value))
-				{
-					this.OndepartmentIdChanging(value);
-					this.SendPropertyChanging();
-					this._departmentId = value;
-					this.SendPropertyChanged("departmentId");
-					this.OndepartmentIdChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_deleteExplain", DbType="NVarChar(MAX)")]
-		public string deleteExplain
-		{
-			get
-			{
-				return this._deleteExplain;
-			}
-			set
-			{
-				if ((this._deleteExplain != value))
-				{
-					this.OndeleteExplainChanging(value);
-					this.SendPropertyChanging();
-					this._deleteExplain = value;
-					this.SendPropertyChanged("deleteExplain");
-					this.OndeleteExplainChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_deleteTime", DbType="DateTime")]
-		public System.Nullable<System.DateTime> deleteTime
-		{
-			get
-			{
-				return this._deleteTime;
-			}
-			set
-			{
-				if ((this._deleteTime != value))
-				{
-					this.OndeleteTimeChanging(value);
-					this.SendPropertyChanging();
-					this._deleteTime = value;
-					this.SendPropertyChanged("deleteTime");
-					this.OndeleteTimeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_roomId", DbType="NVarChar(MAX)")]
-		public string roomId
-		{
-			get
-			{
-				return this._roomId;
-			}
-			set
-			{
-				if ((this._roomId != value))
-				{
-					this.OnroomIdChanging(value);
-					this.SendPropertyChanging();
-					this._roomId = value;
-					this.SendPropertyChanged("roomId");
-					this.OnroomIdChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[Table(Name="dbo.HisOrders")]
-	public partial class HisOrders : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _menu;
-		
-		private string _text;
-		
-		private string _systemId;
-		
-		private double _number;
-		
-		private string _priceType;
-		
-		private double _money;
-		
-		private string _technician;
-		
-		private string _techType;
-		
-		private System.Nullable<System.DateTime> _startTime;
-		
-		private System.DateTime _inputTime;
-		
-		private string _inputEmployee;
-		
-		private string _deleteEmployee;
-		
-		private string _donorEmployee;
-		
-		private System.Nullable<int> _comboId;
-		
-		private bool _paid;
-		
-		private System.Nullable<int> _accountId;
-		
-		private string _billId;
-		
-		private System.Nullable<int> _departmentId;
-		
-		private string _deleteExplain;
-		
-		private System.Nullable<System.DateTime> _deleteTime;
-		
-		private string _roomId;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnmenuChanging(string value);
-    partial void OnmenuChanged();
-    partial void OntextChanging(string value);
-    partial void OntextChanged();
-    partial void OnsystemIdChanging(string value);
-    partial void OnsystemIdChanged();
-    partial void OnnumberChanging(double value);
-    partial void OnnumberChanged();
-    partial void OnpriceTypeChanging(string value);
-    partial void OnpriceTypeChanged();
-    partial void OnmoneyChanging(double value);
-    partial void OnmoneyChanged();
-    partial void OntechnicianChanging(string value);
-    partial void OntechnicianChanged();
-    partial void OntechTypeChanging(string value);
-    partial void OntechTypeChanged();
-    partial void OnstartTimeChanging(System.Nullable<System.DateTime> value);
-    partial void OnstartTimeChanged();
-    partial void OninputTimeChanging(System.DateTime value);
-    partial void OninputTimeChanged();
-    partial void OninputEmployeeChanging(string value);
-    partial void OninputEmployeeChanged();
-    partial void OndeleteEmployeeChanging(string value);
-    partial void OndeleteEmployeeChanged();
-    partial void OndonorEmployeeChanging(string value);
-    partial void OndonorEmployeeChanged();
-    partial void OncomboIdChanging(System.Nullable<int> value);
-    partial void OncomboIdChanged();
-    partial void OnpaidChanging(bool value);
-    partial void OnpaidChanged();
-    partial void OnaccountIdChanging(System.Nullable<int> value);
-    partial void OnaccountIdChanged();
-    partial void OnbillIdChanging(string value);
-    partial void OnbillIdChanged();
-    partial void OndepartmentIdChanging(System.Nullable<int> value);
-    partial void OndepartmentIdChanged();
-    partial void OndeleteExplainChanging(string value);
-    partial void OndeleteExplainChanged();
-    partial void OndeleteTimeChanging(System.Nullable<System.DateTime> value);
-    partial void OndeleteTimeChanged();
-    partial void OnroomIdChanging(string value);
-    partial void OnroomIdChanged();
-    #endregion
-		
-		public HisOrders()
-		{
-			OnCreated();
-		}
-		
-		[Column(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_menu", DbType="NVarChar(MAX)")]
-		public string menu
-		{
-			get
-			{
-				return this._menu;
-			}
-			set
-			{
-				if ((this._menu != value))
-				{
-					this.OnmenuChanging(value);
-					this.SendPropertyChanging();
-					this._menu = value;
-					this.SendPropertyChanged("menu");
-					this.OnmenuChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_text", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string text
-		{
-			get
-			{
-				return this._text;
-			}
-			set
-			{
-				if ((this._text != value))
-				{
-					this.OntextChanging(value);
-					this.SendPropertyChanging();
-					this._text = value;
-					this.SendPropertyChanged("text");
-					this.OntextChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_systemId", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string systemId
-		{
-			get
-			{
-				return this._systemId;
-			}
-			set
-			{
-				if ((this._systemId != value))
-				{
-					this.OnsystemIdChanging(value);
-					this.SendPropertyChanging();
-					this._systemId = value;
-					this.SendPropertyChanged("systemId");
-					this.OnsystemIdChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_number", DbType="Float NOT NULL")]
-		public double number
-		{
-			get
-			{
-				return this._number;
-			}
-			set
-			{
-				if ((this._number != value))
-				{
-					this.OnnumberChanging(value);
-					this.SendPropertyChanging();
-					this._number = value;
-					this.SendPropertyChanged("number");
-					this.OnnumberChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_priceType", DbType="NVarChar(MAX)")]
-		public string priceType
-		{
-			get
-			{
-				return this._priceType;
-			}
-			set
-			{
-				if ((this._priceType != value))
-				{
-					this.OnpriceTypeChanging(value);
-					this.SendPropertyChanging();
-					this._priceType = value;
-					this.SendPropertyChanged("priceType");
-					this.OnpriceTypeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_money", DbType="Float NOT NULL")]
-		public double money
-		{
-			get
-			{
-				return this._money;
-			}
-			set
-			{
-				if ((this._money != value))
-				{
-					this.OnmoneyChanging(value);
-					this.SendPropertyChanging();
-					this._money = value;
-					this.SendPropertyChanged("money");
-					this.OnmoneyChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_technician", DbType="NVarChar(MAX)")]
-		public string technician
-		{
-			get
-			{
-				return this._technician;
-			}
-			set
-			{
-				if ((this._technician != value))
-				{
-					this.OntechnicianChanging(value);
-					this.SendPropertyChanging();
-					this._technician = value;
-					this.SendPropertyChanged("technician");
-					this.OntechnicianChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_techType", DbType="NVarChar(MAX)")]
-		public string techType
-		{
-			get
-			{
-				return this._techType;
-			}
-			set
-			{
-				if ((this._techType != value))
-				{
-					this.OntechTypeChanging(value);
-					this.SendPropertyChanging();
-					this._techType = value;
-					this.SendPropertyChanged("techType");
-					this.OntechTypeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_startTime", DbType="DateTime")]
-		public System.Nullable<System.DateTime> startTime
-		{
-			get
-			{
-				return this._startTime;
-			}
-			set
-			{
-				if ((this._startTime != value))
-				{
-					this.OnstartTimeChanging(value);
-					this.SendPropertyChanging();
-					this._startTime = value;
-					this.SendPropertyChanged("startTime");
-					this.OnstartTimeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_inputTime", DbType="DateTime NOT NULL")]
-		public System.DateTime inputTime
-		{
-			get
-			{
-				return this._inputTime;
-			}
-			set
-			{
-				if ((this._inputTime != value))
-				{
-					this.OninputTimeChanging(value);
-					this.SendPropertyChanging();
-					this._inputTime = value;
-					this.SendPropertyChanged("inputTime");
-					this.OninputTimeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_inputEmployee", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string inputEmployee
-		{
-			get
-			{
-				return this._inputEmployee;
-			}
-			set
-			{
-				if ((this._inputEmployee != value))
-				{
-					this.OninputEmployeeChanging(value);
-					this.SendPropertyChanging();
-					this._inputEmployee = value;
-					this.SendPropertyChanged("inputEmployee");
-					this.OninputEmployeeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_deleteEmployee", DbType="NVarChar(MAX)")]
-		public string deleteEmployee
-		{
-			get
-			{
-				return this._deleteEmployee;
-			}
-			set
-			{
-				if ((this._deleteEmployee != value))
-				{
-					this.OndeleteEmployeeChanging(value);
-					this.SendPropertyChanging();
-					this._deleteEmployee = value;
-					this.SendPropertyChanged("deleteEmployee");
-					this.OndeleteEmployeeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_donorEmployee", DbType="NVarChar(MAX)")]
-		public string donorEmployee
-		{
-			get
-			{
-				return this._donorEmployee;
-			}
-			set
-			{
-				if ((this._donorEmployee != value))
-				{
-					this.OndonorEmployeeChanging(value);
-					this.SendPropertyChanging();
-					this._donorEmployee = value;
-					this.SendPropertyChanged("donorEmployee");
-					this.OndonorEmployeeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_comboId", DbType="Int")]
-		public System.Nullable<int> comboId
-		{
-			get
-			{
-				return this._comboId;
-			}
-			set
-			{
-				if ((this._comboId != value))
-				{
-					this.OncomboIdChanging(value);
-					this.SendPropertyChanging();
-					this._comboId = value;
-					this.SendPropertyChanged("comboId");
-					this.OncomboIdChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_paid", DbType="Bit NOT NULL")]
-		public bool paid
-		{
-			get
-			{
-				return this._paid;
-			}
-			set
-			{
-				if ((this._paid != value))
-				{
-					this.OnpaidChanging(value);
-					this.SendPropertyChanging();
-					this._paid = value;
-					this.SendPropertyChanged("paid");
-					this.OnpaidChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_accountId", DbType="Int")]
-		public System.Nullable<int> accountId
-		{
-			get
-			{
-				return this._accountId;
-			}
-			set
-			{
-				if ((this._accountId != value))
-				{
-					this.OnaccountIdChanging(value);
-					this.SendPropertyChanging();
-					this._accountId = value;
-					this.SendPropertyChanged("accountId");
-					this.OnaccountIdChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_billId", DbType="NVarChar(MAX)")]
-		public string billId
-		{
-			get
-			{
-				return this._billId;
-			}
-			set
-			{
-				if ((this._billId != value))
-				{
-					this.OnbillIdChanging(value);
-					this.SendPropertyChanging();
-					this._billId = value;
-					this.SendPropertyChanged("billId");
-					this.OnbillIdChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_departmentId", DbType="Int")]
-		public System.Nullable<int> departmentId
-		{
-			get
-			{
-				return this._departmentId;
-			}
-			set
-			{
-				if ((this._departmentId != value))
-				{
-					this.OndepartmentIdChanging(value);
-					this.SendPropertyChanging();
-					this._departmentId = value;
-					this.SendPropertyChanged("departmentId");
-					this.OndepartmentIdChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_deleteExplain", DbType="NVarChar(MAX)")]
-		public string deleteExplain
-		{
-			get
-			{
-				return this._deleteExplain;
-			}
-			set
-			{
-				if ((this._deleteExplain != value))
-				{
-					this.OndeleteExplainChanging(value);
-					this.SendPropertyChanging();
-					this._deleteExplain = value;
-					this.SendPropertyChanged("deleteExplain");
-					this.OndeleteExplainChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_deleteTime", DbType="DateTime")]
-		public System.Nullable<System.DateTime> deleteTime
-		{
-			get
-			{
-				return this._deleteTime;
-			}
-			set
-			{
-				if ((this._deleteTime != value))
-				{
-					this.OndeleteTimeChanging(value);
-					this.SendPropertyChanging();
-					this._deleteTime = value;
-					this.SendPropertyChanged("deleteTime");
-					this.OndeleteTimeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_roomId", DbType="NVarChar(MAX)")]
-		public string roomId
-		{
-			get
-			{
-				return this._roomId;
-			}
-			set
-			{
-				if ((this._roomId != value))
-				{
-					this.OnroomIdChanging(value);
-					this.SendPropertyChanging();
-					this._roomId = value;
-					this.SendPropertyChanged("roomId");
-					this.OnroomIdChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[Table(Name="dbo.Seat")]
 	public partial class Seat : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -17634,6 +14784,2976 @@ namespace YouSoftBathGeneralClass
 					this._company_Code = value;
 					this.SendPropertyChanged("company_Code");
 					this.Oncompany_CodeChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[Table(Name="dbo.Authority")]
+	public partial class Authority : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _emplyeeId;
+		
+		private System.Nullable<int> _jobId;
+		
+		private System.Nullable<bool> _开牌;
+		
+		private System.Nullable<bool> _取消开牌;
+		
+		private System.Nullable<bool> _更换手牌;
+		
+		private System.Nullable<bool> _锁定解锁;
+		
+		private System.Nullable<bool> _解除警告;
+		
+		private System.Nullable<bool> _停用启用;
+		
+		private System.Nullable<bool> _添加备注;
+		
+		private System.Nullable<bool> _挂失手牌;
+		
+		private System.Nullable<bool> _完整点单;
+		
+		private System.Nullable<bool> _可见本人点单;
+		
+		private System.Nullable<bool> _退单;
+		
+		private System.Nullable<bool> _手工打折;
+		
+		private System.Nullable<bool> _签字免单;
+		
+		private System.Nullable<bool> _转账;
+		
+		private System.Nullable<bool> _重新结账;
+		
+		private System.Nullable<bool> _结账;
+		
+		private System.Nullable<bool> _技师管理;
+		
+		private System.Nullable<bool> _收银汇总统计;
+		
+		private System.Nullable<bool> _包房管理;
+		
+		private System.Nullable<bool> _收银单据查询;
+		
+		private System.Nullable<bool> _录单汇总;
+		
+		private System.Nullable<bool> _营业信息查看;
+		
+		private System.Nullable<bool> _售卡;
+		
+		private System.Nullable<bool> _充值;
+		
+		private System.Nullable<bool> _挂失;
+		
+		private System.Nullable<bool> _补卡;
+		
+		private System.Nullable<bool> _读卡;
+		
+		private System.Nullable<bool> _扣卡;
+		
+		private System.Nullable<bool> _卡入库;
+		
+		private System.Nullable<bool> _异常状况统计;
+		
+		private System.Nullable<bool> _提成统计;
+		
+		private System.Nullable<bool> _手工打折汇总;
+		
+		private System.Nullable<bool> _项目报表;
+		
+		private System.Nullable<bool> _信用卡统计;
+		
+		private System.Nullable<bool> _营业报表;
+		
+		private System.Nullable<bool> _退免单汇总;
+		
+		private System.Nullable<bool> _支出统计;
+		
+		private System.Nullable<bool> _收银员收款统计;
+		
+		private System.Nullable<bool> _月报表;
+		
+		private System.Nullable<bool> _往来单位账目;
+		
+		private System.Nullable<bool> _会员积分设置;
+		
+		private System.Nullable<bool> _优惠方案;
+		
+		private System.Nullable<bool> _会员分析;
+		
+		private System.Nullable<bool> _会员管理;
+		
+		private System.Nullable<bool> _会员消费统计;
+		
+		private System.Nullable<bool> _会员售卡及充值统计;
+		
+		private System.Nullable<bool> _手牌管理;
+		
+		private System.Nullable<bool> _券类管理;
+		
+		private System.Nullable<bool> _客户管理;
+		
+		private System.Nullable<bool> _项目档案管理;
+		
+		private System.Nullable<bool> _客房管理;
+		
+		private System.Nullable<bool> _员工管理;
+		
+		private System.Nullable<bool> _权限管理;
+		
+		private System.Nullable<bool> _套餐管理;
+		
+		private System.Nullable<bool> _库存参数;
+		
+		private System.Nullable<bool> _仓库设定;
+		
+		private System.Nullable<bool> _供应商管理;
+		
+		private System.Nullable<bool> _进货入库;
+		
+		private System.Nullable<bool> _现有库存;
+		
+		private System.Nullable<bool> _调货补货;
+		
+		private System.Nullable<bool> _盘点清册;
+		
+		private System.Nullable<bool> _盘点调整;
+		
+		private System.Nullable<bool> _应付账款;
+		
+		private System.Nullable<bool> _系统设置;
+		
+		private System.Nullable<bool> _数据优化;
+		
+		private System.Nullable<bool> _收银报表;
+		
+		private System.Nullable<bool> _微信赠送;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnemplyeeIdChanging(string value);
+    partial void OnemplyeeIdChanged();
+    partial void OnjobIdChanging(System.Nullable<int> value);
+    partial void OnjobIdChanged();
+    partial void On开牌Changing(System.Nullable<bool> value);
+    partial void On开牌Changed();
+    partial void On取消开牌Changing(System.Nullable<bool> value);
+    partial void On取消开牌Changed();
+    partial void On更换手牌Changing(System.Nullable<bool> value);
+    partial void On更换手牌Changed();
+    partial void On锁定解锁Changing(System.Nullable<bool> value);
+    partial void On锁定解锁Changed();
+    partial void On解除警告Changing(System.Nullable<bool> value);
+    partial void On解除警告Changed();
+    partial void On停用启用Changing(System.Nullable<bool> value);
+    partial void On停用启用Changed();
+    partial void On添加备注Changing(System.Nullable<bool> value);
+    partial void On添加备注Changed();
+    partial void On挂失手牌Changing(System.Nullable<bool> value);
+    partial void On挂失手牌Changed();
+    partial void On完整点单Changing(System.Nullable<bool> value);
+    partial void On完整点单Changed();
+    partial void On可见本人点单Changing(System.Nullable<bool> value);
+    partial void On可见本人点单Changed();
+    partial void On退单Changing(System.Nullable<bool> value);
+    partial void On退单Changed();
+    partial void On手工打折Changing(System.Nullable<bool> value);
+    partial void On手工打折Changed();
+    partial void On签字免单Changing(System.Nullable<bool> value);
+    partial void On签字免单Changed();
+    partial void On转账Changing(System.Nullable<bool> value);
+    partial void On转账Changed();
+    partial void On重新结账Changing(System.Nullable<bool> value);
+    partial void On重新结账Changed();
+    partial void On结账Changing(System.Nullable<bool> value);
+    partial void On结账Changed();
+    partial void On技师管理Changing(System.Nullable<bool> value);
+    partial void On技师管理Changed();
+    partial void On收银汇总统计Changing(System.Nullable<bool> value);
+    partial void On收银汇总统计Changed();
+    partial void On包房管理Changing(System.Nullable<bool> value);
+    partial void On包房管理Changed();
+    partial void On收银单据查询Changing(System.Nullable<bool> value);
+    partial void On收银单据查询Changed();
+    partial void On录单汇总Changing(System.Nullable<bool> value);
+    partial void On录单汇总Changed();
+    partial void On营业信息查看Changing(System.Nullable<bool> value);
+    partial void On营业信息查看Changed();
+    partial void On售卡Changing(System.Nullable<bool> value);
+    partial void On售卡Changed();
+    partial void On充值Changing(System.Nullable<bool> value);
+    partial void On充值Changed();
+    partial void On挂失Changing(System.Nullable<bool> value);
+    partial void On挂失Changed();
+    partial void On补卡Changing(System.Nullable<bool> value);
+    partial void On补卡Changed();
+    partial void On读卡Changing(System.Nullable<bool> value);
+    partial void On读卡Changed();
+    partial void On扣卡Changing(System.Nullable<bool> value);
+    partial void On扣卡Changed();
+    partial void On卡入库Changing(System.Nullable<bool> value);
+    partial void On卡入库Changed();
+    partial void On异常状况统计Changing(System.Nullable<bool> value);
+    partial void On异常状况统计Changed();
+    partial void On提成统计Changing(System.Nullable<bool> value);
+    partial void On提成统计Changed();
+    partial void On手工打折汇总Changing(System.Nullable<bool> value);
+    partial void On手工打折汇总Changed();
+    partial void On项目报表Changing(System.Nullable<bool> value);
+    partial void On项目报表Changed();
+    partial void On信用卡统计Changing(System.Nullable<bool> value);
+    partial void On信用卡统计Changed();
+    partial void On营业报表Changing(System.Nullable<bool> value);
+    partial void On营业报表Changed();
+    partial void On退免单汇总Changing(System.Nullable<bool> value);
+    partial void On退免单汇总Changed();
+    partial void On支出统计Changing(System.Nullable<bool> value);
+    partial void On支出统计Changed();
+    partial void On收银员收款统计Changing(System.Nullable<bool> value);
+    partial void On收银员收款统计Changed();
+    partial void On月报表Changing(System.Nullable<bool> value);
+    partial void On月报表Changed();
+    partial void On往来单位账目Changing(System.Nullable<bool> value);
+    partial void On往来单位账目Changed();
+    partial void On会员积分设置Changing(System.Nullable<bool> value);
+    partial void On会员积分设置Changed();
+    partial void On优惠方案Changing(System.Nullable<bool> value);
+    partial void On优惠方案Changed();
+    partial void On会员分析Changing(System.Nullable<bool> value);
+    partial void On会员分析Changed();
+    partial void On会员管理Changing(System.Nullable<bool> value);
+    partial void On会员管理Changed();
+    partial void On会员消费统计Changing(System.Nullable<bool> value);
+    partial void On会员消费统计Changed();
+    partial void On会员售卡及充值统计Changing(System.Nullable<bool> value);
+    partial void On会员售卡及充值统计Changed();
+    partial void On手牌管理Changing(System.Nullable<bool> value);
+    partial void On手牌管理Changed();
+    partial void On券类管理Changing(System.Nullable<bool> value);
+    partial void On券类管理Changed();
+    partial void On客户管理Changing(System.Nullable<bool> value);
+    partial void On客户管理Changed();
+    partial void On项目档案管理Changing(System.Nullable<bool> value);
+    partial void On项目档案管理Changed();
+    partial void On客房管理Changing(System.Nullable<bool> value);
+    partial void On客房管理Changed();
+    partial void On员工管理Changing(System.Nullable<bool> value);
+    partial void On员工管理Changed();
+    partial void On权限管理Changing(System.Nullable<bool> value);
+    partial void On权限管理Changed();
+    partial void On套餐管理Changing(System.Nullable<bool> value);
+    partial void On套餐管理Changed();
+    partial void On库存参数Changing(System.Nullable<bool> value);
+    partial void On库存参数Changed();
+    partial void On仓库设定Changing(System.Nullable<bool> value);
+    partial void On仓库设定Changed();
+    partial void On供应商管理Changing(System.Nullable<bool> value);
+    partial void On供应商管理Changed();
+    partial void On进货入库Changing(System.Nullable<bool> value);
+    partial void On进货入库Changed();
+    partial void On现有库存Changing(System.Nullable<bool> value);
+    partial void On现有库存Changed();
+    partial void On调货补货Changing(System.Nullable<bool> value);
+    partial void On调货补货Changed();
+    partial void On盘点清册Changing(System.Nullable<bool> value);
+    partial void On盘点清册Changed();
+    partial void On盘点调整Changing(System.Nullable<bool> value);
+    partial void On盘点调整Changed();
+    partial void On应付账款Changing(System.Nullable<bool> value);
+    partial void On应付账款Changed();
+    partial void On系统设置Changing(System.Nullable<bool> value);
+    partial void On系统设置Changed();
+    partial void On数据优化Changing(System.Nullable<bool> value);
+    partial void On数据优化Changed();
+    partial void On收银报表Changing(System.Nullable<bool> value);
+    partial void On收银报表Changed();
+    partial void On微信赠送Changing(System.Nullable<bool> value);
+    partial void On微信赠送Changed();
+    #endregion
+		
+		public Authority()
+		{
+			OnCreated();
+		}
+		
+		[Column(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_emplyeeId", DbType="VarChar(10)")]
+		public string emplyeeId
+		{
+			get
+			{
+				return this._emplyeeId;
+			}
+			set
+			{
+				if ((this._emplyeeId != value))
+				{
+					this.OnemplyeeIdChanging(value);
+					this.SendPropertyChanging();
+					this._emplyeeId = value;
+					this.SendPropertyChanged("emplyeeId");
+					this.OnemplyeeIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_jobId", DbType="Int")]
+		public System.Nullable<int> jobId
+		{
+			get
+			{
+				return this._jobId;
+			}
+			set
+			{
+				if ((this._jobId != value))
+				{
+					this.OnjobIdChanging(value);
+					this.SendPropertyChanging();
+					this._jobId = value;
+					this.SendPropertyChanged("jobId");
+					this.OnjobIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_开牌", DbType="Bit")]
+		public System.Nullable<bool> 开牌
+		{
+			get
+			{
+				return this._开牌;
+			}
+			set
+			{
+				if ((this._开牌 != value))
+				{
+					this.On开牌Changing(value);
+					this.SendPropertyChanging();
+					this._开牌 = value;
+					this.SendPropertyChanged("开牌");
+					this.On开牌Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_取消开牌", DbType="Bit")]
+		public System.Nullable<bool> 取消开牌
+		{
+			get
+			{
+				return this._取消开牌;
+			}
+			set
+			{
+				if ((this._取消开牌 != value))
+				{
+					this.On取消开牌Changing(value);
+					this.SendPropertyChanging();
+					this._取消开牌 = value;
+					this.SendPropertyChanged("取消开牌");
+					this.On取消开牌Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_更换手牌", DbType="Bit")]
+		public System.Nullable<bool> 更换手牌
+		{
+			get
+			{
+				return this._更换手牌;
+			}
+			set
+			{
+				if ((this._更换手牌 != value))
+				{
+					this.On更换手牌Changing(value);
+					this.SendPropertyChanging();
+					this._更换手牌 = value;
+					this.SendPropertyChanged("更换手牌");
+					this.On更换手牌Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_锁定解锁", DbType="Bit")]
+		public System.Nullable<bool> 锁定解锁
+		{
+			get
+			{
+				return this._锁定解锁;
+			}
+			set
+			{
+				if ((this._锁定解锁 != value))
+				{
+					this.On锁定解锁Changing(value);
+					this.SendPropertyChanging();
+					this._锁定解锁 = value;
+					this.SendPropertyChanged("锁定解锁");
+					this.On锁定解锁Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_解除警告", DbType="Bit")]
+		public System.Nullable<bool> 解除警告
+		{
+			get
+			{
+				return this._解除警告;
+			}
+			set
+			{
+				if ((this._解除警告 != value))
+				{
+					this.On解除警告Changing(value);
+					this.SendPropertyChanging();
+					this._解除警告 = value;
+					this.SendPropertyChanged("解除警告");
+					this.On解除警告Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_停用启用", DbType="Bit")]
+		public System.Nullable<bool> 停用启用
+		{
+			get
+			{
+				return this._停用启用;
+			}
+			set
+			{
+				if ((this._停用启用 != value))
+				{
+					this.On停用启用Changing(value);
+					this.SendPropertyChanging();
+					this._停用启用 = value;
+					this.SendPropertyChanged("停用启用");
+					this.On停用启用Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_添加备注", DbType="Bit")]
+		public System.Nullable<bool> 添加备注
+		{
+			get
+			{
+				return this._添加备注;
+			}
+			set
+			{
+				if ((this._添加备注 != value))
+				{
+					this.On添加备注Changing(value);
+					this.SendPropertyChanging();
+					this._添加备注 = value;
+					this.SendPropertyChanged("添加备注");
+					this.On添加备注Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_挂失手牌", DbType="Bit")]
+		public System.Nullable<bool> 挂失手牌
+		{
+			get
+			{
+				return this._挂失手牌;
+			}
+			set
+			{
+				if ((this._挂失手牌 != value))
+				{
+					this.On挂失手牌Changing(value);
+					this.SendPropertyChanging();
+					this._挂失手牌 = value;
+					this.SendPropertyChanged("挂失手牌");
+					this.On挂失手牌Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_完整点单", DbType="Bit")]
+		public System.Nullable<bool> 完整点单
+		{
+			get
+			{
+				return this._完整点单;
+			}
+			set
+			{
+				if ((this._完整点单 != value))
+				{
+					this.On完整点单Changing(value);
+					this.SendPropertyChanging();
+					this._完整点单 = value;
+					this.SendPropertyChanged("完整点单");
+					this.On完整点单Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_可见本人点单", DbType="Bit")]
+		public System.Nullable<bool> 可见本人点单
+		{
+			get
+			{
+				return this._可见本人点单;
+			}
+			set
+			{
+				if ((this._可见本人点单 != value))
+				{
+					this.On可见本人点单Changing(value);
+					this.SendPropertyChanging();
+					this._可见本人点单 = value;
+					this.SendPropertyChanged("可见本人点单");
+					this.On可见本人点单Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_退单", DbType="Bit")]
+		public System.Nullable<bool> 退单
+		{
+			get
+			{
+				return this._退单;
+			}
+			set
+			{
+				if ((this._退单 != value))
+				{
+					this.On退单Changing(value);
+					this.SendPropertyChanging();
+					this._退单 = value;
+					this.SendPropertyChanged("退单");
+					this.On退单Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_手工打折", DbType="Bit")]
+		public System.Nullable<bool> 手工打折
+		{
+			get
+			{
+				return this._手工打折;
+			}
+			set
+			{
+				if ((this._手工打折 != value))
+				{
+					this.On手工打折Changing(value);
+					this.SendPropertyChanging();
+					this._手工打折 = value;
+					this.SendPropertyChanged("手工打折");
+					this.On手工打折Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_签字免单", DbType="Bit")]
+		public System.Nullable<bool> 签字免单
+		{
+			get
+			{
+				return this._签字免单;
+			}
+			set
+			{
+				if ((this._签字免单 != value))
+				{
+					this.On签字免单Changing(value);
+					this.SendPropertyChanging();
+					this._签字免单 = value;
+					this.SendPropertyChanged("签字免单");
+					this.On签字免单Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_转账", DbType="Bit")]
+		public System.Nullable<bool> 转账
+		{
+			get
+			{
+				return this._转账;
+			}
+			set
+			{
+				if ((this._转账 != value))
+				{
+					this.On转账Changing(value);
+					this.SendPropertyChanging();
+					this._转账 = value;
+					this.SendPropertyChanged("转账");
+					this.On转账Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_重新结账", DbType="Bit")]
+		public System.Nullable<bool> 重新结账
+		{
+			get
+			{
+				return this._重新结账;
+			}
+			set
+			{
+				if ((this._重新结账 != value))
+				{
+					this.On重新结账Changing(value);
+					this.SendPropertyChanging();
+					this._重新结账 = value;
+					this.SendPropertyChanged("重新结账");
+					this.On重新结账Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_结账", DbType="Bit")]
+		public System.Nullable<bool> 结账
+		{
+			get
+			{
+				return this._结账;
+			}
+			set
+			{
+				if ((this._结账 != value))
+				{
+					this.On结账Changing(value);
+					this.SendPropertyChanging();
+					this._结账 = value;
+					this.SendPropertyChanged("结账");
+					this.On结账Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_技师管理", DbType="Bit")]
+		public System.Nullable<bool> 技师管理
+		{
+			get
+			{
+				return this._技师管理;
+			}
+			set
+			{
+				if ((this._技师管理 != value))
+				{
+					this.On技师管理Changing(value);
+					this.SendPropertyChanging();
+					this._技师管理 = value;
+					this.SendPropertyChanged("技师管理");
+					this.On技师管理Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_收银汇总统计", DbType="Bit")]
+		public System.Nullable<bool> 收银汇总统计
+		{
+			get
+			{
+				return this._收银汇总统计;
+			}
+			set
+			{
+				if ((this._收银汇总统计 != value))
+				{
+					this.On收银汇总统计Changing(value);
+					this.SendPropertyChanging();
+					this._收银汇总统计 = value;
+					this.SendPropertyChanged("收银汇总统计");
+					this.On收银汇总统计Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_包房管理", DbType="Bit")]
+		public System.Nullable<bool> 包房管理
+		{
+			get
+			{
+				return this._包房管理;
+			}
+			set
+			{
+				if ((this._包房管理 != value))
+				{
+					this.On包房管理Changing(value);
+					this.SendPropertyChanging();
+					this._包房管理 = value;
+					this.SendPropertyChanged("包房管理");
+					this.On包房管理Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_收银单据查询", DbType="Bit")]
+		public System.Nullable<bool> 收银单据查询
+		{
+			get
+			{
+				return this._收银单据查询;
+			}
+			set
+			{
+				if ((this._收银单据查询 != value))
+				{
+					this.On收银单据查询Changing(value);
+					this.SendPropertyChanging();
+					this._收银单据查询 = value;
+					this.SendPropertyChanged("收银单据查询");
+					this.On收银单据查询Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_录单汇总", DbType="Bit")]
+		public System.Nullable<bool> 录单汇总
+		{
+			get
+			{
+				return this._录单汇总;
+			}
+			set
+			{
+				if ((this._录单汇总 != value))
+				{
+					this.On录单汇总Changing(value);
+					this.SendPropertyChanging();
+					this._录单汇总 = value;
+					this.SendPropertyChanged("录单汇总");
+					this.On录单汇总Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_营业信息查看", DbType="Bit")]
+		public System.Nullable<bool> 营业信息查看
+		{
+			get
+			{
+				return this._营业信息查看;
+			}
+			set
+			{
+				if ((this._营业信息查看 != value))
+				{
+					this.On营业信息查看Changing(value);
+					this.SendPropertyChanging();
+					this._营业信息查看 = value;
+					this.SendPropertyChanged("营业信息查看");
+					this.On营业信息查看Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_售卡", DbType="Bit")]
+		public System.Nullable<bool> 售卡
+		{
+			get
+			{
+				return this._售卡;
+			}
+			set
+			{
+				if ((this._售卡 != value))
+				{
+					this.On售卡Changing(value);
+					this.SendPropertyChanging();
+					this._售卡 = value;
+					this.SendPropertyChanged("售卡");
+					this.On售卡Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_充值", DbType="Bit")]
+		public System.Nullable<bool> 充值
+		{
+			get
+			{
+				return this._充值;
+			}
+			set
+			{
+				if ((this._充值 != value))
+				{
+					this.On充值Changing(value);
+					this.SendPropertyChanging();
+					this._充值 = value;
+					this.SendPropertyChanged("充值");
+					this.On充值Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_挂失", DbType="Bit")]
+		public System.Nullable<bool> 挂失
+		{
+			get
+			{
+				return this._挂失;
+			}
+			set
+			{
+				if ((this._挂失 != value))
+				{
+					this.On挂失Changing(value);
+					this.SendPropertyChanging();
+					this._挂失 = value;
+					this.SendPropertyChanged("挂失");
+					this.On挂失Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_补卡", DbType="Bit")]
+		public System.Nullable<bool> 补卡
+		{
+			get
+			{
+				return this._补卡;
+			}
+			set
+			{
+				if ((this._补卡 != value))
+				{
+					this.On补卡Changing(value);
+					this.SendPropertyChanging();
+					this._补卡 = value;
+					this.SendPropertyChanged("补卡");
+					this.On补卡Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_读卡", DbType="Bit")]
+		public System.Nullable<bool> 读卡
+		{
+			get
+			{
+				return this._读卡;
+			}
+			set
+			{
+				if ((this._读卡 != value))
+				{
+					this.On读卡Changing(value);
+					this.SendPropertyChanging();
+					this._读卡 = value;
+					this.SendPropertyChanged("读卡");
+					this.On读卡Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_扣卡", DbType="Bit")]
+		public System.Nullable<bool> 扣卡
+		{
+			get
+			{
+				return this._扣卡;
+			}
+			set
+			{
+				if ((this._扣卡 != value))
+				{
+					this.On扣卡Changing(value);
+					this.SendPropertyChanging();
+					this._扣卡 = value;
+					this.SendPropertyChanged("扣卡");
+					this.On扣卡Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_卡入库", DbType="Bit")]
+		public System.Nullable<bool> 卡入库
+		{
+			get
+			{
+				return this._卡入库;
+			}
+			set
+			{
+				if ((this._卡入库 != value))
+				{
+					this.On卡入库Changing(value);
+					this.SendPropertyChanging();
+					this._卡入库 = value;
+					this.SendPropertyChanged("卡入库");
+					this.On卡入库Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_异常状况统计", DbType="Bit")]
+		public System.Nullable<bool> 异常状况统计
+		{
+			get
+			{
+				return this._异常状况统计;
+			}
+			set
+			{
+				if ((this._异常状况统计 != value))
+				{
+					this.On异常状况统计Changing(value);
+					this.SendPropertyChanging();
+					this._异常状况统计 = value;
+					this.SendPropertyChanged("异常状况统计");
+					this.On异常状况统计Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_提成统计", DbType="Bit")]
+		public System.Nullable<bool> 提成统计
+		{
+			get
+			{
+				return this._提成统计;
+			}
+			set
+			{
+				if ((this._提成统计 != value))
+				{
+					this.On提成统计Changing(value);
+					this.SendPropertyChanging();
+					this._提成统计 = value;
+					this.SendPropertyChanged("提成统计");
+					this.On提成统计Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_手工打折汇总", DbType="Bit")]
+		public System.Nullable<bool> 手工打折汇总
+		{
+			get
+			{
+				return this._手工打折汇总;
+			}
+			set
+			{
+				if ((this._手工打折汇总 != value))
+				{
+					this.On手工打折汇总Changing(value);
+					this.SendPropertyChanging();
+					this._手工打折汇总 = value;
+					this.SendPropertyChanged("手工打折汇总");
+					this.On手工打折汇总Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_项目报表", DbType="Bit")]
+		public System.Nullable<bool> 项目报表
+		{
+			get
+			{
+				return this._项目报表;
+			}
+			set
+			{
+				if ((this._项目报表 != value))
+				{
+					this.On项目报表Changing(value);
+					this.SendPropertyChanging();
+					this._项目报表 = value;
+					this.SendPropertyChanged("项目报表");
+					this.On项目报表Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_信用卡统计", DbType="Bit")]
+		public System.Nullable<bool> 信用卡统计
+		{
+			get
+			{
+				return this._信用卡统计;
+			}
+			set
+			{
+				if ((this._信用卡统计 != value))
+				{
+					this.On信用卡统计Changing(value);
+					this.SendPropertyChanging();
+					this._信用卡统计 = value;
+					this.SendPropertyChanged("信用卡统计");
+					this.On信用卡统计Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_营业报表", DbType="Bit")]
+		public System.Nullable<bool> 营业报表
+		{
+			get
+			{
+				return this._营业报表;
+			}
+			set
+			{
+				if ((this._营业报表 != value))
+				{
+					this.On营业报表Changing(value);
+					this.SendPropertyChanging();
+					this._营业报表 = value;
+					this.SendPropertyChanged("营业报表");
+					this.On营业报表Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_退免单汇总", DbType="Bit")]
+		public System.Nullable<bool> 退免单汇总
+		{
+			get
+			{
+				return this._退免单汇总;
+			}
+			set
+			{
+				if ((this._退免单汇总 != value))
+				{
+					this.On退免单汇总Changing(value);
+					this.SendPropertyChanging();
+					this._退免单汇总 = value;
+					this.SendPropertyChanged("退免单汇总");
+					this.On退免单汇总Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_支出统计", DbType="Bit")]
+		public System.Nullable<bool> 支出统计
+		{
+			get
+			{
+				return this._支出统计;
+			}
+			set
+			{
+				if ((this._支出统计 != value))
+				{
+					this.On支出统计Changing(value);
+					this.SendPropertyChanging();
+					this._支出统计 = value;
+					this.SendPropertyChanged("支出统计");
+					this.On支出统计Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_收银员收款统计", DbType="Bit")]
+		public System.Nullable<bool> 收银员收款统计
+		{
+			get
+			{
+				return this._收银员收款统计;
+			}
+			set
+			{
+				if ((this._收银员收款统计 != value))
+				{
+					this.On收银员收款统计Changing(value);
+					this.SendPropertyChanging();
+					this._收银员收款统计 = value;
+					this.SendPropertyChanged("收银员收款统计");
+					this.On收银员收款统计Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_月报表", DbType="Bit")]
+		public System.Nullable<bool> 月报表
+		{
+			get
+			{
+				return this._月报表;
+			}
+			set
+			{
+				if ((this._月报表 != value))
+				{
+					this.On月报表Changing(value);
+					this.SendPropertyChanging();
+					this._月报表 = value;
+					this.SendPropertyChanged("月报表");
+					this.On月报表Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_往来单位账目", DbType="Bit")]
+		public System.Nullable<bool> 往来单位账目
+		{
+			get
+			{
+				return this._往来单位账目;
+			}
+			set
+			{
+				if ((this._往来单位账目 != value))
+				{
+					this.On往来单位账目Changing(value);
+					this.SendPropertyChanging();
+					this._往来单位账目 = value;
+					this.SendPropertyChanged("往来单位账目");
+					this.On往来单位账目Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_会员积分设置", DbType="Bit")]
+		public System.Nullable<bool> 会员积分设置
+		{
+			get
+			{
+				return this._会员积分设置;
+			}
+			set
+			{
+				if ((this._会员积分设置 != value))
+				{
+					this.On会员积分设置Changing(value);
+					this.SendPropertyChanging();
+					this._会员积分设置 = value;
+					this.SendPropertyChanged("会员积分设置");
+					this.On会员积分设置Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_优惠方案", DbType="Bit")]
+		public System.Nullable<bool> 优惠方案
+		{
+			get
+			{
+				return this._优惠方案;
+			}
+			set
+			{
+				if ((this._优惠方案 != value))
+				{
+					this.On优惠方案Changing(value);
+					this.SendPropertyChanging();
+					this._优惠方案 = value;
+					this.SendPropertyChanged("优惠方案");
+					this.On优惠方案Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_会员分析", DbType="Bit")]
+		public System.Nullable<bool> 会员分析
+		{
+			get
+			{
+				return this._会员分析;
+			}
+			set
+			{
+				if ((this._会员分析 != value))
+				{
+					this.On会员分析Changing(value);
+					this.SendPropertyChanging();
+					this._会员分析 = value;
+					this.SendPropertyChanged("会员分析");
+					this.On会员分析Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_会员管理", DbType="Bit")]
+		public System.Nullable<bool> 会员管理
+		{
+			get
+			{
+				return this._会员管理;
+			}
+			set
+			{
+				if ((this._会员管理 != value))
+				{
+					this.On会员管理Changing(value);
+					this.SendPropertyChanging();
+					this._会员管理 = value;
+					this.SendPropertyChanged("会员管理");
+					this.On会员管理Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_会员消费统计", DbType="Bit")]
+		public System.Nullable<bool> 会员消费统计
+		{
+			get
+			{
+				return this._会员消费统计;
+			}
+			set
+			{
+				if ((this._会员消费统计 != value))
+				{
+					this.On会员消费统计Changing(value);
+					this.SendPropertyChanging();
+					this._会员消费统计 = value;
+					this.SendPropertyChanged("会员消费统计");
+					this.On会员消费统计Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_会员售卡及充值统计", DbType="Bit")]
+		public System.Nullable<bool> 会员售卡及充值统计
+		{
+			get
+			{
+				return this._会员售卡及充值统计;
+			}
+			set
+			{
+				if ((this._会员售卡及充值统计 != value))
+				{
+					this.On会员售卡及充值统计Changing(value);
+					this.SendPropertyChanging();
+					this._会员售卡及充值统计 = value;
+					this.SendPropertyChanged("会员售卡及充值统计");
+					this.On会员售卡及充值统计Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_手牌管理", DbType="Bit")]
+		public System.Nullable<bool> 手牌管理
+		{
+			get
+			{
+				return this._手牌管理;
+			}
+			set
+			{
+				if ((this._手牌管理 != value))
+				{
+					this.On手牌管理Changing(value);
+					this.SendPropertyChanging();
+					this._手牌管理 = value;
+					this.SendPropertyChanged("手牌管理");
+					this.On手牌管理Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_券类管理", DbType="Bit")]
+		public System.Nullable<bool> 券类管理
+		{
+			get
+			{
+				return this._券类管理;
+			}
+			set
+			{
+				if ((this._券类管理 != value))
+				{
+					this.On券类管理Changing(value);
+					this.SendPropertyChanging();
+					this._券类管理 = value;
+					this.SendPropertyChanged("券类管理");
+					this.On券类管理Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_客户管理", DbType="Bit")]
+		public System.Nullable<bool> 客户管理
+		{
+			get
+			{
+				return this._客户管理;
+			}
+			set
+			{
+				if ((this._客户管理 != value))
+				{
+					this.On客户管理Changing(value);
+					this.SendPropertyChanging();
+					this._客户管理 = value;
+					this.SendPropertyChanged("客户管理");
+					this.On客户管理Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_项目档案管理", DbType="Bit")]
+		public System.Nullable<bool> 项目档案管理
+		{
+			get
+			{
+				return this._项目档案管理;
+			}
+			set
+			{
+				if ((this._项目档案管理 != value))
+				{
+					this.On项目档案管理Changing(value);
+					this.SendPropertyChanging();
+					this._项目档案管理 = value;
+					this.SendPropertyChanged("项目档案管理");
+					this.On项目档案管理Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_客房管理", DbType="Bit")]
+		public System.Nullable<bool> 客房管理
+		{
+			get
+			{
+				return this._客房管理;
+			}
+			set
+			{
+				if ((this._客房管理 != value))
+				{
+					this.On客房管理Changing(value);
+					this.SendPropertyChanging();
+					this._客房管理 = value;
+					this.SendPropertyChanged("客房管理");
+					this.On客房管理Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_员工管理", DbType="Bit")]
+		public System.Nullable<bool> 员工管理
+		{
+			get
+			{
+				return this._员工管理;
+			}
+			set
+			{
+				if ((this._员工管理 != value))
+				{
+					this.On员工管理Changing(value);
+					this.SendPropertyChanging();
+					this._员工管理 = value;
+					this.SendPropertyChanged("员工管理");
+					this.On员工管理Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_权限管理", DbType="Bit")]
+		public System.Nullable<bool> 权限管理
+		{
+			get
+			{
+				return this._权限管理;
+			}
+			set
+			{
+				if ((this._权限管理 != value))
+				{
+					this.On权限管理Changing(value);
+					this.SendPropertyChanging();
+					this._权限管理 = value;
+					this.SendPropertyChanged("权限管理");
+					this.On权限管理Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_套餐管理", DbType="Bit")]
+		public System.Nullable<bool> 套餐管理
+		{
+			get
+			{
+				return this._套餐管理;
+			}
+			set
+			{
+				if ((this._套餐管理 != value))
+				{
+					this.On套餐管理Changing(value);
+					this.SendPropertyChanging();
+					this._套餐管理 = value;
+					this.SendPropertyChanged("套餐管理");
+					this.On套餐管理Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_库存参数", DbType="Bit")]
+		public System.Nullable<bool> 库存参数
+		{
+			get
+			{
+				return this._库存参数;
+			}
+			set
+			{
+				if ((this._库存参数 != value))
+				{
+					this.On库存参数Changing(value);
+					this.SendPropertyChanging();
+					this._库存参数 = value;
+					this.SendPropertyChanged("库存参数");
+					this.On库存参数Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_仓库设定", DbType="Bit")]
+		public System.Nullable<bool> 仓库设定
+		{
+			get
+			{
+				return this._仓库设定;
+			}
+			set
+			{
+				if ((this._仓库设定 != value))
+				{
+					this.On仓库设定Changing(value);
+					this.SendPropertyChanging();
+					this._仓库设定 = value;
+					this.SendPropertyChanged("仓库设定");
+					this.On仓库设定Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_供应商管理", DbType="Bit")]
+		public System.Nullable<bool> 供应商管理
+		{
+			get
+			{
+				return this._供应商管理;
+			}
+			set
+			{
+				if ((this._供应商管理 != value))
+				{
+					this.On供应商管理Changing(value);
+					this.SendPropertyChanging();
+					this._供应商管理 = value;
+					this.SendPropertyChanged("供应商管理");
+					this.On供应商管理Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_进货入库", DbType="Bit")]
+		public System.Nullable<bool> 进货入库
+		{
+			get
+			{
+				return this._进货入库;
+			}
+			set
+			{
+				if ((this._进货入库 != value))
+				{
+					this.On进货入库Changing(value);
+					this.SendPropertyChanging();
+					this._进货入库 = value;
+					this.SendPropertyChanged("进货入库");
+					this.On进货入库Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_现有库存", DbType="Bit")]
+		public System.Nullable<bool> 现有库存
+		{
+			get
+			{
+				return this._现有库存;
+			}
+			set
+			{
+				if ((this._现有库存 != value))
+				{
+					this.On现有库存Changing(value);
+					this.SendPropertyChanging();
+					this._现有库存 = value;
+					this.SendPropertyChanged("现有库存");
+					this.On现有库存Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_调货补货", DbType="Bit")]
+		public System.Nullable<bool> 调货补货
+		{
+			get
+			{
+				return this._调货补货;
+			}
+			set
+			{
+				if ((this._调货补货 != value))
+				{
+					this.On调货补货Changing(value);
+					this.SendPropertyChanging();
+					this._调货补货 = value;
+					this.SendPropertyChanged("调货补货");
+					this.On调货补货Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_盘点清册", DbType="Bit")]
+		public System.Nullable<bool> 盘点清册
+		{
+			get
+			{
+				return this._盘点清册;
+			}
+			set
+			{
+				if ((this._盘点清册 != value))
+				{
+					this.On盘点清册Changing(value);
+					this.SendPropertyChanging();
+					this._盘点清册 = value;
+					this.SendPropertyChanged("盘点清册");
+					this.On盘点清册Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_盘点调整", DbType="Bit")]
+		public System.Nullable<bool> 盘点调整
+		{
+			get
+			{
+				return this._盘点调整;
+			}
+			set
+			{
+				if ((this._盘点调整 != value))
+				{
+					this.On盘点调整Changing(value);
+					this.SendPropertyChanging();
+					this._盘点调整 = value;
+					this.SendPropertyChanged("盘点调整");
+					this.On盘点调整Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_应付账款", DbType="Bit")]
+		public System.Nullable<bool> 应付账款
+		{
+			get
+			{
+				return this._应付账款;
+			}
+			set
+			{
+				if ((this._应付账款 != value))
+				{
+					this.On应付账款Changing(value);
+					this.SendPropertyChanging();
+					this._应付账款 = value;
+					this.SendPropertyChanged("应付账款");
+					this.On应付账款Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_系统设置", DbType="Bit")]
+		public System.Nullable<bool> 系统设置
+		{
+			get
+			{
+				return this._系统设置;
+			}
+			set
+			{
+				if ((this._系统设置 != value))
+				{
+					this.On系统设置Changing(value);
+					this.SendPropertyChanging();
+					this._系统设置 = value;
+					this.SendPropertyChanged("系统设置");
+					this.On系统设置Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_数据优化", DbType="Bit")]
+		public System.Nullable<bool> 数据优化
+		{
+			get
+			{
+				return this._数据优化;
+			}
+			set
+			{
+				if ((this._数据优化 != value))
+				{
+					this.On数据优化Changing(value);
+					this.SendPropertyChanging();
+					this._数据优化 = value;
+					this.SendPropertyChanged("数据优化");
+					this.On数据优化Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_收银报表", DbType="Bit")]
+		public System.Nullable<bool> 收银报表
+		{
+			get
+			{
+				return this._收银报表;
+			}
+			set
+			{
+				if ((this._收银报表 != value))
+				{
+					this.On收银报表Changing(value);
+					this.SendPropertyChanging();
+					this._收银报表 = value;
+					this.SendPropertyChanged("收银报表");
+					this.On收银报表Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_微信赠送", DbType="Bit")]
+		public System.Nullable<bool> 微信赠送
+		{
+			get
+			{
+				return this._微信赠送;
+			}
+			set
+			{
+				if ((this._微信赠送 != value))
+				{
+					this.On微信赠送Changing(value);
+					this.SendPropertyChanging();
+					this._微信赠送 = value;
+					this.SendPropertyChanged("微信赠送");
+					this.On微信赠送Changed();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[Table(Name="dbo.Orders")]
+	public partial class Orders : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _menu;
+		
+		private string _text;
+		
+		private string _systemId;
+		
+		private double _number;
+		
+		private string _priceType;
+		
+		private double _money;
+		
+		private string _technician;
+		
+		private string _techType;
+		
+		private System.DateTime _inputTime;
+		
+		private string _inputEmployee;
+		
+		private string _deleteEmployee;
+		
+		private string _donorEmployee;
+		
+		private System.Nullable<int> _comboId;
+		
+		private bool _paid;
+		
+		private System.Nullable<int> _accountId;
+		
+		private string _billId;
+		
+		private System.Nullable<System.DateTime> _startTime;
+		
+		private System.Nullable<bool> _stopTiming;
+		
+		private System.Nullable<int> _departmentId;
+		
+		private string _deleteExplain;
+		
+		private System.Nullable<System.DateTime> _deleteTime;
+		
+		private string _roomId;
+		
+		private string _donorExplain;
+		
+		private System.Nullable<System.DateTime> _donorTime;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnmenuChanging(string value);
+    partial void OnmenuChanged();
+    partial void OntextChanging(string value);
+    partial void OntextChanged();
+    partial void OnsystemIdChanging(string value);
+    partial void OnsystemIdChanged();
+    partial void OnnumberChanging(double value);
+    partial void OnnumberChanged();
+    partial void OnpriceTypeChanging(string value);
+    partial void OnpriceTypeChanged();
+    partial void OnmoneyChanging(double value);
+    partial void OnmoneyChanged();
+    partial void OntechnicianChanging(string value);
+    partial void OntechnicianChanged();
+    partial void OntechTypeChanging(string value);
+    partial void OntechTypeChanged();
+    partial void OninputTimeChanging(System.DateTime value);
+    partial void OninputTimeChanged();
+    partial void OninputEmployeeChanging(string value);
+    partial void OninputEmployeeChanged();
+    partial void OndeleteEmployeeChanging(string value);
+    partial void OndeleteEmployeeChanged();
+    partial void OndonorEmployeeChanging(string value);
+    partial void OndonorEmployeeChanged();
+    partial void OncomboIdChanging(System.Nullable<int> value);
+    partial void OncomboIdChanged();
+    partial void OnpaidChanging(bool value);
+    partial void OnpaidChanged();
+    partial void OnaccountIdChanging(System.Nullable<int> value);
+    partial void OnaccountIdChanged();
+    partial void OnbillIdChanging(string value);
+    partial void OnbillIdChanged();
+    partial void OnstartTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnstartTimeChanged();
+    partial void OnstopTimingChanging(System.Nullable<bool> value);
+    partial void OnstopTimingChanged();
+    partial void OndepartmentIdChanging(System.Nullable<int> value);
+    partial void OndepartmentIdChanged();
+    partial void OndeleteExplainChanging(string value);
+    partial void OndeleteExplainChanged();
+    partial void OndeleteTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OndeleteTimeChanged();
+    partial void OnroomIdChanging(string value);
+    partial void OnroomIdChanged();
+    partial void OndonorExplainChanging(string value);
+    partial void OndonorExplainChanged();
+    partial void OndonorTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OndonorTimeChanged();
+    #endregion
+		
+		public Orders()
+		{
+			OnCreated();
+		}
+		
+		[Column(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_menu", DbType="NVarChar(MAX)")]
+		public string menu
+		{
+			get
+			{
+				return this._menu;
+			}
+			set
+			{
+				if ((this._menu != value))
+				{
+					this.OnmenuChanging(value);
+					this.SendPropertyChanging();
+					this._menu = value;
+					this.SendPropertyChanged("menu");
+					this.OnmenuChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_text", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string text
+		{
+			get
+			{
+				return this._text;
+			}
+			set
+			{
+				if ((this._text != value))
+				{
+					this.OntextChanging(value);
+					this.SendPropertyChanging();
+					this._text = value;
+					this.SendPropertyChanged("text");
+					this.OntextChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_systemId", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string systemId
+		{
+			get
+			{
+				return this._systemId;
+			}
+			set
+			{
+				if ((this._systemId != value))
+				{
+					this.OnsystemIdChanging(value);
+					this.SendPropertyChanging();
+					this._systemId = value;
+					this.SendPropertyChanged("systemId");
+					this.OnsystemIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_number", DbType="Float NOT NULL")]
+		public double number
+		{
+			get
+			{
+				return this._number;
+			}
+			set
+			{
+				if ((this._number != value))
+				{
+					this.OnnumberChanging(value);
+					this.SendPropertyChanging();
+					this._number = value;
+					this.SendPropertyChanged("number");
+					this.OnnumberChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_priceType", DbType="NVarChar(MAX)")]
+		public string priceType
+		{
+			get
+			{
+				return this._priceType;
+			}
+			set
+			{
+				if ((this._priceType != value))
+				{
+					this.OnpriceTypeChanging(value);
+					this.SendPropertyChanging();
+					this._priceType = value;
+					this.SendPropertyChanged("priceType");
+					this.OnpriceTypeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_money", DbType="Float NOT NULL")]
+		public double money
+		{
+			get
+			{
+				return this._money;
+			}
+			set
+			{
+				if ((this._money != value))
+				{
+					this.OnmoneyChanging(value);
+					this.SendPropertyChanging();
+					this._money = value;
+					this.SendPropertyChanged("money");
+					this.OnmoneyChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_technician", DbType="NVarChar(MAX)")]
+		public string technician
+		{
+			get
+			{
+				return this._technician;
+			}
+			set
+			{
+				if ((this._technician != value))
+				{
+					this.OntechnicianChanging(value);
+					this.SendPropertyChanging();
+					this._technician = value;
+					this.SendPropertyChanged("technician");
+					this.OntechnicianChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_techType", DbType="NVarChar(MAX)")]
+		public string techType
+		{
+			get
+			{
+				return this._techType;
+			}
+			set
+			{
+				if ((this._techType != value))
+				{
+					this.OntechTypeChanging(value);
+					this.SendPropertyChanging();
+					this._techType = value;
+					this.SendPropertyChanged("techType");
+					this.OntechTypeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_inputTime", DbType="DateTime NOT NULL")]
+		public System.DateTime inputTime
+		{
+			get
+			{
+				return this._inputTime;
+			}
+			set
+			{
+				if ((this._inputTime != value))
+				{
+					this.OninputTimeChanging(value);
+					this.SendPropertyChanging();
+					this._inputTime = value;
+					this.SendPropertyChanged("inputTime");
+					this.OninputTimeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_inputEmployee", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string inputEmployee
+		{
+			get
+			{
+				return this._inputEmployee;
+			}
+			set
+			{
+				if ((this._inputEmployee != value))
+				{
+					this.OninputEmployeeChanging(value);
+					this.SendPropertyChanging();
+					this._inputEmployee = value;
+					this.SendPropertyChanged("inputEmployee");
+					this.OninputEmployeeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_deleteEmployee", DbType="NVarChar(MAX)")]
+		public string deleteEmployee
+		{
+			get
+			{
+				return this._deleteEmployee;
+			}
+			set
+			{
+				if ((this._deleteEmployee != value))
+				{
+					this.OndeleteEmployeeChanging(value);
+					this.SendPropertyChanging();
+					this._deleteEmployee = value;
+					this.SendPropertyChanged("deleteEmployee");
+					this.OndeleteEmployeeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_donorEmployee", DbType="NVarChar(MAX)")]
+		public string donorEmployee
+		{
+			get
+			{
+				return this._donorEmployee;
+			}
+			set
+			{
+				if ((this._donorEmployee != value))
+				{
+					this.OndonorEmployeeChanging(value);
+					this.SendPropertyChanging();
+					this._donorEmployee = value;
+					this.SendPropertyChanged("donorEmployee");
+					this.OndonorEmployeeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_comboId", DbType="Int")]
+		public System.Nullable<int> comboId
+		{
+			get
+			{
+				return this._comboId;
+			}
+			set
+			{
+				if ((this._comboId != value))
+				{
+					this.OncomboIdChanging(value);
+					this.SendPropertyChanging();
+					this._comboId = value;
+					this.SendPropertyChanged("comboId");
+					this.OncomboIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_paid", DbType="Bit NOT NULL")]
+		public bool paid
+		{
+			get
+			{
+				return this._paid;
+			}
+			set
+			{
+				if ((this._paid != value))
+				{
+					this.OnpaidChanging(value);
+					this.SendPropertyChanging();
+					this._paid = value;
+					this.SendPropertyChanged("paid");
+					this.OnpaidChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_accountId", DbType="Int")]
+		public System.Nullable<int> accountId
+		{
+			get
+			{
+				return this._accountId;
+			}
+			set
+			{
+				if ((this._accountId != value))
+				{
+					this.OnaccountIdChanging(value);
+					this.SendPropertyChanging();
+					this._accountId = value;
+					this.SendPropertyChanged("accountId");
+					this.OnaccountIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_billId", DbType="NVarChar(MAX)")]
+		public string billId
+		{
+			get
+			{
+				return this._billId;
+			}
+			set
+			{
+				if ((this._billId != value))
+				{
+					this.OnbillIdChanging(value);
+					this.SendPropertyChanging();
+					this._billId = value;
+					this.SendPropertyChanged("billId");
+					this.OnbillIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_startTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> startTime
+		{
+			get
+			{
+				return this._startTime;
+			}
+			set
+			{
+				if ((this._startTime != value))
+				{
+					this.OnstartTimeChanging(value);
+					this.SendPropertyChanging();
+					this._startTime = value;
+					this.SendPropertyChanged("startTime");
+					this.OnstartTimeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_stopTiming", DbType="Bit")]
+		public System.Nullable<bool> stopTiming
+		{
+			get
+			{
+				return this._stopTiming;
+			}
+			set
+			{
+				if ((this._stopTiming != value))
+				{
+					this.OnstopTimingChanging(value);
+					this.SendPropertyChanging();
+					this._stopTiming = value;
+					this.SendPropertyChanged("stopTiming");
+					this.OnstopTimingChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_departmentId", DbType="Int")]
+		public System.Nullable<int> departmentId
+		{
+			get
+			{
+				return this._departmentId;
+			}
+			set
+			{
+				if ((this._departmentId != value))
+				{
+					this.OndepartmentIdChanging(value);
+					this.SendPropertyChanging();
+					this._departmentId = value;
+					this.SendPropertyChanged("departmentId");
+					this.OndepartmentIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_deleteExplain", DbType="NVarChar(MAX)")]
+		public string deleteExplain
+		{
+			get
+			{
+				return this._deleteExplain;
+			}
+			set
+			{
+				if ((this._deleteExplain != value))
+				{
+					this.OndeleteExplainChanging(value);
+					this.SendPropertyChanging();
+					this._deleteExplain = value;
+					this.SendPropertyChanged("deleteExplain");
+					this.OndeleteExplainChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_deleteTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> deleteTime
+		{
+			get
+			{
+				return this._deleteTime;
+			}
+			set
+			{
+				if ((this._deleteTime != value))
+				{
+					this.OndeleteTimeChanging(value);
+					this.SendPropertyChanging();
+					this._deleteTime = value;
+					this.SendPropertyChanged("deleteTime");
+					this.OndeleteTimeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_roomId", DbType="NVarChar(MAX)")]
+		public string roomId
+		{
+			get
+			{
+				return this._roomId;
+			}
+			set
+			{
+				if ((this._roomId != value))
+				{
+					this.OnroomIdChanging(value);
+					this.SendPropertyChanging();
+					this._roomId = value;
+					this.SendPropertyChanged("roomId");
+					this.OnroomIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_donorExplain", DbType="NVarChar(MAX)")]
+		public string donorExplain
+		{
+			get
+			{
+				return this._donorExplain;
+			}
+			set
+			{
+				if ((this._donorExplain != value))
+				{
+					this.OndonorExplainChanging(value);
+					this.SendPropertyChanging();
+					this._donorExplain = value;
+					this.SendPropertyChanged("donorExplain");
+					this.OndonorExplainChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_donorTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> donorTime
+		{
+			get
+			{
+				return this._donorTime;
+			}
+			set
+			{
+				if ((this._donorTime != value))
+				{
+					this.OndonorTimeChanging(value);
+					this.SendPropertyChanging();
+					this._donorTime = value;
+					this.SendPropertyChanged("donorTime");
+					this.OndonorTimeChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[Table(Name="dbo.HisOrders")]
+	public partial class HisOrders : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _menu;
+		
+		private string _text;
+		
+		private string _systemId;
+		
+		private double _number;
+		
+		private string _priceType;
+		
+		private double _money;
+		
+		private string _technician;
+		
+		private string _techType;
+		
+		private System.DateTime _inputTime;
+		
+		private string _inputEmployee;
+		
+		private string _deleteEmployee;
+		
+		private string _donorEmployee;
+		
+		private System.Nullable<int> _comboId;
+		
+		private bool _paid;
+		
+		private System.Nullable<int> _accountId;
+		
+		private string _billId;
+		
+		private System.Nullable<System.DateTime> _startTime;
+		
+		private System.Nullable<int> _departmentId;
+		
+		private string _deleteExplain;
+		
+		private System.Nullable<System.DateTime> _deleteTime;
+		
+		private string _roomId;
+		
+		private string _donorExplain;
+		
+		private System.Nullable<System.DateTime> _donorTime;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnmenuChanging(string value);
+    partial void OnmenuChanged();
+    partial void OntextChanging(string value);
+    partial void OntextChanged();
+    partial void OnsystemIdChanging(string value);
+    partial void OnsystemIdChanged();
+    partial void OnnumberChanging(double value);
+    partial void OnnumberChanged();
+    partial void OnpriceTypeChanging(string value);
+    partial void OnpriceTypeChanged();
+    partial void OnmoneyChanging(double value);
+    partial void OnmoneyChanged();
+    partial void OntechnicianChanging(string value);
+    partial void OntechnicianChanged();
+    partial void OntechTypeChanging(string value);
+    partial void OntechTypeChanged();
+    partial void OninputTimeChanging(System.DateTime value);
+    partial void OninputTimeChanged();
+    partial void OninputEmployeeChanging(string value);
+    partial void OninputEmployeeChanged();
+    partial void OndeleteEmployeeChanging(string value);
+    partial void OndeleteEmployeeChanged();
+    partial void OndonorEmployeeChanging(string value);
+    partial void OndonorEmployeeChanged();
+    partial void OncomboIdChanging(System.Nullable<int> value);
+    partial void OncomboIdChanged();
+    partial void OnpaidChanging(bool value);
+    partial void OnpaidChanged();
+    partial void OnaccountIdChanging(System.Nullable<int> value);
+    partial void OnaccountIdChanged();
+    partial void OnbillIdChanging(string value);
+    partial void OnbillIdChanged();
+    partial void OnstartTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnstartTimeChanged();
+    partial void OndepartmentIdChanging(System.Nullable<int> value);
+    partial void OndepartmentIdChanged();
+    partial void OndeleteExplainChanging(string value);
+    partial void OndeleteExplainChanged();
+    partial void OndeleteTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OndeleteTimeChanged();
+    partial void OnroomIdChanging(string value);
+    partial void OnroomIdChanged();
+    partial void OndonorExplainChanging(string value);
+    partial void OndonorExplainChanged();
+    partial void OndonorTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OndonorTimeChanged();
+    #endregion
+		
+		public HisOrders()
+		{
+			OnCreated();
+		}
+		
+		[Column(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_menu", DbType="NVarChar(MAX)")]
+		public string menu
+		{
+			get
+			{
+				return this._menu;
+			}
+			set
+			{
+				if ((this._menu != value))
+				{
+					this.OnmenuChanging(value);
+					this.SendPropertyChanging();
+					this._menu = value;
+					this.SendPropertyChanged("menu");
+					this.OnmenuChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_text", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string text
+		{
+			get
+			{
+				return this._text;
+			}
+			set
+			{
+				if ((this._text != value))
+				{
+					this.OntextChanging(value);
+					this.SendPropertyChanging();
+					this._text = value;
+					this.SendPropertyChanged("text");
+					this.OntextChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_systemId", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string systemId
+		{
+			get
+			{
+				return this._systemId;
+			}
+			set
+			{
+				if ((this._systemId != value))
+				{
+					this.OnsystemIdChanging(value);
+					this.SendPropertyChanging();
+					this._systemId = value;
+					this.SendPropertyChanged("systemId");
+					this.OnsystemIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_number", DbType="Float NOT NULL")]
+		public double number
+		{
+			get
+			{
+				return this._number;
+			}
+			set
+			{
+				if ((this._number != value))
+				{
+					this.OnnumberChanging(value);
+					this.SendPropertyChanging();
+					this._number = value;
+					this.SendPropertyChanged("number");
+					this.OnnumberChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_priceType", DbType="NVarChar(MAX)")]
+		public string priceType
+		{
+			get
+			{
+				return this._priceType;
+			}
+			set
+			{
+				if ((this._priceType != value))
+				{
+					this.OnpriceTypeChanging(value);
+					this.SendPropertyChanging();
+					this._priceType = value;
+					this.SendPropertyChanged("priceType");
+					this.OnpriceTypeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_money", DbType="Float NOT NULL")]
+		public double money
+		{
+			get
+			{
+				return this._money;
+			}
+			set
+			{
+				if ((this._money != value))
+				{
+					this.OnmoneyChanging(value);
+					this.SendPropertyChanging();
+					this._money = value;
+					this.SendPropertyChanged("money");
+					this.OnmoneyChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_technician", DbType="NVarChar(MAX)")]
+		public string technician
+		{
+			get
+			{
+				return this._technician;
+			}
+			set
+			{
+				if ((this._technician != value))
+				{
+					this.OntechnicianChanging(value);
+					this.SendPropertyChanging();
+					this._technician = value;
+					this.SendPropertyChanged("technician");
+					this.OntechnicianChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_techType", DbType="NVarChar(MAX)")]
+		public string techType
+		{
+			get
+			{
+				return this._techType;
+			}
+			set
+			{
+				if ((this._techType != value))
+				{
+					this.OntechTypeChanging(value);
+					this.SendPropertyChanging();
+					this._techType = value;
+					this.SendPropertyChanged("techType");
+					this.OntechTypeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_inputTime", DbType="DateTime NOT NULL")]
+		public System.DateTime inputTime
+		{
+			get
+			{
+				return this._inputTime;
+			}
+			set
+			{
+				if ((this._inputTime != value))
+				{
+					this.OninputTimeChanging(value);
+					this.SendPropertyChanging();
+					this._inputTime = value;
+					this.SendPropertyChanged("inputTime");
+					this.OninputTimeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_inputEmployee", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string inputEmployee
+		{
+			get
+			{
+				return this._inputEmployee;
+			}
+			set
+			{
+				if ((this._inputEmployee != value))
+				{
+					this.OninputEmployeeChanging(value);
+					this.SendPropertyChanging();
+					this._inputEmployee = value;
+					this.SendPropertyChanged("inputEmployee");
+					this.OninputEmployeeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_deleteEmployee", DbType="NVarChar(MAX)")]
+		public string deleteEmployee
+		{
+			get
+			{
+				return this._deleteEmployee;
+			}
+			set
+			{
+				if ((this._deleteEmployee != value))
+				{
+					this.OndeleteEmployeeChanging(value);
+					this.SendPropertyChanging();
+					this._deleteEmployee = value;
+					this.SendPropertyChanged("deleteEmployee");
+					this.OndeleteEmployeeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_donorEmployee", DbType="NVarChar(MAX)")]
+		public string donorEmployee
+		{
+			get
+			{
+				return this._donorEmployee;
+			}
+			set
+			{
+				if ((this._donorEmployee != value))
+				{
+					this.OndonorEmployeeChanging(value);
+					this.SendPropertyChanging();
+					this._donorEmployee = value;
+					this.SendPropertyChanged("donorEmployee");
+					this.OndonorEmployeeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_comboId", DbType="Int")]
+		public System.Nullable<int> comboId
+		{
+			get
+			{
+				return this._comboId;
+			}
+			set
+			{
+				if ((this._comboId != value))
+				{
+					this.OncomboIdChanging(value);
+					this.SendPropertyChanging();
+					this._comboId = value;
+					this.SendPropertyChanged("comboId");
+					this.OncomboIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_paid", DbType="Bit NOT NULL")]
+		public bool paid
+		{
+			get
+			{
+				return this._paid;
+			}
+			set
+			{
+				if ((this._paid != value))
+				{
+					this.OnpaidChanging(value);
+					this.SendPropertyChanging();
+					this._paid = value;
+					this.SendPropertyChanged("paid");
+					this.OnpaidChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_accountId", DbType="Int")]
+		public System.Nullable<int> accountId
+		{
+			get
+			{
+				return this._accountId;
+			}
+			set
+			{
+				if ((this._accountId != value))
+				{
+					this.OnaccountIdChanging(value);
+					this.SendPropertyChanging();
+					this._accountId = value;
+					this.SendPropertyChanged("accountId");
+					this.OnaccountIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_billId", DbType="NVarChar(MAX)")]
+		public string billId
+		{
+			get
+			{
+				return this._billId;
+			}
+			set
+			{
+				if ((this._billId != value))
+				{
+					this.OnbillIdChanging(value);
+					this.SendPropertyChanging();
+					this._billId = value;
+					this.SendPropertyChanged("billId");
+					this.OnbillIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_startTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> startTime
+		{
+			get
+			{
+				return this._startTime;
+			}
+			set
+			{
+				if ((this._startTime != value))
+				{
+					this.OnstartTimeChanging(value);
+					this.SendPropertyChanging();
+					this._startTime = value;
+					this.SendPropertyChanged("startTime");
+					this.OnstartTimeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_departmentId", DbType="Int")]
+		public System.Nullable<int> departmentId
+		{
+			get
+			{
+				return this._departmentId;
+			}
+			set
+			{
+				if ((this._departmentId != value))
+				{
+					this.OndepartmentIdChanging(value);
+					this.SendPropertyChanging();
+					this._departmentId = value;
+					this.SendPropertyChanged("departmentId");
+					this.OndepartmentIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_deleteExplain", DbType="NVarChar(MAX)")]
+		public string deleteExplain
+		{
+			get
+			{
+				return this._deleteExplain;
+			}
+			set
+			{
+				if ((this._deleteExplain != value))
+				{
+					this.OndeleteExplainChanging(value);
+					this.SendPropertyChanging();
+					this._deleteExplain = value;
+					this.SendPropertyChanged("deleteExplain");
+					this.OndeleteExplainChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_deleteTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> deleteTime
+		{
+			get
+			{
+				return this._deleteTime;
+			}
+			set
+			{
+				if ((this._deleteTime != value))
+				{
+					this.OndeleteTimeChanging(value);
+					this.SendPropertyChanging();
+					this._deleteTime = value;
+					this.SendPropertyChanged("deleteTime");
+					this.OndeleteTimeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_roomId", DbType="NVarChar(MAX)")]
+		public string roomId
+		{
+			get
+			{
+				return this._roomId;
+			}
+			set
+			{
+				if ((this._roomId != value))
+				{
+					this.OnroomIdChanging(value);
+					this.SendPropertyChanging();
+					this._roomId = value;
+					this.SendPropertyChanged("roomId");
+					this.OnroomIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_donorExplain", DbType="NVarChar(MAX)")]
+		public string donorExplain
+		{
+			get
+			{
+				return this._donorExplain;
+			}
+			set
+			{
+				if ((this._donorExplain != value))
+				{
+					this.OndonorExplainChanging(value);
+					this.SendPropertyChanging();
+					this._donorExplain = value;
+					this.SendPropertyChanged("donorExplain");
+					this.OndonorExplainChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_donorTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> donorTime
+		{
+			get
+			{
+				return this._donorTime;
+			}
+			set
+			{
+				if ((this._donorTime != value))
+				{
+					this.OndonorTimeChanging(value);
+					this.SendPropertyChanging();
+					this._donorTime = value;
+					this.SendPropertyChanged("donorTime");
+					this.OndonorTimeChanged();
 				}
 			}
 		}

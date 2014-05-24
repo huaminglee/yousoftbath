@@ -110,7 +110,7 @@ namespace IntereekBathWeChat
         private void BTMonthFind_Click(object sender, EventArgs e)
         {
             string errorDesc = "";
-            var shopYeJis = ShopManagement.queryYeJi(Constants.AliIP, companyCodes, CBYear.Text + "-" + CBMonth.Text, "M", out errorDesc);
+            var shopYeJis = ShopManagement.queryYeJi(LogIn.connectionIP, companyCodes, CBYear.Text + "-" + CBMonth.Text, "M", out errorDesc);
             if (shopYeJis == null)
             {
                 BathClass.printErrorMsg(errorDesc);

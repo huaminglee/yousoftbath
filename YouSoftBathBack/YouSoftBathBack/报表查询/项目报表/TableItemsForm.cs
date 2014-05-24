@@ -95,6 +95,8 @@ namespace YouSoftBathBack
                 find_2();
             else if (searchType.Text == "已结账项目汇总")
                 find_3();
+            else if (searchType.Text == "微信赠送项目明细")
+                find_wx_donor();
 
             BathClass.set_dgv_fit(dgv);
         }
@@ -311,6 +313,80 @@ namespace YouSoftBathBack
             }
         }
 
+        //微信赠送项目明细
+        private void find_wx_donor()
+        {
+            dgv.Columns.Clear();
+            add_cols_to_dgv(dgv, "编号");
+            add_cols_to_dgv(dgv, "发生时间");
+            add_cols_to_dgv(dgv, "项目名称");
+            add_cols_to_dgv(dgv, "赠送员工");
+            add_cols_to_dgv(dgv, "赠送时间");
+            add_cols_to_dgv(dgv, "技师号");
+            add_cols_to_dgv(dgv, "手牌号");
+            add_cols_to_dgv(dgv, "数量");
+            add_cols_to_dgv(dgv, "金额");
+            add_cols_to_dgv(dgv, "输入员工");
+            add_cols_to_dgv(dgv, "结账单号");
+            add_cols_to_dgv(dgv, "单据号");
+
+            if (cboxBill.Checked && tbBill.Text != "")
+            {
+                var o = db.HisOrders.FirstOrDefault(x => x.billId == tbBill.Text);
+                if (o == null)
+                {
+                    BathClass.printErrorMsg("输入单据号不存在！");
+                    return;
+                }
+                dgv.Rows.Add(o.id,
+                        o.inputTime,
+                        o.menu,
+                        o.donorEmployee,
+                        o.donorTime,
+                        o.technician,
+                        o.text,
+                        o.number,
+                        o.money,
+                        o.inputEmployee,
+                        o.accountId,
+                        o.billId);
+                return;
+            }
+
+            IQueryable<YouSoftBathGeneralClass.Menu> menuList = db.Menu.OrderBy(x => x.catgoryId);
+            if (menu.SelectedIndex != 0)
+            {
+                var catId = db.Catgory.FirstOrDefault(x => x.name == menu.Text).id;
+                menuList = db.Menu.Where(x => x.catgoryId == catId);
+            }
+
+            var orders = db.HisOrders.Where(x => x.donorExplain != null && x.donorExplain == Constants.WX_DONOR);
+            orders = orders.Where(x => x.inputTime >= lastTime && x.inputTime <= thisTime && x.deleteEmployee == null);
+
+            foreach (var m in menuList)
+            {
+                var ol = orders.Where(x => x.menu == m.name);
+                //var ol = db.HisOrders.Where(x => x.menu == m.name && x.accountId != null && ids.Contains(x.accountId.Value) && x.deleteEmployee == null);
+                //if (!ol.Any())
+                //    continue;
+                foreach (HisOrders o in ol)
+                {
+                    dgv.Rows.Add(o.id,
+                        o.inputTime,
+                        m.name,
+                        o.donorEmployee,
+                        o.donorTime,
+                        o.technician,
+                        o.text,
+                        o.number,
+                        o.money,
+                        o.inputEmployee,
+                        o.accountId,
+                        o.billId);
+                }
+            }
+        }
+
         //往dgv中添加列
         private void add_cols_to_dgv(DataGridView pdgv, string header)
         {
@@ -380,6 +456,14 @@ namespace YouSoftBathBack
                 if (menu.Items.Count != 0)
                     menu.SelectedIndex = 0;
 
+            }
+            else if (searchType.Text=="微信赠送项目明细")
+            {
+                menu.Items.Clear();
+                menu.Items.Add("所有类别");
+                menu.Items.AddRange(db.Catgory.Select(x => x.name).ToArray());
+                if (menu.Items.Count != 0)
+                    menu.SelectedIndex = 0;
             }
         }
 

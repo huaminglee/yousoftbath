@@ -111,23 +111,19 @@ namespace YouSoftBathReception
                 return;
             }
 
-            //var db_new = new BathDBDataContext(LogIn.connectionString);
             var act = dao.get_account("id=" + dgv.CurrentRow.Cells[0].Value.ToString());
-            //var act = db_new.Account.FirstOrDefault(x => x.id.ToString() == dgv.CurrentRow.Cells[0].Value.ToString());
             if (act == null)
             {
                 if (BathClass.printAskMsg("手牌未结账，是否直接恢复手牌?") != DialogResult.Yes)
                     return;
             }
 
-            string cmd_str = "";
+            var sql = new StringBuilder();
             var texts = act.text.Split('|');
             var ids = act.systemId.Split('|');
-            //var seats = db_new.Seat.Where(x => texts.Contains(x.text));
             for (int i = 0; i < texts.Count(); i++)
             {
                 var s = dao.get_seat("text", texts[i]);
-                //var s = db_new.Seat.FirstOrDefault(x => x.text == texts[i]);
                 if (s == null) continue;
 
                 if (s.status == SeatStatus.USING || s.status == SeatStatus.WARNING ||
@@ -140,55 +136,23 @@ namespace YouSoftBathReception
                     }
                 }
                 else
-                    cmd_str += @"update [Seat] set status=8, systemId='" + ids[i] + "' where text='" + texts[i] + "' ";
-                //s.status = 8;
-                //s.systemId = ids[i];
-                cmd_str += @"insert into [Orders](menu,text,systemId,number,priceType,money,technician,techtype,startTime,"
-                + @"inputTime, inputEmployee,deleteEmployee,donorEmployee,comboId,accountId,billId,departmentId, paid,roomId) "
-                + @"select menu,text,systemId,number,priceType,"
-                            + @"money,technician,techtype,startTime,inputTime,inputEmployee,deleteEmployee,"
-                            + @"donorEmployee,comboId,accountId,billId,departmentId, 'False',roomId from [HisOrders] where("
-                            + @"accountId=" + act.id + ") ";
-                cmd_str += @" delete from [HisOrders] where(accountId=" + act.id + ") ";
-                //var orders = db_new.HisOrders.Where(x => x.systemId == s.systemId && x.accountId.Value == act.id);
-                //foreach (var order in orders)
-                //{
-                //    var ho = new Orders();
-                //    ho.menu = order.menu;
-                //    ho.text = order.text;
-                //    ho.systemId = order.systemId;
-                //    ho.number = order.number;
-                //    ho.priceType = order.priceType;
-                //    ho.money = order.money;
-                //    ho.technician = order.technician;
-                //    ho.techType = order.techType;
-                //    ho.startTime = order.startTime;
-                //    ho.inputTime = order.inputTime;
-                //    ho.inputEmployee = order.inputEmployee;
-                //    ho.deleteEmployee = order.deleteEmployee;
-                //    ho.donorEmployee = order.donorEmployee;
-                //    ho.comboId = order.comboId;
-                //    ho.paid = false;
-                //    ho.accountId = order.accountId;
-                //    ho.billId = order.billId;
-                //    ho.stopTiming = true;
-                //    db_new.Orders.InsertOnSubmit(ho);
-                //    db_new.HisOrders.DeleteOnSubmit(order);
-                //}
+                    sql.Append(" update [Seat] set status=8, systemId='").Append(ids[i]).Append("' where text='").Append(texts[i]).Append("' ");
+
+                sql.Append(@" insert into [Orders](menu,text,systemId,number,priceType,money,technician,techtype,startTime,");
+                sql.Append(@" inputTime, inputEmployee,deleteEmployee,donorEmployee,comboId,accountId,billId,departmentId, paid,roomId,donorExplain,donorTime) ");
+                sql.Append(@" select menu,text,systemId,number,priceType,money,technician,techtype,startTime,inputTime,inputEmployee,deleteEmployee,");
+                sql.Append(@" donorEmployee,comboId,accountId,billId,departmentId, 'False',roomId,donorExplain,donorTime");
+                sql.Append(@"  from [HisOrders] where(accountId=").Append(act.id).Append(") ");
+                sql.Append(@"  delete from [HisOrders] where(accountId=").Append(act.id).Append(") ");
             }
-            cmd_str += @" update [Account] set abandon='" + m_user.id + "' where id=" + act.id;
-            cmd_str += @" delete from [CardCharge] where CC_AccountNo='" + act.id.ToString() + "'";
-            if (!dao.execute_command(cmd_str))
+
+            sql.Append(@" update [Account] set abandon='").Append(m_user.name).Append("' where id=").Append(act.id);
+            sql.Append(@" delete from [CardCharge] where CC_AccountNo='").Append(act.id).Append("'");
+            if (!dao.execute_command(sql.ToString()))
             {
                 BathClass.printErrorMsg("重新结账失败!");
                 return;
             }
-            //act.abandon = m_user.id;
-            //var cc = db_new.CardCharge.Where(x => act.id.ToString() == x.CC_AccountNo);
-            //if (cc.Any())
-            //    db_new.CardCharge.DeleteAllOnSubmit(cc);
-
-            //BathClass.SubmitChanges(db_new);
             this.DialogResult = DialogResult.OK;
         }
     }

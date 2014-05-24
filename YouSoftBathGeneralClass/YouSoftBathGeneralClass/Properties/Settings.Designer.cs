@@ -43,5 +43,15 @@ namespace YouSoftBathGeneralClass.Properties {
                 return ((string)(this["BathDBConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=京天华盛-PC\\SQLEXPRESS;Initial Catalog=BathDB;Integrated Security=True")]
+        public string BathDBConnectionString2 {
+            get {
+                return ((string)(this["BathDBConnectionString2"]));
+            }
+        }
     }
 }

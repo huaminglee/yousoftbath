@@ -130,10 +130,12 @@
             this.label15 = new System.Windows.Forms.Label();
             this.cReception = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ComboDeparts = new System.Windows.Forms.ComboBox();
             this.ComboJobList = new System.Windows.Forms.ComboBox();
             this.ip = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.note = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.name = new System.Windows.Forms.TextBox();
@@ -142,8 +144,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.okBtn = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
-            this.ComboDeparts = new System.Windows.Forms.ComboBox();
+            this.checkBox21 = new System.Windows.Forms.CheckBox();
             this.authoPanel.Panel1.SuspendLayout();
             this.authoPanel.Panel2.SuspendLayout();
             this.authoPanel.SuspendLayout();
@@ -916,6 +917,7 @@
             this.all.Controls.Add(this.checkBox16);
             this.all.Controls.Add(this.checkBox17);
             this.all.Controls.Add(this.checkBox18);
+            this.all.Controls.Add(this.checkBox21);
             this.all.Controls.Add(this.checkBox19);
             this.all.Dock = System.Windows.Forms.DockStyle.Top;
             this.all.Location = new System.Drawing.Point(3, 256);
@@ -1272,6 +1274,15 @@
             this.panel1.Size = new System.Drawing.Size(1360, 81);
             this.panel1.TabIndex = 0;
             // 
+            // ComboDeparts
+            // 
+            this.ComboDeparts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboDeparts.FormattingEnabled = true;
+            this.ComboDeparts.Location = new System.Drawing.Point(721, 8);
+            this.ComboDeparts.Name = "ComboDeparts";
+            this.ComboDeparts.Size = new System.Drawing.Size(182, 24);
+            this.ComboDeparts.TabIndex = 20;
+            // 
             // ComboJobList
             // 
             this.ComboJobList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -1305,6 +1316,15 @@
             this.label3.Size = new System.Drawing.Size(72, 16);
             this.label3.TabIndex = 18;
             this.label3.Text = "备注信息";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(643, 12);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(72, 16);
+            this.label18.TabIndex = 17;
+            this.label18.Text = "所属部门";
             // 
             // note
             // 
@@ -1380,23 +1400,15 @@
             this.okBtn.UseVisualStyleBackColor = true;
             this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
             // 
-            // label18
+            // checkBox21
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(643, 12);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(72, 16);
-            this.label18.TabIndex = 17;
-            this.label18.Text = "所属部门";
-            // 
-            // ComboDeparts
-            // 
-            this.ComboDeparts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboDeparts.FormattingEnabled = true;
-            this.ComboDeparts.Location = new System.Drawing.Point(721, 8);
-            this.ComboDeparts.Name = "ComboDeparts";
-            this.ComboDeparts.Size = new System.Drawing.Size(182, 24);
-            this.ComboDeparts.TabIndex = 20;
+            this.checkBox21.AutoSize = true;
+            this.checkBox21.Location = new System.Drawing.Point(268, 13);
+            this.checkBox21.Name = "checkBox21";
+            this.checkBox21.Size = new System.Drawing.Size(91, 20);
+            this.checkBox21.TabIndex = 20;
+            this.checkBox21.Text = "微信赠送";
+            this.checkBox21.UseVisualStyleBackColor = true;
             // 
             // JobForm
             // 
@@ -1573,6 +1585,7 @@
         private System.Windows.Forms.ComboBox ComboJobList;
         private System.Windows.Forms.ComboBox ComboDeparts;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.CheckBox checkBox21;
 
 
 

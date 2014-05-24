@@ -53,6 +53,7 @@
     <Compile Include="IOUtil.cs" />
     <Compile Include="PCUtil.cs" />
     <Compile Include="Shop\ShopManagement.cs" />
+    <Compile Include="StringUtil.cs" />
     <Compile Include="WX\WxCouponManagement.cs" />
     <Compile Include="WX\WxUserManagement.cs" />
     <Compile Include="网络模块\HttpCon.cs" />

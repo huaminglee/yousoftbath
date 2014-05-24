@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SeatExpenseForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.payTool = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -55,6 +55,8 @@
             this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
             this.toolPreprint = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel9 = new System.Windows.Forms.ToolStripLabel();
+            this.ToolWxCoupon = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel11 = new System.Windows.Forms.ToolStripLabel();
             this.toolExit = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.moneyPayable = new System.Windows.Forms.TextBox();
@@ -90,8 +92,8 @@
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ToolWxCoupon = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel11 = new System.Windows.Forms.ToolStripLabel();
+            this.ToolWX = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel12 = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -128,6 +130,8 @@
             this.toolStripLabel9,
             this.ToolWxCoupon,
             this.toolStripLabel11,
+            this.ToolWX,
+            this.toolStripLabel12,
             this.toolExit});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
@@ -175,8 +179,8 @@
             this.transferTool.Image = ((System.Drawing.Image)(resources.GetObject("transferTool.Image")));
             this.transferTool.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.transferTool.Name = "transferTool";
-            this.transferTool.Size = new System.Drawing.Size(100, 88);
-            this.transferTool.Text = "宾客转账(F4)";
+            this.transferTool.Size = new System.Drawing.Size(73, 88);
+            this.transferTool.Text = "宾客转账";
             this.transferTool.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.transferTool.Click += new System.EventHandler(this.transferTool_Click);
             // 
@@ -209,8 +213,8 @@
             this.toolOrder.Image = ((System.Drawing.Image)(resources.GetObject("toolOrder.Image")));
             this.toolOrder.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolOrder.Name = "toolOrder";
-            this.toolOrder.Size = new System.Drawing.Size(100, 88);
-            this.toolOrder.Text = "消费录入(F8)";
+            this.toolOrder.Size = new System.Drawing.Size(73, 88);
+            this.toolOrder.Text = "消费录入";
             this.toolOrder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolOrder.Click += new System.EventHandler(this.toolOrder_Click);
             // 
@@ -226,8 +230,8 @@
             this.btnReturnRoom.Image = ((System.Drawing.Image)(resources.GetObject("btnReturnRoom.Image")));
             this.btnReturnRoom.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnReturnRoom.Name = "btnReturnRoom";
-            this.btnReturnRoom.Size = new System.Drawing.Size(79, 88);
-            this.btnReturnRoom.Text = "退房(F10)";
+            this.btnReturnRoom.Size = new System.Drawing.Size(68, 88);
+            this.btnReturnRoom.Text = "退房";
             this.btnReturnRoom.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnReturnRoom.Click += new System.EventHandler(this.btnReturnRoom_Click);
             // 
@@ -277,8 +281,8 @@
             this.toolMember.Image = ((System.Drawing.Image)(resources.GetObject("toolMember.Image")));
             this.toolMember.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolMember.Name = "toolMember";
-            this.toolMember.Size = new System.Drawing.Size(109, 88);
-            this.toolMember.Text = "会员管理(F11)";
+            this.toolMember.Size = new System.Drawing.Size(73, 88);
+            this.toolMember.Text = "会员管理";
             this.toolMember.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolMember.Click += new System.EventHandler(this.toolMember_Click);
             // 
@@ -294,8 +298,8 @@
             this.toolPreprint.Image = ((System.Drawing.Image)(resources.GetObject("toolPreprint.Image")));
             this.toolPreprint.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolPreprint.Name = "toolPreprint";
-            this.toolPreprint.Size = new System.Drawing.Size(100, 88);
-            this.toolPreprint.Text = "预打账单(F8)";
+            this.toolPreprint.Size = new System.Drawing.Size(73, 88);
+            this.toolPreprint.Text = "预打账单";
             this.toolPreprint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolPreprint.Click += new System.EventHandler(this.toolPreprint_Click);
             // 
@@ -304,6 +308,24 @@
             this.toolStripLabel9.Name = "toolStripLabel9";
             this.toolStripLabel9.Size = new System.Drawing.Size(16, 88);
             this.toolStripLabel9.Text = "  ";
+            // 
+            // ToolWxCoupon
+            // 
+            this.ToolWxCoupon.Font = new System.Drawing.Font("微软雅黑", 11F);
+            this.ToolWxCoupon.Image = ((System.Drawing.Image)(resources.GetObject("ToolWxCoupon.Image")));
+            this.ToolWxCoupon.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolWxCoupon.Name = "ToolWxCoupon";
+            this.ToolWxCoupon.Size = new System.Drawing.Size(68, 88);
+            this.ToolWxCoupon.Text = "赠券";
+            this.ToolWxCoupon.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.ToolWxCoupon.ToolTipText = "赠送微信优惠券";
+            this.ToolWxCoupon.Click += new System.EventHandler(this.ToolWxCoupon_Click);
+            // 
+            // toolStripLabel11
+            // 
+            this.toolStripLabel11.Name = "toolStripLabel11";
+            this.toolStripLabel11.Size = new System.Drawing.Size(12, 88);
+            this.toolStripLabel11.Text = " ";
             // 
             // toolExit
             // 
@@ -509,27 +531,27 @@
             this.dgvChain.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvChain.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvChain.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvChain.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvChain.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvChain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvChain.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column14,
             this.Column3});
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvChain.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvChain.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvChain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvChain.Location = new System.Drawing.Point(0, 0);
             this.dgvChain.Name = "dgvChain";
@@ -554,8 +576,8 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 8F);
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 8F);
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle7;
             this.Column3.FillWeight = 103.8509F;
             this.Column3.HeaderText = "进场时间";
             this.Column3.Name = "Column3";
@@ -580,14 +602,14 @@
             this.dgvExpense.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvExpense.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvExpense.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvExpense.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvExpense.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvExpense.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvExpense.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column2,
@@ -602,14 +624,14 @@
             this.Column12,
             this.Column13,
             this.Column8});
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvExpense.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvExpense.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvExpense.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvExpense.Location = new System.Drawing.Point(0, 0);
             this.dgvExpense.Name = "dgvExpense";
@@ -705,23 +727,23 @@
             this.Column8.Name = "Column8";
             this.Column8.Width = 65;
             // 
-            // ToolWxCoupon
+            // ToolWX
             // 
-            this.ToolWxCoupon.Font = new System.Drawing.Font("微软雅黑", 11F);
-            this.ToolWxCoupon.Image = ((System.Drawing.Image)(resources.GetObject("ToolWxCoupon.Image")));
-            this.ToolWxCoupon.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ToolWxCoupon.Name = "ToolWxCoupon";
-            this.ToolWxCoupon.Size = new System.Drawing.Size(70, 88);
-            this.ToolWxCoupon.Text = "赠券(F8)";
-            this.ToolWxCoupon.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.ToolWxCoupon.ToolTipText = "赠送微信优惠券";
-            this.ToolWxCoupon.Click += new System.EventHandler(this.ToolWxCoupon_Click);
+            this.ToolWX.Font = new System.Drawing.Font("微软雅黑", 11F);
+            this.ToolWX.Image = ((System.Drawing.Image)(resources.GetObject("ToolWX.Image")));
+            this.ToolWX.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolWX.Name = "ToolWX";
+            this.ToolWX.Size = new System.Drawing.Size(73, 88);
+            this.ToolWX.Text = "微信赠送";
+            this.ToolWX.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.ToolWX.ToolTipText = "赠送微信优惠券";
+            this.ToolWX.Click += new System.EventHandler(this.ToolWX_Click);
             // 
-            // toolStripLabel11
+            // toolStripLabel12
             // 
-            this.toolStripLabel11.Name = "toolStripLabel11";
-            this.toolStripLabel11.Size = new System.Drawing.Size(12, 88);
-            this.toolStripLabel11.Text = " ";
+            this.toolStripLabel12.Name = "toolStripLabel12";
+            this.toolStripLabel12.Size = new System.Drawing.Size(12, 88);
+            this.toolStripLabel12.Text = " ";
             // 
             // SeatExpenseForm
             // 
@@ -822,5 +844,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.ToolStripButton ToolWxCoupon;
         private System.Windows.Forms.ToolStripLabel toolStripLabel11;
+        private System.Windows.Forms.ToolStripButton ToolWX;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel12;
     }
 }

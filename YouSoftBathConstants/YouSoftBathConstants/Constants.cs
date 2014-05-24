@@ -40,6 +40,8 @@ namespace YouSoftBathConstants
 
         public const string version = "V6.1";
         public const string appName = "咱家店小二";
+
+        public const string WX_DONOR = "微信加服务号";
     }
 
     public static class ConfigKeys

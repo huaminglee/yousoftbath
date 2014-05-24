@@ -393,7 +393,8 @@
             "单项项目统计",
             "已发生项目汇总",
             "已结账项目明细",
-            "已结账项目汇总"});
+            "已结账项目汇总",
+            "微信赠送项目明细"});
             this.searchType.Location = new System.Drawing.Point(87, 8);
             this.searchType.Name = "searchType";
             this.searchType.Size = new System.Drawing.Size(142, 24);

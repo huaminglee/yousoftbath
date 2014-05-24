@@ -1133,7 +1133,7 @@ namespace YouSoftBathReception
                 return;
             }
 
-            int orderId = Convert.ToInt32(dgvExpense.CurrentRow.Cells[0].Value);
+            int orderId = MConvert<int>.ToTypeOrDefault(dgvExpense.CurrentRow.Cells[0].Value, 0);
             var order = dao.get_order("id", orderId);
             m_Seat = m_Seats.FirstOrDefault(x => x.systemId == order.systemId);
             if (order == null || order.menu.Contains("套餐优惠"))
@@ -1331,21 +1331,7 @@ namespace YouSoftBathReception
                 return;
             }
             
-            //COrders order = new COrders();
-            //order.menu = m_OverMenu.name;
-            //order.text = seat.text;
-            //order.systemId = seat.systemId;
-            //order.number = 1;
-            //order.money = m_OverMenu.price;
-            //order.inputTime = now;
-            //order.inputEmployee = "过夜费";
-            //order.paid = false;
-            //dc.Orders.InsertOnSubmit(order);
-
-            //dc.SubmitChanges();
-
             BathClass.find_combo(LogIn.connectionString, m_Seat.systemId, m_Seat.text);
-            //BathClass.find_combo(dc, seat, null);
         }
 
         private void payAll_Click(object sender, EventArgs e)
@@ -1429,6 +1415,60 @@ namespace YouSoftBathReception
         {
             var form = new ExtendWxCouponForm();
             form.ShowDialog();
+        }
+
+        //扫微信赠送商品
+        private void ToolWX_Click(object sender, EventArgs e)
+        {
+            if (dgvExpense.CurrentCell == null)
+            {
+                BathClass.printErrorMsg("需要选择行!");
+                return;
+            }
+
+            Employee donor_user = null;
+            
+            var db = new BathDBDataContext(LogIn.connectionString);
+            if (BathClass.getAuthority(db, LogIn.m_User, "微信赠送"))
+            {
+                donor_user = LogIn.m_User;
+            }
+            else
+            {
+                var form = new InputEmployeeByPwd();
+                if (form.ShowDialog() != DialogResult.OK) return;
+                if (!BathClass.getAuthority(db, form.employee, "微信赠送")) 
+                {
+                    BathClass.printErrorMsg("用户不具有微信赠送权限!");
+                    return; 
+                }
+
+                donor_user = form.employee;
+            }
+
+            var sql = new StringBuilder();
+            int orderId = MConvert<int>.ToTypeOrDefault(dgvExpense.CurrentRow.Cells[0].Value, 0);
+            var order = dao.get_order("id", orderId);
+            if (order.money == 0 && !StringUtil.isEmpty(order.donorExplain) && order.donorExplain==Constants.WX_DONOR)
+            {
+                sql.Append("update [Orders] set donorEmployee=null, donorExplain=null,donorTime=null,");
+                sql.Append("money=orders.number*(select price from menu where menu.name=orders.menu) where ");
+                sql.Append(" id=").Append(orderId);
+            }
+            else
+            {
+                sql.Append("update [Orders] set donorEmployee='").Append(donor_user.name).Append("', ");
+                sql.Append(" donorExplain='").Append(Constants.WX_DONOR).Append("',donorTime=getdate(),money=0 where ");
+                sql.Append(" id=").Append(orderId);
+            }
+            
+            
+            if (!dao.execute_command(sql.ToString()))
+            {
+                BathClass.printErrorMsg("微信赠送失败，请重试!");
+                return;
+            }
+            dgvExpense_show();
         }
     }
 }

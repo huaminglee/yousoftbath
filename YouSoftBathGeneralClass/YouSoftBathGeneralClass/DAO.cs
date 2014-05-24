@@ -1733,6 +1733,7 @@ namespace YouSoftBathGeneralClass
                         order.paid = (bool)dr["paid"];
                         order.accountId = ToInt(dr["accountId"]);
                         order.billId = dr["billId"].ToString();
+                        order.donorExplain = dr["donorExplain"].ToString();
                     }
                 }
 

@@ -628,8 +628,8 @@ namespace YouSoftBathGeneralClass
                 authority = db.Authority.FirstOrDefault(x => x.jobId == employee.jobId);
 
             var proVal = authority.GetType().GetProperty(pro);
-            //if (proVal == null)
-            //return true;
+            if (proVal == null)
+                return false;
 
             return Convert.ToBoolean(proVal.GetValue(authority, null));
         }

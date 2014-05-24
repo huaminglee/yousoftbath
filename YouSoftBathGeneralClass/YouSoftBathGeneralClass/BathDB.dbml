@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Database Name="BathDB" Class="BathDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=CAI-PC2\SQLEXPRESS;Initial Catalog=BathDB;Integrated Security=True" SettingsObjectName="YouSoftBathGeneralClass.Properties.Settings" SettingsPropertyName="BathDBConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=京天华盛-PC\SQLEXPRESS;Initial Catalog=BathDB;Integrated Security=True" SettingsObjectName="YouSoftBathGeneralClass.Properties.Settings" SettingsPropertyName="BathDBConnectionString2" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Unit" Member="Unit">
     <Type Name="Unit">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -445,79 +445,6 @@
       <Column Name="name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.Authority" Member="Authority">
-    <Type Name="Authority">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="emplyeeId" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="jobId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="开牌" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="取消开牌" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="更换手牌" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="锁定解锁" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="解除警告" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="停用启用" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="添加备注" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="挂失手牌" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="完整点单" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="可见本人点单" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="退单" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="手工打折" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="签字免单" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="转账" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="重新结账" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="结账" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="技师管理" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="收银汇总统计" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="包房管理" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="收银单据查询" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="录单汇总" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="营业信息查看" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="售卡" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="充值" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="挂失" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="补卡" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="读卡" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="扣卡" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="卡入库" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="异常状况统计" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="提成统计" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="手工打折汇总" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="项目报表" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="信用卡统计" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="营业报表" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="退免单汇总" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="支出统计" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="收银员收款统计" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="月报表" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="往来单位账目" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="会员积分设置" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="优惠方案" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="会员分析" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="会员管理" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="会员消费统计" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="会员售卡及充值统计" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="手牌管理" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="券类管理" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="客户管理" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="项目档案管理" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="客房管理" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="员工管理" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="权限管理" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="套餐管理" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="库存参数" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="仓库设定" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="供应商管理" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="进货入库" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="现有库存" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="调货补货" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="盘点清册" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="盘点调整" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="应付账款" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="系统设置" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="数据优化" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="收银报表" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Provider" Member="Provider">
     <Type Name="Provider">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -687,59 +614,6 @@
       <Column Name="gender" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Orders" Member="Orders">
-    <Type Name="Orders">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="menu" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="text" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="systemId" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="number" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="priceType" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="money" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="technician" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="techType" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="startTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="inputTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="inputEmployee" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="deleteEmployee" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="donorEmployee" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="comboId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="paid" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="accountId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="billId" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="stopTiming" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="departmentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="deleteExplain" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="deleteTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="roomId" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.HisOrders" Member="HisOrders">
-    <Type Name="HisOrders">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="menu" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="text" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="systemId" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="number" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="priceType" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="money" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="technician" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="techType" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="startTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="inputTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="inputEmployee" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="deleteEmployee" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="donorEmployee" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="comboId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="paid" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="accountId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="billId" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="departmentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="deleteExplain" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="deleteTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="roomId" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Seat" Member="Seat">
     <Type Name="Seat">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -834,6 +708,137 @@
       <Column Name="打印技师派遣单" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="会员卡密码类型" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="company_Code" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Authority" Member="Authority">
+    <Type Name="Authority">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="emplyeeId" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="jobId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="开牌" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="取消开牌" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="更换手牌" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="锁定解锁" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="解除警告" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="停用启用" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="添加备注" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="挂失手牌" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="完整点单" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="可见本人点单" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="退单" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="手工打折" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="签字免单" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="转账" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="重新结账" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="结账" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="技师管理" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="收银汇总统计" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="包房管理" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="收银单据查询" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="录单汇总" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="营业信息查看" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="售卡" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="充值" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="挂失" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="补卡" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="读卡" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="扣卡" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="卡入库" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="异常状况统计" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="提成统计" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="手工打折汇总" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="项目报表" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="信用卡统计" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="营业报表" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="退免单汇总" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="支出统计" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="收银员收款统计" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="月报表" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="往来单位账目" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="会员积分设置" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="优惠方案" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="会员分析" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="会员管理" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="会员消费统计" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="会员售卡及充值统计" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="手牌管理" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="券类管理" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="客户管理" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="项目档案管理" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="客房管理" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="员工管理" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="权限管理" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="套餐管理" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="库存参数" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="仓库设定" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="供应商管理" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="进货入库" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="现有库存" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="调货补货" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="盘点清册" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="盘点调整" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="应付账款" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="系统设置" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="数据优化" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="收银报表" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="微信赠送" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orders" Member="Orders">
+    <Type Name="Orders">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="menu" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="text" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="systemId" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="number" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="priceType" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="money" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="technician" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="techType" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="inputTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="inputEmployee" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="deleteEmployee" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="donorEmployee" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="comboId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="paid" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="accountId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="billId" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="startTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="stopTiming" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="departmentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="deleteExplain" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="deleteTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="roomId" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="donorExplain" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="donorTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HisOrders" Member="HisOrders">
+    <Type Name="HisOrders">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="menu" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="text" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="systemId" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="number" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="priceType" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="money" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="technician" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="techType" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="inputTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="inputEmployee" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="deleteEmployee" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="donorEmployee" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="comboId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="paid" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="accountId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="billId" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="startTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="departmentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="deleteExplain" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="deleteTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="roomId" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="donorExplain" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="donorTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

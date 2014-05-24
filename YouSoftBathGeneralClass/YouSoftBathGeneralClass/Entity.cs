@@ -6028,6 +6028,10 @@ namespace YouSoftBathGeneralClass
 		private string _deleteEmployee;
 		
 		private string _donorEmployee;
+
+        private string _donorExplain;
+
+        private System.Nullable<System.DateTime> _donorTime;
 		
 		private System.Nullable<int> _comboId;
 		
@@ -6042,7 +6046,37 @@ namespace YouSoftBathGeneralClass
 		private System.Nullable<int> _departmentId;
 
         private string _deleteExplain;
-		
+
+        public System.Nullable<System.DateTime> donorTime
+        {
+            get
+            {
+                return this._donorTime;
+            }
+            set
+            {
+                if ((this._donorTime != value))
+                {
+                    this._donorTime = value;
+                }
+            }
+        }
+
+        public string donorExplain
+        {
+            get
+            {
+                return this._donorExplain;
+            }
+            set
+            {
+                if ((this._donorExplain != value))
+                {
+                    this._donorExplain = value;
+                }
+            }
+        }
+
 		public int id
 		{
 			get
