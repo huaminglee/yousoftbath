@@ -47,6 +47,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserPanel", "..\UserPanel\U
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsgPanel", "..\MsgPanel\MsgPanel\MsgPanel.csproj", "{00B8A540-73C8-4EB8-A791-7CB260A63197}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouSoftBathChain", "..\YouSoftBathChain\YouSoftBathChain.csproj", "{7BE03ACE-EAD5-4C4B-AAC2-0E5C0AE4A85E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -145,6 +147,10 @@ Global
 		{00B8A540-73C8-4EB8-A791-7CB260A63197}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00B8A540-73C8-4EB8-A791-7CB260A63197}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00B8A540-73C8-4EB8-A791-7CB260A63197}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BE03ACE-EAD5-4C4B-AAC2-0E5C0AE4A85E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BE03ACE-EAD5-4C4B-AAC2-0E5C0AE4A85E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BE03ACE-EAD5-4C4B-AAC2-0E5C0AE4A85E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BE03ACE-EAD5-4C4B-AAC2-0E5C0AE4A85E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

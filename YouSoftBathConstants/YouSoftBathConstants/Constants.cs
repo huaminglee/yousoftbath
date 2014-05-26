@@ -28,7 +28,8 @@ namespace YouSoftBathConstants
 
     public static class Constants
     {
-        public const string AliIP = "114.215.184.78";//阿里云IP地址
+        //public const string AliIP = "114.215.184.78";//阿里云IP地址
+        public const string AliIP = "127.0.0.1";//阿里云IP地址
         public const string AliPort = "8080";//阿里云端口
 
         public const int LocalUdpPort = 7628;//本地服务器监听的端口号 
@@ -36,6 +37,7 @@ namespace YouSoftBathConstants
         public const string ErrorFile = "error.log";
 
         public const char SplitChar = '$';
+        public const char BIG_SPLITCHAR = '|';
 
 
         public const string version = "V6.1";
@@ -47,6 +49,7 @@ namespace YouSoftBathConstants
 
     public static class ConfigKeys
     {
+        public const string KEY_COMPANY_CODE = "COMPANY_CODE";//阿里云注册的companyCode
         public const string KEY_CONNECTION_IP = "connectionIP";//服务器ip地址
         public const string KEY_CARD_PORT = "card_port";//会员卡端口
         public const string KEY_CARD_BAUD = "card_baud";//会员卡波特率

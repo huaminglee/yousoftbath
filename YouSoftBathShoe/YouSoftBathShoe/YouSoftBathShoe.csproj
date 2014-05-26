@@ -150,6 +150,10 @@
       <Project>{E9323CE1-DE54-4F7A-8E14-9BD102264486}</Project>
       <Name>YouSoftBathReceptionClassLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\YouSoftUtil\YouSoftUtil\YouSoftUtil.csproj">
+      <Project>{21FD7E1A-F99D-4AC4-9EAF-589E4CB1355F}</Project>
+      <Name>YouSoftUtil</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">

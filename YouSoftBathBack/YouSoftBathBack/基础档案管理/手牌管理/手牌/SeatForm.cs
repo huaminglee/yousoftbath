@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Threading;
 using YouSoftBathGeneralClass;
 using YouSoftBathFormClass;
+using YouSoftUtil;
 
 namespace YouSoftBathBack
 {

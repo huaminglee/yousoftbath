@@ -61,7 +61,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BathClass.cs" />
     <Compile Include="互动模块\FeedBackForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +196,10 @@
     <Content Include="wechat.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\YouSoftBathConstants\YouSoftBathConstants\YouSoftBathConstants.csproj">
+      <Project>{1067C596-E185-4A2E-8EFC-54D09FC79AFD}</Project>
+      <Name>YouSoftBathConstants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\YouSoftBathFormClass\YouSoftBathFormClass\YouSoftBathFormClass.csproj">
       <Project>{D72B4EE0-E681-4111-B2A5-87B3C243D0B3}</Project>
       <Name>YouSoftBathFormClass</Name>

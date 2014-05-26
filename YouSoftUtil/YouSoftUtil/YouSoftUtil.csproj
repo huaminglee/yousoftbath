@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IOUtil.cs" />
+    <Compile Include="MConvert.cs" />
     <Compile Include="PCUtil.cs" />
     <Compile Include="Shop\ShopManagement.cs" />
     <Compile Include="StringUtil.cs" />

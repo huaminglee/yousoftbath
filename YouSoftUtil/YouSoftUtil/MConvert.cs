@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace YouSoftBathGeneralClass
+namespace YouSoftUtil
 {
     public class MConvert<T>
     {

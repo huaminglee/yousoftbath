@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using YouSoftBathGeneralClass;
 using YouSoftBathFormClass;
+using YouSoftUtil;
 
 namespace YouSoftBathSelf
 {

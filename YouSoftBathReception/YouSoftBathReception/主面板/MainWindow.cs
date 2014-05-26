@@ -14,6 +14,7 @@ using System.Threading;
 using YouSoftBathConstants;
 using YouSoftBathFormClass;
 using System.IO;
+using YouSoftUtil;
 
 namespace YouSoftBathReception
 {

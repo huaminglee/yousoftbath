@@ -482,4 +482,38 @@ namespace YouSoftUtil
             set { _createTime = value; }
         }
     }
+
+    //门店
+    public class Customer
+    {
+        private string _companyCode;
+        private string _companyName;
+        private string _companyTel;
+        private string _companyAdd;
+
+        public string companyCode
+        {
+            get { return _companyCode; }
+            set { _companyCode = value; }
+        }
+
+        public string companyName
+        {
+            get { return _companyName; }
+            set { _companyName = value; }
+        }
+
+        public string companyTel
+        {
+            get { return _companyTel; }
+            set { _companyTel = value; }
+        }
+
+        public string companyAdd
+        {
+            get { return _companyAdd; }
+            set { _companyAdd = value; }
+        }
+    }
+
 }

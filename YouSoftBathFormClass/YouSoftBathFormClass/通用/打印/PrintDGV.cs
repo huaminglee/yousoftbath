@@ -9,6 +9,7 @@ using YouSoftBathGeneralClass;
 using System.Drawing.Printing;
 using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
+using YouSoftUtil;
 
 namespace YouSoftBathFormClass
 {

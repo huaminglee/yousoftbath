@@ -10,6 +10,7 @@ using YouSoftBathGeneralClass;
 using YouSoftBathFormClass;
 using YouSoftUtil;
 using YouSoftUtil.Shop;
+using YouSoftBathConstants;
 
 namespace IntereekBathWeChat
 {

@@ -6,6 +6,7 @@ using YouSoftBathGeneralClass;
 using System.Windows.Forms;
 using YouSoftBathConstants;
 using YouSoftBathFormClass;
+using YouSoftUtil;
 
 namespace YouSoftBathReception
 {

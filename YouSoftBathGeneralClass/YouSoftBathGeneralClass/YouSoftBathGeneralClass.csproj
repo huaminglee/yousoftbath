@@ -63,7 +63,6 @@
     </Compile>
     <Compile Include="DAO.cs" />
     <Compile Include="Entity.cs" />
-    <Compile Include="MConvert.cs" />
     <Compile Include="OYD.cs" />
     <Compile Include="JYW.cs" />
     <Compile Include="PCListForm.cs">

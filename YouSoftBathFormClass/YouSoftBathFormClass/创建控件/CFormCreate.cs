@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using YouSoftBathGeneralClass;
 using YouSoftBathConstants;
+using YouSoftUtil;
 
 namespace YouSoftBathFormClass
 {

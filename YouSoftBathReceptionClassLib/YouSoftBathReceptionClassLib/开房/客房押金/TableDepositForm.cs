@@ -11,6 +11,7 @@ using YouSoftBathFormClass;
 using System.Data.SqlClient;
 using System.IO;
 using System.Threading;
+using YouSoftUtil;
 
 namespace YouSoftBathReception
 {

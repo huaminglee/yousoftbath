@@ -59,5 +59,18 @@ namespace YouSoftUtil.Shop
             
             return feedback.commentList;
         }
+
+        //查询某店铺
+        public static Customer queryCustomer(string ip, string companyCode, out string errorDesc)
+        {
+            string json = new JavaScriptSerializer().Serialize(new
+            {
+                operationType = "queryCompany",
+                companyCode = companyCode
+            });
+
+            var jsresut = HttpCon<Customer>.run_json(ip, json, out errorDesc);
+            return jsresut;
+        }
     }
 }

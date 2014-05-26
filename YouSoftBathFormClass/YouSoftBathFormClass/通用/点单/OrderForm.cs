@@ -13,6 +13,7 @@ using YouSoftBathGeneralClass;
 using YouSoftBathFormClass;
 using System.Data.SqlClient;
 using System.Threading;
+using YouSoftUtil;
 
 namespace YouSoftBathFormClass
 {
