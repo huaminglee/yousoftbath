@@ -499,6 +499,16 @@ namespace YouSoftBathReception
             if (payForm.ShowDialog() != DialogResult.OK)
                 return;
 
+            var dgv = new_datagridView();
+            foreach (DataGridViewRow r in dgvExpense.Rows)
+            {
+                if (r.Cells[1].EditedFormattedValue.ToString() != "True") continue;
+
+                dgv.Rows.Add(r.Cells[3].Value, r.Cells[11].Value, r.Cells[4].Value, r.Cells[5].Value,
+                        r.Cells[6].Value, r.Cells[7].Value, r.Cells[8].Value);
+
+            }
+
             int newAccountId = payForm.newAccountId;
             var act = dao.get_account("id=" + newAccountId);
             var has_repaid = dao.exist_instance("Account", "systemId='" + act.systemId + "' and abandon is not null");
@@ -516,12 +526,12 @@ namespace YouSoftBathReception
                 }
 
                 //启动打印线程
-                Thread td = new Thread(delegate() { print_Bill(printBill, printStubBill, printShoe, seat_texts, false, act); });
+                Thread td = new Thread(delegate() { print_Bill(dgv, printBill, printStubBill, printShoe, seat_texts, false, act); });
                 td.Start();
             }
             else
             {
-                Thread td = new Thread(delegate() { print_Bill(false, false, false, null, true, act); });
+                Thread td = new Thread(delegate() { print_Bill(dgv, false, false, false, null, true, act); });
                 td.Start();
             }
 
@@ -747,20 +757,11 @@ namespace YouSoftBathReception
         /// <param name="seat_texts">需要取鞋的手牌号</param>
         /// <param name="_reprint">是否打印补救单</param>
         /// <param name="act">打印的账单</param>
-        private void print_Bill(bool _print_bill, bool _print_stubBill, bool _print_shoe, List<string> seat_texts, bool _reprint, CAccount act)
+        private void print_Bill(DataGridView dgv, bool _print_bill, bool _print_stubBill, bool _print_shoe, List<string> seat_texts, bool _reprint, CAccount act)
         {
             try
             {
                 ////0编号，1结账，2单据号，3 手牌，4项目名称，5技师，6单位，7数量，8金额，9消费时间，10录入员工，11房间
-                var dgv = new_datagridView();
-                foreach (DataGridViewRow r in dgvExpense.Rows)
-                {
-                    if (r.Cells[1].EditedFormattedValue.ToString() != "True") continue;
-
-                    dgv.Rows.Add(r.Cells[3].Value, r.Cells[11].Value, r.Cells[4].Value, r.Cells[5].Value,
-                            r.Cells[6].Value, r.Cells[7].Value, r.Cells[8].Value);
-
-                }
 
                 List<string> printCols = new List<string>();
                 printCols.Add("手牌");
