@@ -1,6 +1,6 @@
 ﻿namespace YouSoftBathBack
 {
-    partial class PromotionItemAddForm
+    partial class GroupBuyItemAddForm
     {
         /// <summary>
         /// Required designer variable.
@@ -38,8 +38,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
-            this.cAllItems = new System.Windows.Forms.CheckBox();
-            this.cType = new System.Windows.Forms.CheckBox();
             this.type = new System.Windows.Forms.ComboBox();
             this.menu = new System.Windows.Forms.ComboBox();
             this.lt = new System.Windows.Forms.Label();
@@ -50,16 +48,16 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(205, 57);
+            this.label1.Location = new System.Drawing.Point(50, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 18);
+            this.label1.Size = new System.Drawing.Size(80, 18);
             this.label1.TabIndex = 0;
-            this.label1.Text = "类别";
+            this.label1.Text = "项目类别";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(50, 98);
+            this.label2.Location = new System.Drawing.Point(50, 67);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 18);
             this.label2.TabIndex = 0;
@@ -68,7 +66,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(50, 137);
+            this.label3.Location = new System.Drawing.Point(50, 106);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 18);
             this.label3.TabIndex = 0;
@@ -76,7 +74,7 @@
             // 
             // price
             // 
-            this.price.Location = new System.Drawing.Point(136, 133);
+            this.price.Location = new System.Drawing.Point(136, 102);
             this.price.Name = "price";
             this.price.ReadOnly = true;
             this.price.Size = new System.Drawing.Size(240, 27);
@@ -85,7 +83,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(50, 176);
+            this.label4.Location = new System.Drawing.Point(50, 145);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 18);
             this.label4.TabIndex = 0;
@@ -94,7 +92,7 @@
             // discount
             // 
             this.discount.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.discount.Location = new System.Drawing.Point(136, 211);
+            this.discount.Location = new System.Drawing.Point(136, 180);
             this.discount.Name = "discount";
             this.discount.Size = new System.Drawing.Size(240, 27);
             this.discount.TabIndex = 1;
@@ -107,7 +105,7 @@
             this.panel3.Controls.Add(this.btnCancel);
             this.panel3.Controls.Add(this.btnOk);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 261);
+            this.panel3.Location = new System.Drawing.Point(0, 225);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(426, 48);
             this.panel3.TabIndex = 33;
@@ -143,45 +141,25 @@
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
-            // cAllItems
-            // 
-            this.cAllItems.AutoSize = true;
-            this.cAllItems.Location = new System.Drawing.Point(50, 12);
-            this.cAllItems.Name = "cAllItems";
-            this.cAllItems.Size = new System.Drawing.Size(153, 22);
-            this.cAllItems.TabIndex = 34;
-            this.cAllItems.Text = "对所有项目打折";
-            this.cAllItems.UseVisualStyleBackColor = true;
-            this.cAllItems.CheckedChanged += new System.EventHandler(this.cAllItems_CheckedChanged);
-            // 
-            // cType
-            // 
-            this.cType.AutoSize = true;
-            this.cType.Location = new System.Drawing.Point(50, 55);
-            this.cType.Name = "cType";
-            this.cType.Size = new System.Drawing.Size(153, 22);
-            this.cType.TabIndex = 34;
-            this.cType.Text = "对项目类别打折";
-            this.cType.UseVisualStyleBackColor = true;
-            this.cType.CheckedChanged += new System.EventHandler(this.cType_CheckedChanged);
-            // 
             // type
             // 
-            this.type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.type.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.type.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.type.FormattingEnabled = true;
             this.type.Items.AddRange(new object[] {
             ""});
-            this.type.Location = new System.Drawing.Point(255, 54);
+            this.type.Location = new System.Drawing.Point(136, 23);
             this.type.Name = "type";
-            this.type.Size = new System.Drawing.Size(121, 25);
+            this.type.Size = new System.Drawing.Size(240, 25);
             this.type.TabIndex = 35;
             this.type.TextChanged += new System.EventHandler(this.type_TextChanged);
             // 
             // menu
             // 
-            this.menu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.menu.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.menu.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.menu.FormattingEnabled = true;
-            this.menu.Location = new System.Drawing.Point(136, 95);
+            this.menu.Location = new System.Drawing.Point(136, 64);
             this.menu.Name = "menu";
             this.menu.Size = new System.Drawing.Size(240, 25);
             this.menu.TabIndex = 35;
@@ -190,7 +168,7 @@
             // lt
             // 
             this.lt.AutoSize = true;
-            this.lt.Location = new System.Drawing.Point(50, 215);
+            this.lt.Location = new System.Drawing.Point(50, 184);
             this.lt.Name = "lt";
             this.lt.Size = new System.Drawing.Size(80, 18);
             this.lt.TabIndex = 0;
@@ -203,23 +181,21 @@
             this.discountType.Items.AddRange(new object[] {
             "折扣",
             "折后价"});
-            this.discountType.Location = new System.Drawing.Point(136, 173);
+            this.discountType.Location = new System.Drawing.Point(136, 142);
             this.discountType.Name = "discountType";
             this.discountType.Size = new System.Drawing.Size(240, 25);
             this.discountType.TabIndex = 35;
             this.discountType.TextChanged += new System.EventHandler(this.discountType_TextChanged);
             // 
-            // PromotionItemAddForm
+            // GroupBuyItemAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(426, 309);
+            this.ClientSize = new System.Drawing.Size(426, 273);
             this.Controls.Add(this.discountType);
             this.Controls.Add(this.menu);
             this.Controls.Add(this.type);
-            this.Controls.Add(this.cType);
-            this.Controls.Add(this.cAllItems);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.lt);
             this.Controls.Add(this.discount);
@@ -234,7 +210,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "PromotionItemAddForm";
+            this.Name = "GroupBuyItemAddForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -259,8 +235,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOk;
-        private System.Windows.Forms.CheckBox cAllItems;
-        private System.Windows.Forms.CheckBox cType;
         private System.Windows.Forms.ComboBox type;
         private System.Windows.Forms.ComboBox menu;
         private System.Windows.Forms.Label label5;

@@ -65,7 +65,7 @@ namespace IntereekBathWeChat
         private void BTDateFind_Click(object sender, EventArgs e)
         {
             string errorDesc = "";
-            var shopYeJis = ShopManagement.queryYeJi(Constants.AliIP, companyCodes, DPDate.Value.ToString("yyyy-MM-dd"), "D", out errorDesc);
+            var shopYeJis = ShopManagement.queryYeJi(MainForm.ip, companyCodes, DPDate.Value.ToString("yyyy-MM-dd"), "D", out errorDesc);
             if (shopYeJis == null)
             {
                 MessageBox.Show(errorDesc);
@@ -110,7 +110,7 @@ namespace IntereekBathWeChat
         private void BTMonthFind_Click(object sender, EventArgs e)
         {
             string errorDesc = "";
-            var shopYeJis = ShopManagement.queryYeJi(Constants.AliIP, companyCodes, CBYear.Text + "-" + CBMonth.Text, "M", out errorDesc);
+            var shopYeJis = ShopManagement.queryYeJi(MainForm.ip, companyCodes, CBYear.Text + "-" + CBMonth.Text, "M", out errorDesc);
             if (shopYeJis == null)
             {
                 MessageBox.Show(errorDesc);

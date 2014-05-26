@@ -830,6 +830,19 @@ if not exists (select * from syscolumns where id=object_id('[Promotion]') and na
 if not exists (select * from syscolumns where id=object_id('[Promotion]') and name='menuIds')
 	alter table [Promotion] add [menuIds] [nvarchar](max) not NULL
 
+/***
+**********************************************************************
+[GroupBuyPromotion]
+**********************************************************************
+*****/
+/*判断表[GroupBuyPromotion]是否存在*/
+if not exists (select * from sysobjects where id=object_id(N'[GroupBuyPromotion]') and OBJECTPROPERTY(id, N'IsUserTable')=1)
+	create table [GroupBuyPromotion]([id] [int] IDENTITY(1,1) NOT NULL  primary key)
+
+/*[GroupBuyPromotion].[menuIds]*/
+if not exists (select * from syscolumns where id=object_id('[GroupBuyPromotion]') and name='menuIds')
+	alter table [GroupBuyPromotion] add [menuIds] [nvarchar](max) not NULL
+
 
 /***
 **********************************************************************
@@ -3174,6 +3187,10 @@ if not exists (select * from syscolumns where id=object_id('Authority') and name
 /*Authority.收银报表*/
 if not exists (select * from syscolumns where id=object_id('Authority') and name='收银报表')
 	alter table Authority add 收银报表 [bit] NULL
+
+/*Authority.团购打折*/
+if not exists (select * from syscolumns where id=object_id('Authority') and name='团购打折')
+	alter table Authority add 团购打折 [bit] NULL
 	
 	/***
 **********************************************************************

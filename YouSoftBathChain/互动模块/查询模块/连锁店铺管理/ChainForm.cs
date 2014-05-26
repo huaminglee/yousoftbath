@@ -61,7 +61,7 @@ namespace IntereekBathWeChat
 
             //需要连接服务器检验code是否存在!
             string errorDesc = "";
-            var customer = ShopManagement.queryCustomer(Constants.AliIP, code, out errorDesc);
+            var customer = ShopManagement.queryCustomer(MainForm.ip, code, out errorDesc);
             if (customer == null)
             {
                 if (!StringUtil.isEmpty(errorDesc))
@@ -82,7 +82,6 @@ namespace IntereekBathWeChat
             TextCode.Text = "";
             TextCode.Focus();
         }
-
 
         private string joinCustomer(Customer customer)
         {

@@ -602,6 +602,21 @@ namespace YouSoftBathBack
             ComboManagementForm comboForm = new ComboManagementForm();
             comboForm.ShowDialog();
         }
+
+        //大项目管理
+        private void btnBigCombo_Click(object sender, EventArgs e)
+        {
+            BigComboManagementForm bigcomboform = new BigComboManagementForm();
+            bigcomboform.ShowDialog();
+        }
+
+        //团购优惠
+        private void BTGroup_Click(object sender, EventArgs e)
+        {
+            var form = new GroupBuyManagementForm();
+            form.ShowDialog();
+        }
+
         #endregion
 
         //仓库管理
@@ -910,12 +925,6 @@ namespace YouSoftBathBack
         {
             if (MConvert<bool>.ToTypeOrDefault(LogIn.options.启用手牌锁, false) && LogIn.options.手牌锁类型 == "锦衣卫")
                 JYW.CloseReader();
-        }
-
-        private void btnBigCombo_Click(object sender, EventArgs e)
-        {
-            BigComboManagementForm bigcomboform = new BigComboManagementForm();
-            bigcomboform.ShowDialog();
         }
 
     }

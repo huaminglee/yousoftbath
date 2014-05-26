@@ -44,6 +44,7 @@ namespace YouSoftBathConstants
         public const string appName = "咱家店小二";
 
         public const string WX_DONOR = "微信加服务号";
+        public const string GROUPBUY_DONOR = "团购打折";
         public const string SMS_HINT_MSG = "代码：\r\n销毁：100\r\n备份：101";
     }
 

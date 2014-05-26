@@ -685,6 +685,27 @@ namespace YouSoftBathGeneralClass
             return menuIdList;
         }
 
+        //拆分优惠方案
+        public static Dictionary<string, string> disAssemble(BathDBDataContext db, GroupBuyPromotion promotion)
+        {
+            Dictionary<string, string> menuIdList = new Dictionary<string, string>();
+
+            if (promotion.menuIds == null)
+                return menuIdList;
+
+            string[] menuIds = promotion.menuIds.Split(';');
+            foreach (string menuId in menuIds)
+            {
+                if (menuId == "")
+                    continue;
+
+                string[] tps = menuId.Split('=');
+                menuIdList.Add(tps[0], tps[1]);
+            }
+
+            return menuIdList;
+        }
+
         //只允许输入数字
         public static void only_allow_int(KeyPressEventArgs e)
         {

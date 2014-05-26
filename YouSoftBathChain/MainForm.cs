@@ -6,11 +6,20 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using YouSoftUtil;
+using YouSoftBathConstants;
 
 namespace IntereekBathWeChat
 {
     public partial class MainForm : Form
     {
+        private static string _ip;
+        public static string ip
+        {
+            get { return _ip; }
+            set { _ip = value; }
+        }
+
         public MainForm()
         {
             InitializeComponent();
@@ -18,7 +27,7 @@ namespace IntereekBathWeChat
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            ip = IOUtil.get_config_by_key(ConfigKeys.KEY_CONNECTION_IP);
         }
 
         #region 互动模块

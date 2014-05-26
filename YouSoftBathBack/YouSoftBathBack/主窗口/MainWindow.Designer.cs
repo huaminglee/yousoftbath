@@ -101,6 +101,7 @@
             this.btnBillTable = new CSharpWin.ButtonEx();
             this.btnCreditCardTable = new CSharpWin.ButtonEx();
             this.btnExceptionTable = new CSharpWin.ButtonEx();
+            this.BTGroup = new CSharpWin.ButtonEx();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -716,6 +717,7 @@
             this.pDocument.Controls.Add(this.btnBigCombo);
             this.pDocument.Controls.Add(this.btnCombo);
             this.pDocument.Controls.Add(this.btnEmployee);
+            this.pDocument.Controls.Add(this.BTGroup);
             this.pDocument.Controls.Add(this.btnRoomManage);
             this.pDocument.Controls.Add(this.btnDepartLog);
             this.pDocument.Controls.Add(this.btnMenu);
@@ -1120,6 +1122,20 @@
             this.btnExceptionTable.UseVisualStyleBackColor = true;
             this.btnExceptionTable.Click += new System.EventHandler(this.btnExceptionTable_Click);
             // 
+            // BTGroup
+            // 
+            this.BTGroup.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BTGroup.Image = ((System.Drawing.Image)(resources.GetObject("BTGroup.Image")));
+            this.BTGroup.ImageWidth = 64;
+            this.BTGroup.Location = new System.Drawing.Point(644, 349);
+            this.BTGroup.Name = "BTGroup";
+            this.BTGroup.Size = new System.Drawing.Size(95, 102);
+            this.BTGroup.TabIndex = 27;
+            this.BTGroup.Text = "团购优惠";
+            this.BTGroup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BTGroup.UseVisualStyleBackColor = true;
+            this.BTGroup.Click += new System.EventHandler(this.BTGroup_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1245,6 +1261,7 @@
         private CSharpWin.ButtonEx btnAdvanceOff;
         private CSharpWin.ButtonEx btnDepartLog;
         private CSharpWin.ButtonEx btnBigCombo;
+        private CSharpWin.ButtonEx BTGroup;
     }
 }
 

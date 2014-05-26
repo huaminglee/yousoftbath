@@ -379,44 +379,15 @@ namespace YouSoftBathReception
                 {
                     while (dr.Read())
                     {
-                        string[] row = new string[12];
-                        row[0] = dr["id"].ToString();
-                        row[1] = "true";
-                        row[2] = dr["billId"].ToString();
-                        row[3] = dr["text"].ToString();
-                        row[4] = dr["menu"].ToString();
-                        row[5] = dr["technician"].ToString();
-
-                        row[7] = dr["number"].ToString();
-
-                        row[9] = Convert.ToDateTime(dr["inputTime"]).ToString("MM-dd HH:mm");
-                        row[10] = dr["inputEmployee"].ToString();
-                        row[11] = dr["roomId"].ToString();
-
-                        //CMenu cmenu = null;
-                        //cmd_str = "select price from [Menu] where name='" + dr["menu"].ToString() + "'";
-
+                        string price = "";
+                        string oMoney = "";
                         var cmenu = dao.get_Menu("name", dr["menu"].ToString());
-
-                        //if (sqlCn.State != ConnectionState.Open)
-                        //    sqlCn.Open();
-
-                        //var cmd_menu = new SqlCommand(cmd_str, sqlCn);
-                        //using (SqlDataReader dr_menu = cmd_menu.ExecuteReader())
-                        //{
-                        //    while (dr_menu.Read())
-                        //    {
-                        //        cmenu = new CMenu();
-                        //        cmenu.price = Convert.ToDouble(dr_menu["price"]);
-                        //    }
-                        //}
 
                         bool redRow = false;
                         var order_money = Convert.ToDouble(dr["money"]);
                         if (cmenu == null)
                         {
-                            row[6] = "";
-                            row[8] = order_money.ToString();
+                            oMoney = order_money.ToString();
                             redRow = true;
                             money += order_money;
                         }
@@ -425,19 +396,31 @@ namespace YouSoftBathReception
                             if (dr["priceType"].ToString() == "每小时")
                             {
                                 double order_money_p = Math.Ceiling((now - Convert.ToDateTime(dr["inputTime"])).TotalHours) * order_money;
-                                row[6] = dr["money"].ToString() + "/时";
-                                row[8] = order_money_p.ToString();
+                                price = dr["money"].ToString() + "/时";
+                                oMoney = order_money_p.ToString();
                                 money += order_money_p;
                             }
                             else
                             {
-                                row[6] = cmenu.price.ToString();
-                                row[8] = order_money.ToString();
+                                price = cmenu.price.ToString();
+                                oMoney = order_money.ToString();
                                 money += order_money;
                             }
                         }
 
-                        dgvExpense.Rows.Add(row);
+                        dgvExpense.Rows.Add(
+                            dr["id"], 
+                            "true", 
+                            dr["billId"], 
+                            dr["text"], 
+                            dr["menu"], 
+                            dr["technician"], 
+                            price, 
+                            dr["number"],
+                            oMoney,
+                            Convert.ToDateTime(dr["inputTime"]).ToString("MM-dd HH:mm"),
+                            dr["inputEmployee"],
+                            dr["roomId"]);
                         if (redRow)
                         {
                             dgvExpense.Rows[dgvExpense.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Red;
@@ -460,6 +443,7 @@ namespace YouSoftBathReception
             }
 
             BathClass.set_dgv_fit(dgvExpense);
+            dgvExpense.CurrentCell = null;
 
             seatText.Text = "";
             moneyPayable.Text = money.ToString();
@@ -1506,5 +1490,68 @@ namespace YouSoftBathReception
             }
             dgvExpense_show();
         }
+
+        //团购优惠
+        private void ToolGroupBuy_Click(object sender, EventArgs e)
+        {
+            if (dgvExpense.CurrentCell == null)
+            {
+                BathClass.printErrorMsg("未选择行!");
+                return;
+            }
+
+            Employee donor_user = null;
+            var db = new BathDBDataContext(LogIn.connectionString);
+            if (BathClass.getAuthority(db, LogIn.m_User, Constants.GROUPBUY_DONOR))
+            {
+                donor_user = LogIn.m_User;
+            }
+            else
+            {
+                var form = new InputEmployeeByPwd();
+                if (form.ShowDialog() != DialogResult.OK) return;
+                if (!BathClass.getAuthority(db, form.employee, Constants.GROUPBUY_DONOR))
+                {
+                    BathClass.printErrorMsg("用户不具有团购打折权限!");
+                    return;
+                }
+
+                donor_user = form.employee;
+            }
+
+            var promotion = dao.get_GroupBuyPromotion();
+            if (promotion == null)
+                return;
+
+            Dictionary<string, string> offers = promotion.disAssemble();
+            var order = dao.get_order("id", dgvExpense.CurrentRow.Cells[0].Value);
+            var menu = dao.get_Menu("name", dgvExpense.CurrentRow.Cells[4].Value);
+            if (!offers.Keys.Contains(menu.id.ToString()))
+                return;
+
+            var discount_info = offers[menu.id.ToString()].Split('#');
+            string discount_type = discount_info[0];
+            double discount_val = MConvert<double>.ToTypeOrDefault(discount_info[1], 0);
+            StringBuilder sb = new StringBuilder();
+
+            if (discount_type == "折扣")
+            {
+                order.money = Math.Round(order.money * discount_val, 0);
+            }
+            else if (discount_type == "折后价" && order.money != 0)
+            {
+                order.money = discount_val * order.number;
+            }
+
+            sb.Append(" update [Orders] set money=").Append(order.money).Append(", donorExplain='").Append(Constants.GROUPBUY_DONOR);
+            sb.Append("',donorTime=getdate(),donorEmployee='").Append(donor_user.name);
+            sb.Append("' where id=").Append(order.id);
+            if (!dao.execute_command(sb.ToString()))
+            {
+                BathClass.printErrorMsg("团购打折失败!");
+            }
+            dgvExpense_show();
+        }
+
     }
 }

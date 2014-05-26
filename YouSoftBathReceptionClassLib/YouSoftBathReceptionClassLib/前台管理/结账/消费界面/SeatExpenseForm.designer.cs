@@ -57,6 +57,8 @@
             this.toolStripLabel9 = new System.Windows.Forms.ToolStripLabel();
             this.ToolWxCoupon = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel11 = new System.Windows.Forms.ToolStripLabel();
+            this.ToolWX = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel12 = new System.Windows.Forms.ToolStripLabel();
             this.toolExit = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.moneyPayable = new System.Windows.Forms.TextBox();
@@ -92,8 +94,8 @@
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ToolWX = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel12 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripLabel13 = new System.Windows.Forms.ToolStripLabel();
+            this.ToolGroupBuy = new System.Windows.Forms.ToolStripButton();
             this.toolStrip2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -117,6 +119,8 @@
             this.memberTool,
             this.toolStripLabel7,
             this.toolOrder,
+            this.toolStripLabel13,
+            this.ToolGroupBuy,
             this.toolStripLabel10,
             this.btnReturnRoom,
             this.toolStripLabel4,
@@ -326,6 +330,24 @@
             this.toolStripLabel11.Name = "toolStripLabel11";
             this.toolStripLabel11.Size = new System.Drawing.Size(12, 88);
             this.toolStripLabel11.Text = " ";
+            // 
+            // ToolWX
+            // 
+            this.ToolWX.Font = new System.Drawing.Font("微软雅黑", 11F);
+            this.ToolWX.Image = ((System.Drawing.Image)(resources.GetObject("ToolWX.Image")));
+            this.ToolWX.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolWX.Name = "ToolWX";
+            this.ToolWX.Size = new System.Drawing.Size(73, 88);
+            this.ToolWX.Text = "微信赠送";
+            this.ToolWX.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.ToolWX.ToolTipText = "赠送微信优惠券";
+            this.ToolWX.Click += new System.EventHandler(this.ToolWX_Click);
+            // 
+            // toolStripLabel12
+            // 
+            this.toolStripLabel12.Name = "toolStripLabel12";
+            this.toolStripLabel12.Size = new System.Drawing.Size(12, 88);
+            this.toolStripLabel12.Text = " ";
             // 
             // toolExit
             // 
@@ -727,23 +749,22 @@
             this.Column8.Name = "Column8";
             this.Column8.Width = 65;
             // 
-            // ToolWX
+            // toolStripLabel13
             // 
-            this.ToolWX.Font = new System.Drawing.Font("微软雅黑", 11F);
-            this.ToolWX.Image = ((System.Drawing.Image)(resources.GetObject("ToolWX.Image")));
-            this.ToolWX.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ToolWX.Name = "ToolWX";
-            this.ToolWX.Size = new System.Drawing.Size(73, 88);
-            this.ToolWX.Text = "微信赠送";
-            this.ToolWX.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.ToolWX.ToolTipText = "赠送微信优惠券";
-            this.ToolWX.Click += new System.EventHandler(this.ToolWX_Click);
+            this.toolStripLabel13.Name = "toolStripLabel13";
+            this.toolStripLabel13.Size = new System.Drawing.Size(16, 88);
+            this.toolStripLabel13.Text = "  ";
             // 
-            // toolStripLabel12
+            // ToolGroupBuy
             // 
-            this.toolStripLabel12.Name = "toolStripLabel12";
-            this.toolStripLabel12.Size = new System.Drawing.Size(12, 88);
-            this.toolStripLabel12.Text = " ";
+            this.ToolGroupBuy.Font = new System.Drawing.Font("微软雅黑", 11F);
+            this.ToolGroupBuy.Image = ((System.Drawing.Image)(resources.GetObject("ToolGroupBuy.Image")));
+            this.ToolGroupBuy.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolGroupBuy.Name = "ToolGroupBuy";
+            this.ToolGroupBuy.Size = new System.Drawing.Size(73, 88);
+            this.ToolGroupBuy.Text = "团购优惠";
+            this.ToolGroupBuy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.ToolGroupBuy.Click += new System.EventHandler(this.ToolGroupBuy_Click);
             // 
             // SeatExpenseForm
             // 
@@ -846,5 +867,7 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel11;
         private System.Windows.Forms.ToolStripButton ToolWX;
         private System.Windows.Forms.ToolStripLabel toolStripLabel12;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel13;
+        private System.Windows.Forms.ToolStripButton ToolGroupBuy;
     }
 }

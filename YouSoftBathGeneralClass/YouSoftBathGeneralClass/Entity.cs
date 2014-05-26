@@ -6568,6 +6568,69 @@ namespace YouSoftBathGeneralClass
 
     #endregion
 
+    #region 表Promotion
+
+    public class CGroupBuyPromotion
+    {
+        private int _id;
+
+        private string _menuIds;
+
+        public int id
+        {
+            get
+            {
+                return this._id;
+            }
+            set
+            {
+                if ((this._id != value))
+                {
+                    this._id = value;
+                }
+            }
+        }
+
+        public string menuIds
+        {
+            get
+            {
+                return this._menuIds;
+            }
+            set
+            {
+                if ((this._menuIds != value))
+                {
+                    this._menuIds = value;
+                }
+            }
+        }
+
+        //拆分优惠方案
+        public Dictionary<string, string> disAssemble()
+        {
+            Dictionary<string, string> menuIdList = new Dictionary<string, string>();
+
+            if (this._menuIds == null)
+                return menuIdList;
+
+            string[] menuIds = this._menuIds.Split(';');
+            foreach (string menuId in menuIds)
+            {
+                if (menuId == "")
+                    continue;
+
+                string[] tps = menuId.Split('=');
+                menuIdList.Add(tps[0], tps[1]);
+            }
+
+            return menuIdList;
+        }
+
+    }
+
+    #endregion
+
     #region 表Room
 
     public class CRoom

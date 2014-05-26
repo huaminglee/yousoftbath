@@ -2337,6 +2337,44 @@ namespace YouSoftBathGeneralClass
             return promotion;
         }
 
+        public CGroupBuyPromotion get_GroupBuyPromotion()
+        {
+            CGroupBuyPromotion promotion = null;
+            SqlConnection sqlCn = null;
+
+            try
+            {
+                sqlCn = new SqlConnection(_con_str);
+                sqlCn.Open();
+
+                var cmd_str = "Select top 1 * from [GroupBuyPromotion]";
+                SqlCommand cmdSelect = new SqlCommand(cmd_str, sqlCn);
+                using (SqlDataReader dr = cmdSelect.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        promotion = new CGroupBuyPromotion();
+
+                        promotion.id = (int)dr["id"];
+                        promotion.menuIds = dr["menuIds"].ToString();
+
+                        break;
+                    }
+                }
+
+            }
+            catch (System.Exception e)
+            {
+                BathClass.printErrorMsg(e.Message);
+            }
+            finally
+            {
+                close_connection(sqlCn);
+            }
+
+            return promotion;
+        }
+
         public CCatgory get_Catgory(string cmd_str)
         {
             CCatgory catgory = null;

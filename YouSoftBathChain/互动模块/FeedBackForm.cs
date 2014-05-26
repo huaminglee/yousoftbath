@@ -28,7 +28,8 @@ namespace IntereekBathWeChat
             companies = code_str.Split(Constants.BIG_SPLITCHAR).ToList();
             companies.RemoveAll(x => x.Trim() == "");
             ComboShopName.Items.AddRange(companies.Select(x=>x.Split(Constants.SplitChar)[1]).ToArray());
-            ComboShopName.SelectedIndex = 0;
+            if (ComboShopName.Items.Count != 0)
+                ComboShopName.SelectedIndex = 0;
             dgv_show();
         }
 
@@ -43,7 +44,7 @@ namespace IntereekBathWeChat
             }
 
             string errorDesc = "";
-            var comments = ShopManagement.queryCommentByCompany(Constants.AliIP, companyCode, out errorDesc);
+            var comments = ShopManagement.queryCommentByCompany(MainForm.ip, companyCode, out errorDesc);
             if (comments == null)
             {
                 MessageBox.Show(errorDesc);
