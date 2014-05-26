@@ -5348,6 +5348,8 @@ namespace YouSoftBathGeneralClass
 
         private string _company_Code;
 
+        private System.Nullable<bool> _启用大项拆分;
+
         public int id
         {
             get
@@ -5539,6 +5541,21 @@ namespace YouSoftBathGeneralClass
                 if ((this._启用会员卡密码 != value))
                 {
                     this._启用会员卡密码 = value;
+                }
+            }
+        }
+
+        public System.Nullable<bool> 启用大项拆分
+        {
+            get
+            {
+                return this._启用大项拆分;
+            }
+            set
+            {
+                if ((this._启用大项拆分 != value))
+                {
+                    this._启用大项拆分 = value;
                 }
             }
         }

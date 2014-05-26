@@ -47,8 +47,6 @@ namespace YouSoftBathReception
         private DateTime now;
         private int seat_length = -1;
 
-        private List<int> printRows = new List<int>();//需要打印的行
-
         private DAO dao;
 
         //构造函数
@@ -492,8 +490,6 @@ namespace YouSoftBathReception
             {
                 bool pay = r.Cells[1].EditedFormattedValue.ToString() == "True";
                 orders.Add(Convert.ToInt64(r.Cells[0].Value), pay);
-                if (pay)
-                    printRows.Add(j);
                 j++;
             }
 
@@ -755,50 +751,15 @@ namespace YouSoftBathReception
         {
             try
             {
-                DataGridView dgv = new DataGridView();
-
-                DataGridViewTextBoxColumn col = new DataGridViewTextBoxColumn();
-                col.HeaderText = "手牌";
-                dgv.Columns.Add(col);
-
-                if (use_pad)
-                {
-                    DataGridViewTextBoxColumn coll = new DataGridViewTextBoxColumn();
-                    coll.HeaderText = "房间";
-                    dgv.Columns.Add(coll);
-                }
-
-                DataGridViewTextBoxColumn col1 = new DataGridViewTextBoxColumn();
-                col1.HeaderText = "项目名称";
-                dgv.Columns.Add(col1);
-
-                DataGridViewTextBoxColumn col2 = new DataGridViewTextBoxColumn();
-                col2.HeaderText = "技师";
-                dgv.Columns.Add(col2);
-
-                DataGridViewTextBoxColumn col3 = new DataGridViewTextBoxColumn();
-                col3.HeaderText = "单价";
-                dgv.Columns.Add(col3);
-
-                DataGridViewTextBoxColumn col4 = new DataGridViewTextBoxColumn();
-                col4.HeaderText = "数量";
-                dgv.Columns.Add(col4);
-
-                DataGridViewTextBoxColumn col5 = new DataGridViewTextBoxColumn();
-                col5.HeaderText = "金额";
-                dgv.Columns.Add(col5);
+                ////0编号，1结账，2单据号，3 手牌，4项目名称，5技师，6单位，7数量，8金额，9消费时间，10录入员工，11房间
+                var dgv = new_datagridView();
                 foreach (DataGridViewRow r in dgvExpense.Rows)
                 {
-                    if (use_pad)
-                    {
-                        dgv.Rows.Add(r.Cells[3].Value, r.Cells[11].Value, r.Cells[4].Value, r.Cells[5].Value,
-                        r.Cells[6].Value, r.Cells[7].Value, r.Cells[8].Value);
-                    }
-                    else
-                    {
-                        dgv.Rows.Add(r.Cells[3].Value, r.Cells[4].Value, r.Cells[5].Value,
-                        r.Cells[6].Value, r.Cells[7].Value, r.Cells[8].Value);
-                    }
+                    if (r.Cells[1].EditedFormattedValue.ToString() != "True") continue;
+
+                    dgv.Rows.Add(r.Cells[3].Value, r.Cells[11].Value, r.Cells[4].Value, r.Cells[5].Value,
+                            r.Cells[6].Value, r.Cells[7].Value, r.Cells[8].Value);
+
                 }
 
                 List<string> printCols = new List<string>();
@@ -812,21 +773,68 @@ namespace YouSoftBathReception
                 printCols.Add("金额");
 
                 var ids = string.Join("|", m_Seats.OrderBy(x => x.text).Select(x => x.systemId).ToArray());
-            
 
-              
                 foreach (var s in m_Seats)
                 {
                     m_rooms.Add(dao.get_seat_room(s.text));
                 }
 
-                if (_print_bill)
-                    PrintBill.Print_DataGridView(m_Seats,m_rooms,act, "结账单", dgv, printCols, false, printRows, companyName);
-                if (_print_stubBill)
-                    PrintBill.Print_DataGridView(m_Seats, m_rooms,act, "存根单", dgv, printCols, false, printRows, companyName);
-                if (_reprint)
-                    PrintBill.Print_DataGridView(m_Seats, m_rooms, act, "补救单", dgv, printCols, false, printRows, companyName);
-                dgv = null;
+                if (MConvert<bool>.ToTypeOrDefault(LogIn.options.启用大项拆分, false))
+                {
+                    var dgv1 = new_datagridView();
+                    var db = new BathDBDataContext(LogIn.connectionString);
+                    foreach (DataGridViewRow r in dgv.Rows)
+                    {
+                        List<int> substIDs = new List<int>();
+                        string menuName = MConvert<string>.ToTypeOrDefault(r.Cells[2].Value, "");
+                        var dgv_menu = db.Menu.FirstOrDefault(x => x.name == menuName);
+                        if (dgv_menu != null)
+                        {
+                            if (db.BigCombo.FirstOrDefault(x => x.menuid == dgv_menu.id) != null)
+                            {
+                                substIDs = BathClass.disAssemble(db.BigCombo.FirstOrDefault(x => x.menuid == dgv_menu.id).substmenuid, Constants.SplitChar);
+                                for (int i = 0; i < substIDs.Count; i++)
+                                {
+                                    var menu = db.Menu.FirstOrDefault(x => x.id == substIDs[i]);
+                                    dgv1.Rows.Add(r.Cells[0].Value, r.Cells[1].Value, menu.name, r.Cells[3].Value,
+                                        menu.price, r.Cells[5].Value, menu.price * MConvert<double>.ToTypeOrDefault(r.Cells[5].Value, 0));
+                                }
+                                continue;
+                            }
+                        }
+
+                        dgv1.Rows.Add(r.Cells[0].Value, r.Cells[1].Value, r.Cells[2].Value, r.Cells[3].Value,
+                                r.Cells[4].Value, r.Cells[5].Value, r.Cells[6].Value);
+                    }
+
+                    if (!use_pad)
+                    {
+                        dgv1.Columns[1].Visible = false;
+                    }
+                    if (_print_bill)
+                        PrintBill.Print_DataGridView(m_Seats, m_rooms, act, "结账单", dgv1, printCols, companyName);
+                    if (_print_stubBill)
+                        PrintBill.Print_DataGridView(m_Seats, m_rooms, act, "存根单", dgv1, printCols, companyName);
+                    if (_reprint)
+                        PrintBill.Print_DataGridView(m_Seats, m_rooms, act, "补救单", dgv1, printCols, companyName);
+                    dgv = null;
+                    dgv1 = null;
+                }
+                else
+                {
+                    if (!use_pad)
+                    {
+                        dgv.Columns[1].Visible = false;
+                    }
+                    if (_print_bill)
+                        PrintBill.Print_DataGridView(m_Seats, m_rooms, act, "结账单", dgv, printCols, companyName);
+                    if (_print_stubBill)
+                        PrintBill.Print_DataGridView(m_Seats, m_rooms, act, "存根单", dgv, printCols, companyName);
+                    if (_reprint)
+                        PrintBill.Print_DataGridView(m_Seats, m_rooms, act, "补救单", dgv, printCols, companyName);
+                    dgv = null;
+                }
+
 
                 if (_print_shoe)
                     PrintShoeMsg.Print_DataGridView(seat_texts, act.payEmployee, act.payTime.ToString(), companyName);
@@ -835,6 +843,42 @@ namespace YouSoftBathReception
             {
                 BathClass.printErrorMsg(e.Message);
             }
+        }
+
+
+        private DataGridView new_datagridView()
+        {
+            DataGridView dgv = new DataGridView();
+
+            DataGridViewTextBoxColumn col = new DataGridViewTextBoxColumn();
+            col.HeaderText = "手牌";
+            dgv.Columns.Add(col);
+
+            DataGridViewTextBoxColumn coll = new DataGridViewTextBoxColumn();
+            coll.HeaderText = "房间";
+            dgv.Columns.Add(coll);
+
+            DataGridViewTextBoxColumn col1 = new DataGridViewTextBoxColumn();
+            col1.HeaderText = "项目名称";
+            dgv.Columns.Add(col1);
+
+            DataGridViewTextBoxColumn col2 = new DataGridViewTextBoxColumn();
+            col2.HeaderText = "技师";
+            dgv.Columns.Add(col2);
+
+            DataGridViewTextBoxColumn col3 = new DataGridViewTextBoxColumn();
+            col3.HeaderText = "单价";
+            dgv.Columns.Add(col3);
+
+            DataGridViewTextBoxColumn col4 = new DataGridViewTextBoxColumn();
+            col4.HeaderText = "数量";
+            dgv.Columns.Add(col4);
+
+            DataGridViewTextBoxColumn col5 = new DataGridViewTextBoxColumn();
+            col5.HeaderText = "金额";
+            dgv.Columns.Add(col5);
+
+            return dgv;
         }
 
         //会员打折

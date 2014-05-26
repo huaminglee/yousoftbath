@@ -66,21 +66,22 @@ namespace YouSoftBathBack
         //确定
         private void okBtn_Click(object sender, EventArgs e)
         {
-            if (name.Text == "")
+            var catName = name.Text.Trim();
+            if (catName == "")
             {
                 GeneralClass.printErrorMsg("需要填入信息!");
                 name.Focus();
                 return;
             }
-            if (db.Catgory.FirstOrDefault(x=>x.name==name.Text) != null)
+            if (db.Catgory.FirstOrDefault(x => x.name == catName) != null)
             {
-                BathClass.printErrorMsg("已经存在类别:" + name.Text);
+                BathClass.printErrorMsg("已经存在类别:" + catName);
                 name.SelectAll();
                 name.Focus();
                 return;
             }
 
-            m_cat.name = name.Text;
+            m_cat.name = catName;
             if (kitchenPrinter.Text == "")
                 m_cat.kitchPrinterName = null;
             else

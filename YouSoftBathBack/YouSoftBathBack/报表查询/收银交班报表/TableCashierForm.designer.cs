@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TableCashierForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolFind = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -45,10 +45,12 @@
             this.结账时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cb_pcs = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.ptTimeList = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cb_pcs = new System.Windows.Forms.ComboBox();
+            this.printTool = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
@@ -64,6 +66,8 @@
             this.toolStripLabel1,
             this.exportTool,
             this.toolStripLabel3,
+            this.printTool,
+            this.toolStripLabel2,
             this.toolExit});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -136,35 +140,35 @@
             this.dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.名称,
             this.手牌号,
             this.结账时间,
             this.Column1});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv.Location = new System.Drawing.Point(0, 88);
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
             this.dgv.RowHeadersWidth = 20;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv.RowTemplate.Height = 23;
             this.dgv.Size = new System.Drawing.Size(461, 480);
             this.dgv.TabIndex = 3;
@@ -205,6 +209,25 @@
             this.panel1.Size = new System.Drawing.Size(461, 88);
             this.panel1.TabIndex = 0;
             // 
+            // cb_pcs
+            // 
+            this.cb_pcs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_pcs.FormattingEnabled = true;
+            this.cb_pcs.Location = new System.Drawing.Point(88, 11);
+            this.cb_pcs.Name = "cb_pcs";
+            this.cb_pcs.Size = new System.Drawing.Size(206, 25);
+            this.cb_pcs.TabIndex = 1;
+            this.cb_pcs.SelectedIndexChanged += new System.EventHandler(this.cb_pcs_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(80, 18);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "收银电脑";
+            // 
             // ptTimeList
             // 
             this.ptTimeList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -223,24 +246,22 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "打印时间";
             // 
-            // label2
+            // printTool
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 18);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "收银电脑";
+            this.printTool.Font = new System.Drawing.Font("微软雅黑", 13F);
+            this.printTool.Image = ((System.Drawing.Image)(resources.GetObject("printTool.Image")));
+            this.printTool.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.printTool.Name = "printTool";
+            this.printTool.Size = new System.Drawing.Size(93, 92);
+            this.printTool.Text = "打  印(F5)";
+            this.printTool.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.printTool.Click += new System.EventHandler(this.printTool_Click);
             // 
-            // cb_pcs
+            // toolStripLabel2
             // 
-            this.cb_pcs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_pcs.FormattingEnabled = true;
-            this.cb_pcs.Location = new System.Drawing.Point(88, 11);
-            this.cb_pcs.Name = "cb_pcs";
-            this.cb_pcs.Size = new System.Drawing.Size(206, 25);
-            this.cb_pcs.TabIndex = 1;
-            this.cb_pcs.SelectedIndexChanged += new System.EventHandler(this.cb_pcs_SelectedIndexChanged);
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(16, 92);
+            this.toolStripLabel2.Text = "  ";
             // 
             // TableCashierForm
             // 
@@ -290,5 +311,7 @@
         private System.Windows.Forms.ToolStripButton toolFind;
         private System.Windows.Forms.ComboBox cb_pcs;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolStripButton printTool;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
     }
 }

@@ -94,7 +94,8 @@ namespace YouSoftBathFormClass
             this.canBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.canBtn.Name = "canBtn";
             this.canBtn.Size = new System.Drawing.Size(128, 44);
-            this.canBtn.TabIndex = 6;
+            this.canBtn.TabIndex = 4;
+            this.canBtn.TabStop = false;
             this.canBtn.Text = "È¡Ïû";
             this.canBtn.UseVisualStyleBackColor = true;
             this.canBtn.Click += new System.EventHandler(this.canBtn_Click);
@@ -107,7 +108,8 @@ namespace YouSoftBathFormClass
             this.okBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.okBtn.Name = "okBtn";
             this.okBtn.Size = new System.Drawing.Size(128, 44);
-            this.okBtn.TabIndex = 5;
+            this.okBtn.TabIndex = 2;
+            this.okBtn.TabStop = false;
             this.okBtn.Text = "µÇÂ½";
             this.okBtn.UseVisualStyleBackColor = true;
             this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
@@ -306,7 +308,7 @@ namespace YouSoftBathFormClass
             this.id.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.id.Name = "id";
             this.id.Size = new System.Drawing.Size(221, 28);
-            this.id.TabIndex = 23;
+            this.id.TabIndex = 3;
             this.id.Enter += new System.EventHandler(this.box_Enter);
             this.id.TextChanged += new System.EventHandler(this.id_TextChanged);
             // 
@@ -365,7 +367,7 @@ namespace YouSoftBathFormClass
             this.pwd.Name = "pwd";
             this.pwd.PasswordChar = '*';
             this.pwd.Size = new System.Drawing.Size(221, 30);
-            this.pwd.TabIndex = 26;
+            this.pwd.TabIndex = 1;
             this.pwd.Enter += new System.EventHandler(this.box_Enter);
             // 
             // label2

@@ -663,53 +663,6 @@
       <Column Name="abandon" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Options" Member="Options">
-    <Type Name="Options">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="companyName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="companyCode" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="companyPhone" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="companyAddress" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="取消开牌时限" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="取消开房时限" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="删除支出时限" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="退钟时限" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="技师条数" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="启用鞋部" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="鞋部条数" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="启用会员卡密码" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="启用结账监控" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="结账视频长度" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="启用手牌锁" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="开业时间" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="启用客房面板" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="包房等待时限" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="下钟提醒" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="启用ID手牌锁" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="允许手工输入手牌号开牌" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="允许手工输入手牌号结账" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="录单输入单据编号" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="结账未打单锁定手牌" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="营业报表格式" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="结账打印结账单" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="结账打印存根单" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="结账打印取鞋小票" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="抹零限制" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="手牌锁类型" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="自动加收过夜费" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="过夜费起点" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="过夜费终点" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="启用分单结账" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="启用员工服务卡" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="提成报表格式" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="台位类型分页显示" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="自动感应手牌" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="录单区分点钟轮钟" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="打印技师派遣单" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="会员卡密码类型" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="company_Code" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Authority" Member="Authority">
     <Type Name="Authority">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -839,6 +792,63 @@
       <Column Name="roomId" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="donorExplain" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="donorTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BigCombo" Member="BigCombo">
+    <Type Name="BigCombo">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="menuid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="substmenuid" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Options" Member="Options">
+    <Type Name="Options">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="companyName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="companyCode" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="companyPhone" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="companyAddress" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="取消开牌时限" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="取消开房时限" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="删除支出时限" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="退钟时限" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="技师条数" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="启用鞋部" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="鞋部条数" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="启用会员卡密码" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="启用结账监控" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="结账视频长度" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="启用手牌锁" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="开业时间" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="启用客房面板" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="包房等待时限" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="下钟提醒" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="启用ID手牌锁" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="允许手工输入手牌号开牌" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="允许手工输入手牌号结账" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="录单输入单据编号" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="结账未打单锁定手牌" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="营业报表格式" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="结账打印结账单" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="结账打印存根单" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="结账打印取鞋小票" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="抹零限制" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="手牌锁类型" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="自动加收过夜费" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="过夜费起点" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="过夜费终点" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="启用分单结账" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="启用员工服务卡" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="提成报表格式" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="台位类型分页显示" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="自动感应手牌" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="录单区分点钟轮钟" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="打印技师派遣单" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="会员卡密码类型" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="company_Code" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="启用大项拆分" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

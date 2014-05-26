@@ -1317,8 +1317,6 @@ namespace YouSoftBathFormClass
         public static List<string> m_cols;
         private static List<CSeat> m_seats;//结账的手牌
         private static List<string> m_room; //手牌号对应的房间号
-        private static List<int> m_rows;
-        private static bool m_printAllRows;
         public static int PageNo;              // Number of pages to print
         public static string companyName = "";  // name of the company
         public static int TotalWidth;          // Summation of Columns widths
@@ -1338,7 +1336,7 @@ namespace YouSoftBathFormClass
 
 
         public static void Print_DataGridView(List<CSeat> seats, List<string> room, CAccount acctount, string title,
-            DataGridView dgv, List<string> printCols, bool printAllRows, List<int> printRows, string coName)
+            DataGridView dgv, List<string> printCols, string coName)
         {
             PrintPreviewDialog ppvw;
             try
@@ -1354,8 +1352,6 @@ namespace YouSoftBathFormClass
                 m_Act = acctount;
                 m_dgv = dgv;
                 m_cols = printCols;
-                m_rows = printRows;
-                m_printAllRows = printAllRows;
                 tmpTop = 0;
                 m_Money = BathClass.get_account_money(m_Act).ToString();
                 printTile = title;
@@ -1619,12 +1615,6 @@ namespace YouSoftBathFormClass
 
             while (RowPos <= m_dgv.Rows.Count - 1)
             {
-                if (!m_printAllRows && !m_rows.Contains(RowPos))
-                {
-                    RowPos++;
-                    continue;
-                }
-
                 DataGridViewRow GridRow = m_dgv.Rows[RowPos];
                 CellHeight = GridRow.Height;
                 CellHeight = GridRow.Height;

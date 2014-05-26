@@ -8,6 +8,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Web.Script.Serialization;
 using YouSoftUtil;
+using YouSoftBathConstants;
 
 namespace IntereekBathBackService
 {
@@ -315,6 +316,13 @@ namespace IntereekBathBackService
             }
 
             return success;
+        }
+
+        public void stop()
+        {
+            thread_account.Abort();
+            thread_clearTable.Abort();
+            thread_cardsale.Abort();
         }
 
     }

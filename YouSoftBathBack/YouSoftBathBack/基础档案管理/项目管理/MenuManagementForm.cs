@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 using YouSoftBathGeneralClass;
 using YouSoftBathFormClass;
+using YouSoftBathConstants;
 
 namespace YouSoftBathBack
 {
@@ -192,12 +193,30 @@ namespace YouSoftBathBack
             }
             if (be_contained_in_combo &&
                 BathClass.printAskMsg("套餐" + combo_ids[0] + "等中已经包含该项目，若删除项目，则套餐也会被删除，是否删除?")
-                != DialogResult.Yes)
+                    != DialogResult.Yes)
+                return;
+
+            bool be_contained_in_bigcombo = false;
+            List<int> bigcombo_ids = new List<int>();
+            foreach (var combo in db.BigCombo)
+            {
+                var ids = BathClass.disAssemble(combo.substmenuid, Constants.SplitChar);
+                if (ids.Contains(delId) || combo.menuid == delId)
+                {
+                    be_contained_in_bigcombo = true;
+                    bigcombo_ids.Add(combo.id);
+                }
+            }
+            if (be_contained_in_bigcombo &&
+                BathClass.printAskMsg("大项套餐" + bigcombo_ids[0] + "等中已经包含该项目，若删除项目，则套餐也会被删除，是否删除?")
+                    != DialogResult.Yes)
                 return;
 
             db.Menu.DeleteOnSubmit(db.Menu.FirstOrDefault(s => s.id == delId));
             if (be_contained_in_combo)
                 db.Combo.DeleteAllOnSubmit(db.Combo.Where(x => combo_ids.Contains(x.id)));
+            if (be_contained_in_bigcombo)
+                db.BigCombo.DeleteAllOnSubmit(db.BigCombo.Where(x => bigcombo_ids.Contains(x.id)));
             db.SubmitChanges();
             dgv_show();
         }

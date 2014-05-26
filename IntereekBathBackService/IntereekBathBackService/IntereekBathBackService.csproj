@@ -30,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -65,6 +66,7 @@
     </Compile>
     <Compile Include="MConvert.cs" />
     <Compile Include="JsonUploadResult.cs" />
+    <Compile Include="SmsClass.cs" />
     <Compile Include="StringUtil.cs" />
     <Compile Include="UDP服务器\Dao.cs" />
     <Compile Include="UDP服务器\DBLayer.cs" />

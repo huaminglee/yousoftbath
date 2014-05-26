@@ -31,8 +31,17 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnCalcel = new System.Windows.Forms.Button();
+            this.BtnOk = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtBoxBaudRate = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbComPort = new System.Windows.Forms.ComboBox();
             this.CheckCloud = new System.Windows.Forms.CheckBox();
+            this.CheckServer = new System.Windows.Forms.CheckBox();
+            this.CheckSMS = new System.Windows.Forms.CheckBox();
             this.CheckAuto = new System.Windows.Forms.CheckBox();
             this.CheckDetect = new System.Windows.Forms.CheckBox();
             this.GroupDetect = new System.Windows.Forms.GroupBox();
@@ -43,10 +52,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.BtnCalcel = new System.Windows.Forms.Button();
-            this.BtnOk = new System.Windows.Forms.Button();
-            this.CheckServer = new System.Windows.Forms.CheckBox();
             this.NotifyServer = new System.Windows.Forms.NotifyIcon(this.components);
             this.ContextNotify = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.打开ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,23 +68,109 @@
             this.panel1.Controls.Add(this.BtnOk);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 260);
+            this.panel1.Location = new System.Drawing.Point(0, 321);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(467, 68);
             this.panel1.TabIndex = 0;
             // 
+            // BtnCalcel
+            // 
+            this.BtnCalcel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BtnCalcel.Location = new System.Drawing.Point(268, 18);
+            this.BtnCalcel.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnCalcel.Name = "BtnCalcel";
+            this.BtnCalcel.Size = new System.Drawing.Size(172, 33);
+            this.BtnCalcel.TabIndex = 2;
+            this.BtnCalcel.TabStop = false;
+            this.BtnCalcel.Text = "退出";
+            this.BtnCalcel.UseVisualStyleBackColor = true;
+            this.BtnCalcel.Click += new System.EventHandler(this.BtnCalcel_Click);
+            // 
+            // BtnOk
+            // 
+            this.BtnOk.Location = new System.Drawing.Point(27, 18);
+            this.BtnOk.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnOk.Name = "BtnOk";
+            this.BtnOk.Size = new System.Drawing.Size(172, 33);
+            this.BtnOk.TabIndex = 1;
+            this.BtnOk.Text = "最小化到系统托盘";
+            this.BtnOk.UseVisualStyleBackColor = true;
+            this.BtnOk.Click += new System.EventHandler(this.BtnOk_Click);
+            // 
+            // label1
+            // 
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(467, 2);
+            this.label1.TabIndex = 0;
+            // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.txtBoxBaudRate);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.cmbComPort);
             this.panel2.Controls.Add(this.CheckCloud);
             this.panel2.Controls.Add(this.CheckServer);
+            this.panel2.Controls.Add(this.CheckSMS);
             this.panel2.Controls.Add(this.CheckAuto);
             this.panel2.Controls.Add(this.CheckDetect);
             this.panel2.Controls.Add(this.GroupDetect);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(467, 260);
+            this.panel2.Size = new System.Drawing.Size(467, 321);
             this.panel2.TabIndex = 1;
+            // 
+            // txtBoxBaudRate
+            // 
+            this.txtBoxBaudRate.Enabled = false;
+            this.txtBoxBaudRate.Location = new System.Drawing.Point(300, 272);
+            this.txtBoxBaudRate.Name = "txtBoxBaudRate";
+            this.txtBoxBaudRate.Size = new System.Drawing.Size(126, 27);
+            this.txtBoxBaudRate.TabIndex = 11;
+            this.txtBoxBaudRate.Text = "9600";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(231, 276);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 18);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "波特率";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(22, 276);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 18);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "端口号 ";
+            // 
+            // cmbComPort
+            // 
+            this.cmbComPort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbComPort.Enabled = false;
+            this.cmbComPort.FormattingEnabled = true;
+            this.cmbComPort.Items.AddRange(new object[] {
+            "COM1",
+            "COM2",
+            "COM3",
+            "COM4",
+            "COM5",
+            "COM6",
+            "COM7",
+            "COM8",
+            "COM9",
+            "COM10"});
+            this.cmbComPort.Location = new System.Drawing.Point(97, 273);
+            this.cmbComPort.Name = "cmbComPort";
+            this.cmbComPort.Size = new System.Drawing.Size(121, 25);
+            this.cmbComPort.TabIndex = 9;
             // 
             // CheckCloud
             // 
@@ -87,17 +178,38 @@
             this.CheckCloud.Checked = true;
             this.CheckCloud.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CheckCloud.Enabled = false;
-            this.CheckCloud.Location = new System.Drawing.Point(234, 202);
+            this.CheckCloud.Location = new System.Drawing.Point(234, 189);
             this.CheckCloud.Name = "CheckCloud";
             this.CheckCloud.Size = new System.Drawing.Size(207, 22);
             this.CheckCloud.TabIndex = 7;
             this.CheckCloud.Text = "开启连客科技后台服务";
             this.CheckCloud.UseVisualStyleBackColor = true;
             // 
+            // CheckServer
+            // 
+            this.CheckServer.AutoSize = true;
+            this.CheckServer.Location = new System.Drawing.Point(234, 23);
+            this.CheckServer.Name = "CheckServer";
+            this.CheckServer.Size = new System.Drawing.Size(225, 22);
+            this.CheckServer.TabIndex = 8;
+            this.CheckServer.Text = "开启连客科技服务器服务";
+            this.CheckServer.UseVisualStyleBackColor = true;
+            // 
+            // CheckSMS
+            // 
+            this.CheckSMS.AutoSize = true;
+            this.CheckSMS.Location = new System.Drawing.Point(25, 231);
+            this.CheckSMS.Name = "CheckSMS";
+            this.CheckSMS.Size = new System.Drawing.Size(135, 22);
+            this.CheckSMS.TabIndex = 8;
+            this.CheckSMS.Text = "开启短信控制";
+            this.CheckSMS.UseVisualStyleBackColor = true;
+            this.CheckSMS.CheckedChanged += new System.EventHandler(this.CheckSMS_CheckedChanged);
+            // 
             // CheckAuto
             // 
             this.CheckAuto.AutoSize = true;
-            this.CheckAuto.Location = new System.Drawing.Point(12, 202);
+            this.CheckAuto.Location = new System.Drawing.Point(27, 189);
             this.CheckAuto.Name = "CheckAuto";
             this.CheckAuto.Size = new System.Drawing.Size(135, 22);
             this.CheckAuto.TabIndex = 8;
@@ -196,49 +308,6 @@
             this.label8.TabIndex = 11;
             this.label8.Text = "异常条件：";
             // 
-            // label1
-            // 
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(467, 2);
-            this.label1.TabIndex = 0;
-            // 
-            // BtnCalcel
-            // 
-            this.BtnCalcel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BtnCalcel.Location = new System.Drawing.Point(268, 18);
-            this.BtnCalcel.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnCalcel.Name = "BtnCalcel";
-            this.BtnCalcel.Size = new System.Drawing.Size(172, 33);
-            this.BtnCalcel.TabIndex = 2;
-            this.BtnCalcel.TabStop = false;
-            this.BtnCalcel.Text = "退出";
-            this.BtnCalcel.UseVisualStyleBackColor = true;
-            this.BtnCalcel.Click += new System.EventHandler(this.BtnCalcel_Click);
-            // 
-            // BtnOk
-            // 
-            this.BtnOk.Location = new System.Drawing.Point(27, 18);
-            this.BtnOk.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnOk.Name = "BtnOk";
-            this.BtnOk.Size = new System.Drawing.Size(172, 33);
-            this.BtnOk.TabIndex = 1;
-            this.BtnOk.Text = "最小化到系统托盘";
-            this.BtnOk.UseVisualStyleBackColor = true;
-            this.BtnOk.Click += new System.EventHandler(this.BtnOk_Click);
-            // 
-            // CheckServer
-            // 
-            this.CheckServer.AutoSize = true;
-            this.CheckServer.Location = new System.Drawing.Point(234, 23);
-            this.CheckServer.Name = "CheckServer";
-            this.CheckServer.Size = new System.Drawing.Size(225, 22);
-            this.CheckServer.TabIndex = 8;
-            this.CheckServer.Text = "开启连客科技服务器服务";
-            this.CheckServer.UseVisualStyleBackColor = true;
-            // 
             // NotifyServer
             // 
             this.NotifyServer.ContextMenuStrip = this.ContextNotify;
@@ -271,15 +340,17 @@
             // 
             // MainForm
             // 
+            this.AcceptButton = this.BtnOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(467, 328);
+            this.CancelButton = this.BtnCalcel;
+            this.ClientSize = new System.Drawing.Size(467, 389);
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("宋体", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "连客科技后台服务";
@@ -319,6 +390,11 @@
         private System.Windows.Forms.ContextMenuStrip ContextNotify;
         private System.Windows.Forms.ToolStripMenuItem 打开ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
+        private System.Windows.Forms.CheckBox CheckSMS;
+        private System.Windows.Forms.ComboBox cmbComPort;
+        private System.Windows.Forms.TextBox txtBoxBaudRate;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
 
     }
 }

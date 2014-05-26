@@ -314,6 +314,7 @@ namespace YouSoftBathGeneralClass
                         cOptions.录单区分点钟轮钟 = ToBool(dr["录单区分点钟轮钟"]);
                         cOptions.打印技师派遣单 = ToBool(dr["打印技师派遣单"]);
                         cOptions.会员卡密码类型 = ToString(dr["会员卡密码类型"]);
+                        cOptions.启用大项拆分 = ToBool(dr["启用大项拆分"]);
                     }
                 }
 

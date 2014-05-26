@@ -911,5 +911,12 @@ namespace YouSoftBathBack
             if (MConvert<bool>.ToTypeOrDefault(LogIn.options.启用手牌锁, false) && LogIn.options.手牌锁类型 == "锦衣卫")
                 JYW.CloseReader();
         }
+
+        private void btnBigCombo_Click(object sender, EventArgs e)
+        {
+            BigComboManagementForm bigcomboform = new BigComboManagementForm();
+            bigcomboform.ShowDialog();
+        }
+
     }
 }

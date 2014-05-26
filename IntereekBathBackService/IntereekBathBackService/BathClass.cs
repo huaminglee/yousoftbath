@@ -149,21 +149,8 @@ namespace IntereekBathBackService
             return DateTime.Now.ToString("yyMMdd") + ".log";
         }
 
-    }
 
-    static class Constants
-    {
-        public const string AliIP = "114.215.184.78";//阿里云IP地址
-        public const string AliPort = "80";//阿里云端口
-
-        //public const string AliIP = "127.0.0.1";//本地调试IP地址
-        //public const string AliPort = "8080";//本地调试端口
-
-        public const int LocalUdpPort = 7628;//本地服务器监听的端口号 
-
-        //public const string ErrorFile = "error.log";
-
-        public const char SplitChar = '$';
 
     }
+
 }

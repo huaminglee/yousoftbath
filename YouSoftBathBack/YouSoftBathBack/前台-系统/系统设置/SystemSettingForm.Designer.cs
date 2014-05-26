@@ -40,6 +40,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.companyPhone = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.company_Code = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
             this.companyCode = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.companyName = new System.Windows.Forms.TextBox();
@@ -121,8 +123,7 @@
             this.允许手工输入手牌号开牌 = new System.Windows.Forms.CheckBox();
             this.启用ID手牌锁 = new System.Windows.Forms.CheckBox();
             this.启用手牌锁 = new System.Windows.Forms.CheckBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.company_Code = new System.Windows.Forms.TextBox();
+            this.启用大项拆分 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -264,6 +265,24 @@
             this.label3.Size = new System.Drawing.Size(72, 16);
             this.label3.TabIndex = 0;
             this.label3.Text = "客户电话";
+            // 
+            // company_Code
+            // 
+            this.company_Code.Location = new System.Drawing.Point(156, 73);
+            this.company_Code.Name = "company_Code";
+            this.company_Code.ReadOnly = true;
+            this.company_Code.Size = new System.Drawing.Size(248, 26);
+            this.company_Code.TabIndex = 1;
+            this.company_Code.Enter += new System.EventHandler(this.en_Enter);
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(82, 78);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(56, 16);
+            this.label33.TabIndex = 0;
+            this.label33.Text = "客户ID";
             // 
             // companyCode
             // 
@@ -718,6 +737,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.启用大项拆分);
             this.tabPage4.Controls.Add(this.启用分单结账);
             this.tabPage4.Controls.Add(this.label19);
             this.tabPage4.Controls.Add(this.抹零限制);
@@ -739,7 +759,7 @@
             // 启用分单结账
             // 
             this.启用分单结账.AutoSize = true;
-            this.启用分单结账.Location = new System.Drawing.Point(23, 251);
+            this.启用分单结账.Location = new System.Drawing.Point(23, 247);
             this.启用分单结账.Name = "启用分单结账";
             this.启用分单结账.Size = new System.Drawing.Size(123, 20);
             this.启用分单结账.TabIndex = 7;
@@ -749,7 +769,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(194, 215);
+            this.label19.Location = new System.Drawing.Point(194, 211);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(128, 16);
             this.label19.TabIndex = 5;
@@ -757,7 +777,7 @@
             // 
             // 抹零限制
             // 
-            this.抹零限制.Location = new System.Drawing.Point(120, 210);
+            this.抹零限制.Location = new System.Drawing.Point(120, 206);
             this.抹零限制.Name = "抹零限制";
             this.抹零限制.Size = new System.Drawing.Size(69, 26);
             this.抹零限制.TabIndex = 6;
@@ -765,7 +785,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(16, 215);
+            this.label18.Location = new System.Drawing.Point(16, 211);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(104, 16);
             this.label18.TabIndex = 4;
@@ -1089,23 +1109,15 @@
             this.启用手牌锁.UseVisualStyleBackColor = true;
             this.启用手牌锁.CheckedChanged += new System.EventHandler(this.启用手牌锁_CheckedChanged);
             // 
-            // label33
+            // 启用大项拆分
             // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(82, 78);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(56, 16);
-            this.label33.TabIndex = 0;
-            this.label33.Text = "客户ID";
-            // 
-            // company_Code
-            // 
-            this.company_Code.Location = new System.Drawing.Point(156, 73);
-            this.company_Code.Name = "company_Code";
-            this.company_Code.ReadOnly = true;
-            this.company_Code.Size = new System.Drawing.Size(248, 26);
-            this.company_Code.TabIndex = 1;
-            this.company_Code.Enter += new System.EventHandler(this.en_Enter);
+            this.启用大项拆分.AutoSize = true;
+            this.启用大项拆分.Location = new System.Drawing.Point(22, 287);
+            this.启用大项拆分.Name = "启用大项拆分";
+            this.启用大项拆分.Size = new System.Drawing.Size(123, 20);
+            this.启用大项拆分.TabIndex = 7;
+            this.启用大项拆分.Text = "启用大项拆分";
+            this.启用大项拆分.UseVisualStyleBackColor = true;
             // 
             // SystemSettingForm
             // 
@@ -1244,5 +1256,6 @@
         private System.Windows.Forms.ComboBox 会员卡密码类型;
         private System.Windows.Forms.TextBox company_Code;
         private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.CheckBox 启用大项拆分;
     }
 }

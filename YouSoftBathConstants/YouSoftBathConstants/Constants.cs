@@ -42,6 +42,7 @@ namespace YouSoftBathConstants
         public const string appName = "咱家店小二";
 
         public const string WX_DONOR = "微信加服务号";
+        public const string SMS_HINT_MSG = "代码：\r\n销毁：100\r\n备份：101";
     }
 
     public static class ConfigKeys
@@ -55,6 +56,7 @@ namespace YouSoftBathConstants
         public const string KEY_SMSPORT = "smsPort";//短信猫端口
         public const string KEY_SMSBAUD = "smsBaud";//短信猫波特率
         public const string KEY_PHONES_FILE = "phones.txt";//前台夜审发短信电话号码存放文件名称
+        public const string KEY_SMS_OPERATION = "smsOperation"; //短信操控数据库
 
         public const string KEY_TECH_INDEX_MALE = "techIndexmale";//男技师排钟
         public const string KEY_TECH_INDEX_FEMALE = "techIndexfemale";//男技师排钟

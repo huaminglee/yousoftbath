@@ -936,7 +936,7 @@ namespace YouSoftBathHotel
                             dgv.Rows.Add(row);
                         }
                     }
-                    PrintBill.Print_DataGridView(seats_reprint, null, account, "存根单", dgv, printCols, true, null, co_name);
+                    PrintBill.Print_DataGridView(seats_reprint, null, account, "存根单", dgv, printCols, co_name);
                 }
                 catch (System.Exception ex)
                 {

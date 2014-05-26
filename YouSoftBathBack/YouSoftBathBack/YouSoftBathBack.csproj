@@ -145,6 +145,18 @@
     <Compile Include="前台-系统\开牌界面\ReceptionSeatForm.designer.cs">
       <DependentUpon>ReceptionSeatForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="基础档案管理\大项目管理\BigComboForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础档案管理\大项目管理\BigComboForm.designer.cs">
+      <DependentUpon>BigComboForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基础档案管理\大项目管理\BigComboManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基础档案管理\大项目管理\BigComboManagementForm.designer.cs">
+      <DependentUpon>BigComboManagementForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="基础档案管理\服务档案管理\WaitForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -615,6 +627,14 @@
       <DependentUpon>ReceptionSeatForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="基础档案管理\大项目管理\BigComboForm.resx">
+      <DependentUpon>BigComboForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基础档案管理\大项目管理\BigComboManagementForm.resx">
+      <DependentUpon>BigComboManagementForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="基础档案管理\服务档案管理\WaitForm.resx">
       <DependentUpon>WaitForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -999,9 +1019,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="y-icon2a.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">

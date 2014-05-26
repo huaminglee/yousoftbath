@@ -23,6 +23,25 @@ namespace YouSoftBathGeneralClass
     {
 
 
+        //拆分套餐，重载该函数，加一个拆分字符。
+        public static List<int> disAssemble(string menuIds, char splitchar)
+        {
+            List<int> menuIdList = new List<int>();
+
+            if (menuIds == null || menuIds == "")
+                return menuIdList;
+
+            string[] ids = menuIds.Split(splitchar);
+            foreach (string menuId in ids)
+            {
+                if (menuId == "")
+                    continue;
+                menuIdList.Add(Convert.ToInt32(menuId));
+            }
+
+            return menuIdList;
+        }
+
         /// <summary>
         /// 拆分项目的资源消耗
         /// </summary>

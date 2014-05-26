@@ -1026,6 +1026,10 @@ if not exists (select * from syscolumns where id=object_id('[Options]') and name
 if not exists (select * from syscolumns where id=object_id('[Options]') and name='打印技师派遣单')
 	alter table [Options] add [打印技师派遣单] [bit] NULL
 
+/*[Options].[启用大项拆分]*/
+if not exists (select * from syscolumns where id=object_id('[Options]') and name='启用大项拆分')
+	alter table [Options] add [启用大项拆分] [bit] NULL
+
 
 
 /***
@@ -3170,3 +3174,28 @@ if not exists (select * from syscolumns where id=object_id('Authority') and name
 /*Authority.收银报表*/
 if not exists (select * from syscolumns where id=object_id('Authority') and name='收银报表')
 	alter table Authority add 收银报表 [bit] NULL
+	
+	/***
+**********************************************************************
+**********************************************************************
+表BigCombo
+**********************************************************************
+**********************************************************************
+**********************************************************************
+*****/
+/*判断表BigCombo是否存在*/
+if not exists (select * from sysobjects where id=object_id(N'[BigCombo]') and OBJECTPROPERTY(id, N'IsUserTable')=1)
+	create table BigCombo([id] [int] IDENTITY(1,1) NOT NULL  primary key)
+	
+if not exists (select * from syscolumns where id=object_id('BigCombo') and name='menuid')
+	alter table BigCombo add menuid [int] NOT NULL
+
+if not exists (select * from syscolumns where id=object_id('BigCombo') and name='price')
+	alter table BigCombo add price [float] NULL
+
+if not exists (select * from syscolumns where id=object_id('BigCombo') and name='substmenuid')
+	alter table BigCombo add substmenuid [nvarchar](max) NULL	
+	
+if not exists (select * from syscolumns where id=object_id('BigCombo') and name='note')
+	alter table BigCombo add note [nvarchar](max) NULL	
+	

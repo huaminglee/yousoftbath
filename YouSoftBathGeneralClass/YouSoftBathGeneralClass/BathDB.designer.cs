@@ -174,9 +174,6 @@ namespace YouSoftBathGeneralClass
     partial void InsertCardSale(CardSale instance);
     partial void UpdateCardSale(CardSale instance);
     partial void DeleteCardSale(CardSale instance);
-    partial void InsertOptions(Options instance);
-    partial void UpdateOptions(Options instance);
-    partial void DeleteOptions(Options instance);
     partial void InsertAuthority(Authority instance);
     partial void UpdateAuthority(Authority instance);
     partial void DeleteAuthority(Authority instance);
@@ -186,6 +183,12 @@ namespace YouSoftBathGeneralClass
     partial void InsertHisOrders(HisOrders instance);
     partial void UpdateHisOrders(HisOrders instance);
     partial void DeleteHisOrders(HisOrders instance);
+    partial void InsertBigCombo(BigCombo instance);
+    partial void UpdateBigCombo(BigCombo instance);
+    partial void DeleteBigCombo(BigCombo instance);
+    partial void InsertOptions(Options instance);
+    partial void UpdateOptions(Options instance);
+    partial void DeleteOptions(Options instance);
     #endregion
 		
 		public BathDBDataContext() : 
@@ -602,14 +605,6 @@ namespace YouSoftBathGeneralClass
 			}
 		}
 		
-		public System.Data.Linq.Table<Options> Options
-		{
-			get
-			{
-				return this.GetTable<Options>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Authority> Authority
 		{
 			get
@@ -631,6 +626,22 @@ namespace YouSoftBathGeneralClass
 			get
 			{
 				return this.GetTable<HisOrders>();
+			}
+		}
+		
+		public System.Data.Linq.Table<BigCombo> BigCombo
+		{
+			get
+			{
+				return this.GetTable<BigCombo>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Options> Options
+		{
+			get
+			{
+				return this.GetTable<Options>();
 			}
 		}
 	}
@@ -13739,1076 +13750,6 @@ namespace YouSoftBathGeneralClass
 		}
 	}
 	
-	[Table(Name="dbo.Options")]
-	public partial class Options : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _companyName;
-		
-		private string _companyCode;
-		
-		private string _companyPhone;
-		
-		private string _companyAddress;
-		
-		private System.Nullable<int> _取消开牌时限;
-		
-		private System.Nullable<int> _取消开房时限;
-		
-		private System.Nullable<int> _删除支出时限;
-		
-		private System.Nullable<int> _退钟时限;
-		
-		private System.Nullable<int> _技师条数;
-		
-		private System.Nullable<bool> _启用鞋部;
-		
-		private System.Nullable<int> _鞋部条数;
-		
-		private System.Nullable<bool> _启用会员卡密码;
-		
-		private System.Nullable<bool> _启用结账监控;
-		
-		private string _结账视频长度;
-		
-		private System.Nullable<bool> _启用手牌锁;
-		
-		private System.Nullable<int> _开业时间;
-		
-		private System.Nullable<bool> _启用客房面板;
-		
-		private System.Nullable<int> _包房等待时限;
-		
-		private System.Nullable<int> _下钟提醒;
-		
-		private System.Nullable<bool> _启用ID手牌锁;
-		
-		private System.Nullable<bool> _允许手工输入手牌号开牌;
-		
-		private System.Nullable<bool> _允许手工输入手牌号结账;
-		
-		private System.Nullable<bool> _录单输入单据编号;
-		
-		private System.Nullable<bool> _结账未打单锁定手牌;
-		
-		private System.Nullable<int> _营业报表格式;
-		
-		private System.Nullable<bool> _结账打印结账单;
-		
-		private System.Nullable<bool> _结账打印存根单;
-		
-		private System.Nullable<bool> _结账打印取鞋小票;
-		
-		private System.Nullable<int> _抹零限制;
-		
-		private string _手牌锁类型;
-		
-		private System.Nullable<bool> _自动加收过夜费;
-		
-		private string _过夜费起点;
-		
-		private string _过夜费终点;
-		
-		private System.Nullable<bool> _启用分单结账;
-		
-		private System.Nullable<bool> _启用员工服务卡;
-		
-		private System.Nullable<int> _提成报表格式;
-		
-		private System.Nullable<bool> _台位类型分页显示;
-		
-		private System.Nullable<bool> _自动感应手牌;
-		
-		private System.Nullable<bool> _录单区分点钟轮钟;
-		
-		private System.Nullable<bool> _打印技师派遣单;
-		
-		private string _会员卡密码类型;
-		
-		private string _company_Code;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OncompanyNameChanging(string value);
-    partial void OncompanyNameChanged();
-    partial void OncompanyCodeChanging(string value);
-    partial void OncompanyCodeChanged();
-    partial void OncompanyPhoneChanging(string value);
-    partial void OncompanyPhoneChanged();
-    partial void OncompanyAddressChanging(string value);
-    partial void OncompanyAddressChanged();
-    partial void On取消开牌时限Changing(System.Nullable<int> value);
-    partial void On取消开牌时限Changed();
-    partial void On取消开房时限Changing(System.Nullable<int> value);
-    partial void On取消开房时限Changed();
-    partial void On删除支出时限Changing(System.Nullable<int> value);
-    partial void On删除支出时限Changed();
-    partial void On退钟时限Changing(System.Nullable<int> value);
-    partial void On退钟时限Changed();
-    partial void On技师条数Changing(System.Nullable<int> value);
-    partial void On技师条数Changed();
-    partial void On启用鞋部Changing(System.Nullable<bool> value);
-    partial void On启用鞋部Changed();
-    partial void On鞋部条数Changing(System.Nullable<int> value);
-    partial void On鞋部条数Changed();
-    partial void On启用会员卡密码Changing(System.Nullable<bool> value);
-    partial void On启用会员卡密码Changed();
-    partial void On启用结账监控Changing(System.Nullable<bool> value);
-    partial void On启用结账监控Changed();
-    partial void On结账视频长度Changing(string value);
-    partial void On结账视频长度Changed();
-    partial void On启用手牌锁Changing(System.Nullable<bool> value);
-    partial void On启用手牌锁Changed();
-    partial void On开业时间Changing(System.Nullable<int> value);
-    partial void On开业时间Changed();
-    partial void On启用客房面板Changing(System.Nullable<bool> value);
-    partial void On启用客房面板Changed();
-    partial void On包房等待时限Changing(System.Nullable<int> value);
-    partial void On包房等待时限Changed();
-    partial void On下钟提醒Changing(System.Nullable<int> value);
-    partial void On下钟提醒Changed();
-    partial void On启用ID手牌锁Changing(System.Nullable<bool> value);
-    partial void On启用ID手牌锁Changed();
-    partial void On允许手工输入手牌号开牌Changing(System.Nullable<bool> value);
-    partial void On允许手工输入手牌号开牌Changed();
-    partial void On允许手工输入手牌号结账Changing(System.Nullable<bool> value);
-    partial void On允许手工输入手牌号结账Changed();
-    partial void On录单输入单据编号Changing(System.Nullable<bool> value);
-    partial void On录单输入单据编号Changed();
-    partial void On结账未打单锁定手牌Changing(System.Nullable<bool> value);
-    partial void On结账未打单锁定手牌Changed();
-    partial void On营业报表格式Changing(System.Nullable<int> value);
-    partial void On营业报表格式Changed();
-    partial void On结账打印结账单Changing(System.Nullable<bool> value);
-    partial void On结账打印结账单Changed();
-    partial void On结账打印存根单Changing(System.Nullable<bool> value);
-    partial void On结账打印存根单Changed();
-    partial void On结账打印取鞋小票Changing(System.Nullable<bool> value);
-    partial void On结账打印取鞋小票Changed();
-    partial void On抹零限制Changing(System.Nullable<int> value);
-    partial void On抹零限制Changed();
-    partial void On手牌锁类型Changing(string value);
-    partial void On手牌锁类型Changed();
-    partial void On自动加收过夜费Changing(System.Nullable<bool> value);
-    partial void On自动加收过夜费Changed();
-    partial void On过夜费起点Changing(string value);
-    partial void On过夜费起点Changed();
-    partial void On过夜费终点Changing(string value);
-    partial void On过夜费终点Changed();
-    partial void On启用分单结账Changing(System.Nullable<bool> value);
-    partial void On启用分单结账Changed();
-    partial void On启用员工服务卡Changing(System.Nullable<bool> value);
-    partial void On启用员工服务卡Changed();
-    partial void On提成报表格式Changing(System.Nullable<int> value);
-    partial void On提成报表格式Changed();
-    partial void On台位类型分页显示Changing(System.Nullable<bool> value);
-    partial void On台位类型分页显示Changed();
-    partial void On自动感应手牌Changing(System.Nullable<bool> value);
-    partial void On自动感应手牌Changed();
-    partial void On录单区分点钟轮钟Changing(System.Nullable<bool> value);
-    partial void On录单区分点钟轮钟Changed();
-    partial void On打印技师派遣单Changing(System.Nullable<bool> value);
-    partial void On打印技师派遣单Changed();
-    partial void On会员卡密码类型Changing(string value);
-    partial void On会员卡密码类型Changed();
-    partial void Oncompany_CodeChanging(string value);
-    partial void Oncompany_CodeChanged();
-    #endregion
-		
-		public Options()
-		{
-			OnCreated();
-		}
-		
-		[Column(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_companyName", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string companyName
-		{
-			get
-			{
-				return this._companyName;
-			}
-			set
-			{
-				if ((this._companyName != value))
-				{
-					this.OncompanyNameChanging(value);
-					this.SendPropertyChanging();
-					this._companyName = value;
-					this.SendPropertyChanged("companyName");
-					this.OncompanyNameChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_companyCode", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string companyCode
-		{
-			get
-			{
-				return this._companyCode;
-			}
-			set
-			{
-				if ((this._companyCode != value))
-				{
-					this.OncompanyCodeChanging(value);
-					this.SendPropertyChanging();
-					this._companyCode = value;
-					this.SendPropertyChanged("companyCode");
-					this.OncompanyCodeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_companyPhone", DbType="NVarChar(MAX)")]
-		public string companyPhone
-		{
-			get
-			{
-				return this._companyPhone;
-			}
-			set
-			{
-				if ((this._companyPhone != value))
-				{
-					this.OncompanyPhoneChanging(value);
-					this.SendPropertyChanging();
-					this._companyPhone = value;
-					this.SendPropertyChanged("companyPhone");
-					this.OncompanyPhoneChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_companyAddress", DbType="NVarChar(MAX)")]
-		public string companyAddress
-		{
-			get
-			{
-				return this._companyAddress;
-			}
-			set
-			{
-				if ((this._companyAddress != value))
-				{
-					this.OncompanyAddressChanging(value);
-					this.SendPropertyChanging();
-					this._companyAddress = value;
-					this.SendPropertyChanged("companyAddress");
-					this.OncompanyAddressChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_取消开牌时限", DbType="Int")]
-		public System.Nullable<int> 取消开牌时限
-		{
-			get
-			{
-				return this._取消开牌时限;
-			}
-			set
-			{
-				if ((this._取消开牌时限 != value))
-				{
-					this.On取消开牌时限Changing(value);
-					this.SendPropertyChanging();
-					this._取消开牌时限 = value;
-					this.SendPropertyChanged("取消开牌时限");
-					this.On取消开牌时限Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_取消开房时限", DbType="Int")]
-		public System.Nullable<int> 取消开房时限
-		{
-			get
-			{
-				return this._取消开房时限;
-			}
-			set
-			{
-				if ((this._取消开房时限 != value))
-				{
-					this.On取消开房时限Changing(value);
-					this.SendPropertyChanging();
-					this._取消开房时限 = value;
-					this.SendPropertyChanged("取消开房时限");
-					this.On取消开房时限Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_删除支出时限", DbType="Int")]
-		public System.Nullable<int> 删除支出时限
-		{
-			get
-			{
-				return this._删除支出时限;
-			}
-			set
-			{
-				if ((this._删除支出时限 != value))
-				{
-					this.On删除支出时限Changing(value);
-					this.SendPropertyChanging();
-					this._删除支出时限 = value;
-					this.SendPropertyChanged("删除支出时限");
-					this.On删除支出时限Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_退钟时限", DbType="Int")]
-		public System.Nullable<int> 退钟时限
-		{
-			get
-			{
-				return this._退钟时限;
-			}
-			set
-			{
-				if ((this._退钟时限 != value))
-				{
-					this.On退钟时限Changing(value);
-					this.SendPropertyChanging();
-					this._退钟时限 = value;
-					this.SendPropertyChanged("退钟时限");
-					this.On退钟时限Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_技师条数", DbType="Int")]
-		public System.Nullable<int> 技师条数
-		{
-			get
-			{
-				return this._技师条数;
-			}
-			set
-			{
-				if ((this._技师条数 != value))
-				{
-					this.On技师条数Changing(value);
-					this.SendPropertyChanging();
-					this._技师条数 = value;
-					this.SendPropertyChanged("技师条数");
-					this.On技师条数Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_启用鞋部", DbType="Bit")]
-		public System.Nullable<bool> 启用鞋部
-		{
-			get
-			{
-				return this._启用鞋部;
-			}
-			set
-			{
-				if ((this._启用鞋部 != value))
-				{
-					this.On启用鞋部Changing(value);
-					this.SendPropertyChanging();
-					this._启用鞋部 = value;
-					this.SendPropertyChanged("启用鞋部");
-					this.On启用鞋部Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_鞋部条数", DbType="Int")]
-		public System.Nullable<int> 鞋部条数
-		{
-			get
-			{
-				return this._鞋部条数;
-			}
-			set
-			{
-				if ((this._鞋部条数 != value))
-				{
-					this.On鞋部条数Changing(value);
-					this.SendPropertyChanging();
-					this._鞋部条数 = value;
-					this.SendPropertyChanged("鞋部条数");
-					this.On鞋部条数Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_启用会员卡密码", DbType="Bit")]
-		public System.Nullable<bool> 启用会员卡密码
-		{
-			get
-			{
-				return this._启用会员卡密码;
-			}
-			set
-			{
-				if ((this._启用会员卡密码 != value))
-				{
-					this.On启用会员卡密码Changing(value);
-					this.SendPropertyChanging();
-					this._启用会员卡密码 = value;
-					this.SendPropertyChanged("启用会员卡密码");
-					this.On启用会员卡密码Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_启用结账监控", DbType="Bit")]
-		public System.Nullable<bool> 启用结账监控
-		{
-			get
-			{
-				return this._启用结账监控;
-			}
-			set
-			{
-				if ((this._启用结账监控 != value))
-				{
-					this.On启用结账监控Changing(value);
-					this.SendPropertyChanging();
-					this._启用结账监控 = value;
-					this.SendPropertyChanged("启用结账监控");
-					this.On启用结账监控Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_结账视频长度", DbType="NVarChar(MAX)")]
-		public string 结账视频长度
-		{
-			get
-			{
-				return this._结账视频长度;
-			}
-			set
-			{
-				if ((this._结账视频长度 != value))
-				{
-					this.On结账视频长度Changing(value);
-					this.SendPropertyChanging();
-					this._结账视频长度 = value;
-					this.SendPropertyChanged("结账视频长度");
-					this.On结账视频长度Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_启用手牌锁", DbType="Bit")]
-		public System.Nullable<bool> 启用手牌锁
-		{
-			get
-			{
-				return this._启用手牌锁;
-			}
-			set
-			{
-				if ((this._启用手牌锁 != value))
-				{
-					this.On启用手牌锁Changing(value);
-					this.SendPropertyChanging();
-					this._启用手牌锁 = value;
-					this.SendPropertyChanged("启用手牌锁");
-					this.On启用手牌锁Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_开业时间", DbType="Int")]
-		public System.Nullable<int> 开业时间
-		{
-			get
-			{
-				return this._开业时间;
-			}
-			set
-			{
-				if ((this._开业时间 != value))
-				{
-					this.On开业时间Changing(value);
-					this.SendPropertyChanging();
-					this._开业时间 = value;
-					this.SendPropertyChanged("开业时间");
-					this.On开业时间Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_启用客房面板", DbType="Bit")]
-		public System.Nullable<bool> 启用客房面板
-		{
-			get
-			{
-				return this._启用客房面板;
-			}
-			set
-			{
-				if ((this._启用客房面板 != value))
-				{
-					this.On启用客房面板Changing(value);
-					this.SendPropertyChanging();
-					this._启用客房面板 = value;
-					this.SendPropertyChanged("启用客房面板");
-					this.On启用客房面板Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_包房等待时限", DbType="Int")]
-		public System.Nullable<int> 包房等待时限
-		{
-			get
-			{
-				return this._包房等待时限;
-			}
-			set
-			{
-				if ((this._包房等待时限 != value))
-				{
-					this.On包房等待时限Changing(value);
-					this.SendPropertyChanging();
-					this._包房等待时限 = value;
-					this.SendPropertyChanged("包房等待时限");
-					this.On包房等待时限Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_下钟提醒", DbType="Int")]
-		public System.Nullable<int> 下钟提醒
-		{
-			get
-			{
-				return this._下钟提醒;
-			}
-			set
-			{
-				if ((this._下钟提醒 != value))
-				{
-					this.On下钟提醒Changing(value);
-					this.SendPropertyChanging();
-					this._下钟提醒 = value;
-					this.SendPropertyChanged("下钟提醒");
-					this.On下钟提醒Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_启用ID手牌锁", DbType="Bit")]
-		public System.Nullable<bool> 启用ID手牌锁
-		{
-			get
-			{
-				return this._启用ID手牌锁;
-			}
-			set
-			{
-				if ((this._启用ID手牌锁 != value))
-				{
-					this.On启用ID手牌锁Changing(value);
-					this.SendPropertyChanging();
-					this._启用ID手牌锁 = value;
-					this.SendPropertyChanged("启用ID手牌锁");
-					this.On启用ID手牌锁Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_允许手工输入手牌号开牌", DbType="Bit")]
-		public System.Nullable<bool> 允许手工输入手牌号开牌
-		{
-			get
-			{
-				return this._允许手工输入手牌号开牌;
-			}
-			set
-			{
-				if ((this._允许手工输入手牌号开牌 != value))
-				{
-					this.On允许手工输入手牌号开牌Changing(value);
-					this.SendPropertyChanging();
-					this._允许手工输入手牌号开牌 = value;
-					this.SendPropertyChanged("允许手工输入手牌号开牌");
-					this.On允许手工输入手牌号开牌Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_允许手工输入手牌号结账", DbType="Bit")]
-		public System.Nullable<bool> 允许手工输入手牌号结账
-		{
-			get
-			{
-				return this._允许手工输入手牌号结账;
-			}
-			set
-			{
-				if ((this._允许手工输入手牌号结账 != value))
-				{
-					this.On允许手工输入手牌号结账Changing(value);
-					this.SendPropertyChanging();
-					this._允许手工输入手牌号结账 = value;
-					this.SendPropertyChanged("允许手工输入手牌号结账");
-					this.On允许手工输入手牌号结账Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_录单输入单据编号", DbType="Bit")]
-		public System.Nullable<bool> 录单输入单据编号
-		{
-			get
-			{
-				return this._录单输入单据编号;
-			}
-			set
-			{
-				if ((this._录单输入单据编号 != value))
-				{
-					this.On录单输入单据编号Changing(value);
-					this.SendPropertyChanging();
-					this._录单输入单据编号 = value;
-					this.SendPropertyChanged("录单输入单据编号");
-					this.On录单输入单据编号Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_结账未打单锁定手牌", DbType="Bit")]
-		public System.Nullable<bool> 结账未打单锁定手牌
-		{
-			get
-			{
-				return this._结账未打单锁定手牌;
-			}
-			set
-			{
-				if ((this._结账未打单锁定手牌 != value))
-				{
-					this.On结账未打单锁定手牌Changing(value);
-					this.SendPropertyChanging();
-					this._结账未打单锁定手牌 = value;
-					this.SendPropertyChanged("结账未打单锁定手牌");
-					this.On结账未打单锁定手牌Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_营业报表格式", DbType="Int")]
-		public System.Nullable<int> 营业报表格式
-		{
-			get
-			{
-				return this._营业报表格式;
-			}
-			set
-			{
-				if ((this._营业报表格式 != value))
-				{
-					this.On营业报表格式Changing(value);
-					this.SendPropertyChanging();
-					this._营业报表格式 = value;
-					this.SendPropertyChanged("营业报表格式");
-					this.On营业报表格式Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_结账打印结账单", DbType="Bit")]
-		public System.Nullable<bool> 结账打印结账单
-		{
-			get
-			{
-				return this._结账打印结账单;
-			}
-			set
-			{
-				if ((this._结账打印结账单 != value))
-				{
-					this.On结账打印结账单Changing(value);
-					this.SendPropertyChanging();
-					this._结账打印结账单 = value;
-					this.SendPropertyChanged("结账打印结账单");
-					this.On结账打印结账单Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_结账打印存根单", DbType="Bit")]
-		public System.Nullable<bool> 结账打印存根单
-		{
-			get
-			{
-				return this._结账打印存根单;
-			}
-			set
-			{
-				if ((this._结账打印存根单 != value))
-				{
-					this.On结账打印存根单Changing(value);
-					this.SendPropertyChanging();
-					this._结账打印存根单 = value;
-					this.SendPropertyChanged("结账打印存根单");
-					this.On结账打印存根单Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_结账打印取鞋小票", DbType="Bit")]
-		public System.Nullable<bool> 结账打印取鞋小票
-		{
-			get
-			{
-				return this._结账打印取鞋小票;
-			}
-			set
-			{
-				if ((this._结账打印取鞋小票 != value))
-				{
-					this.On结账打印取鞋小票Changing(value);
-					this.SendPropertyChanging();
-					this._结账打印取鞋小票 = value;
-					this.SendPropertyChanged("结账打印取鞋小票");
-					this.On结账打印取鞋小票Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_抹零限制", DbType="Int")]
-		public System.Nullable<int> 抹零限制
-		{
-			get
-			{
-				return this._抹零限制;
-			}
-			set
-			{
-				if ((this._抹零限制 != value))
-				{
-					this.On抹零限制Changing(value);
-					this.SendPropertyChanging();
-					this._抹零限制 = value;
-					this.SendPropertyChanged("抹零限制");
-					this.On抹零限制Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_手牌锁类型", DbType="NVarChar(MAX)")]
-		public string 手牌锁类型
-		{
-			get
-			{
-				return this._手牌锁类型;
-			}
-			set
-			{
-				if ((this._手牌锁类型 != value))
-				{
-					this.On手牌锁类型Changing(value);
-					this.SendPropertyChanging();
-					this._手牌锁类型 = value;
-					this.SendPropertyChanged("手牌锁类型");
-					this.On手牌锁类型Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_自动加收过夜费", DbType="Bit")]
-		public System.Nullable<bool> 自动加收过夜费
-		{
-			get
-			{
-				return this._自动加收过夜费;
-			}
-			set
-			{
-				if ((this._自动加收过夜费 != value))
-				{
-					this.On自动加收过夜费Changing(value);
-					this.SendPropertyChanging();
-					this._自动加收过夜费 = value;
-					this.SendPropertyChanged("自动加收过夜费");
-					this.On自动加收过夜费Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_过夜费起点", DbType="NVarChar(MAX)")]
-		public string 过夜费起点
-		{
-			get
-			{
-				return this._过夜费起点;
-			}
-			set
-			{
-				if ((this._过夜费起点 != value))
-				{
-					this.On过夜费起点Changing(value);
-					this.SendPropertyChanging();
-					this._过夜费起点 = value;
-					this.SendPropertyChanged("过夜费起点");
-					this.On过夜费起点Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_过夜费终点", DbType="NVarChar(MAX)")]
-		public string 过夜费终点
-		{
-			get
-			{
-				return this._过夜费终点;
-			}
-			set
-			{
-				if ((this._过夜费终点 != value))
-				{
-					this.On过夜费终点Changing(value);
-					this.SendPropertyChanging();
-					this._过夜费终点 = value;
-					this.SendPropertyChanged("过夜费终点");
-					this.On过夜费终点Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_启用分单结账", DbType="Bit")]
-		public System.Nullable<bool> 启用分单结账
-		{
-			get
-			{
-				return this._启用分单结账;
-			}
-			set
-			{
-				if ((this._启用分单结账 != value))
-				{
-					this.On启用分单结账Changing(value);
-					this.SendPropertyChanging();
-					this._启用分单结账 = value;
-					this.SendPropertyChanged("启用分单结账");
-					this.On启用分单结账Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_启用员工服务卡", DbType="Bit")]
-		public System.Nullable<bool> 启用员工服务卡
-		{
-			get
-			{
-				return this._启用员工服务卡;
-			}
-			set
-			{
-				if ((this._启用员工服务卡 != value))
-				{
-					this.On启用员工服务卡Changing(value);
-					this.SendPropertyChanging();
-					this._启用员工服务卡 = value;
-					this.SendPropertyChanged("启用员工服务卡");
-					this.On启用员工服务卡Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_提成报表格式", DbType="Int")]
-		public System.Nullable<int> 提成报表格式
-		{
-			get
-			{
-				return this._提成报表格式;
-			}
-			set
-			{
-				if ((this._提成报表格式 != value))
-				{
-					this.On提成报表格式Changing(value);
-					this.SendPropertyChanging();
-					this._提成报表格式 = value;
-					this.SendPropertyChanged("提成报表格式");
-					this.On提成报表格式Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_台位类型分页显示", DbType="Bit")]
-		public System.Nullable<bool> 台位类型分页显示
-		{
-			get
-			{
-				return this._台位类型分页显示;
-			}
-			set
-			{
-				if ((this._台位类型分页显示 != value))
-				{
-					this.On台位类型分页显示Changing(value);
-					this.SendPropertyChanging();
-					this._台位类型分页显示 = value;
-					this.SendPropertyChanged("台位类型分页显示");
-					this.On台位类型分页显示Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_自动感应手牌", DbType="Bit")]
-		public System.Nullable<bool> 自动感应手牌
-		{
-			get
-			{
-				return this._自动感应手牌;
-			}
-			set
-			{
-				if ((this._自动感应手牌 != value))
-				{
-					this.On自动感应手牌Changing(value);
-					this.SendPropertyChanging();
-					this._自动感应手牌 = value;
-					this.SendPropertyChanged("自动感应手牌");
-					this.On自动感应手牌Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_录单区分点钟轮钟", DbType="Bit")]
-		public System.Nullable<bool> 录单区分点钟轮钟
-		{
-			get
-			{
-				return this._录单区分点钟轮钟;
-			}
-			set
-			{
-				if ((this._录单区分点钟轮钟 != value))
-				{
-					this.On录单区分点钟轮钟Changing(value);
-					this.SendPropertyChanging();
-					this._录单区分点钟轮钟 = value;
-					this.SendPropertyChanged("录单区分点钟轮钟");
-					this.On录单区分点钟轮钟Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_打印技师派遣单", DbType="Bit")]
-		public System.Nullable<bool> 打印技师派遣单
-		{
-			get
-			{
-				return this._打印技师派遣单;
-			}
-			set
-			{
-				if ((this._打印技师派遣单 != value))
-				{
-					this.On打印技师派遣单Changing(value);
-					this.SendPropertyChanging();
-					this._打印技师派遣单 = value;
-					this.SendPropertyChanged("打印技师派遣单");
-					this.On打印技师派遣单Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_会员卡密码类型", DbType="NVarChar(MAX)")]
-		public string 会员卡密码类型
-		{
-			get
-			{
-				return this._会员卡密码类型;
-			}
-			set
-			{
-				if ((this._会员卡密码类型 != value))
-				{
-					this.On会员卡密码类型Changing(value);
-					this.SendPropertyChanging();
-					this._会员卡密码类型 = value;
-					this.SendPropertyChanged("会员卡密码类型");
-					this.On会员卡密码类型Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_company_Code", DbType="NVarChar(MAX)")]
-		public string company_Code
-		{
-			get
-			{
-				return this._company_Code;
-			}
-			set
-			{
-				if ((this._company_Code != value))
-				{
-					this.Oncompany_CodeChanging(value);
-					this.SendPropertyChanging();
-					this._company_Code = value;
-					this.SendPropertyChanged("company_Code");
-					this.Oncompany_CodeChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[Table(Name="dbo.Authority")]
 	public partial class Authority : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -17754,6 +16695,1258 @@ namespace YouSoftBathGeneralClass
 					this._donorTime = value;
 					this.SendPropertyChanged("donorTime");
 					this.OndonorTimeChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[Table(Name="dbo.BigCombo")]
+	public partial class BigCombo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private int _menuid;
+		
+		private System.Nullable<double> _price;
+		
+		private string _substmenuid;
+		
+		private string _note;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnmenuidChanging(int value);
+    partial void OnmenuidChanged();
+    partial void OnpriceChanging(System.Nullable<double> value);
+    partial void OnpriceChanged();
+    partial void OnsubstmenuidChanging(string value);
+    partial void OnsubstmenuidChanged();
+    partial void OnnoteChanging(string value);
+    partial void OnnoteChanged();
+    #endregion
+		
+		public BigCombo()
+		{
+			OnCreated();
+		}
+		
+		[Column(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_menuid", DbType="Int NOT NULL")]
+		public int menuid
+		{
+			get
+			{
+				return this._menuid;
+			}
+			set
+			{
+				if ((this._menuid != value))
+				{
+					this.OnmenuidChanging(value);
+					this.SendPropertyChanging();
+					this._menuid = value;
+					this.SendPropertyChanged("menuid");
+					this.OnmenuidChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_price", DbType="Float")]
+		public System.Nullable<double> price
+		{
+			get
+			{
+				return this._price;
+			}
+			set
+			{
+				if ((this._price != value))
+				{
+					this.OnpriceChanging(value);
+					this.SendPropertyChanging();
+					this._price = value;
+					this.SendPropertyChanged("price");
+					this.OnpriceChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_substmenuid", DbType="NVarChar(MAX)")]
+		public string substmenuid
+		{
+			get
+			{
+				return this._substmenuid;
+			}
+			set
+			{
+				if ((this._substmenuid != value))
+				{
+					this.OnsubstmenuidChanging(value);
+					this.SendPropertyChanging();
+					this._substmenuid = value;
+					this.SendPropertyChanged("substmenuid");
+					this.OnsubstmenuidChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_note", DbType="NVarChar(MAX)")]
+		public string note
+		{
+			get
+			{
+				return this._note;
+			}
+			set
+			{
+				if ((this._note != value))
+				{
+					this.OnnoteChanging(value);
+					this.SendPropertyChanging();
+					this._note = value;
+					this.SendPropertyChanged("note");
+					this.OnnoteChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[Table(Name="dbo.Options")]
+	public partial class Options : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _companyName;
+		
+		private string _companyCode;
+		
+		private string _companyPhone;
+		
+		private string _companyAddress;
+		
+		private System.Nullable<int> _取消开牌时限;
+		
+		private System.Nullable<int> _取消开房时限;
+		
+		private System.Nullable<int> _删除支出时限;
+		
+		private System.Nullable<int> _退钟时限;
+		
+		private System.Nullable<int> _技师条数;
+		
+		private System.Nullable<bool> _启用鞋部;
+		
+		private System.Nullable<int> _鞋部条数;
+		
+		private System.Nullable<bool> _启用会员卡密码;
+		
+		private System.Nullable<bool> _启用结账监控;
+		
+		private string _结账视频长度;
+		
+		private System.Nullable<bool> _启用手牌锁;
+		
+		private System.Nullable<int> _开业时间;
+		
+		private System.Nullable<bool> _启用客房面板;
+		
+		private System.Nullable<int> _包房等待时限;
+		
+		private System.Nullable<int> _下钟提醒;
+		
+		private System.Nullable<bool> _启用ID手牌锁;
+		
+		private System.Nullable<bool> _允许手工输入手牌号开牌;
+		
+		private System.Nullable<bool> _允许手工输入手牌号结账;
+		
+		private System.Nullable<bool> _录单输入单据编号;
+		
+		private System.Nullable<bool> _结账未打单锁定手牌;
+		
+		private System.Nullable<int> _营业报表格式;
+		
+		private System.Nullable<bool> _结账打印结账单;
+		
+		private System.Nullable<bool> _结账打印存根单;
+		
+		private System.Nullable<bool> _结账打印取鞋小票;
+		
+		private System.Nullable<int> _抹零限制;
+		
+		private string _手牌锁类型;
+		
+		private System.Nullable<bool> _自动加收过夜费;
+		
+		private string _过夜费起点;
+		
+		private string _过夜费终点;
+		
+		private System.Nullable<bool> _启用分单结账;
+		
+		private System.Nullable<bool> _启用员工服务卡;
+		
+		private System.Nullable<int> _提成报表格式;
+		
+		private System.Nullable<bool> _台位类型分页显示;
+		
+		private System.Nullable<bool> _自动感应手牌;
+		
+		private System.Nullable<bool> _录单区分点钟轮钟;
+		
+		private System.Nullable<bool> _打印技师派遣单;
+		
+		private string _会员卡密码类型;
+		
+		private string _company_Code;
+		
+		private System.Nullable<bool> _启用大项拆分;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OncompanyNameChanging(string value);
+    partial void OncompanyNameChanged();
+    partial void OncompanyCodeChanging(string value);
+    partial void OncompanyCodeChanged();
+    partial void OncompanyPhoneChanging(string value);
+    partial void OncompanyPhoneChanged();
+    partial void OncompanyAddressChanging(string value);
+    partial void OncompanyAddressChanged();
+    partial void On取消开牌时限Changing(System.Nullable<int> value);
+    partial void On取消开牌时限Changed();
+    partial void On取消开房时限Changing(System.Nullable<int> value);
+    partial void On取消开房时限Changed();
+    partial void On删除支出时限Changing(System.Nullable<int> value);
+    partial void On删除支出时限Changed();
+    partial void On退钟时限Changing(System.Nullable<int> value);
+    partial void On退钟时限Changed();
+    partial void On技师条数Changing(System.Nullable<int> value);
+    partial void On技师条数Changed();
+    partial void On启用鞋部Changing(System.Nullable<bool> value);
+    partial void On启用鞋部Changed();
+    partial void On鞋部条数Changing(System.Nullable<int> value);
+    partial void On鞋部条数Changed();
+    partial void On启用会员卡密码Changing(System.Nullable<bool> value);
+    partial void On启用会员卡密码Changed();
+    partial void On启用结账监控Changing(System.Nullable<bool> value);
+    partial void On启用结账监控Changed();
+    partial void On结账视频长度Changing(string value);
+    partial void On结账视频长度Changed();
+    partial void On启用手牌锁Changing(System.Nullable<bool> value);
+    partial void On启用手牌锁Changed();
+    partial void On开业时间Changing(System.Nullable<int> value);
+    partial void On开业时间Changed();
+    partial void On启用客房面板Changing(System.Nullable<bool> value);
+    partial void On启用客房面板Changed();
+    partial void On包房等待时限Changing(System.Nullable<int> value);
+    partial void On包房等待时限Changed();
+    partial void On下钟提醒Changing(System.Nullable<int> value);
+    partial void On下钟提醒Changed();
+    partial void On启用ID手牌锁Changing(System.Nullable<bool> value);
+    partial void On启用ID手牌锁Changed();
+    partial void On允许手工输入手牌号开牌Changing(System.Nullable<bool> value);
+    partial void On允许手工输入手牌号开牌Changed();
+    partial void On允许手工输入手牌号结账Changing(System.Nullable<bool> value);
+    partial void On允许手工输入手牌号结账Changed();
+    partial void On录单输入单据编号Changing(System.Nullable<bool> value);
+    partial void On录单输入单据编号Changed();
+    partial void On结账未打单锁定手牌Changing(System.Nullable<bool> value);
+    partial void On结账未打单锁定手牌Changed();
+    partial void On营业报表格式Changing(System.Nullable<int> value);
+    partial void On营业报表格式Changed();
+    partial void On结账打印结账单Changing(System.Nullable<bool> value);
+    partial void On结账打印结账单Changed();
+    partial void On结账打印存根单Changing(System.Nullable<bool> value);
+    partial void On结账打印存根单Changed();
+    partial void On结账打印取鞋小票Changing(System.Nullable<bool> value);
+    partial void On结账打印取鞋小票Changed();
+    partial void On抹零限制Changing(System.Nullable<int> value);
+    partial void On抹零限制Changed();
+    partial void On手牌锁类型Changing(string value);
+    partial void On手牌锁类型Changed();
+    partial void On自动加收过夜费Changing(System.Nullable<bool> value);
+    partial void On自动加收过夜费Changed();
+    partial void On过夜费起点Changing(string value);
+    partial void On过夜费起点Changed();
+    partial void On过夜费终点Changing(string value);
+    partial void On过夜费终点Changed();
+    partial void On启用分单结账Changing(System.Nullable<bool> value);
+    partial void On启用分单结账Changed();
+    partial void On启用员工服务卡Changing(System.Nullable<bool> value);
+    partial void On启用员工服务卡Changed();
+    partial void On提成报表格式Changing(System.Nullable<int> value);
+    partial void On提成报表格式Changed();
+    partial void On台位类型分页显示Changing(System.Nullable<bool> value);
+    partial void On台位类型分页显示Changed();
+    partial void On自动感应手牌Changing(System.Nullable<bool> value);
+    partial void On自动感应手牌Changed();
+    partial void On录单区分点钟轮钟Changing(System.Nullable<bool> value);
+    partial void On录单区分点钟轮钟Changed();
+    partial void On打印技师派遣单Changing(System.Nullable<bool> value);
+    partial void On打印技师派遣单Changed();
+    partial void On会员卡密码类型Changing(string value);
+    partial void On会员卡密码类型Changed();
+    partial void Oncompany_CodeChanging(string value);
+    partial void Oncompany_CodeChanged();
+    partial void On启用大项拆分Changing(System.Nullable<bool> value);
+    partial void On启用大项拆分Changed();
+    #endregion
+		
+		public Options()
+		{
+			OnCreated();
+		}
+		
+		[Column(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_companyName", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string companyName
+		{
+			get
+			{
+				return this._companyName;
+			}
+			set
+			{
+				if ((this._companyName != value))
+				{
+					this.OncompanyNameChanging(value);
+					this.SendPropertyChanging();
+					this._companyName = value;
+					this.SendPropertyChanged("companyName");
+					this.OncompanyNameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_companyCode", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string companyCode
+		{
+			get
+			{
+				return this._companyCode;
+			}
+			set
+			{
+				if ((this._companyCode != value))
+				{
+					this.OncompanyCodeChanging(value);
+					this.SendPropertyChanging();
+					this._companyCode = value;
+					this.SendPropertyChanged("companyCode");
+					this.OncompanyCodeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_companyPhone", DbType="NVarChar(MAX)")]
+		public string companyPhone
+		{
+			get
+			{
+				return this._companyPhone;
+			}
+			set
+			{
+				if ((this._companyPhone != value))
+				{
+					this.OncompanyPhoneChanging(value);
+					this.SendPropertyChanging();
+					this._companyPhone = value;
+					this.SendPropertyChanged("companyPhone");
+					this.OncompanyPhoneChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_companyAddress", DbType="NVarChar(MAX)")]
+		public string companyAddress
+		{
+			get
+			{
+				return this._companyAddress;
+			}
+			set
+			{
+				if ((this._companyAddress != value))
+				{
+					this.OncompanyAddressChanging(value);
+					this.SendPropertyChanging();
+					this._companyAddress = value;
+					this.SendPropertyChanged("companyAddress");
+					this.OncompanyAddressChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_取消开牌时限", DbType="Int")]
+		public System.Nullable<int> 取消开牌时限
+		{
+			get
+			{
+				return this._取消开牌时限;
+			}
+			set
+			{
+				if ((this._取消开牌时限 != value))
+				{
+					this.On取消开牌时限Changing(value);
+					this.SendPropertyChanging();
+					this._取消开牌时限 = value;
+					this.SendPropertyChanged("取消开牌时限");
+					this.On取消开牌时限Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_取消开房时限", DbType="Int")]
+		public System.Nullable<int> 取消开房时限
+		{
+			get
+			{
+				return this._取消开房时限;
+			}
+			set
+			{
+				if ((this._取消开房时限 != value))
+				{
+					this.On取消开房时限Changing(value);
+					this.SendPropertyChanging();
+					this._取消开房时限 = value;
+					this.SendPropertyChanged("取消开房时限");
+					this.On取消开房时限Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_删除支出时限", DbType="Int")]
+		public System.Nullable<int> 删除支出时限
+		{
+			get
+			{
+				return this._删除支出时限;
+			}
+			set
+			{
+				if ((this._删除支出时限 != value))
+				{
+					this.On删除支出时限Changing(value);
+					this.SendPropertyChanging();
+					this._删除支出时限 = value;
+					this.SendPropertyChanged("删除支出时限");
+					this.On删除支出时限Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_退钟时限", DbType="Int")]
+		public System.Nullable<int> 退钟时限
+		{
+			get
+			{
+				return this._退钟时限;
+			}
+			set
+			{
+				if ((this._退钟时限 != value))
+				{
+					this.On退钟时限Changing(value);
+					this.SendPropertyChanging();
+					this._退钟时限 = value;
+					this.SendPropertyChanged("退钟时限");
+					this.On退钟时限Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_技师条数", DbType="Int")]
+		public System.Nullable<int> 技师条数
+		{
+			get
+			{
+				return this._技师条数;
+			}
+			set
+			{
+				if ((this._技师条数 != value))
+				{
+					this.On技师条数Changing(value);
+					this.SendPropertyChanging();
+					this._技师条数 = value;
+					this.SendPropertyChanged("技师条数");
+					this.On技师条数Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_启用鞋部", DbType="Bit")]
+		public System.Nullable<bool> 启用鞋部
+		{
+			get
+			{
+				return this._启用鞋部;
+			}
+			set
+			{
+				if ((this._启用鞋部 != value))
+				{
+					this.On启用鞋部Changing(value);
+					this.SendPropertyChanging();
+					this._启用鞋部 = value;
+					this.SendPropertyChanged("启用鞋部");
+					this.On启用鞋部Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_鞋部条数", DbType="Int")]
+		public System.Nullable<int> 鞋部条数
+		{
+			get
+			{
+				return this._鞋部条数;
+			}
+			set
+			{
+				if ((this._鞋部条数 != value))
+				{
+					this.On鞋部条数Changing(value);
+					this.SendPropertyChanging();
+					this._鞋部条数 = value;
+					this.SendPropertyChanged("鞋部条数");
+					this.On鞋部条数Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_启用会员卡密码", DbType="Bit")]
+		public System.Nullable<bool> 启用会员卡密码
+		{
+			get
+			{
+				return this._启用会员卡密码;
+			}
+			set
+			{
+				if ((this._启用会员卡密码 != value))
+				{
+					this.On启用会员卡密码Changing(value);
+					this.SendPropertyChanging();
+					this._启用会员卡密码 = value;
+					this.SendPropertyChanged("启用会员卡密码");
+					this.On启用会员卡密码Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_启用结账监控", DbType="Bit")]
+		public System.Nullable<bool> 启用结账监控
+		{
+			get
+			{
+				return this._启用结账监控;
+			}
+			set
+			{
+				if ((this._启用结账监控 != value))
+				{
+					this.On启用结账监控Changing(value);
+					this.SendPropertyChanging();
+					this._启用结账监控 = value;
+					this.SendPropertyChanged("启用结账监控");
+					this.On启用结账监控Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_结账视频长度", DbType="NVarChar(MAX)")]
+		public string 结账视频长度
+		{
+			get
+			{
+				return this._结账视频长度;
+			}
+			set
+			{
+				if ((this._结账视频长度 != value))
+				{
+					this.On结账视频长度Changing(value);
+					this.SendPropertyChanging();
+					this._结账视频长度 = value;
+					this.SendPropertyChanged("结账视频长度");
+					this.On结账视频长度Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_启用手牌锁", DbType="Bit")]
+		public System.Nullable<bool> 启用手牌锁
+		{
+			get
+			{
+				return this._启用手牌锁;
+			}
+			set
+			{
+				if ((this._启用手牌锁 != value))
+				{
+					this.On启用手牌锁Changing(value);
+					this.SendPropertyChanging();
+					this._启用手牌锁 = value;
+					this.SendPropertyChanged("启用手牌锁");
+					this.On启用手牌锁Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_开业时间", DbType="Int")]
+		public System.Nullable<int> 开业时间
+		{
+			get
+			{
+				return this._开业时间;
+			}
+			set
+			{
+				if ((this._开业时间 != value))
+				{
+					this.On开业时间Changing(value);
+					this.SendPropertyChanging();
+					this._开业时间 = value;
+					this.SendPropertyChanged("开业时间");
+					this.On开业时间Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_启用客房面板", DbType="Bit")]
+		public System.Nullable<bool> 启用客房面板
+		{
+			get
+			{
+				return this._启用客房面板;
+			}
+			set
+			{
+				if ((this._启用客房面板 != value))
+				{
+					this.On启用客房面板Changing(value);
+					this.SendPropertyChanging();
+					this._启用客房面板 = value;
+					this.SendPropertyChanged("启用客房面板");
+					this.On启用客房面板Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_包房等待时限", DbType="Int")]
+		public System.Nullable<int> 包房等待时限
+		{
+			get
+			{
+				return this._包房等待时限;
+			}
+			set
+			{
+				if ((this._包房等待时限 != value))
+				{
+					this.On包房等待时限Changing(value);
+					this.SendPropertyChanging();
+					this._包房等待时限 = value;
+					this.SendPropertyChanged("包房等待时限");
+					this.On包房等待时限Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_下钟提醒", DbType="Int")]
+		public System.Nullable<int> 下钟提醒
+		{
+			get
+			{
+				return this._下钟提醒;
+			}
+			set
+			{
+				if ((this._下钟提醒 != value))
+				{
+					this.On下钟提醒Changing(value);
+					this.SendPropertyChanging();
+					this._下钟提醒 = value;
+					this.SendPropertyChanged("下钟提醒");
+					this.On下钟提醒Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_启用ID手牌锁", DbType="Bit")]
+		public System.Nullable<bool> 启用ID手牌锁
+		{
+			get
+			{
+				return this._启用ID手牌锁;
+			}
+			set
+			{
+				if ((this._启用ID手牌锁 != value))
+				{
+					this.On启用ID手牌锁Changing(value);
+					this.SendPropertyChanging();
+					this._启用ID手牌锁 = value;
+					this.SendPropertyChanged("启用ID手牌锁");
+					this.On启用ID手牌锁Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_允许手工输入手牌号开牌", DbType="Bit")]
+		public System.Nullable<bool> 允许手工输入手牌号开牌
+		{
+			get
+			{
+				return this._允许手工输入手牌号开牌;
+			}
+			set
+			{
+				if ((this._允许手工输入手牌号开牌 != value))
+				{
+					this.On允许手工输入手牌号开牌Changing(value);
+					this.SendPropertyChanging();
+					this._允许手工输入手牌号开牌 = value;
+					this.SendPropertyChanged("允许手工输入手牌号开牌");
+					this.On允许手工输入手牌号开牌Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_允许手工输入手牌号结账", DbType="Bit")]
+		public System.Nullable<bool> 允许手工输入手牌号结账
+		{
+			get
+			{
+				return this._允许手工输入手牌号结账;
+			}
+			set
+			{
+				if ((this._允许手工输入手牌号结账 != value))
+				{
+					this.On允许手工输入手牌号结账Changing(value);
+					this.SendPropertyChanging();
+					this._允许手工输入手牌号结账 = value;
+					this.SendPropertyChanged("允许手工输入手牌号结账");
+					this.On允许手工输入手牌号结账Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_录单输入单据编号", DbType="Bit")]
+		public System.Nullable<bool> 录单输入单据编号
+		{
+			get
+			{
+				return this._录单输入单据编号;
+			}
+			set
+			{
+				if ((this._录单输入单据编号 != value))
+				{
+					this.On录单输入单据编号Changing(value);
+					this.SendPropertyChanging();
+					this._录单输入单据编号 = value;
+					this.SendPropertyChanged("录单输入单据编号");
+					this.On录单输入单据编号Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_结账未打单锁定手牌", DbType="Bit")]
+		public System.Nullable<bool> 结账未打单锁定手牌
+		{
+			get
+			{
+				return this._结账未打单锁定手牌;
+			}
+			set
+			{
+				if ((this._结账未打单锁定手牌 != value))
+				{
+					this.On结账未打单锁定手牌Changing(value);
+					this.SendPropertyChanging();
+					this._结账未打单锁定手牌 = value;
+					this.SendPropertyChanged("结账未打单锁定手牌");
+					this.On结账未打单锁定手牌Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_营业报表格式", DbType="Int")]
+		public System.Nullable<int> 营业报表格式
+		{
+			get
+			{
+				return this._营业报表格式;
+			}
+			set
+			{
+				if ((this._营业报表格式 != value))
+				{
+					this.On营业报表格式Changing(value);
+					this.SendPropertyChanging();
+					this._营业报表格式 = value;
+					this.SendPropertyChanged("营业报表格式");
+					this.On营业报表格式Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_结账打印结账单", DbType="Bit")]
+		public System.Nullable<bool> 结账打印结账单
+		{
+			get
+			{
+				return this._结账打印结账单;
+			}
+			set
+			{
+				if ((this._结账打印结账单 != value))
+				{
+					this.On结账打印结账单Changing(value);
+					this.SendPropertyChanging();
+					this._结账打印结账单 = value;
+					this.SendPropertyChanged("结账打印结账单");
+					this.On结账打印结账单Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_结账打印存根单", DbType="Bit")]
+		public System.Nullable<bool> 结账打印存根单
+		{
+			get
+			{
+				return this._结账打印存根单;
+			}
+			set
+			{
+				if ((this._结账打印存根单 != value))
+				{
+					this.On结账打印存根单Changing(value);
+					this.SendPropertyChanging();
+					this._结账打印存根单 = value;
+					this.SendPropertyChanged("结账打印存根单");
+					this.On结账打印存根单Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_结账打印取鞋小票", DbType="Bit")]
+		public System.Nullable<bool> 结账打印取鞋小票
+		{
+			get
+			{
+				return this._结账打印取鞋小票;
+			}
+			set
+			{
+				if ((this._结账打印取鞋小票 != value))
+				{
+					this.On结账打印取鞋小票Changing(value);
+					this.SendPropertyChanging();
+					this._结账打印取鞋小票 = value;
+					this.SendPropertyChanged("结账打印取鞋小票");
+					this.On结账打印取鞋小票Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_抹零限制", DbType="Int")]
+		public System.Nullable<int> 抹零限制
+		{
+			get
+			{
+				return this._抹零限制;
+			}
+			set
+			{
+				if ((this._抹零限制 != value))
+				{
+					this.On抹零限制Changing(value);
+					this.SendPropertyChanging();
+					this._抹零限制 = value;
+					this.SendPropertyChanged("抹零限制");
+					this.On抹零限制Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_手牌锁类型", DbType="NVarChar(MAX)")]
+		public string 手牌锁类型
+		{
+			get
+			{
+				return this._手牌锁类型;
+			}
+			set
+			{
+				if ((this._手牌锁类型 != value))
+				{
+					this.On手牌锁类型Changing(value);
+					this.SendPropertyChanging();
+					this._手牌锁类型 = value;
+					this.SendPropertyChanged("手牌锁类型");
+					this.On手牌锁类型Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_自动加收过夜费", DbType="Bit")]
+		public System.Nullable<bool> 自动加收过夜费
+		{
+			get
+			{
+				return this._自动加收过夜费;
+			}
+			set
+			{
+				if ((this._自动加收过夜费 != value))
+				{
+					this.On自动加收过夜费Changing(value);
+					this.SendPropertyChanging();
+					this._自动加收过夜费 = value;
+					this.SendPropertyChanged("自动加收过夜费");
+					this.On自动加收过夜费Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_过夜费起点", DbType="NVarChar(MAX)")]
+		public string 过夜费起点
+		{
+			get
+			{
+				return this._过夜费起点;
+			}
+			set
+			{
+				if ((this._过夜费起点 != value))
+				{
+					this.On过夜费起点Changing(value);
+					this.SendPropertyChanging();
+					this._过夜费起点 = value;
+					this.SendPropertyChanged("过夜费起点");
+					this.On过夜费起点Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_过夜费终点", DbType="NVarChar(MAX)")]
+		public string 过夜费终点
+		{
+			get
+			{
+				return this._过夜费终点;
+			}
+			set
+			{
+				if ((this._过夜费终点 != value))
+				{
+					this.On过夜费终点Changing(value);
+					this.SendPropertyChanging();
+					this._过夜费终点 = value;
+					this.SendPropertyChanged("过夜费终点");
+					this.On过夜费终点Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_启用分单结账", DbType="Bit")]
+		public System.Nullable<bool> 启用分单结账
+		{
+			get
+			{
+				return this._启用分单结账;
+			}
+			set
+			{
+				if ((this._启用分单结账 != value))
+				{
+					this.On启用分单结账Changing(value);
+					this.SendPropertyChanging();
+					this._启用分单结账 = value;
+					this.SendPropertyChanged("启用分单结账");
+					this.On启用分单结账Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_启用员工服务卡", DbType="Bit")]
+		public System.Nullable<bool> 启用员工服务卡
+		{
+			get
+			{
+				return this._启用员工服务卡;
+			}
+			set
+			{
+				if ((this._启用员工服务卡 != value))
+				{
+					this.On启用员工服务卡Changing(value);
+					this.SendPropertyChanging();
+					this._启用员工服务卡 = value;
+					this.SendPropertyChanged("启用员工服务卡");
+					this.On启用员工服务卡Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_提成报表格式", DbType="Int")]
+		public System.Nullable<int> 提成报表格式
+		{
+			get
+			{
+				return this._提成报表格式;
+			}
+			set
+			{
+				if ((this._提成报表格式 != value))
+				{
+					this.On提成报表格式Changing(value);
+					this.SendPropertyChanging();
+					this._提成报表格式 = value;
+					this.SendPropertyChanged("提成报表格式");
+					this.On提成报表格式Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_台位类型分页显示", DbType="Bit")]
+		public System.Nullable<bool> 台位类型分页显示
+		{
+			get
+			{
+				return this._台位类型分页显示;
+			}
+			set
+			{
+				if ((this._台位类型分页显示 != value))
+				{
+					this.On台位类型分页显示Changing(value);
+					this.SendPropertyChanging();
+					this._台位类型分页显示 = value;
+					this.SendPropertyChanged("台位类型分页显示");
+					this.On台位类型分页显示Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_自动感应手牌", DbType="Bit")]
+		public System.Nullable<bool> 自动感应手牌
+		{
+			get
+			{
+				return this._自动感应手牌;
+			}
+			set
+			{
+				if ((this._自动感应手牌 != value))
+				{
+					this.On自动感应手牌Changing(value);
+					this.SendPropertyChanging();
+					this._自动感应手牌 = value;
+					this.SendPropertyChanged("自动感应手牌");
+					this.On自动感应手牌Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_录单区分点钟轮钟", DbType="Bit")]
+		public System.Nullable<bool> 录单区分点钟轮钟
+		{
+			get
+			{
+				return this._录单区分点钟轮钟;
+			}
+			set
+			{
+				if ((this._录单区分点钟轮钟 != value))
+				{
+					this.On录单区分点钟轮钟Changing(value);
+					this.SendPropertyChanging();
+					this._录单区分点钟轮钟 = value;
+					this.SendPropertyChanged("录单区分点钟轮钟");
+					this.On录单区分点钟轮钟Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_打印技师派遣单", DbType="Bit")]
+		public System.Nullable<bool> 打印技师派遣单
+		{
+			get
+			{
+				return this._打印技师派遣单;
+			}
+			set
+			{
+				if ((this._打印技师派遣单 != value))
+				{
+					this.On打印技师派遣单Changing(value);
+					this.SendPropertyChanging();
+					this._打印技师派遣单 = value;
+					this.SendPropertyChanged("打印技师派遣单");
+					this.On打印技师派遣单Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_会员卡密码类型", DbType="NVarChar(MAX)")]
+		public string 会员卡密码类型
+		{
+			get
+			{
+				return this._会员卡密码类型;
+			}
+			set
+			{
+				if ((this._会员卡密码类型 != value))
+				{
+					this.On会员卡密码类型Changing(value);
+					this.SendPropertyChanging();
+					this._会员卡密码类型 = value;
+					this.SendPropertyChanged("会员卡密码类型");
+					this.On会员卡密码类型Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_company_Code", DbType="NVarChar(MAX)")]
+		public string company_Code
+		{
+			get
+			{
+				return this._company_Code;
+			}
+			set
+			{
+				if ((this._company_Code != value))
+				{
+					this.Oncompany_CodeChanging(value);
+					this.SendPropertyChanging();
+					this._company_Code = value;
+					this.SendPropertyChanged("company_Code");
+					this.Oncompany_CodeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_启用大项拆分", DbType="Bit")]
+		public System.Nullable<bool> 启用大项拆分
+		{
+			get
+			{
+				return this._启用大项拆分;
+			}
+			set
+			{
+				if ((this._启用大项拆分 != value))
+				{
+					this.On启用大项拆分Changing(value);
+					this.SendPropertyChanging();
+					this._启用大项拆分 = value;
+					this.SendPropertyChanged("启用大项拆分");
+					this.On启用大项拆分Changed();
 				}
 			}
 		}

@@ -74,6 +74,7 @@
             this.pnTable = new System.Windows.Forms.Panel();
             this.picTable = new System.Windows.Forms.PictureBox();
             this.pDocument = new System.Windows.Forms.Panel();
+            this.btnBigCombo = new CSharpWin.ButtonEx();
             this.btnCombo = new CSharpWin.ButtonEx();
             this.btnEmployee = new CSharpWin.ButtonEx();
             this.btnRoomManage = new CSharpWin.ButtonEx();
@@ -712,6 +713,7 @@
             // pDocument
             // 
             this.pDocument.BackColor = System.Drawing.Color.White;
+            this.pDocument.Controls.Add(this.btnBigCombo);
             this.pDocument.Controls.Add(this.btnCombo);
             this.pDocument.Controls.Add(this.btnEmployee);
             this.pDocument.Controls.Add(this.btnRoomManage);
@@ -721,17 +723,32 @@
             this.pDocument.Controls.Add(this.btnGuest1);
             this.pDocument.Controls.Add(this.btnWaiter);
             this.pDocument.Controls.Add(this.btnSeatManage);
-            this.pDocument.Location = new System.Drawing.Point(591, 100);
+            this.pDocument.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pDocument.Location = new System.Drawing.Point(0, 0);
             this.pDocument.Name = "pDocument";
-            this.pDocument.Size = new System.Drawing.Size(163, 141);
+            this.pDocument.Size = new System.Drawing.Size(1054, 542);
             this.pDocument.TabIndex = 16;
+            // 
+            // btnBigCombo
+            // 
+            this.btnBigCombo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnBigCombo.Image = ((System.Drawing.Image)(resources.GetObject("btnBigCombo.Image")));
+            this.btnBigCombo.ImageWidth = 64;
+            this.btnBigCombo.Location = new System.Drawing.Point(856, 79);
+            this.btnBigCombo.Name = "btnBigCombo";
+            this.btnBigCombo.Size = new System.Drawing.Size(95, 102);
+            this.btnBigCombo.TabIndex = 28;
+            this.btnBigCombo.Text = "大项目管理";
+            this.btnBigCombo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnBigCombo.UseVisualStyleBackColor = true;
+            this.btnBigCombo.Click += new System.EventHandler(this.btnBigCombo_Click);
             // 
             // btnCombo
             // 
             this.btnCombo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCombo.Image = ((System.Drawing.Image)(resources.GetObject("btnCombo.Image")));
             this.btnCombo.ImageWidth = 64;
-            this.btnCombo.Location = new System.Drawing.Point(303, 177);
+            this.btnCombo.Location = new System.Drawing.Point(856, 214);
             this.btnCombo.Name = "btnCombo";
             this.btnCombo.Size = new System.Drawing.Size(95, 102);
             this.btnCombo.TabIndex = 27;
@@ -745,7 +762,7 @@
             this.btnEmployee.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnEmployee.Image")));
             this.btnEmployee.ImageWidth = 64;
-            this.btnEmployee.Location = new System.Drawing.Point(-235, 177);
+            this.btnEmployee.Location = new System.Drawing.Point(166, 349);
             this.btnEmployee.Name = "btnEmployee";
             this.btnEmployee.Size = new System.Drawing.Size(95, 102);
             this.btnEmployee.TabIndex = 27;
@@ -759,7 +776,7 @@
             this.btnRoomManage.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnRoomManage.Image = ((System.Drawing.Image)(resources.GetObject("btnRoomManage.Image")));
             this.btnRoomManage.ImageWidth = 64;
-            this.btnRoomManage.Location = new System.Drawing.Point(303, 19);
+            this.btnRoomManage.Location = new System.Drawing.Point(644, 214);
             this.btnRoomManage.Name = "btnRoomManage";
             this.btnRoomManage.Size = new System.Drawing.Size(95, 102);
             this.btnRoomManage.TabIndex = 27;
@@ -773,7 +790,7 @@
             this.btnDepartLog.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnDepartLog.Image = ((System.Drawing.Image)(resources.GetObject("btnDepartLog.Image")));
             this.btnDepartLog.ImageWidth = 64;
-            this.btnDepartLog.Location = new System.Drawing.Point(34, 177);
+            this.btnDepartLog.Location = new System.Drawing.Point(405, 349);
             this.btnDepartLog.Name = "btnDepartLog";
             this.btnDepartLog.Size = new System.Drawing.Size(95, 102);
             this.btnDepartLog.TabIndex = 27;
@@ -787,7 +804,7 @@
             this.btnMenu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
             this.btnMenu.ImageWidth = 64;
-            this.btnMenu.Location = new System.Drawing.Point(34, 19);
+            this.btnMenu.Location = new System.Drawing.Point(405, 214);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(95, 102);
             this.btnMenu.TabIndex = 27;
@@ -801,7 +818,7 @@
             this.btnCoupon.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCoupon.Image = ((System.Drawing.Image)(resources.GetObject("btnCoupon.Image")));
             this.btnCoupon.ImageWidth = 64;
-            this.btnCoupon.Location = new System.Drawing.Point(303, -139);
+            this.btnCoupon.Location = new System.Drawing.Point(644, 79);
             this.btnCoupon.Name = "btnCoupon";
             this.btnCoupon.Size = new System.Drawing.Size(95, 102);
             this.btnCoupon.TabIndex = 27;
@@ -815,7 +832,7 @@
             this.btnGuest1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnGuest1.Image = ((System.Drawing.Image)(resources.GetObject("btnGuest1.Image")));
             this.btnGuest1.ImageWidth = 64;
-            this.btnGuest1.Location = new System.Drawing.Point(-235, 19);
+            this.btnGuest1.Location = new System.Drawing.Point(166, 214);
             this.btnGuest1.Name = "btnGuest1";
             this.btnGuest1.Size = new System.Drawing.Size(95, 102);
             this.btnGuest1.TabIndex = 27;
@@ -829,7 +846,7 @@
             this.btnWaiter.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnWaiter.Image = ((System.Drawing.Image)(resources.GetObject("btnWaiter.Image")));
             this.btnWaiter.ImageWidth = 64;
-            this.btnWaiter.Location = new System.Drawing.Point(34, -139);
+            this.btnWaiter.Location = new System.Drawing.Point(405, 79);
             this.btnWaiter.Name = "btnWaiter";
             this.btnWaiter.Size = new System.Drawing.Size(95, 102);
             this.btnWaiter.TabIndex = 27;
@@ -843,7 +860,7 @@
             this.btnSeatManage.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSeatManage.Image = ((System.Drawing.Image)(resources.GetObject("btnSeatManage.Image")));
             this.btnSeatManage.ImageWidth = 64;
-            this.btnSeatManage.Location = new System.Drawing.Point(-235, -139);
+            this.btnSeatManage.Location = new System.Drawing.Point(166, 79);
             this.btnSeatManage.Name = "btnSeatManage";
             this.btnSeatManage.Size = new System.Drawing.Size(95, 102);
             this.btnSeatManage.TabIndex = 27;
@@ -1227,6 +1244,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private CSharpWin.ButtonEx btnAdvanceOff;
         private CSharpWin.ButtonEx btnDepartLog;
+        private CSharpWin.ButtonEx btnBigCombo;
     }
 }
 

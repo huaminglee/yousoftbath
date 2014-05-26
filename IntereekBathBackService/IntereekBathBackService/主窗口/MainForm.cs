@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -27,9 +28,14 @@ namespace IntereekBathBackService
         private Thread m_thread_auto;//项目自动加时线程
         private Thread m_thread_detect;//手牌异常自动检测线程
         private UploadCloud m_uploadCloud;//上传到阿里云
+        private Thread m_thread_smsOpertion; //短信操作数据库线程
+
 
         private int timeLimit = -1;//时间限制
         private double moneyLimit = -1;//金额限制
+
+        private uint comport = 0; //串口号
+        private uint baudrate = 0; //波特率
 
         private UdpListenerPlus udp_Server;
 
@@ -62,6 +68,22 @@ namespace IntereekBathBackService
             GroupDetect.Enabled = CheckDetect.Checked;
             TextTimeLimit.Text = IOUtil.get_config_by_key(ConfigKeys.KEY_TIME_LIMIT);
             TextMoneyLimit.Text = IOUtil.get_config_by_key(ConfigKeys.KEY_MONEY_LIMIT);
+
+
+            CheckSMS.Checked = (IOUtil.get_config_by_key(ConfigKeys.KEY_SMS_OPERATION) == "Y");
+            cmbComPort.Enabled = CheckSMS.Checked;
+            if (cmbComPort.Enabled)
+            {
+                cmbComPort.Text = IOUtil.get_config_by_key(ConfigKeys.KEY_SMSPORT);
+            }
+            txtBoxBaudRate.Enabled = CheckSMS.Checked;
+            if (txtBoxBaudRate.Enabled)
+            {
+                txtBoxBaudRate.Text = IOUtil.get_config_by_key(ConfigKeys.KEY_SMSBAUD);
+            }
+
+            //cmbComPort.Items.AddRange(System.IO.Ports.SerialPort.GetPortNames());
+            
 
             m_thread_clearMemory = new Thread(new ThreadStart(clear_Memory));
             m_thread_clearMemory.IsBackground = true;
@@ -479,6 +501,35 @@ namespace IntereekBathBackService
             }
         }
 
+        //检测短信
+        private void sms_operation_thread()
+        {
+            //短信与短信之间用“|” 隔开，第一条为空  |1#04#18670068930#是#14-05-21 17:30:46|2#04#18670068930#连客科技#14-05-21 17:42:36
+            //每一条短信之间的项目用“#”隔开，分别是短信编号(删除短信时用此编号)0，短信类型1，发送号码2，内容3，日期4
+            // 8#04#18670068930#321#14-05-21 20:19:18
+            while (true)
+            {
+                string sms_Type = "00";
+                string smsText;   //所有短信的内容
+                var rt = SmsClass.Sms_NewFlag();  //判断是否有新短信
+                if (rt == 1)
+                {
+                    SmsClass.Sms_Receive(sms_Type, out smsText);
+                    if (smsText != "" || smsText != null)
+                    {
+                        string[] smsarray = smsText.Split('|');
+                        string lastSms = smsarray[smsarray.Length - 1].Split('#')[3].ToLower(); //短信内容
+                        string smsIndex = smsarray[smsarray.Length - 1].Split('#')[0]; //短信的编号，用于删除短信
+                        string phoneNo = smsarray[smsarray.Length - 1].Split('#')[2];  //发送短信的手机号码
+                        DBhandler(smsIndex, lastSms, phoneNo);
+
+                    }
+                }
+                Thread.Sleep(1000);
+            }
+        }
+
+
         private void BtnOk_Click(object sender, EventArgs e)
         {
             save_config();
@@ -549,7 +600,40 @@ namespace IntereekBathBackService
             
             #endregion
 
+
+            #region 检测是否启用短信操控
+            if (CheckSMS.Checked)
+            {
+                BtnOk.Enabled = false;
+                string port = IOUtil.get_config_by_key(ConfigKeys.KEY_SMSPORT);
+                if (port!="")
+                {
+                    comport = MConvert<uint>.ToTypeOrDefault(port.Substring(3, port.Length - 3),0);
+                }
+                string str_baudrate=IOUtil.get_config_by_key(ConfigKeys.KEY_SMSBAUD);
+                baudrate = MConvert<uint>.ToTypeOrDefault(str_baudrate, 0);
+                string mobileType = "";
+                string CopyRightToCOM = "";
+                string CopyRight = "//上海迅赛信息技术有限公司,网址www.xunsai.com//";
+                if (SmsClass.Sms_Connection(CopyRight, comport, baudrate, out mobileType, out CopyRightToCOM)==0)
+                {
+                    MessageBox.Show("短信猫打开失败,请重新配置!");
+                    BtnOk.Enabled = true;
+                    return;
+                }
+                m_thread_smsOpertion = new Thread(new ThreadStart(sms_operation_thread));
+                m_thread_smsOpertion.IsBackground = true;
+                m_thread_smsOpertion.Start();
+
+
+            }
+
+
+            #endregion
+
+
             this.WindowState = FormWindowState.Minimized;
+            BtnOk.Enabled = true;
         }
 
         private void save_config()
@@ -579,6 +663,22 @@ namespace IntereekBathBackService
                 moneyLimit = MConvert<int>.ToTypeOrDefault(str_money, -1);
                 BathClass.set_config_by_key(ConfigKeys.KEY_MONEY_LIMIT, str_money);
             }
+
+            string str_checkSMS = "N";
+            if (CheckSMS.Checked) str_checkSMS = "Y";
+            BathClass.set_config_by_key(ConfigKeys.KEY_SMS_OPERATION, str_checkSMS);
+
+            string str_smsPort = "";
+            if (cmbComPort.Enabled) str_smsPort = cmbComPort.Text.Trim();
+            if (str_smsPort != "")
+                BathClass.set_config_by_key(ConfigKeys.KEY_SMSPORT, str_smsPort);
+
+            string str_baudrate = "";
+            if (txtBoxBaudRate.Enabled) str_baudrate = txtBoxBaudRate.Text.Trim();
+            if (str_baudrate != "")
+                BathClass.set_config_by_key(ConfigKeys.KEY_SMSBAUD, str_baudrate);             
+            
+           
         }
 
         private void BtnCalcel_Click(object sender, EventArgs e)
@@ -687,6 +787,9 @@ namespace IntereekBathBackService
             NotifyServer.Visible = false;
             this.ShowInTaskbar = true;
             this.WindowState = FormWindowState.Normal;
+            if (CheckSMS.Checked)
+                SmsClass.Sms_Disconnection();
+            
         }
 
         private void MainForm_SizeChanged(object sender, EventArgs e)
@@ -700,6 +803,9 @@ namespace IntereekBathBackService
 
         private void 打开ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (CheckSMS.Checked)
+                SmsClass.Sms_Disconnection();
+            
             NotifyServer.Visible = false;
             this.ShowInTaskbar = true;
             this.WindowState = FormWindowState.Normal;
@@ -711,6 +817,76 @@ namespace IntereekBathBackService
         }
 
         #endregion
+
+        private void CheckSMS_CheckedChanged(object sender, EventArgs e)
+        {
+            cmbComPort.Enabled = CheckSMS.Checked;
+            txtBoxBaudRate.Enabled = CheckSMS.Checked;
+            if (!CheckSMS.Checked)
+            {
+                cmbComPort.SelectedIndex = -1;
+                txtBoxBaudRate.Text = "";
+            }
+            else
+            {
+                cmbComPort.Text = IOUtil.get_config_by_key(ConfigKeys.KEY_SMSPORT);
+                txtBoxBaudRate.Text = IOUtil.get_config_by_key(ConfigKeys.KEY_SMSBAUD);
+            }
+        }
+
+        //根椐短信内容对数据库进行操作，
+        // 操作代码如下：
+        // 100：清空所有数据表，清空前先备份到C:\下，以当天的日期时间命名，如20140522153226
+        // 101：备份数据库
+        // 其它：回复短信：设备工作正常
+        private void DBhandler(string smsIndex, string str, string phoneNo)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            string name = DateTime.Now.ToString("yyyyMMddHHmmss");  //数据库备份的名字，以当天的日期为名字，没有后缀
+            SqlCommand cmd;
+            try
+            {
+                con.Open();
+                cmd = new SqlCommand();
+                cmd.Connection = con;
+                switch (str.ToLower())
+                {
+                    case "100":
+                        if (m_thread_auto != null && m_thread_auto.IsAlive)
+                            m_thread_auto.Abort();
+
+                        if (m_thread_detect != null && m_thread_detect.IsAlive)
+                            m_thread_detect.Abort();
+
+                        m_uploadCloud.stop();
+
+                        cmd.CommandText = @"backup database bathdb to disk='d:\" + name + "'";
+                        cmd.ExecuteNonQuery();
+                        cmd.CommandText = "exec sp_msforeachtable 'truncate table ?' ";
+                        cmd.ExecuteNonQuery();
+                        break;
+                    case "101":
+                        cmd.CommandText = @"backup database bathdb to disk='d:\" + name + "'";
+                        cmd.ExecuteNonQuery();
+                        break;
+                    default:
+                        SmsClass.Sms_Send(phoneNo, Constants.SMS_HINT_MSG);
+                        break;
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("数据库操作失败! "+ex.Message);
+            }
+            finally
+            {
+                con.Close();
+                SmsClass.Sms_Delete(smsIndex);  //删除短信
+                if (str == "100")
+                    Environment.Exit(0);
+            }
+
+        }
 
     }
 }

@@ -307,5 +307,10 @@ namespace YouSoftBathBack
 
             ptTimeList.SelectedIndex = 0;
         }
+
+        private void printTool_Click(object sender, EventArgs e)
+        {
+            PrintDGV.Print_DataGridView(dgv, "收银员交班报表", false, "");
+        }
     }
 }
