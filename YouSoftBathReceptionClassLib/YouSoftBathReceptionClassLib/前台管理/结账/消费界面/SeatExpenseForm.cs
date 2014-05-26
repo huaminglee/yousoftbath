@@ -786,14 +786,13 @@ namespace YouSoftBathReception
                     var db = new BathDBDataContext(LogIn.connectionString);
                     foreach (DataGridViewRow r in dgv.Rows)
                     {
-                        List<int> substIDs = new List<int>();
                         string menuName = MConvert<string>.ToTypeOrDefault(r.Cells[2].Value, "");
                         var dgv_menu = db.Menu.FirstOrDefault(x => x.name == menuName);
                         if (dgv_menu != null)
                         {
                             if (db.BigCombo.FirstOrDefault(x => x.menuid == dgv_menu.id) != null)
                             {
-                                substIDs = BathClass.disAssemble(db.BigCombo.FirstOrDefault(x => x.menuid == dgv_menu.id).substmenuid, Constants.SplitChar);
+                                var substIDs = BathClass.disAssemble(db.BigCombo.FirstOrDefault(x => x.menuid == dgv_menu.id).substmenuid, Constants.SplitChar);
                                 for (int i = 0; i < substIDs.Count; i++)
                                 {
                                     var menu = db.Menu.FirstOrDefault(x => x.id == substIDs[i]);
@@ -808,10 +807,6 @@ namespace YouSoftBathReception
                                 r.Cells[4].Value, r.Cells[5].Value, r.Cells[6].Value);
                     }
 
-                    if (!use_pad)
-                    {
-                        dgv1.Columns[1].Visible = false;
-                    }
                     if (_print_bill)
                         PrintBill.Print_DataGridView(m_Seats, m_rooms, act, "结账单", dgv1, printCols, companyName);
                     if (_print_stubBill)
@@ -823,10 +818,6 @@ namespace YouSoftBathReception
                 }
                 else
                 {
-                    if (!use_pad)
-                    {
-                        dgv.Columns[1].Visible = false;
-                    }
                     if (_print_bill)
                         PrintBill.Print_DataGridView(m_Seats, m_rooms, act, "结账单", dgv, printCols, companyName);
                     if (_print_stubBill)
