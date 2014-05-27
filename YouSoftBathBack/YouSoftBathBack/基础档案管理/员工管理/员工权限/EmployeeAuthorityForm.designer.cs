@@ -102,6 +102,7 @@
             this.checkBox16 = new System.Windows.Forms.CheckBox();
             this.checkBox17 = new System.Windows.Forms.CheckBox();
             this.checkBox18 = new System.Windows.Forms.CheckBox();
+            this.checkBox21 = new System.Windows.Forms.CheckBox();
             this.checkBox19 = new System.Windows.Forms.CheckBox();
             this.pay = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -131,7 +132,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.okBtn = new System.Windows.Forms.Button();
-            this.checkBox21 = new System.Windows.Forms.CheckBox();
+            this.checkBox22 = new System.Windows.Forms.CheckBox();
             this.authoPanel.Panel1.SuspendLayout();
             this.authoPanel.Panel2.SuspendLayout();
             this.authoPanel.SuspendLayout();
@@ -173,7 +174,7 @@
             this.authoPanel.Panel2.Controls.Add(this.okBtn);
             this.authoPanel.Panel2.Font = new System.Drawing.Font("宋体", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.authoPanel.Size = new System.Drawing.Size(1321, 618);
-            this.authoPanel.SplitterDistance = 588;
+            this.authoPanel.SplitterDistance = 591;
             this.authoPanel.SplitterWidth = 1;
             this.authoPanel.TabIndex = 2;
             // 
@@ -901,6 +902,7 @@
             this.all.Controls.Add(this.checkBox16);
             this.all.Controls.Add(this.checkBox17);
             this.all.Controls.Add(this.checkBox18);
+            this.all.Controls.Add(this.checkBox22);
             this.all.Controls.Add(this.checkBox21);
             this.all.Controls.Add(this.checkBox19);
             this.all.Dock = System.Windows.Forms.DockStyle.Top;
@@ -967,6 +969,16 @@
             this.checkBox18.TabIndex = 19;
             this.checkBox18.Text = "包房管理";
             this.checkBox18.UseVisualStyleBackColor = true;
+            // 
+            // checkBox21
+            // 
+            this.checkBox21.AutoSize = true;
+            this.checkBox21.Location = new System.Drawing.Point(268, 13);
+            this.checkBox21.Name = "checkBox21";
+            this.checkBox21.Size = new System.Drawing.Size(91, 20);
+            this.checkBox21.TabIndex = 20;
+            this.checkBox21.Text = "微信赠送";
+            this.checkBox21.UseVisualStyleBackColor = true;
             // 
             // checkBox19
             // 
@@ -1272,15 +1284,15 @@
             this.okBtn.UseVisualStyleBackColor = true;
             this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
             // 
-            // checkBox21
+            // checkBox22
             // 
-            this.checkBox21.AutoSize = true;
-            this.checkBox21.Location = new System.Drawing.Point(268, 13);
-            this.checkBox21.Name = "checkBox21";
-            this.checkBox21.Size = new System.Drawing.Size(91, 20);
-            this.checkBox21.TabIndex = 20;
-            this.checkBox21.Text = "微信赠送";
-            this.checkBox21.UseVisualStyleBackColor = true;
+            this.checkBox22.AutoSize = true;
+            this.checkBox22.Location = new System.Drawing.Point(268, 44);
+            this.checkBox22.Name = "checkBox22";
+            this.checkBox22.Size = new System.Drawing.Size(91, 20);
+            this.checkBox22.TabIndex = 20;
+            this.checkBox22.Text = "团购打折";
+            this.checkBox22.UseVisualStyleBackColor = true;
             // 
             // EmployeeAuthorityForm
             // 
@@ -1440,6 +1452,7 @@
         private System.Windows.Forms.CheckBox checkBox14;
         private System.Windows.Forms.CheckBox checkBox20;
         private System.Windows.Forms.CheckBox checkBox21;
+        private System.Windows.Forms.CheckBox checkBox22;
 
 
 
