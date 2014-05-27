@@ -69,6 +69,21 @@ namespace YouSoftUtil.WX
             return HttpCon<bool>.run_json_for_succes(ip, json, out errorDesc);
         }
 
+        /// 发放 多人、多种、多数量  优惠券
+        public static bool extendMultiCoupon(string ip, string companyCode, List<int> couponids, List<string> openids, List<int> numbers, out string errorDesc)
+        {
+            var json = new JavaScriptSerializer().Serialize(new
+            {
+                operationType = "extendMultiCoupon",
+                openid = new JavaScriptSerializer().Serialize(openids),
+                couponid = new JavaScriptSerializer().Serialize(couponids),
+                number = new JavaScriptSerializer().Serialize(numbers),
+                companyCode = companyCode
+            });
+
+            return HttpCon<bool>.run_json_for_succes(ip, json, out errorDesc);
+        }
+
         /// 消费优惠券
         public static ConsumeWxCouponResult consumeCoupon(string ip, string companyCode, string couponflag, out string errorDesc)
         {

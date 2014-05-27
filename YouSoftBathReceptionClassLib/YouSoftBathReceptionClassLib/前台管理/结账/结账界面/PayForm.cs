@@ -1199,7 +1199,7 @@ namespace YouSoftBathReception
             var form = new WXCouponVerifyForm();
             if (form.ShowDialog() == DialogResult.OK)
             {
-                coupon.Text = form.couponValue.ToString();
+                coupon.Text = (MConvert<int>.ToTypeOrDefault(form.couponValue, 0) + MConvert<int>.ToTypeOrDefault(coupon.Text,0)).ToString();
             }
         }
     }

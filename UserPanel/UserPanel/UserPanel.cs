@@ -12,11 +12,18 @@ namespace UserPanel
     public partial class UserPanel : UserControl
     {
         private string _openId;
+        private string _nickName;
 
         public string openId
         {
             get { return _openId; }
             set { _openId = value; }
+        }
+
+        public string nickName
+        {
+            get { return _nickName; }
+            set { _nickName = value; }
         }
 
         public UserPanel()
@@ -43,6 +50,7 @@ namespace UserPanel
         public void setUserInfo(string openId, string imgUrl, string nickName, string content)
         {
             this.openId = openId;
+            this.nickName = nickName;
             setImg(imgUrl);
             setNickName(nickName);
             setContent(content);

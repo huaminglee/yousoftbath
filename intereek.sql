@@ -1,10 +1,89 @@
+USE [master]
+
+GO
+/****** 对象:  Database [BathDB]    脚本日期: 05/27/2014 18:54:04 ******/
+if not exists(select 1 from master..sysdatabases where name='bathdb')
+begin
+CREATE DATABASE [BathDB] ON  PRIMARY 
+( NAME = N'BathDB', FILENAME = N'D:\连客科技\DB\BathDB.mdf' , SIZE = 55296KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'BathDB_log', FILENAME = N'D:\连客科技\DB\BathDB_log.ldf' , SIZE = 16576KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+end
+
+GO
+EXEC dbo.sp_dbcmptlevel @dbname=N'BathDB', @new_cmptlevel=90
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [BathDB].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [BathDB] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [BathDB] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [BathDB] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [BathDB] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [BathDB] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [BathDB] SET AUTO_CLOSE ON 
+GO
+ALTER DATABASE [BathDB] SET AUTO_CREATE_STATISTICS ON 
+GO
+ALTER DATABASE [BathDB] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [BathDB] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [BathDB] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [BathDB] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [BathDB] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [BathDB] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [BathDB] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [BathDB] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [BathDB] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [BathDB] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [BathDB] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [BathDB] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [BathDB] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [BathDB] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [BathDB] SET  READ_WRITE 
+GO
+ALTER DATABASE [BathDB] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [BathDB] SET  MULTI_USER 
+GO
+ALTER DATABASE [BathDB] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [BathDB] SET DB_CHAINING OFF 
+
+go
 use bathdb
 
-insert into [HisOrders](menu,text,systemId,number,priceType,money,technician,techType,inputTime,inputEmployee,deleteEmployee,
-comboId,paid,departmentId) select menu,text,systemId,number,priceType,money,technician,techType,inputTime,inputEmployee,deleteEmployee,
-comboId,'True',departmentId from [Orders] where not exists(select * from [Seat] where [Seat].systemId=[Orders].systemId)
+/*判断表[CustomerPays]是否存在*/
+if exists (select * from sysobjects where id=object_id(N'[HisOrders]') and OBJECTPROPERTY(id, N'IsUserTable')=1) and 
+	exists (select * from sysobjects where id=object_id(N'[Orders]') and OBJECTPROPERTY(id, N'IsUserTable')=1) and
+	exists (select * from sysobjects where id=object_id(N'[DFSeat]') and OBJECTPROPERTY(id, N'IsUserTable')=1)
+begin
+	insert into [HisOrders](menu,text,systemId,number,priceType,money,technician,techType,inputTime,inputEmployee,deleteEmployee,
+	comboId,paid,departmentId) select menu,text,systemId,number,priceType,money,technician,techType,inputTime,inputEmployee,deleteEmployee,
+	comboId,'True',departmentId from [Orders] where not exists(select * from [Seat] where [Seat].systemId=[Orders].systemId)
 
-delete from [Orders] where not exists(select * from [Seat] where [Seat].systemId=[Orders].systemId)
+	delete from [Orders] where not exists(select * from [Seat] where [Seat].systemId=[Orders].systemId)
+end
 
 
 /***
@@ -3215,4 +3294,29 @@ if not exists (select * from syscolumns where id=object_id('BigCombo') and name=
 	
 if not exists (select * from syscolumns where id=object_id('BigCombo') and name='note')
 	alter table BigCombo add note [nvarchar](max) NULL	
-	
+
+if not exists(select * from Job where name='经理')
+	insert into Job(id,name) values(1,'经理')
+
+if not exists(select * from Employee where id='1000')
+	insert into Employee(id,name,gender,birthday,jobId,onDuty,password,phone,entryDate) 
+	select '1000','系统','男',getdate(),id,1,'4IhfVN1IxdD5Az82+2Fjxg==','1',getdate() from Job
+
+if exists(select * from Authority where emplyeeid='1000')
+	delete from Authority where emplyeeid='1000'
+
+insert into Authority(emplyeeid,
+开牌,			取消开牌,		微信赠送,			更换手牌,		锁定解锁,	解除警告,		停用启用,		添加备注,		挂失手牌,		完整点单,		可见本人点单,
+退单,			手工打折,		签字免单,			转账,			重新结账,	结账,			技师管理,		收银汇总统计,	包房管理,		收银单据查询,	录单汇总,
+营业信息查看,	售卡,			充值,				挂失,			补卡,		读卡,			扣卡,			卡入库,			异常状况统计,	提成统计,		手工打折汇总,
+项目报表,		信用卡统计,		营业报表,			退免单汇总,		支出统计,	收银员收款统计,	月报表,			往来单位账目,	会员积分设置,	优惠方案,		会员分析,
+会员管理,		会员消费统计,	会员售卡及充值统计,	手牌管理,		券类管理,	客户管理,		项目档案管理,	客房管理,		员工管理,		权限管理,		团购打折,
+套餐管理,		库存参数,		仓库设定,			进货入库,		现有库存,	调货补货,		盘点清册,		盘点调整,		应付账款,		系统设置,		数据优化,
+收银报表) values('1000',
+1,				1,				1,					1,				1,			1,				1,				1,				1,				1,				1,
+1,				1,				1,					1,				1,			1,				1,				1,				1,				1,				1,
+1,				1,				1,					1,				1,			1,				1,				1,				1,				1,				1,
+1,				1,				1,					1,				1,			1,				1,				1,				1,				1,				1,
+1,				1,				1,					1,				1,			1,				1,				1,				1,				1,				1,
+1,				1,				1,					1,				1,			1,				1,				1,				1,				1,				1,
+1)
